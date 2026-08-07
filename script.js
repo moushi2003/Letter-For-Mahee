@@ -1084,7 +1084,7 @@ function paperFloat() {
 
 paperFloat();  
 
- /* ===========================
+/* ===========================
    PAGE 3 : TYPEWRITER EFFECT
 =========================== */
 
@@ -1093,7 +1093,6 @@ const letterText = document.getElementById("letterText");
 if (letterText) {
 
     const paragraphs = [...letterText.querySelectorAll("p")];
-
     const originalTexts = paragraphs.map(p => p.innerHTML);
 
     paragraphs.forEach(p => p.innerHTML = "");
@@ -1108,13 +1107,12 @@ if (letterText) {
         const html = originalTexts[currentParagraph];
 
         let index = 0;
-        target.innerHTML = "";
 
         function type() {
 
-            if (index < html.length) {
+            if (index <= html.length) {
 
-                target.innerHTML = html.substring(0, index + 1);
+                target.innerHTML = html.substring(0, index);
 
                 index++;
 
@@ -1124,31 +1122,18 @@ if (letterText) {
 
                 currentParagraph++;
 
-                setTimeout(typeParagraph, 450);
+                setTimeout(typeParagraph, 400);
+
             }
+
         }
 
         type();
     }
 
-    const observer = new IntersectionObserver((entries) => {
+    /* Start typing after a short delay */
+    setTimeout(typeParagraph, 1000);
 
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                typeParagraph();
-
-                observer.disconnect();
-            }
-
-        });
-
-    }, {
-        threshold: 0.45
-    });
-
-    observer.observe(letterText);
 }
 
 
@@ -1156,28 +1141,28 @@ if (letterText) {
    SOFT GLOW EFFECT
 =========================== */
 
-setInterval(() => {
+if (letterCard) {
 
-    if (!letterCard) return;
+    setInterval(() => {
 
-    letterCard.animate(
-        [
+        letterCard.animate(
+            [
+                {
+                    boxShadow: "0 0 25px rgba(255,215,120,.20)"
+                },
+                {
+                    boxShadow: "0 0 55px rgba(255,215,120,.45)"
+                },
+                {
+                    boxShadow: "0 0 25px rgba(255,215,120,.20)"
+                }
+            ],
             {
-                boxShadow: "0 0 25px rgba(255,215,120,.20)"
-            },
-            {
-                boxShadow: "0 0 55px rgba(255,215,120,.45)"
-            },
-            {
-                boxShadow: "0 0 25px rgba(255,215,120,.20)"
+                duration: 3500,
+                iterations: 1
             }
-        ],
-        {
-            duration: 3500,
-            iterations: 1
-        }
-    );
+        );
 
-}, 3500);
+    }, 3500);
 
-                          
+}
