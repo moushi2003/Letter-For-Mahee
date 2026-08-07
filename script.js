@@ -364,21 +364,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (celebrateBtn) {
-    celebrateBtn.addEventListener("click", () => {
+        celebrateBtn.addEventListener("click", () => {
+            launchConfetti();
+            launchFireworks();
 
-        launchConfetti();
-        launchFireworks();
+            document.querySelectorAll(".balloon").forEach((balloon, index) => {
+                setTimeout(() => {
+                    balloon.classList.add("balloon-fly");
+                }, index * 300);
+            });
 
-        // Balloon release
-        document.querySelectorAll(".balloon").forEach((balloon, index) => {
-            setTimeout(() => {
-                balloon.classList.add("balloon-fly");
-            }, index * 300);
+            if (music) music.play().catch(() => {});
         });
+    }
 
-        if (music) music.play().catch(() => {});
-    });
-}
     function launchConfetti() {
         document.querySelectorAll(".confetti").forEach((piece, index) => {
             piece.style.animation = "none";
@@ -515,20 +514,12 @@ const letterStage = document.getElementById("letterStage");
 let opened = false;
 
 if (waxSeal) {
-
     waxSeal.addEventListener("click", openPersonalLetter);
-
 }
 
 function openPersonalLetter() {
-
     if (opened) return;
-
     opened = true;
-
-    /* ===========================
-       Wax Seal Break
-    ============================ */
 
     waxSeal.style.pointerEvents = "none";
 
@@ -541,71 +532,39 @@ function openPersonalLetter() {
             transform: "translate(-50%,-50%) scale(.55) rotate(25deg)",
             opacity: 0
         }
-
     ], {
-
         duration: 700,
         easing: "ease-out",
         fill: "forwards"
-
     });
-
-    /* ===========================
-       Envelope Shake
-    ============================ */
 
     envelope.animate([
-
         { transform: "rotate(0deg)" },
-
         { transform: "rotate(-1deg)" },
-
         { transform: "rotate(1deg)" },
-
         { transform: "rotate(0deg)" }
-
     ], {
-
         duration: 650
-
     });
 
-    /* ===========================
-       Flap Opens
-    ============================ */
-
     setTimeout(() => {
-
         envFlap.style.transform = "rotateX(180deg)";
-
     }, 450);
 
-    /* ===========================
-       Letter Slowly Comes Out
-    ============================ */
-
     setTimeout(() => {
-
         letterPreview.animate([
-
             {
                 transform: "translate(-50%,0)"
             },
-
             {
                 transform: "translate(-50%,-110px)"
             }
-
         ], {
-
             duration: 1700,
             easing: "ease-in-out",
             fill: "forwards"
-
         });
-
     }, 850);
-
 }
 
 /* ==========================================================
@@ -613,320 +572,160 @@ function openPersonalLetter() {
    PART 2 — CINEMATIC TRANSITION
 ========================================================== */
 
-    /* ===========================
-       Fade Envelope Scene
-    ============================ */
+setTimeout(() => {
+    envelopeScene.animate([
+        {
+            opacity: 1,
+            transform: "scale(1)"
+        },
+        {
+            opacity: 0,
+            transform: "scale(.96)"
+        }
+    ], {
+        duration: 1200,
+        easing: "ease",
+        fill: "forwards"
+    });
+}, 2600);
 
-    setTimeout(() => {
+setTimeout(() => {
+    document.querySelector(".personal-overlay").style.backdropFilter = "blur(0px)";
+    document.querySelector(".personal-bg").style.filter = "blur(0px) brightness(.95)";
+}, 3300);
 
-        envelopeScene.animate([
+setTimeout(() => {
+    envelopeScene.style.display = "none";
+}, 3900);
 
-            {
-                opacity:1,
-                transform:"scale(1)"
-            },
+setTimeout(() => {
+    letterStage.style.display = "flex";
+    letterStage.style.opacity = "0";
+}, 4050);
 
-            {
-                opacity:0,
-                transform:"scale(.96)"
-            }
+setTimeout(() => {
+    letterStage.animate([
+        {
+            opacity: 0,
+            transform: "translateY(120px) scale(.94)"
+        },
+        {
+            opacity: 1,
+            transform: "translateY(0) scale(1)"
+        }
+    ], {
+        duration: 1800,
+        easing: "cubic-bezier(.22,.61,.36,1)",
+        fill: "forwards"
+    });
+}, 4200);
 
-        ],{
-
-            duration:1200,
-            easing:"ease",
-            fill:"forwards"
-
-        });
-
-    },2600);
-
-
-    /* ===========================
-       Background Focus
-    ============================ */
-
-    setTimeout(()=>{
-
-        document.querySelector(".personal-overlay")
-        .style.backdropFilter="blur(0px)";
-
-        document.querySelector(".personal-bg")
-        .style.filter="blur(0px) brightness(.95)";
-
-    },3300);
-
-
-    /* ===========================
-       Hide Envelope
-    ============================ */
-
-    setTimeout(()=>{
-
-        envelopeScene.style.display="none";
-
-    },3900);
-
-
-    /* ===========================
-       Show Letter Stage
-    ============================ */
-
-    setTimeout(()=>{
-
-        letterStage.style.display="flex";
-
-        letterStage.style.opacity="0";
-
-    },4050);
-
-
-    /* ===========================
-       Letter Rise Animation
-    ============================ */
-
-    setTimeout(()=>{
-
-        letterStage.animate([
-
-            {
-
-                opacity:0,
-
-                transform:
-                "translateY(120px) scale(.94)"
-
-            },
-
-            {
-
-                opacity:1,
-
-                transform:
-                "translateY(0) scale(1)"
-
-            }
-
-        ],{
-
-            duration:1800,
-
-            easing:"cubic-bezier(.22,.61,.36,1)",
-
-            fill:"forwards"
-
-        });
-
-    },4200);
-
-
-    /* ===========================
-       Warm Light Increase
-    ============================ */
-
-    setTimeout(()=>{
-
-        const glow=document.querySelector(".personal-glow");
-
-        glow.animate([
-
-            {
-
-                opacity:.35,
-                transform:"translateX(-50%) scale(1)"
-
-            },
-
-            {
-
-                opacity:.75,
-                transform:"translateX(-50%) scale(1.15)"
-
-            }
-
-        ],{
-
-            duration:2500,
-
-            direction:"alternate",
-
-            iterations:Infinity
-
-        });
-
-    },4500);
+setTimeout(() => {
+    const glow = document.querySelector(".personal-glow");
+    glow.animate([
+        {
+            opacity: .35,
+            transform: "translateX(-50%) scale(1)"
+        },
+        {
+            opacity: .75,
+            transform: "translateX(-50%) scale(1.15)"
+        }
+    ], {
+        duration: 2500,
+        direction: "alternate",
+        iterations: Infinity
+    });
+}, 4500);
 
 /* ==========================================================
    PERSONAL LETTER MASTERPIECE
    PART 3
 ========================================================== */
 
-/* ===========================
-   Paragraph Cinematic Reveal
-=========================== */
+const letterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.animate([
+                {
+                    opacity: 0,
+                    transform: "translateY(45px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ], {
+                duration: 900,
+                easing: "ease-out",
+                fill: "forwards"
+            });
+            letterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: .15 });
 
-const letterObserver = new IntersectionObserver((entries)=>{
+document.querySelectorAll(".paragraph").forEach(p => {
+    p.style.opacity = "0";
+    letterObserver.observe(p);
+});
 
-entries.forEach(entry=>{
+document.querySelectorAll(".personal-particles span").forEach((dot, i) => {
+    dot.style.left = Math.random() * 100 + "%";
+    dot.style.top = Math.random() * 100 + "%";
+    dot.style.animationDuration = (8 + Math.random() * 8) + "s";
+    dot.style.animationDelay = (Math.random() * 4) + "s";
+});
 
-if(entry.isIntersecting){
+const kissBtn = document.getElementById("kissCorner");
+const petals = document.getElementById("petalContainer");
 
-entry.target.animate([
+if (kissBtn) {
+    kissBtn.addEventListener("click", () => {
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement("div");
+            p.className = "rose-petal";
+            p.style.left = (85 + Math.random() * 6) + "%";
+            p.style.top = (88 + Math.random() * 3) + "%";
+            p.style.animationDelay = (Math.random() * 0.8) + "s";
+            p.style.animationDuration = (4 + Math.random() * 2) + "s";
+            petals.appendChild(p);
 
-{
-opacity:0,
-transform:"translateY(45px)"
-},
-
-{
-opacity:1,
-transform:"translateY(0)"
+            setTimeout(() => {
+                p.remove();
+            }, 6500);
+        }
+    });
 }
 
-],{
+const paper = document.querySelector(".letter-paper");
 
-duration:900,
-easing:"ease-out",
-fill:"forwards"
-
-});
-
-letterObserver.unobserve(entry.target);
-
+if (paper) {
+    paper.animate([
+        {
+            transform: "translateY(0px)"
+        },
+        {
+            transform: "translateY(-5px)"
+        },
+        {
+            transform: "translateY(0px)"
+        }
+    ], {
+        duration: 6500,
+        iterations: Infinity,
+        easing: "ease-in-out"
+    });
 }
 
+document.querySelectorAll("blockquote").forEach(q => {
+    q.addEventListener("mouseenter", () => {
+        q.style.transition = ".5s";
+        q.style.color = "#b77b44";
+        q.style.textShadow = "0 0 18px rgba(255,210,150,.45)";
+    });
+    q.addEventListener("mouseleave", () => {
+        q.style.color = "";
+        q.style.textShadow = "";
+    });
 });
-
-},{threshold:.15});
-
-document.querySelectorAll(".paragraph").forEach(p=>{
-
-p.style.opacity="0";
-
-letterObserver.observe(p);
-
-});
-
-
-/* ===========================
-   Floating Dust Movement
-=========================== */
-
-document.querySelectorAll(".personal-particles span").forEach((dot,i)=>{
-
-dot.style.left=Math.random()*100+"%";
-
-dot.style.top=Math.random()*100+"%";
-
-dot.style.animationDuration=(8+Math.random()*8)+"s";
-
-dot.style.animationDelay=(Math.random()*4)+"s";
-
-});
-
-
-/* ===========================
-   Rose Petals
-=========================== */
-
-const kissBtn=document.getElementById("kissCorner");
-const petals=document.getElementById("petalContainer");
-
-if(kissBtn){
-
-kissBtn.addEventListener("click",()=>{
-
-for(let i=0;i<30;i++){
-
-const p=document.createElement("div");
-
-p.className="rose-petal";
-
-p.style.left=(85+Math.random()*6)+"%";
-
-p.style.top=(88+Math.random()*3)+"%";
-
-p.style.animationDelay=(Math.random()*0.8)+"s";
-
-p.style.animationDuration=(4+Math.random()*2)+"s";
-
-petals.appendChild(p);
-
-setTimeout(()=>{
-
-p.remove();
-
-},6500);
-
-}
-
-});
-
-}
-
-
-/* ===========================
-   Letter Breathing Effect
-=========================== */
-
-const paper=document.querySelector(".letter-paper");
-
-if(paper){
-
-paper.animate([
-
-{
-transform:"translateY(0px)"
-},
-
-{
-transform:"translateY(-5px)"
-},
-
-{
-transform:"translateY(0px)"
-}
-
-],{
-
-duration:6500,
-iterations:Infinity,
-easing:"ease-in-out"
-
-});
-
-}
-
-
-/* ===========================
-   Quote Glow
-=========================== */
-
-document.querySelectorAll("blockquote").forEach(q=>{
-
-q.addEventListener("mouseenter",()=>{
-
-q.style.transition=".5s";
-
-q.style.color="#b77b44";
-
-q.style.textShadow="0 0 18px rgba(255,210,150,.45)";
-
-});
-
-q.addEventListener("mouseleave",()=>{
-
-q.style.color="";
-
-q.style.textShadow="";
-
-});
-
-});
-
-
-        
-
-           
-
-                   .
