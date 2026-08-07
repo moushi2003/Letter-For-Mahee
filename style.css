@@ -1283,104 +1283,90 @@ body{
 }
 
 
-/* ================= SLIDESHOW FRAME ================= */
+/* ================= SLIDESHOW FRAME =================*/
+
 
 .memory-slideshow{
-
     position:relative;
-
-    width:min(420px,85vw);
-
-    height:600px;
-
+    width:min(500px,90vw);
+    height:650px;
     margin:auto;
-
     overflow:hidden;
-
-    border-radius:25px;
-
-
-    background:#fff;
-
-
-    border:2px solid rgba(255,255,255,.9);
-
-
+    border-radius:28px;
+    background:#111;
+    border:2px solid rgba(255,255,255,.18);
     box-shadow:
-
-    0 25px 60px rgba(0,0,0,.65),
-
-    0 0 30px rgba(255,255,255,.5),
-
-    0 0 45px rgba(0,170,255,.35);
-
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 35px rgba(120,180,255,.25);
 }
-
-/* ================= SLIDESHOW IMAGES ================= */
-
 
 .memory-slide{
-
     position:absolute;
-
     inset:0;
-
-    width:100%;
-
-    height:100%;
-
-
-    object-fit:cover;
-
-
-    object-position:center;
-
-
-    background:#fff;
-
-
     opacity:0;
-
-
-    transform:scale(1.08);
-
-
     animation:memoryShow 16s infinite;
-
+    overflow:hidden;
 }
 
+.memory-slide:nth-child(1){animation-delay:0s;}
+.memory-slide:nth-child(2){animation-delay:4s;}
+.memory-slide:nth-child(3){animation-delay:8s;}
+.memory-slide:nth-child(4){animation-delay:12s;}
 
+/* Blur Background */
 
-/* Image Timing */
-
-
-.memory-slide:nth-child(1){
-
-    animation-delay:0s;
-
+.memory-bg{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    filter:blur(25px);
+    transform:scale(1.25);
+    opacity:.65;
 }
 
+/* Original Photo */
 
-.memory-slide:nth-child(2){
-
-    animation-delay:4s;
-
+.memory-photo{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    max-width:88%;
+    max-height:90%;
+    object-fit:contain;
+    border-radius:18px;
+    border:8px solid rgba(255,255,255,.92);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        0 0 30px rgba(255,255,255,.18);
 }
 
+@keyframes memoryShow{
 
-.memory-slide:nth-child(3){
+    0%{
+        opacity:0;
+        transform:scale(1.05);
+    }
 
-    animation-delay:8s;
+    10%{
+        opacity:1;
+    }
+
+    25%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    35%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+    }
 
 }
-
-
-.memory-slide:nth-child(4){
-
-    animation-delay:12s;
-
-}
-
 
 
 /* Smooth Cinematic Slide */
@@ -1428,37 +1414,6 @@ body{
     }
 
 }
-
-
-
-/* ================= IMAGE SOFT GLOW ================= */
-
-
-.memory-slideshow::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-
-    background:
-
-    linear-gradient(
-
-    to top,
-
-    rgba(0,0,0,.25),
-
-    transparent 35%
-
-    );
-
-}
-
 
 
 /* ================= NEXT BUTTON ================= */
@@ -1662,5 +1617,125 @@ body{
         font-size:1.8rem;
 
     }
+
+}
+
+/* =========================================
+   PAGE 4 PREMIUM FINISH
+========================================= */
+
+/* Glass Reflection */
+
+.memory-slideshow::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.28),
+        transparent
+    );
+    transform:skewX(-25deg);
+    animation:glassShine 8s linear infinite;
+    z-index:5;
+}
+
+@keyframes glassShine{
+
+    0%{
+        left:-150%;
+    }
+
+    100%{
+        left:170%;
+    }
+
+}
+
+/* Soft Glow */
+
+.memory-slideshow{
+
+    animation:memoryGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes memoryGlow{
+
+    0%,100%{
+        box-shadow:
+            0 25px 70px rgba(0,0,0,.65),
+            0 0 25px rgba(120,180,255,.18);
+    }
+
+    50%{
+        box-shadow:
+            0 30px 80px rgba(0,0,0,.7),
+            0 0 45px rgba(120,180,255,.45);
+    }
+
+}
+
+/* Floating Sparkles */
+
+.memory-container::after{
+
+    content:"✨   ✨   ✨";
+
+    position:absolute;
+
+    top:120px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:20px;
+
+    letter-spacing:45px;
+
+    opacity:.45;
+
+    animation:sparkMove 5s ease-in-out infinite;
+
+}
+
+@keyframes sparkMove{
+
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+        opacity:.35;
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(-12px);
+        opacity:1;
+    }
+
+}
+
+/* Hover Effect */
+
+.memory-photo{
+
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease;
+
+}
+
+.memory-photo:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.03);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.6),
+        0 0 35px rgba(255,255,255,.35);
 
 }
