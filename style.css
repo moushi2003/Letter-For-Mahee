@@ -1164,35 +1164,44 @@ body{
 
 
 /* =====================================================
-   PAGE 4 : FRIENDSHIP MEMORY CINEMATIC PAGE
+   PAGE 4 : FRIENDSHIP MEMORY CINEMATIC SLIDESHOW
 ===================================================== */
 
 
 /* ================= MEMORY SECTION ================= */
 
 .friend-memory{
+
     position:relative;
     min-height:100vh;
     width:100%;
-    overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    overflow:hidden;
+
     padding:100px 20px;
+
     background:
     radial-gradient(circle at top,#26345f 0%,#0a0a14 45%,#000 100%);
 }
 
 
-/* Background glow */
+
+/* Background Overlay */
 
 .memory-overlay{
+
     position:absolute;
     inset:0;
+
     background:
     radial-gradient(circle at center,
     rgba(255,255,255,.08),
     transparent 45%),
+
     linear-gradient(
     to bottom,
     rgba(0,0,0,.2),
@@ -1203,18 +1212,26 @@ body{
 }
 
 
-/* Floating container */
+
+/* Main Container */
 
 .memory-container{
+
     position:relative;
+
     z-index:5;
+
     width:100%;
-    max-width:1100px;
+
+    max-width:900px;
+
     text-align:center;
+
 }
 
 
-/* Heading */
+
+/* Title */
 
 .memory-container h1{
 
@@ -1222,17 +1239,18 @@ body{
 
     font-size:3.2rem;
 
-    color:#fff;
+    color:white;
 
     letter-spacing:2px;
 
-    text-shadow:
-    0 0 15px #fff,
-    0 0 35px #8ab4ff;
-
     margin-bottom:20px;
 
+    text-shadow:
+    0 0 15px white,
+    0 0 35px #8ab4ff;
+
 }
+
 
 
 /* Subtitle */
@@ -1249,129 +1267,294 @@ body{
 
     max-width:600px;
 
-    margin:0 auto 60px;
+    margin:0 auto 50px;
 
     line-height:1.8;
 
 }
 
 
-/* ================= MEMORY BUTTON ================= */
+
+/* ================= SLIDESHOW ================= */
+
+
+.memory-slideshow{
+
+    position:relative;
+
+    width:min(500px,90vw);
+
+    height:650px;
+
+    margin:auto;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:#000;
+
+
+    border:1px solid rgba(255,255,255,.2);
+
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.7),
+
+    0 0 40px rgba(140,180,255,.3);
+
+}
+
+
+
+/* Images */
+
+
+.memory-slide{
+
+    position:absolute;
+
+    inset:0;
+
+
+    width:100%;
+
+    height:100%;
+
+
+    object-fit:contain;
+
+
+    background:#000;
+
+
+    opacity:0;
+
+
+    animation:memoryShow 16s infinite;
+
+
+}
+
+
+
+/* Timing */
+
+
+.memory-slide:nth-child(1){
+
+    animation-delay:0s;
+
+}
+
+
+.memory-slide:nth-child(2){
+
+    animation-delay:4s;
+
+}
+
+
+.memory-slide:nth-child(3){
+
+    animation-delay:8s;
+
+}
+
+
+.memory-slide:nth-child(4){
+
+    animation-delay:12s;
+
+}
+
+
+
+/* Slideshow Animation */
+
+
+@keyframes memoryShow{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(1.08);
+
+    }
+
+
+    10%{
+
+        opacity:1;
+
+    }
+
+
+    25%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+
+    35%{
+
+        opacity:0;
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+    }
+
+
+}
+
+
+
+/* ================= BUTTON ================= */
+
 
 .memory-next{
 
-    margin-top:60px;
+
+    margin-top:55px;
+
 
     padding:16px 38px;
+
 
     border:none;
 
     border-radius:50px;
 
+
     cursor:pointer;
+
 
     color:white;
 
+
     font-size:1rem;
+
 
     font-weight:700;
 
+
     letter-spacing:1px;
 
+
     background:
+
     linear-gradient(135deg,#ff4d7a,#7c4dff);
 
+
     box-shadow:
+
     0 10px 35px rgba(255,77,122,.45);
+
 
     transition:.5s ease;
 
 }
 
 
+
 .memory-next:hover{
 
+
     transform:
+
     translateY(-8px)
+
     scale(1.05);
 
+
     box-shadow:
+
     0 0 45px rgba(255,150,200,.8);
+
 
 }
 
 
 
-/* ================= MEMORY PARTICLE EFFECT ================= */
+/* ================= STAR PARTICLES ================= */
 
 
 .friend-memory::after{
 
+
     content:"";
+
 
     position:absolute;
 
+
     inset:0;
+
 
     pointer-events:none;
 
+
     background-image:
+
     radial-gradient(#ffffff 1px,transparent 1px);
+
 
     background-size:80px 80px;
 
+
     opacity:.12;
 
-    animation:
-    memoryStars 25s linear infinite;
+
+    animation:memoryStars 25s linear infinite;
+
 
 }
+
 
 
 @keyframes memoryStars{
 
+
     from{
+
         transform:translateY(0);
+
     }
+
 
     to{
+
         transform:translateY(-100px);
-    }
-
-}
-
-
-
-/* ================= RESPONSIVE ================= */
-
-
-@media(max-width:1000px){
-
-    .memory-gallery{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-
-    .memory-card{
-
-        height:380px;
 
     }
 
 }
 
+
+
+/* ================= MOBILE ================= */
 
 
 @media(max-width:600px){
+
 
     .friend-memory{
 
         padding:80px 15px;
 
     }
+
 
 
     .memory-container h1{
@@ -1381,29 +1564,23 @@ body{
     }
 
 
+
     .memory-subtitle{
 
         font-size:.95rem;
 
-        margin-bottom:40px;
-
     }
 
 
-    .memory-gallery{
 
-        grid-template-columns:1fr;
+    .memory-slideshow{
 
-        gap:25px;
+        height:500px;
 
-    }
-
-
-    .memory-card{
-
-        height:420px;
+        width:95%;
 
     }
+
 
 
     .memory-next{
@@ -1412,109 +1589,8 @@ body{
 
     }
 
-}
-/* ================= MEMORY SLIDESHOW ================= */
-
-.memory-slideshow{
-
-    position:relative;
-
-    width:min(700px,90%);
-
-    height:500px;
-
-    margin:0 auto;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.2);
-
-    box-shadow:
-    0 30px 70px rgba(0,0,0,.6),
-    0 0 40px rgba(140,180,255,.25);
 
 }
-
-
-
-/* Images */
-
-.memory-slide{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    background:#000;
-
-    opacity:0;
-
-    transform:scale(1.05);
-
-    transition:
-    opacity 1.5s ease,
-    transform 6s ease;
-
-}
-
-
-
-/* Active Image */
-
-.memory-slide.active{
-
-    opacity:1;
-
-    transform:scale(1);
-
-}
-
-
-
-/* Soft glow */
-
-.memory-slideshow::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-    linear-gradient(
-    to top,
-    rgba(0,0,0,.35),
-    transparent 40%
-    );
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:600px){
-
-    .memory-slideshow{
-
-        height:420px;
-
-        width:95%;
 
     }
 
