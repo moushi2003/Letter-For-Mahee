@@ -592,6 +592,8 @@ function startCakeIntro(){
 
 function openCurtains(){
 
+    console.log("Opening curtains");
+
     leftCurtain.classList.add("open-left");
 
     rightCurtain.classList.add("open-right");
@@ -608,9 +610,12 @@ function openCurtains(){
 
         cinematicEntrance();
 
+        console.log("Cake should appear now");
+
     },1800);
 
 }
+
 
 
 /*====================================
