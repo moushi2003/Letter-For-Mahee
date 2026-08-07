@@ -1757,3 +1757,7 @@ body{
     transform:scaleX(-1);
     z-index:8;
 }
+
+.right-spider .spiderman-side-container{
+    animation:swingHero 3.5s ease-in-out infinite reverse;
+}
