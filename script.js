@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             glow.style.transform = `translate(${x * 40 - 20}px,${y * 30 - 15}px)`;
-            heroCard.style.transform = `rotateY(${(x - .5) * 6}deg) rotateX(${(0.5 - y) * 6}deg)`;
+            heroCard.style.setProperty("--rx", `${(0.5 - y) * 6}deg`);
+            heroCard.style.setProperty("--ry", `${(x - .5) * 6}deg`);
         });
     }
 
