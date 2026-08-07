@@ -1540,12 +1540,20 @@ opacity:0;
 .left-curtain{
     left:0;
     border-right:4px solid rgba(255,215,120,.35);
-    animation:leftCurtain 2.2s ease forwards;
 }
 
 .right-curtain{
     right:0;
     border-left:4px solid rgba(255,215,120,.35);
+}
+
+
+.open-left{
+    animation:leftCurtain 2.2s ease forwards;
+}
+
+
+.open-right{
     animation:rightCurtain 2.2s ease forwards;
 }
 
