@@ -217,12 +217,6 @@ body{
     filter:blur(8px);
 }
 
-.spiderman-side-container{
-    margin-top:-3px;
-    transform-origin:top center;
-    animation:swingHero 3.5s ease-in-out infinite;
-}
-
 /* ================= BODY ================= */
 
 .spiderman-body{
@@ -333,10 +327,7 @@ body{
     border:1px solid rgba(255,255,255,.15);
     box-shadow:0 20px 60px rgba(0,0,0,.55), 0 0 35px rgba(0,140,255,.18);
     animation:heroFade 1.5s ease;
-    transform:
-    perspective(1000px)
-    rotateX(var(--rx,0deg))
-    rotateY(var(--ry,0deg));
+    transform: perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
 }
 
 .badge{
@@ -746,21 +737,13 @@ body{
 .open-right{ animation:rightCurtain 2.2s ease forwards; }
 
 @keyframes leftCurtain{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-100%);
-    }
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-100%); }
 }
 
 @keyframes rightCurtain{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(100%);
-    }
+    from{ transform:translateX(0); }
+    to{ transform:translateX(100%); }
 }
 
 .curtain-fold{
@@ -827,19 +810,9 @@ body{
 }
 
 @keyframes balloonFly{
-    0%{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(-120vh);
-        opacity:1;
-    }
+    0%{ transform:translateY(100vh); opacity:0; }
+    20%{ opacity:1; }
+    100%{ transform:translateY(-120vh); opacity:1; }
 }
 
 /* Floating Hearts */
@@ -925,8 +898,33 @@ body{
 .center-light{ opacity:.9; }
 .right-light{ transform:translateX(280px) rotate(10deg); }
 
-.cake-stage{ position:relative; margin-top:80px; z-index:30; }
-.birthday-cake{ position:relative; width:320px; margin:auto; }
+.cake-stage{
+    position:relative;
+    margin-top:80px;
+    z-index:30;
+    animation:cakeRise 1.8s ease forwards;
+    opacity:0;
+}
+
+@keyframes cakeRise{
+    0%{ transform:translateY(180px) scale(.8); opacity:0; }
+    60%{ transform:translateY(-20px) scale(1.03); opacity:1; }
+    100%{ transform:translateY(0) scale(1); opacity:1; }
+}
+
+.birthday-cake{
+    position:relative;
+    width:320px;
+    margin:auto;
+    filter:drop-shadow(0 0 25px rgba(255,215,120,.45));
+    animation:cakeGlow 3s ease-in-out infinite;
+}
+
+@keyframes cakeGlow{
+    0%,100%{ filter:drop-shadow(0 0 20px rgba(255,215,120,.35)); }
+    50%{ filter:drop-shadow(0 0 45px rgba(255,215,120,.8)); }
+}
+
 .cake-plate{ width:340px; height:26px; margin:auto; border-radius:50%; background:linear-gradient(#ffffff,#cfcfcf); box-shadow:0 10px 30px rgba(0,0,0,.45); }
 
 .cake-layer{ position:relative; margin:auto; border-radius:18px; overflow:hidden; }
@@ -962,51 +960,6 @@ body{
     25%{transform:translateX(-2px) rotate(-4deg);}
     50%{transform:translateX(2px) scale(1.08);}
     75%{transform:translateX(-1px) rotate(4deg);}
-}
-
-/* ================= CAKE CINEMATIC REVEAL ================= */
-
-.cake-stage{
-    animation:cakeRise 1.8s ease forwards;
-    opacity:0;
-}
-
-@keyframes cakeRise{
-
-    0%{
-        transform:translateY(180px) scale(.8);
-        opacity:0;
-    }
-
-    60%{
-        transform:translateY(-20px) scale(1.03);
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(0) scale(1);
-        opacity:1;
-    }
-}
-
-
-/* Cake Glow */
-
-.birthday-cake{
-    filter:drop-shadow(0 0 25px rgba(255,215,120,.45));
-    animation:cakeGlow 3s ease-in-out infinite;
-}
-
-
-@keyframes cakeGlow{
-
-    0%,100%{
-        filter:drop-shadow(0 0 20px rgba(255,215,120,.35));
-    }
-
-    50%{
-        filter:drop-shadow(0 0 45px rgba(255,215,120,.8));
-    }
 }
 
 /* Magic & Confetti */
@@ -1171,171 +1124,55 @@ body{
     box-shadow:0 0 15px #ffd86a;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:992px){
-    .glass-card{ width:92%; padding:45px 30px; }
-    .glow-title{ font-size:2.8rem; }
-    .hero-name{ font-size:2rem; }
-    .person-name{ font-size:2.5rem; }
-}
-
-@media(max-width:768px){
-    .spiderman-entry{ left:50%; transform:translateX(-50%); }
-    .main-web-line{ height:170px; }
-    .glow-title{ font-size:2.3rem; }
-    .hero-name{ font-size:1.45rem; letter-spacing:3px; }
-    .person-name{ font-size:2.1rem; }
-    .typing-text{ font-size:.95rem; }
-    .hero-actions{ flex-direction:column; }
-    .hero-btn{ width:100%; }
-
-    .cake-title{ font-size:2.2rem; }
-    .cake-name{ font-size:1.6rem; }
-    .calendar-bg{ width:92%; }
-    .birthday-cake{ transform:scale(.82); }
-    .balloon-cluster{ display:none; }
-    .cake-buttons{ flex-direction:column; }
-
-    .letter-card{ padding:45px 28px; }
-    .letter-card h1{ font-size:2rem; }
-    .letter-text p{ font-size:1.12rem; line-height:2; }
-    .letter-text p:first-child{ font-size:1.45rem; }
-    .letter-text strong{ font-size:1.35rem; }
-}
-
-@media(max-width:480px){
-    .glass-card{ padding:35px 20px; border-radius:22px; }
-    .badge{ font-size:.7rem; letter-spacing:2px; }
-    .glow-title{ font-size:1.9rem; }
-    .hero-name{ font-size:1.2rem; }
-    .person-name{ font-size:1.8rem; }
-    .scroll-indicator{ display:none; }
-}
-
-
-/* =====================================================
-   PAGE 4 : FRIENDSHIP MEMORY CINEMATIC SLIDESHOW
-   PART 1
-===================================================== */
-
-
 /* ================= MEMORY SECTION ================= */
 
 .friend-memory{
-
     position:relative;
-
     min-height:100vh;
-
     width:100%;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     overflow:hidden;
-
     padding:100px 20px;
-
-    background:
-    radial-gradient(circle at top,
-    #26345f 0%,
-    #0a0a14 45%,
-    #000 100%);
-
+    background: radial-gradient(circle at top, #26345f 0%, #0a0a14 45%, #000 100%);
 }
-
-
-/* Background Overlay */
 
 .memory-overlay{
-
     position:absolute;
-
     inset:0;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(255,255,255,.12),
-    transparent 45%),
-
-    linear-gradient(
-    to bottom,
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.8)
-    );
-
+    background: radial-gradient(circle at center, rgba(255,255,255,.12), transparent 45%), linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
     z-index:1;
-
 }
-
-
-/* Main Container */
 
 .memory-container{
-
     position:relative;
-
     z-index:5;
-
     width:100%;
-
     max-width:900px;
-
     text-align:center;
-
 }
-
-
-/* Title */
 
 .memory-container h1{
-
     font-family:"Cinzel",serif;
-
     font-size:3.2rem;
-
     color:#fff;
-
     letter-spacing:2px;
-
     margin-bottom:20px;
-
-    text-shadow:
-
-    0 0 15px #fff,
-
-    0 0 35px #8ab4ff;
-
+    text-shadow: 0 0 15px #fff, 0 0 35px #8ab4ff;
 }
-
-
-/* Subtitle */
 
 .memory-subtitle{
-
     color:#ddd;
-
     font-family:"Lora",serif;
-
     font-size:1.1rem;
-
     font-style:italic;
-
     max-width:600px;
-
     margin:0 auto 50px;
-
     line-height:1.8;
-
 }
 
-
 /* ================= SLIDESHOW FRAME =================*/
-
 
 .memory-slideshow{
     position:relative;
@@ -1346,9 +1183,31 @@ body{
     border-radius:28px;
     background:#111;
     border:2px solid rgba(255,255,255,.18);
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.65),
-        0 0 35px rgba(120,180,255,.25);
+    box-shadow: 0 25px 70px rgba(0,0,0,.65), 0 0 35px rgba(120,180,255,.25);
+    animation:memoryGlow 5s ease-in-out infinite;
+}
+
+.memory-slideshow::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.28), transparent);
+    transform:skewX(-25deg);
+    animation:glassShine 8s linear infinite;
+    z-index:5;
+}
+
+@keyframes glassShine{
+    0%{ left:-150%; }
+    100%{ left:170%; }
+}
+
+@keyframes memoryGlow{
+    0%,100%{ box-shadow: 0 25px 70px rgba(0,0,0,.65), 0 0 25px rgba(120,180,255,.18); }
+    50%{ box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 45px rgba(120,180,255,.45); }
 }
 
 .memory-slide{
@@ -1364,8 +1223,6 @@ body{
 .memory-slide:nth-child(3){animation-delay:8s;}
 .memory-slide:nth-child(4){animation-delay:12s;}
 
-/* Blur Background */
-
 .memory-bg{
     position:absolute;
     inset:0;
@@ -1375,8 +1232,6 @@ body{
     transform:scale(1.25);
     opacity:.65;
 }
-
-/* Original Photo */
 
 .memory-photo{
     position:absolute;
@@ -1388,479 +1243,111 @@ body{
     object-fit:contain;
     border-radius:18px;
     border:8px solid rgba(255,255,255,.92);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.45),
-        0 0 30px rgba(255,255,255,.18);
-}
-
-@keyframes memoryShow{
-
-    0%{
-        opacity:0;
-        transform:scale(1.05);
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    25%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-    35%{
-        opacity:0;
-    }
-
-    100%{
-        opacity:0;
-    }
-
-}
-
-
-/* Smooth Cinematic Slide */
-
-
-@keyframes memoryShow{
-
-
-    0%{
-
-        opacity:0;
-
-        transform:scale(1.08);
-
-    }
-
-
-    10%{
-
-        opacity:1;
-
-    }
-
-
-    25%{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-
-    35%{
-
-        opacity:0;
-
-    }
-
-
-    100%{
-
-        opacity:0;
-
-    }
-
-}
-
-
-/* ================= NEXT BUTTON ================= */
-
-
-.memory-next{
-
-    margin-top:55px;
-
-
-    padding:16px 38px;
-
-
-    border:none;
-
-
-    border-radius:50px;
-
-
-    cursor:pointer;
-
-
-    color:white;
-
-
-    font-size:1rem;
-
-
-    font-weight:700;
-
-
-    letter-spacing:1px;
-
-
-    background:
-
-    linear-gradient(135deg,
-
-    #ff4d7a,
-
-    #7c4dff);
-
-
-    box-shadow:
-
-    0 10px 35px rgba(255,77,122,.45);
-
-
-    transition:.5s ease;
-
-}
-
-
-
-.memory-next:hover{
-
-    transform:
-
-    translateY(-8px)
-
-    scale(1.05);
-
-
-    box-shadow:
-
-    0 0 45px rgba(255,150,200,.8);
-
-}
-
-
-
-/* ================= STAR PARTICLES ================= */
-
-
-.friend-memory::after{
-
-    content:"";
-
-
-    position:absolute;
-
-
-    inset:0;
-
-
-    pointer-events:none;
-
-
-    background-image:
-
-    radial-gradient(#ffffff 1px,transparent 1px);
-
-
-    background-size:80px 80px;
-
-
-    opacity:.12;
-
-
-    animation:memoryStars 25s linear infinite;
-
-}
-
-
-
-@keyframes memoryStars{
-
-
-    from{
-
-        transform:translateY(0);
-
-    }
-
-
-    to{
-
-        transform:translateY(-100px);
-
-    }
-
-}
-
-/* =====================================================
-   PAGE 4 : RESPONSIVE
-===================================================== */
-
-@media (max-width:900px){
-
-    .memory-container h1{
-        font-size:2.6rem;
-    }
-
-    .memory-slideshow{
-        width:min(380px,88vw);
-        height:540px;
-    }
-
-}
-
-@media (max-width:600px){
-
-    .friend-memory{
-
-        padding:70px 15px;
-
-    }
-
-    .memory-container h1{
-
-        font-size:2rem;
-
-    }
-
-    .memory-subtitle{
-
-        font-size:.95rem;
-
-        margin-bottom:35px;
-
-        line-height:1.7;
-
-    }
-
-    .memory-slideshow{
-
-        width:88vw;
-
-        height:500px;
-
-        border-radius:20px;
-
-    }
-
-    .memory-next{
-
-        width:90%;
-
-        max-width:320px;
-
-        padding:15px 20px;
-
-        font-size:.95rem;
-
-    }
-
-}
-
-@media (max-width:420px){
-
-    .memory-slideshow{
-
-        width:90vw;
-
-        height:460px;
-
-    }
-
-    .memory-container h1{
-
-        font-size:1.8rem;
-
-    }
-
-}
-
-/* =========================================
-   PAGE 4 PREMIUM FINISH
-========================================= */
-
-/* Glass Reflection */
-
-.memory-slideshow::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-150%;
-    width:45%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.28),
-        transparent
-    );
-    transform:skewX(-25deg);
-    animation:glassShine 8s linear infinite;
-    z-index:5;
-}
-
-@keyframes glassShine{
-
-    0%{
-        left:-150%;
-    }
-
-    100%{
-        left:170%;
-    }
-
-}
-
-/* Soft Glow */
-
-.memory-slideshow{
-
-    animation:memoryGlow 5s ease-in-out infinite;
-
-}
-
-@keyframes memoryGlow{
-
-    0%,100%{
-        box-shadow:
-            0 25px 70px rgba(0,0,0,.65),
-            0 0 25px rgba(120,180,255,.18);
-    }
-
-    50%{
-        box-shadow:
-            0 30px 80px rgba(0,0,0,.7),
-            0 0 45px rgba(120,180,255,.45);
-    }
-
-}
-
-/* Floating Sparkles */
-
-.memory-container::after{
-
-    content:"✨   ✨   ✨";
-
-    position:absolute;
-
-    top:120px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font-size:20px;
-
-    letter-spacing:45px;
-
-    opacity:.45;
-
-    animation:sparkMove 5s ease-in-out infinite;
-
-}
-
-@keyframes sparkMove{
-
-    0%,100%{
-        transform:translateX(-50%) translateY(0);
-        opacity:.35;
-    }
-
-    50%{
-        transform:translateX(-50%) translateY(-12px);
-        opacity:1;
-    }
-
-}
-
-/* Hover Effect */
-
-.memory-photo{
-
-    transition:
-        transform .6s ease,
-        box-shadow .6s ease;
-
+    box-shadow: 0 20px 50px rgba(0,0,0,.45), 0 0 30px rgba(255,255,255,.18);
+    transition: transform .6s ease, box-shadow .6s ease;
 }
 
 .memory-photo:hover{
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.03);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.6),
-        0 0 35px rgba(255,255,255,.35);
-
+    transform: translate(-50%,-50%) scale(1.03);
+    box-shadow: 0 25px 70px rgba(0,0,0,.6), 0 0 35px rgba(255,255,255,.35);
 }
 
-/* ===================================================
-        FRIENDSHIP LETTER PAGE
-=================================================== */
+@keyframes memoryShow{
+    0%{ opacity:0; transform:scale(1.08); }
+    10%{ opacity:1; }
+    25%{ opacity:1; transform:scale(1); }
+    35%{ opacity:0; }
+    100%{ opacity:0; }
+}
+
+.memory-next{
+    margin-top:55px;
+    padding:16px 38px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    color:white;
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:1px;
+    background: linear-gradient(135deg, #ff4d7a, #7c4dff);
+    box-shadow: 0 10px 35px rgba(255,77,122,.45);
+    transition:.5s ease;
+}
+
+.memory-next:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 45px rgba(255,150,200,.8);
+}
+
+.friend-memory::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background-image: radial-gradient(#ffffff 1px,transparent 1px);
+    background-size:80px 80px;
+    opacity:.12;
+    animation:memoryStars 25s linear infinite;
+}
+
+@keyframes memoryStars{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-100px); }
+}
+
+.memory-container::after{
+    content:"✨   ✨   ✨";
+    position:absolute;
+    top:120px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:20px;
+    letter-spacing:45px;
+    opacity:.45;
+    animation:sparkMove 5s ease-in-out infinite;
+}
+
+@keyframes sparkMove{
+    0%,100%{ transform:translateX(-50%) translateY(0); opacity:.35; }
+    50%{ transform:translateX(-50%) translateY(-12px); opacity:1; }
+}
+
+/* ================= FRIENDSHIP LETTER PAGE ================= */
 
 .friend-letter-page{
-
     position:relative;
     min-height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     overflow:hidden;
-
     padding:100px 20px;
-
-    background:
-    radial-gradient(circle at top,#1d2438 0%,#0d111a 60%,#050608 100%);
-
+    background: radial-gradient(circle at top,#1d2438 0%,#0d111a 60%,#050608 100%);
 }
 
-
-/* Background Glow */
-
 .friend-bg{
-
     position:absolute;
     inset:0;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,220,170,.12),
-    transparent 70%);
-
+    background: radial-gradient(circle, rgba(255,220,170,.12), transparent 70%);
     animation:bgGlow 6s ease-in-out infinite;
-
 }
 
 .friend-overlay{
-
     position:absolute;
     inset:0;
-
-    background:
-    linear-gradient(rgba(0,0,0,.25),
-    rgba(0,0,0,.55));
-
+    background: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.55));
 }
-
-
-/* Floating Particles */
 
 .friend-particles span{
-
     position:absolute;
-
     width:4px;
     height:4px;
-
     border-radius:50%;
-
     background:white;
-
     opacity:.6;
-
     animation:friendParticle linear infinite;
-
 }
-
 
 .friend-particles span:nth-child(1){left:8%;animation-duration:8s;}
 .friend-particles span:nth-child(2){left:18%;animation-duration:10s;}
@@ -1873,398 +1360,119 @@ body{
 .friend-particles span:nth-child(9){left:92%;animation-duration:8s;}
 .friend-particles span:nth-child(10){left:97%;animation-duration:14s;}
 
-
-/* Paper */
-
 .friend-letter-wrapper{
-
     position:relative;
-
     z-index:5;
-
+    opacity:0;
+    transform: translateY(80px) scale(.92);
+    animation: paperReveal 1.8s ease forwards;
 }
-
 
 .friend-letter-paper{
-
     position:relative;
-
     width:min(900px,92vw);
-
     padding:70px;
-
     border-radius:20px;
-
-    background:
-    linear-gradient(
-    180deg,
-    #fffdf8,
-    #f5ecd9);
-
-    box-shadow:
-
-    0 30px 80px rgba(0,0,0,.55);
-
+    background: linear-gradient(180deg, #fffdf8, #f5ecd9);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
     border:2px solid rgba(180,150,90,.35);
-
+    scrollbar-width:thin;
+    scrollbar-color:#b8860b transparent;
 }
 
+.friend-letter-paper::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border-radius:15px;
+    border:1px solid rgba(160,130,80,.25);
+    pointer-events:none;
+}
 
-/* Golden Line */
+.friend-letter-paper::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    background: linear-gradient(135deg, rgba(255,255,255,.18), transparent 45%);
+    pointer-events:none;
+}
 
 .gold-line{
-
     width:100%;
-
     height:3px;
-
     margin-bottom:30px;
-
-    background:
-    linear-gradient(
-    90deg,
-    transparent,
-    gold,
-    transparent);
-
+    background: linear-gradient(90deg, transparent, gold, transparent);
 }
-
-/* ===================================================
-        FRIENDSHIP LETTER - PART 2
-=================================================== */
-
-
-/* ================= SPOTLIGHT ================= */
 
 .friend-spotlight{
-
     position:absolute;
-
     top:-250px;
     left:50%;
-
     transform:translateX(-50%);
-
     width:900px;
     height:900px;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,240,200,.28),
-    transparent 72%);
-
+    background: radial-gradient(circle, rgba(255,240,200,.28), transparent 72%);
     filter:blur(25px);
-
     animation:spotlightMove 8s ease-in-out infinite;
-
 }
 
-
-
-/* ================= WAX SEAL ================= */
-
 .wax-seal{
-
     position:absolute;
-
     top:-35px;
     left:50%;
-
     transform:translateX(-50%);
-
     width:82px;
     height:82px;
-
     border-radius:50%;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     font-size:30px;
-
-    background:
-    radial-gradient(circle,
-    #ff9ba7,
-    #d61f3d 70%,
-    #7f0018);
-
+    background: radial-gradient(circle, #ff9ba7, #d61f3d 70%, #7f0018);
     color:white;
-
-    box-shadow:
-
-    0 0 25px rgba(255,60,90,.55),
-    0 10px 25px rgba(0,0,0,.45);
-
+    box-shadow: 0 0 25px rgba(255,60,90,.55), 0 10px 25px rgba(0,0,0,.45);
     z-index:20;
-
 }
-
-
-
-/* ================= FEATHER ================= */
 
 .feather{
-
     position:absolute;
-
     right:-70px;
     bottom:25px;
-
     font-size:70px;
-
     transform:rotate(-15deg);
-
-    filter:
-    drop-shadow(0 8px 15px rgba(0,0,0,.35));
-
-    animation:
-    featherFloat 3.5s ease-in-out infinite;
-
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,.35));
+    animation: featherFloat 3.5s ease-in-out infinite;
 }
-
-
-
-/* ================= LETTER SHADOW ================= */
-
-.friend-letter-paper::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:14px;
-
-    border-radius:15px;
-
-    border:1px solid rgba(160,130,80,.25);
-
-    pointer-events:none;
-
-}
-
-
-.friend-letter-paper::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    border-radius:20px;
-
-    background:
-
-    linear-gradient(
-    135deg,
-    rgba(255,255,255,.18),
-    transparent 45%);
-
-    pointer-events:none;
-
-}
-
-
-
-/* ================= PAPER ENTRANCE ================= */
-
-.friend-letter-wrapper{
-
-    opacity:0;
-
-    transform:
-    translateY(80px)
-    scale(.92);
-
-    animation:
-    paperReveal 1.8s ease forwards;
-
-}
-
-
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes paperReveal{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(80px)
-        scale(.92);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-
-    }
-
-}
-
-
-
-@keyframes spotlightMove{
-
-    0%,100%{
-
-        transform:
-        translateX(-50%)
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-        translateX(-50%)
-        scale(1.08);
-
-    }
-
-}
-
-
-
-@keyframes featherFloat{
-
-    0%,100%{
-
-        transform:
-        rotate(-15deg)
-        translateY(0);
-
-    }
-
-    50%{
-
-        transform:
-        rotate(-8deg)
-        translateY(-10px);
-
-    }
-
-}
-
-
-
-@keyframes bgGlow{
-
-    0%,100%{
-
-        opacity:.45;
-
-    }
-
-    50%{
-
-        opacity:.9;
-
-    }
-
-}
-
-
-
-@keyframes friendParticle{
-
-    from{
-
-        transform:
-        translateY(100vh);
-
-        opacity:0;
-
-    }
-
-    20%{
-
-        opacity:.7;
-
-    }
-
-    to{
-
-        transform:
-        translateY(-120px);
-
-        opacity:0;
-
-    }
-
-}
-
-/* ===================================================
-        FRIENDSHIP LETTER - PART 3 (FINAL)
-=================================================== */
-
-
-/* ================= TITLE ================= */
 
 .friend-letter-paper h1{
-
     text-align:center;
-
     font-size:52px;
-
     margin-bottom:40px;
-
     color:#8c6239;
-
     font-family:"Cormorant Garamond",serif;
-
     font-weight:700;
-
     letter-spacing:1px;
-
     text-shadow:0 0 15px rgba(255,215,150,.35);
-
 }
-
-
-/* ================= LETTER TEXT ================= */
 
 .friend-letter-text{
-
     font-family:"Poppins",sans-serif;
-
     color:#3c322b;
-
     font-size:20px;
-
     line-height:2;
-
     text-align:justify;
-
 }
-
 
 .friend-letter-text p{
-
     margin-bottom:24px;
-
     opacity:0;
-
     transform:translateY(25px);
-
     animation:paragraphFade .8s ease forwards;
-
 }
-
-
-/* Paragraph Delay */
 
 .friend-letter-text p:nth-child(1){animation-delay:.2s;}
 .friend-letter-text p:nth-child(2){animation-delay:.35s;}
@@ -2278,388 +1486,142 @@ body{
 .friend-letter-text p:nth-child(10){animation-delay:1.55s;}
 .friend-letter-text p:nth-child(11){animation-delay:1.7s;}
 
-
-/* First Letter */
-
 .friend-letter-text p:first-child::first-letter{
-
     float:left;
-
     font-size:72px;
-
     line-height:.9;
-
     margin-right:12px;
-
     margin-top:6px;
-
     color:#b8860b;
-
     font-family:"Cormorant Garamond",serif;
-
 }
-
-
-/* Ending */
 
 .friend-letter-text p:last-child{
-
     text-align:center;
-
     font-size:28px;
-
     color:#b22222;
-
     font-family:"Cormorant Garamond",serif;
-
     font-weight:700;
-
     margin-top:35px;
-
-    animation:
-    paragraphFade .8s ease forwards,
-    endingGlow 3s ease-in-out infinite;
-
+    animation: paragraphFade .8s ease forwards, endingGlow 3s ease-in-out infinite;
 }
 
-
-
-/* ================= SCROLLBAR ================= */
-
-.friend-letter-paper{
-
-    scrollbar-width:thin;
-
-    scrollbar-color:#b8860b transparent;
-
-}
-
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.friend-letter-paper{
-
-padding:35px 22px;
-
-}
-
-.friend-letter-paper h1{
-
-font-size:36px;
-
-}
-
-.friend-letter-text{
-
-font-size:17px;
-
-line-height:1.9;
-
-}
-
-.friend-letter-text p:first-child::first-letter{
-
-font-size:56px;
-
-}
-
-.feather{
-
-display:none;
-
-}
-
-}
-
-
-/* ================= ANIMATION ================= */
-
-@keyframes paragraphFade{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-@keyframes endingGlow{
-
-0%,100%{
-
-text-shadow:0 0 10px rgba(255,120,150,.25);
-
-}
-
-50%{
-
-text-shadow:0 0 25px rgba(255,120,150,.8);
-
-}
-
-}
-
-/* ===================================================
-            CINEMATIC ROSE SCENE
-               PART 1
-=================================================== */
+/* ================= CINEMATIC ROSE SCENE ================= */
 
 .rose-scene{
-
     position:relative;
-
     min-height:100vh;
-
     overflow:hidden;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     flex-direction:column;
-
-    background:
-    radial-gradient(circle at top,
-    #1b0000 0%,
-    #090909 45%,
-    #000 100%);
-
+    background: radial-gradient(circle at top, #1b0000 0%, #090909 45%, #000 100%);
 }
 
-
-/* ================= BACKGROUND ================= */
+.rose-scene::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:180px;
+    background:linear-gradient(to bottom, transparent, rgba(0,0,0,.92));
+    pointer-events:none;
+}
 
 .rose-bg{
-
     position:absolute;
-
     inset:0;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,60,60,.08),
-    transparent 70%);
-
+    background: radial-gradient(circle, rgba(255,60,60,.08), transparent 70%);
     animation:roseBgGlow 8s ease-in-out infinite;
-
 }
 
 .rose-overlay{
-
     position:absolute;
-
     inset:0;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,.25),
-    rgba(0,0,0,.65));
-
+    background: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.65));
 }
-
-
-/* ================= SPOTLIGHT ================= */
 
 .rose-light{
-
     position:absolute;
-
     top:-280px;
-
     left:50%;
-
     transform:translateX(-50%);
-
     width:900px;
-
     height:900px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,235,180,.22),
-    transparent 72%);
-
+    background: radial-gradient(circle, rgba(255,235,180,.22), transparent 72%);
     filter:blur(28px);
-
     animation:spotLight 6s ease-in-out infinite;
-
 }
-
-
-/* ================= STAGE ================= */
 
 .rose-stage{
-
     position:relative;
-
     z-index:10;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     flex-direction:column;
-
+    animation:roseEntrance 1.8s ease both;
 }
-
 
 .stage-shadow{
-
     position:absolute;
-
     bottom:-28px;
-
     width:280px;
-
     height:42px;
-
     border-radius:50%;
-
-    background:
-    rgba(0,0,0,.55);
-
+    background: rgba(0,0,0,.55);
     filter:blur(18px);
-
 }
-
-
-/* ================= MARBLE ================= */
 
 .marble-pedestal{
-
     width:220px;
-
     height:110px;
-
     border-radius:20px;
-
-    background:
-    linear-gradient(
-    180deg,
-    #f4f4f4,
-    #d5d5d5,
-    #8c8c8c);
-
-    box-shadow:
-
-    inset 0 2px 8px rgba(255,255,255,.45),
-
-    0 18px 45px rgba(0,0,0,.55);
-
+    background: linear-gradient(180deg, #f4f4f4, #d5d5d5, #8c8c8c);
+    box-shadow: inset 0 2px 8px rgba(255,255,255,.45), 0 18px 45px rgba(0,0,0,.55);
     display:flex;
-
     justify-content:center;
-
     align-items:flex-end;
-
 }
-
-
-/* ================= ROSE ================= */
 
 .hero-rose{
-
     width:190px;
-
     margin-bottom:65px;
-
-    filter:
-
-    drop-shadow(0 0 35px rgba(255,0,0,.35));
-
-    animation:
-
-    roseFloat 4s ease-in-out infinite;
-
+    filter: drop-shadow(0 0 35px rgba(255,0,0,.35));
+    animation: roseFloat 4s ease-in-out infinite;
 }
-
-/* ===================================================
-        CINEMATIC ROSE SCENE
-               PART 2
-=================================================== */
-
-
-/* ================= FOG ================= */
 
 .rose-fog{
-
     position:absolute;
-
     bottom:-120px;
     left:-15%;
-
     width:130%;
     height:320px;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,255,255,.12),
-    transparent 70%);
-
+    background: radial-gradient(circle, rgba(255,255,255,.12), transparent 70%);
     filter:blur(60px);
-
     animation:fogMove 12s ease-in-out infinite alternate;
-
 }
-
-
-/* ================= GOLDEN PARTICLES ================= */
 
 .rose-particles{
-
     position:absolute;
-
     inset:0;
-
     overflow:hidden;
-
 }
-
 
 .rose-particles span{
-
     position:absolute;
-
     bottom:-30px;
-
     width:4px;
     height:4px;
-
     border-radius:50%;
-
     background:#ffd86b;
-
     box-shadow:0 0 12px #ffd86b;
-
     opacity:0;
-
     animation:particleRise linear infinite;
-
 }
-
-
-/* Position */
 
 .rose-particles span:nth-child(1){left:6%;animation-duration:7s;}
 .rose-particles span:nth-child(2){left:14%;animation-duration:9s;}
@@ -2674,330 +1636,30 @@ text-shadow:0 0 25px rgba(255,120,150,.8);
 .rose-particles span:nth-child(11){left:96%;animation-duration:9s;}
 .rose-particles span:nth-child(12){left:52%;animation-duration:7.5s;}
 
-
-/* ================= TEXT ================= */
-
 .rose-text{
-
     position:relative;
-
     z-index:20;
-
     text-align:center;
-
     margin-top:60px;
-
     color:white;
-
-}
-
-
-.rose-text h1{
-
-    font-size:55px;
-
-    margin-bottom:18px;
-
-    animation:roseGlow 3s ease-in-out infinite;
-
-}
-
-
-.rose-text p{
-
-    font-size:22px;
-
-    font-family:"Cormorant Garamond",serif;
-
-    letter-spacing:.5px;
-
-    margin:10px 0;
-
-    color:#f7e6c8;
-
-    text-shadow:0 0 12px rgba(255,220,170,.2);
-
-}
-
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes roseFloat{
-
-    0%,100%{
-
-        transform:
-        translateY(0)
-        rotate(-2deg);
-
-    }
-
-    50%{
-
-        transform:
-        translateY(-12px)
-        rotate(2deg);
-
-    }
-
-}
-
-
-@keyframes roseBgGlow{
-
-    0%,100%{
-
-        opacity:.45;
-
-    }
-
-    50%{
-
-        opacity:.95;
-
-    }
-
-}
-
-
-@keyframes spotLight{
-
-    0%,100%{
-
-        transform:
-        translateX(-50%)
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-        translateX(-50%)
-        scale(1.08);
-
-    }
-
-}
-
-
-@keyframes fogMove{
-
-    from{
-
-        transform:translateX(-6%);
-
-    }
-
-    to{
-
-        transform:translateX(6%);
-
-    }
-
-}
-
-
-@keyframes particleRise{
-
-    0%{
-
-        transform:translateY(0) scale(.4);
-
-        opacity:0;
-
-    }
-
-    15%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:translateY(-110vh) scale(1.3);
-
-        opacity:0;
-
-    }
-
-}
-
-
-@keyframes roseGlow{
-
-    0%,100%{
-
-        text-shadow:0 0 15px rgba(255,180,60,.25);
-
-    }
-
-    50%{
-
-        text-shadow:0 0 35px rgba(255,180,60,.9);
-
-    }
-
-}
-
-/* ===================================================
-        CINEMATIC ROSE SCENE
-              PART 3
-=================================================== */
-
-
-/* ================= ENTRANCE ================= */
-
-.rose-stage{
-
-    animation:roseEntrance 1.8s ease both;
-
-}
-
-.rose-text{
-
     opacity:0;
-
     animation:textReveal 1.5s ease forwards;
-
     animation-delay:1.2s;
-
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.hero-rose{
-
-width:145px;
-
-margin-bottom:50px;
-
-}
-
-.marble-pedestal{
-
-width:170px;
-
-height:85px;
-
-}
-
-.stage-shadow{
-
-width:190px;
-
 }
 
 .rose-text h1{
-
-font-size:42px;
-
+    font-size:55px;
+    margin-bottom:18px;
+    animation:roseGlow 3s ease-in-out infinite;
 }
 
 .rose-text p{
-
-font-size:18px;
-
-padding:0 20px;
-
-line-height:1.7;
-
-}
-
-.rose-light{
-
-width:650px;
-
-height:650px;
-
-}
-
-}
-
-
-/* ================= CINEMATIC FADE ================= */
-
-.rose-scene::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:0;
-
-width:100%;
-
-height:180px;
-
-background:linear-gradient(
-
-to bottom,
-
-transparent,
-
-rgba(0,0,0,.92)
-
-);
-
-pointer-events:none;
-
-}
-
-
-/* ================= ANIMATION ================= */
-
-@keyframes roseEntrance{
-
-0%{
-
-opacity:0;
-
-transform:
-
-translateY(120px)
-
-scale(.75);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:
-
-translateY(0)
-
-scale(1);
-
-}
-
-}
-
-@keyframes textReveal{
-
-0%{
-
-opacity:0;
-
-transform:translateY(35px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
+    font-size:22px;
+    font-family:"Cormorant Garamond",serif;
+    letter-spacing:.5px;
+    margin:10px 0;
+    color:#f7e6c8;
+    text-shadow:0 0 12px rgba(255,220,170,.2);
 }
 
 /* ================= UNSPOKEN TRUTH PAGE ================= */
@@ -3012,7 +1674,6 @@ transform:translateY(0);
     overflow-x: hidden;
 }
 
-/* Ambient Background Glow */
 .unspoken-truth-page .bg-glow {
     position: absolute;
     top: 0;
@@ -3024,7 +1685,6 @@ transform:translateY(0);
     pointer-events: none;
 }
 
-/* Envelope Container */
 .envelope-container {
     position: relative;
     z-index: 10;
@@ -3036,20 +1696,9 @@ transform:translateY(0);
 }
 
 @keyframes fadeInDarken {
-    0% {
-        opacity: 0;
-        transform: scale(0.85);
-        filter: brightness(1.5);
-    }
-    50% {
-        opacity: 0.7;
-        filter: brightness(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: brightness(0.85);
-    }
+    0% { opacity: 0; transform: scale(0.85); filter: brightness(1.5); }
+    50% { opacity: 0.7; filter: brightness(1.1); }
+    100% { opacity: 1; transform: scale(1); filter: brightness(0.85); }
 }
 
 .envelope {
@@ -3108,7 +1757,6 @@ transform:translateY(0);
     box-shadow: 0 6px 20px rgba(255, 64, 129, 0.7);
 }
 
-/* Letter Stage */
 .letter-stage {
     display: none;
     position: relative;
@@ -3125,7 +1773,6 @@ transform:translateY(0);
     opacity: 1;
 }
 
-/* Background Image Wrap */
 .letter-bg-wrap {
     position: relative;
     background-image: url('Mohin.jpeg');
@@ -3134,13 +1781,11 @@ transform:translateY(0);
     background-repeat: no-repeat;
     border-radius: 16px;
     padding: 40px 35px 60px 35px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
-                0 0 30px rgba(216, 27, 96, 0.3);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(216, 27, 96, 0.3);
     border: 1px solid rgba(255, 215, 0, 0.3);
     overflow: hidden;
 }
 
-/* Dark Glass Overlay */
 .letter-overlay {
     position: absolute;
     inset: 0;
@@ -3213,7 +1858,6 @@ transform:translateY(0);
     margin-top: 5px;
 }
 
-/* Kiss Emoji Corner */
 .kiss-corner {
     position: absolute;
     bottom: 15px;
@@ -3230,7 +1874,6 @@ transform:translateY(0);
     50% { transform: scale(1.18) rotate(-8deg); }
 }
 
-/* Particle Effects */
 .heart-particle {
     position: fixed;
     color: #ff4081;
@@ -3245,16 +1888,155 @@ transform:translateY(0);
     100% { opacity: 0; transform: translateY(-120px) scale(1.4); }
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .letter-bg-wrap {
-        padding: 25px 20px 50px 20px;
-    }
-    .letter-header h1 {
-        font-size: 2.4rem;
-    }
-    .letter-content {
-        font-size: 0.98rem;
-    }
+/* ================= COMMON ANIMATIONS ================= */
+
+@keyframes paperReveal {
+    from{ opacity:0; transform: translateY(80px) scale(.92); }
+    to{ opacity:1; transform: translateY(0) scale(1); }
 }
 
+@keyframes spotlightMove {
+    0%,100%{ transform: translateX(-50%) scale(1); }
+    50%{ transform: translateX(-50%) scale(1.08); }
+}
+
+@keyframes featherFloat {
+    0%,100%{ transform: rotate(-15deg) translateY(0); }
+    50%{ transform: rotate(-8deg) translateY(-10px); }
+}
+
+@keyframes bgGlow {
+    0%,100%{ opacity:.45; }
+    50%{ opacity:.9; }
+}
+
+@keyframes friendParticle {
+    from{ transform: translateY(100vh); opacity:0; }
+    20%{ opacity:.7; }
+    to{ transform: translateY(-120px); opacity:0; }
+}
+
+@keyframes paragraphFade {
+    from{ opacity:0; transform:translateY(25px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes endingGlow {
+    0%,100%{ text-shadow:0 0 10px rgba(255,120,150,.25); }
+    50%{ text-shadow:0 0 25px rgba(255,120,150,.8); }
+}
+
+@keyframes roseFloat {
+    0%,100%{ transform: translateY(0) rotate(-2deg); }
+    50%{ transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes roseBgGlow {
+    0%,100%{ opacity:.45; }
+    50%{ opacity:.95; }
+}
+
+@keyframes spotLight {
+    0%,100%{ transform: translateX(-50%) scale(1); }
+    50%{ transform: translateX(-50%) scale(1.08); }
+}
+
+@keyframes fogMove {
+    from{ transform:translateX(-6%); }
+    to{ transform:translateX(6%); }
+}
+
+@keyframes particleRise {
+    0%{ transform:translateY(0) scale(.4); opacity:0; }
+    15%{ opacity:1; }
+    100%{ transform:translateY(-110vh) scale(1.3); opacity:0; }
+}
+
+@keyframes roseGlow {
+    0%,100%{ text-shadow:0 0 15px rgba(255,180,60,.25); }
+    50%{ text-shadow:0 0 35px rgba(255,180,60,.9); }
+}
+
+@keyframes roseEntrance {
+    0%{ opacity:0; transform: translateY(120px) scale(.75); }
+    100%{ opacity:1; transform: translateY(0) scale(1); }
+}
+
+@keyframes textReveal {
+    0%{ opacity:0; transform:translateY(35px); }
+    100%{ opacity:1; transform:translateY(0); }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+    .glass-card{ width:92%; padding:45px 30px; }
+    .glow-title{ font-size:2.8rem; }
+    .hero-name{ font-size:2rem; }
+    .person-name{ font-size:2.5rem; }
+    .memory-container h1{ font-size:2.6rem; }
+    .memory-slideshow{ width:min(380px,88vw); height:540px; }
+}
+
+@media(max-width:768px){
+    .spiderman-entry{ left:50%; transform:translateX(-50%); }
+    .main-web-line{ height:170px; }
+    .glow-title{ font-size:2.3rem; }
+    .hero-name{ font-size:1.45rem; letter-spacing:3px; }
+    .person-name{ font-size:2.1rem; }
+    .typing-text{ font-size:.95rem; }
+    .hero-actions{ flex-direction:column; }
+    .hero-btn{ width:100%; }
+
+    .cake-title{ font-size:2.2rem; }
+    .cake-name{ font-size:1.6rem; }
+    .calendar-bg{ width:92%; }
+    .birthday-cake{ transform:scale(.82); }
+    .balloon-cluster{ display:none; }
+    .cake-buttons{ flex-direction:column; }
+
+    .letter-card{ padding:45px 28px; }
+    .letter-card h1{ font-size:2rem; }
+    .letter-text p{ font-size:1.12rem; line-height:2; }
+    .letter-text p:first-child{ font-size:1.45rem; }
+    .letter-text strong{ font-size:1.35rem; }
+
+    .friend-letter-paper{ padding:35px 22px; }
+    .friend-letter-paper h1{ font-size:36px; }
+    .friend-letter-text{ font-size:17px; line-height:1.9; }
+    .friend-letter-text p:first-child::first-letter{ font-size:56px; }
+    .feather{ display:none; }
+
+    .hero-rose{ width:145px; margin-bottom:50px; }
+    .marble-pedestal{ width:170px; height:85px; }
+    .stage-shadow{ width:190px; }
+    .rose-text h1{ font-size:42px; }
+    .rose-text p{ font-size:18px; padding:0 20px; line-height:1.7; }
+    .rose-light{ width:650px; height:650px; }
+
+    .letter-bg-wrap { padding: 25px 20px 50px 20px; }
+    .letter-header h1 { font-size: 2.4rem; }
+    .letter-content { font-size: 0.98rem; }
+}
+
+@media(max-width:600px){
+    .friend-memory{ padding:70px 15px; }
+    .memory-container h1{ font-size:2rem; }
+    .memory-subtitle{ font-size:.95rem; margin-bottom:35px; line-height:1.7; }
+    .memory-slideshow{ width:88vw; height:500px; border-radius:20px; }
+    .memory-next{ width:90%; max-width:320px; padding:15px 20px; font-size:.95rem; }
+}
+
+@media(max-width:480px){
+    .glass-card{ padding:35px 20px; border-radius:22px; }
+    .badge{ font-size:.7rem; letter-spacing:2px; }
+    .glow-title{ font-size:1.9rem; }
+    .hero-name{ font-size:1.2rem; }
+    .person-name{ font-size:1.8rem; }
+    .scroll-indicator{ display:none; }
+}
+
+@media (max-width:420px){
+    .memory-slideshow{ width:90vw; height:460px; }
+    .memory-container h1{ font-size:1.8rem; }
+}
