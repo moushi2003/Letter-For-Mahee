@@ -492,3 +492,511 @@ scene.addEventListener("mousemove", e => {
 ================================ */
 
 console.log("🕷 Marvel Spider Hero Loaded Successfully");
+
+   /*==================================================
+      CINEMATIC CAKE PAGE — PART 1
+      Curtains • Countdown • Intro
+==================================================*/
+
+const cakePage = document.getElementById("cakePage");
+
+const countdownOverlay =
+document.getElementById("countdownOverlay");
+
+const countdownNumber =
+document.getElementById("countdownNumber");
+
+const cakeMainContent =
+document.getElementById("cakeMainContent");
+
+const leftCurtain =
+document.querySelector(".left-curtain");
+
+const rightCurtain =
+document.querySelector(".right-curtain");
+
+const celebrateBtn =
+document.getElementById("celebrateBtn");
+
+const blowBtn =
+document.getElementById("blowBtn");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+let cakeStarted = false;
+
+
+/*====================================
+      START CINEMATIC INTRO
+====================================*/
+
+function startCakeIntro(){
+
+    if(cakeStarted) return;
+
+    cakeStarted = true;
+
+    countdownOverlay.style.display = "flex";
+
+    let count = 3;
+
+    countdownNumber.textContent = count;
+
+    const timer = setInterval(()=>{
+
+        count--;
+
+        if(count > 0){
+
+            countdownNumber.textContent = count;
+
+            countdownNumber.animate([
+
+                {
+                    transform:"scale(.4)",
+                    opacity:0
+                },
+
+                {
+                    transform:"scale(1)",
+                    opacity:1
+                }
+
+            ],{
+
+                duration:500
+
+            });
+
+        }
+
+        else{
+
+            clearInterval(timer);
+
+            countdownNumber.innerHTML = "🎉";
+
+            setTimeout(openCurtains,900);
+
+        }
+
+    },1000);
+
+}
+
+
+/*====================================
+      OPEN CURTAINS
+====================================*/
+
+function openCurtains(){
+
+    leftCurtain.classList.add("open-left");
+
+    rightCurtain.classList.add("open-right");
+
+    setTimeout(()=>{
+
+        countdownOverlay.style.display="none";
+
+        cakeMainContent.classList.remove("hidden-content");
+
+        cakeMainContent.style.opacity="1";
+
+        cakeMainContent.style.visibility="visible";
+
+        cinematicEntrance();
+
+    },1800);
+
+}
+
+
+/*====================================
+     MAIN ENTRANCE ANIMATION
+====================================*/
+
+function cinematicEntrance(){
+
+    cakeMainContent.animate([
+
+        {
+
+            opacity:0,
+
+            transform:"translateY(80px) scale(.92)"
+
+        },
+
+        {
+
+            opacity:1,
+
+            transform:"translateY(0) scale(1)"
+
+        }
+
+    ],{
+
+        duration:1600,
+
+        easing:"ease"
+
+    });
+
+}
+
+
+/*====================================
+      AUTO START WHEN PAGE OPENS
+====================================*/
+
+window.addEventListener("load",()=>{
+
+    setTimeout(startCakeIntro,1200);
+
+});
+
+   /*==================================================
+      CINEMATIC CAKE PAGE — PART 2
+      Candle • Blow • Celebrate
+==================================================*/
+
+const flame = document.getElementById("flame");
+const fireworksCanvas = document.getElementById("cakeFireworksCanvas");
+const ctx = fireworksCanvas.getContext("2d");
+
+/*====================================
+        CANVAS RESIZE
+====================================*/
+
+function resizeFireworks(){
+
+    fireworksCanvas.width = window.innerWidth;
+    fireworksCanvas.height = window.innerHeight;
+
+}
+
+resizeFireworks();
+
+window.addEventListener("resize", resizeFireworks);
+
+
+/*====================================
+        CANDLE FLICKER
+====================================*/
+
+setInterval(()=>{
+
+    if(!flame) return;
+
+    const scale = 0.9 + Math.random()*0.25;
+    const rotate = -5 + Math.random()*10;
+
+    flame.style.transform =
+    `translateX(-50%) scale(${scale}) rotate(${rotate}deg)`;
+
+},120);
+
+
+/*====================================
+        BLOW THE CANDLE
+====================================*/
+
+blowBtn.addEventListener("click",()=>{
+
+    flame.animate([
+
+        {
+            opacity:1,
+            transform:"translateX(-50%) scale(1)"
+        },
+
+        {
+            opacity:0,
+            transform:"translateX(-50%) scale(0)"
+        }
+
+    ],{
+
+        duration:700,
+        fill:"forwards"
+
+    });
+
+    setTimeout(()=>{
+
+        flame.style.display="none";
+
+        launchConfetti();
+
+        launchFireworks();
+
+    },650);
+
+});
+
+
+/*====================================
+        CELEBRATE BUTTON
+====================================*/
+
+celebrateBtn.addEventListener("click",()=>{
+
+    launchConfetti();
+
+    launchFireworks();
+
+});
+
+
+/*====================================
+        CONFETTI
+====================================*/
+
+function launchConfetti(){
+
+    document
+    .querySelectorAll(".confetti")
+    .forEach((piece,index)=>{
+
+        piece.style.animation="none";
+
+        piece.offsetHeight;
+
+        piece.style.animation=
+        `confettiFall ${3+Math.random()*2}s linear`;
+
+        piece.style.animationDelay=
+        `${index*0.05}s`;
+
+    });
+
+}
+
+
+/*====================================
+        SIMPLE FIREWORKS
+====================================*/
+
+let fireworks=[];
+
+function launchFireworks(){
+
+    for(let i=0;i<6;i++){
+
+        fireworks.push({
+
+            x:Math.random()*fireworksCanvas.width,
+
+            y:120+Math.random()*220,
+
+            r:0,
+
+            max:50+Math.random()*40
+
+        });
+
+    }
+
+}
+
+function animateFireworks(){
+
+    ctx.clearRect(
+        0,
+        0,
+        fireworksCanvas.width,
+        fireworksCanvas.height
+    );
+
+    fireworks.forEach((f,index)=>{
+
+        ctx.beginPath();
+
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+
+        ctx.strokeStyle=`hsla(${Math.random()*360},
+        100%,70%,1)`;
+
+        ctx.lineWidth=2;
+
+        ctx.stroke();
+
+        f.r+=2;
+
+        if(f.r>f.max){
+
+            fireworks.splice(index,1);
+
+        }
+
+    });
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+animateFireworks();
+
+   /*==================================================
+      CINEMATIC CAKE PAGE — PART 3 (FINAL)
+      Music • Camera • Next Transition
+==================================================*/
+
+const music = document.getElementById("music");
+const letterPage = document.querySelector(".letter-page");
+
+/*====================================
+      PLAY BIRTHDAY MUSIC
+====================================*/
+
+if(celebrateBtn){
+
+    celebrateBtn.addEventListener("click",()=>{
+
+        if(music){
+
+            music.play().catch(()=>{});
+
+        }
+
+    });
+
+}
+
+
+/*====================================
+      MAGIC PARTICLES
+====================================*/
+
+function createSparkle(){
+
+    const sparkle = document.createElement("span");
+
+    sparkle.className = "magic-particle";
+
+    sparkle.style.left =
+    Math.random()*window.innerWidth+"px";
+
+    sparkle.style.top =
+    window.innerHeight+"px";
+
+    sparkle.style.animationDuration =
+    (4+Math.random()*4)+"s";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(()=>{
+
+        sparkle.remove();
+
+    },8000);
+
+}
+
+setInterval(createSparkle,350);
+
+
+/*====================================
+      NEXT BUTTON
+====================================*/
+
+nextBtn.addEventListener("click",()=>{
+
+    cakeMainContent.animate([
+
+        {
+            opacity:1,
+            transform:"scale(1)"
+        },
+
+        {
+            opacity:0,
+            transform:"scale(1.12)"
+        }
+
+    ],{
+
+        duration:1200,
+        easing:"ease-in-out",
+        fill:"forwards"
+
+    });
+
+    setTimeout(()=>{
+
+        letterPage.scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    },1000);
+
+});
+
+
+/*====================================
+      CINEMATIC CAMERA
+====================================*/
+
+window.addEventListener("scroll",()=>{
+
+    const value =
+    window.scrollY * 0.06;
+
+    document.querySelector(".cake-page")
+    .style.backgroundPositionY =
+    value+"px";
+
+});
+
+
+/*====================================
+      SOFT GLOW PULSE
+====================================*/
+
+setInterval(()=>{
+
+    const glow =
+    document.querySelector(".cake-glow");
+
+    if(!glow) return;
+
+    glow.animate([
+
+        {
+            opacity:.5,
+            transform:"scale(1)"
+        },
+
+        {
+            opacity:1,
+            transform:"scale(1.15)"
+        },
+
+        {
+            opacity:.5,
+            transform:"scale(1)"
+        }
+
+    ],{
+
+        duration:3000
+
+    });
+
+},3000);
+
+
+/*====================================
+      END OF CAKE PAGE
+====================================*/
+
+console.log(
+"🎂 Cinematic Cake Page Loaded Successfully."
+);
