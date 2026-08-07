@@ -1791,3 +1791,625 @@ body{
 
 }
 
+/* ===================================================
+        FRIENDSHIP LETTER PAGE
+=================================================== */
+
+.friend-letter-page{
+
+    position:relative;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:100px 20px;
+
+    background:
+    radial-gradient(circle at top,#1d2438 0%,#0d111a 60%,#050608 100%);
+
+}
+
+
+/* Background Glow */
+
+.friend-bg{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,220,170,.12),
+    transparent 70%);
+
+    animation:bgGlow 6s ease-in-out infinite;
+
+}
+
+.friend-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,.25),
+    rgba(0,0,0,.55));
+
+}
+
+
+/* Floating Particles */
+
+.friend-particles span{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.6;
+
+    animation:friendParticle linear infinite;
+
+}
+
+
+.friend-particles span:nth-child(1){left:8%;animation-duration:8s;}
+.friend-particles span:nth-child(2){left:18%;animation-duration:10s;}
+.friend-particles span:nth-child(3){left:28%;animation-duration:9s;}
+.friend-particles span:nth-child(4){left:38%;animation-duration:12s;}
+.friend-particles span:nth-child(5){left:52%;animation-duration:11s;}
+.friend-particles span:nth-child(6){left:66%;animation-duration:9s;}
+.friend-particles span:nth-child(7){left:76%;animation-duration:13s;}
+.friend-particles span:nth-child(8){left:84%;animation-duration:10s;}
+.friend-particles span:nth-child(9){left:92%;animation-duration:8s;}
+.friend-particles span:nth-child(10){left:97%;animation-duration:14s;}
+
+
+/* Paper */
+
+.friend-letter-wrapper{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+.friend-letter-paper{
+
+    position:relative;
+
+    width:min(900px,92vw);
+
+    padding:70px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #fffdf8,
+    #f5ecd9);
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.55);
+
+    border:2px solid rgba(180,150,90,.35);
+
+}
+
+
+/* Golden Line */
+
+.gold-line{
+
+    width:100%;
+
+    height:3px;
+
+    margin-bottom:30px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    gold,
+    transparent);
+
+}
+
+/* ===================================================
+        FRIENDSHIP LETTER - PART 2
+=================================================== */
+
+
+/* ================= SPOTLIGHT ================= */
+
+.friend-spotlight{
+
+    position:absolute;
+
+    top:-250px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:900px;
+    height:900px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,240,200,.28),
+    transparent 72%);
+
+    filter:blur(25px);
+
+    animation:spotlightMove 8s ease-in-out infinite;
+
+}
+
+
+
+/* ================= WAX SEAL ================= */
+
+.wax-seal{
+
+    position:absolute;
+
+    top:-35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:82px;
+    height:82px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+
+    background:
+    radial-gradient(circle,
+    #ff9ba7,
+    #d61f3d 70%,
+    #7f0018);
+
+    color:white;
+
+    box-shadow:
+
+    0 0 25px rgba(255,60,90,.55),
+    0 10px 25px rgba(0,0,0,.45);
+
+    z-index:20;
+
+}
+
+
+
+/* ================= FEATHER ================= */
+
+.feather{
+
+    position:absolute;
+
+    right:-70px;
+    bottom:25px;
+
+    font-size:70px;
+
+    transform:rotate(-15deg);
+
+    filter:
+    drop-shadow(0 8px 15px rgba(0,0,0,.35));
+
+    animation:
+    featherFloat 3.5s ease-in-out infinite;
+
+}
+
+
+
+/* ================= LETTER SHADOW ================= */
+
+.friend-letter-paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:14px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(160,130,80,.25);
+
+    pointer-events:none;
+
+}
+
+
+.friend-letter-paper::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,.18),
+    transparent 45%);
+
+    pointer-events:none;
+
+}
+
+
+
+/* ================= PAPER ENTRANCE ================= */
+
+.friend-letter-wrapper{
+
+    opacity:0;
+
+    transform:
+    translateY(80px)
+    scale(.92);
+
+    animation:
+    paperReveal 1.8s ease forwards;
+
+}
+
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes paperReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(80px)
+        scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+
+@keyframes spotlightMove{
+
+    0%,100%{
+
+        transform:
+        translateX(-50%)
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        translateX(-50%)
+        scale(1.08);
+
+    }
+
+}
+
+
+
+@keyframes featherFloat{
+
+    0%,100%{
+
+        transform:
+        rotate(-15deg)
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        rotate(-8deg)
+        translateY(-10px);
+
+    }
+
+}
+
+
+
+@keyframes bgGlow{
+
+    0%,100%{
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        opacity:.9;
+
+    }
+
+}
+
+
+
+@keyframes friendParticle{
+
+    from{
+
+        transform:
+        translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.7;
+
+    }
+
+    to{
+
+        transform:
+        translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===================================================
+        FRIENDSHIP LETTER - PART 3 (FINAL)
+=================================================== */
+
+
+/* ================= TITLE ================= */
+
+.friend-letter-paper h1{
+
+    text-align:center;
+
+    font-size:52px;
+
+    margin-bottom:40px;
+
+    color:#8c6239;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:0 0 15px rgba(255,215,150,.35);
+
+}
+
+
+/* ================= LETTER TEXT ================= */
+
+.friend-letter-text{
+
+    font-family:"Poppins",sans-serif;
+
+    color:#3c322b;
+
+    font-size:20px;
+
+    line-height:2;
+
+    text-align:justify;
+
+}
+
+
+.friend-letter-text p{
+
+    margin-bottom:24px;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:paragraphFade .8s ease forwards;
+
+}
+
+
+/* Paragraph Delay */
+
+.friend-letter-text p:nth-child(1){animation-delay:.2s;}
+.friend-letter-text p:nth-child(2){animation-delay:.35s;}
+.friend-letter-text p:nth-child(3){animation-delay:.5s;}
+.friend-letter-text p:nth-child(4){animation-delay:.65s;}
+.friend-letter-text p:nth-child(5){animation-delay:.8s;}
+.friend-letter-text p:nth-child(6){animation-delay:.95s;}
+.friend-letter-text p:nth-child(7){animation-delay:1.1s;}
+.friend-letter-text p:nth-child(8){animation-delay:1.25s;}
+.friend-letter-text p:nth-child(9){animation-delay:1.4s;}
+.friend-letter-text p:nth-child(10){animation-delay:1.55s;}
+.friend-letter-text p:nth-child(11){animation-delay:1.7s;}
+
+
+/* First Letter */
+
+.friend-letter-text p:first-child::first-letter{
+
+    float:left;
+
+    font-size:72px;
+
+    line-height:.9;
+
+    margin-right:12px;
+
+    margin-top:6px;
+
+    color:#b8860b;
+
+    font-family:"Cormorant Garamond",serif;
+
+}
+
+
+/* Ending */
+
+.friend-letter-text p:last-child{
+
+    text-align:center;
+
+    font-size:28px;
+
+    color:#b22222;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-weight:700;
+
+    margin-top:35px;
+
+    animation:
+    paragraphFade .8s ease forwards,
+    endingGlow 3s ease-in-out infinite;
+
+}
+
+
+
+/* ================= SCROLLBAR ================= */
+
+.friend-letter-paper{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#b8860b transparent;
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.friend-letter-paper{
+
+padding:35px 22px;
+
+}
+
+.friend-letter-paper h1{
+
+font-size:36px;
+
+}
+
+.friend-letter-text{
+
+font-size:17px;
+
+line-height:1.9;
+
+}
+
+.friend-letter-text p:first-child::first-letter{
+
+font-size:56px;
+
+}
+
+.feather{
+
+display:none;
+
+}
+
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes paragraphFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+@keyframes endingGlow{
+
+0%,100%{
+
+text-shadow:0 0 10px rgba(255,120,150,.25);
+
+}
+
+50%{
+
+text-shadow:0 0 25px rgba(255,120,150,.8);
+
+}
+
+}
