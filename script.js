@@ -497,3 +497,124 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("🕷 All Cinematic Scripts Loaded Successfully.");
 });
+
+/* =====================================================
+   CINEMATIC BOUQUET PAGE LOGIC
+===================================================== */
+
+
+const bouquetPage = document.getElementById("bouquetPage");
+const bouquetNext = document.querySelector(".bouquet-next");
+
+let bouquetStarted = false;
+
+
+/* Bouquet Reveal Observer */
+
+if(bouquetPage){
+
+    const bouquetObserver = new IntersectionObserver((entries)=>{
+
+
+        entries.forEach(entry=>{
+
+
+            if(entry.isIntersecting && !bouquetStarted){
+
+
+                bouquetStarted = true;
+
+
+                const bouquet =
+                document.querySelector(".bouquet-container");
+
+
+                if(bouquet){
+
+                    bouquet.style.animation =
+                    "bouquetReveal 2s ease forwards";
+
+                }
+
+
+            }
+
+
+        });
+
+
+    },{
+        threshold:.4
+    });
+
+
+
+    bouquetObserver.observe(bouquetPage);
+
+}
+
+
+
+
+/* ================= GO TO LETTER ================= */
+
+
+if(bouquetNext){
+
+
+    bouquetNext.addEventListener("click",()=>{
+
+
+        const letterPage =
+        document.querySelector(".letter-page");
+
+
+        if(letterPage){
+
+
+            bouquetPage.animate([
+
+                {
+                    opacity:1,
+                    transform:"scale(1)"
+                },
+
+                {
+                    opacity:0,
+                    transform:"scale(1.15)"
+                }
+
+            ],{
+
+                duration:1200,
+
+                easing:"ease-in-out",
+
+                fill:"forwards"
+
+            });
+
+
+
+            setTimeout(()=>{
+
+
+                letterPage.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+
+            },1000);
+
+
+
+        }
+
+
+    });
+
+
+}
+
