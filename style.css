@@ -1324,3 +1324,1320 @@ body{
 /* =====================================================
    END OF SPIDER HERO CSS
 ===================================================== */
+
+/*==================================================
+        CINEMATIC CAKE PAGE — PART 1
+==================================================*/
+
+.cake-page{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#070710;
+}
+
+/* Background */
+
+.cake-bg{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#401212 0%,#14090f 35%,#070710 100%);
+    z-index:0;
+}
+
+.cake-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.25),
+    rgba(0,0,0,.72));
+    z-index:1;
+}
+
+.cake-gradient{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle,
+    transparent 20%,
+    rgba(0,0,0,.85) 100%);
+    z-index:2;
+}
+
+/* Main Content */
+
+.cake-main-content{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    z-index:10;
+    padding:70px 20px 120px;
+}
+
+.hidden-content{
+    opacity:0;
+    visibility:hidden;
+}
+
+/* Floating Golden Particles */
+
+.gold-particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:3;
+}
+
+.gold-particles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#ffe38b;
+    box-shadow:
+    0 0 12px #ffd54f,
+    0 0 25px gold;
+    animation:goldFloat 8s linear infinite;
+}
+
+.gold-particles span:nth-child(1){
+left:8%;
+top:105%;
+animation-delay:0s;
+}
+
+.gold-particles span:nth-child(2){
+left:18%;
+top:108%;
+animation-delay:1s;
+}
+
+.gold-particles span:nth-child(3){
+left:29%;
+top:103%;
+animation-delay:2s;
+}
+
+.gold-particles span:nth-child(4){
+left:43%;
+top:106%;
+animation-delay:3s;
+}
+
+.gold-particles span:nth-child(5){
+left:58%;
+top:107%;
+animation-delay:4s;
+}
+
+.gold-particles span:nth-child(6){
+left:71%;
+top:105%;
+animation-delay:5s;
+}
+
+.gold-particles span:nth-child(7){
+left:84%;
+top:108%;
+animation-delay:6s;
+}
+
+.gold-particles span:nth-child(8){
+left:94%;
+top:104%;
+animation-delay:7s;
+}
+
+@keyframes goldFloat{
+
+0%{
+transform:translateY(0) scale(.3);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh)
+translateX(40px)
+scale(1.4);
+opacity:0;
+}
+
+}
+
+/* Stage */
+
+.stage-floor{
+    position:absolute;
+    bottom:-180px;
+    left:50%;
+    transform:translateX(-50%);
+    width:180%;
+    height:420px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle,
+    rgba(255,215,120,.22),
+    transparent 70%);
+    filter:blur(18px);
+    z-index:2;
+}
+
+.stage-shadow{
+    position:absolute;
+    bottom:80px;
+    width:700px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(0,0,0,.6);
+    filter:blur(35px);
+    z-index:4;
+}
+
+/*==================================================
+        CINEMATIC CAKE PAGE — PART 2
+        Theatre Curtains + Spotlights
+==================================================*/
+
+/* ---------- Curtains ---------- */
+
+.curtain{
+    position:absolute;
+    top:0;
+    width:18%;
+    height:100%;
+    z-index:25;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    90deg,
+    #240000 0%,
+    #560000 18%,
+    #890000 35%,
+    #b00000 50%,
+    #890000 65%,
+    #560000 82%,
+    #240000 100%);
+}
+
+.left-curtain{
+    left:0;
+    border-right:4px solid rgba(255,215,120,.35);
+    animation:leftCurtain 2.2s ease forwards;
+}
+
+.right-curtain{
+    right:0;
+    border-left:4px solid rgba(255,215,120,.35);
+    animation:rightCurtain 2.2s ease forwards;
+}
+
+@keyframes leftCurtain{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-94%);
+    }
+
+}
+
+@keyframes rightCurtain{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(94%);
+    }
+
+}
+
+/* Curtain Folds */
+
+.curtain-fold{
+    position:absolute;
+    top:0;
+    width:30px;
+    height:100%;
+    background:rgba(255,255,255,.08);
+    filter:blur(1px);
+}
+
+.curtain-fold:nth-child(1){
+
+    left:22%;
+
+}
+
+.curtain-fold:nth-child(2){
+
+    left:48%;
+
+}
+
+.curtain-fold:nth-child(3){
+
+    left:74%;
+
+}
+
+/* ---------- Stage Lights ---------- */
+
+.stage-lights{
+
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:5;
+
+}
+
+.light{
+
+    position:absolute;
+    top:-120px;
+
+    width:260px;
+    height:110vh;
+
+    background:
+    linear-gradient(to bottom,
+    rgba(255,248,210,.95),
+    rgba(255,230,120,.10),
+    transparent);
+
+    clip-path:polygon(46% 0%,54% 0%,100% 100%,0% 100%);
+
+    filter:blur(12px);
+
+    opacity:.55;
+
+    transform-origin:top center;
+
+}
+
+.l1{
+
+    left:8%;
+    animation:lightSwing1 6s ease-in-out infinite;
+
+}
+
+.l2{
+
+    left:30%;
+    animation:lightSwing2 7s ease-in-out infinite;
+
+}
+
+.l3{
+
+    right:30%;
+    animation:lightSwing3 6.5s ease-in-out infinite;
+
+}
+
+.l4{
+
+    right:8%;
+    animation:lightSwing4 8s ease-in-out infinite;
+
+}
+
+@keyframes lightSwing1{
+
+0%,100%{
+
+transform:rotate(-10deg);
+
+}
+
+50%{
+
+transform:rotate(8deg);
+
+}
+
+}
+
+@keyframes lightSwing2{
+
+0%,100%{
+
+transform:rotate(8deg);
+
+}
+
+50%{
+
+transform:rotate(-10deg);
+
+}
+
+}
+
+@keyframes lightSwing3{
+
+0%,100%{
+
+transform:rotate(-7deg);
+
+}
+
+50%{
+
+transform:rotate(9deg);
+
+}
+
+}
+
+@keyframes lightSwing4{
+
+0%,100%{
+
+transform:rotate(10deg);
+
+}
+
+50%{
+
+transform:rotate(-8deg);
+
+}
+
+}
+
+/*==================================================
+        CINEMATIC CAKE PAGE — PART 3
+        Balloons • Hearts • Header • Calendar
+==================================================*/
+
+/*==========================
+        BALLOONS
+==========================*/
+
+.balloon-cluster{
+    position:absolute;
+    top:120px;
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+    z-index:15;
+}
+
+.left-cluster{
+    left:5%;
+}
+
+.right-cluster{
+    right:5%;
+}
+
+.balloon{
+    position:relative;
+    width:72px;
+    height:92px;
+    animation:balloonFloat 6s ease-in-out infinite;
+}
+
+.balloon-body{
+    width:100%;
+    height:100%;
+    border-radius:50% 50% 45% 45%;
+    position:relative;
+    overflow:hidden;
+}
+
+.balloon-shine{
+    position:absolute;
+    top:14px;
+    left:15px;
+    width:14px;
+    height:34px;
+    border-radius:50%;
+    background:rgba(255,255,255,.55);
+    transform:rotate(-20deg);
+}
+
+.string{
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:2px;
+    height:85px;
+    background:#d9d9d9;
+}
+
+.red .balloon-body{
+    background:linear-gradient(#ff7373,#b4001d);
+}
+
+.gold .balloon-body{
+    background:linear-gradient(#fff0a8,#d59a00);
+}
+
+.white .balloon-body{
+    background:linear-gradient(#ffffff,#d9d9d9);
+}
+
+.blue .balloon-body{
+    background:linear-gradient(#7cc9ff,#006be6);
+}
+
+.pink .balloon-body{
+    background:linear-gradient(#ffb6dc,#ff3f93);
+}
+
+.silver .balloon-body{
+    background:linear-gradient(#f6f6f6,#9b9b9b);
+}
+
+.balloon:nth-child(2){
+    animation-delay:1.5s;
+}
+
+.balloon:nth-child(3){
+    animation-delay:3s;
+}
+
+@keyframes balloonFloat{
+
+0%,100%{
+transform:translateY(0) rotate(-2deg);
+}
+
+50%{
+transform:translateY(-18px) rotate(2deg);
+}
+
+}
+
+/*==========================
+      FLOATING HEARTS
+==========================*/
+
+.floating-hearts{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:6;
+}
+
+.floating-hearts span{
+    position:absolute;
+    color:#ffd7e9;
+    font-size:20px;
+    opacity:.8;
+    animation:heartFloat 10s linear infinite;
+}
+
+.floating-hearts span:nth-child(1){
+left:10%;
+bottom:-30px;
+animation-delay:0s;
+}
+
+.floating-hearts span:nth-child(2){
+left:28%;
+bottom:-80px;
+animation-delay:2s;
+}
+
+.floating-hearts span:nth-child(3){
+left:47%;
+bottom:-50px;
+animation-delay:4s;
+}
+
+.floating-hearts span:nth-child(4){
+left:66%;
+bottom:-90px;
+animation-delay:6s;
+}
+
+.floating-hearts span:nth-child(5){
+left:82%;
+bottom:-40px;
+animation-delay:8s;
+}
+
+.floating-hearts span:nth-child(6){
+left:92%;
+bottom:-70px;
+animation-delay:10s;
+}
+
+@keyframes heartFloat{
+
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.cake-header-wrap{
+    text-align:center;
+    margin-top:35px;
+    z-index:20;
+}
+
+.birthday-badge{
+    display:inline-block;
+    padding:10px 26px;
+    border-radius:50px;
+    color:#ffe49f;
+    border:1px solid rgba(255,215,0,.35);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    letter-spacing:3px;
+    font-size:.85rem;
+}
+
+.cake-title{
+    margin-top:22px;
+    color:#fff;
+    font-size:3.3rem;
+    font-family:"Cinzel",serif;
+    text-shadow:
+    0 0 20px #ffcf5c,
+    0 0 40px rgba(255,180,0,.4);
+}
+
+.cake-name{
+    margin-top:12px;
+    color:#ffd6e8;
+    font-size:2rem;
+    font-family:"Great Vibes",cursive;
+}
+
+.cake-subtitle{
+    max-width:650px;
+    margin:22px auto;
+    color:#ececec;
+    line-height:1.9;
+    font-size:1rem;
+}
+
+/*==========================
+        CALENDAR
+==========================*/
+
+.calendar-frame{
+    position:relative;
+    margin-top:45px;
+    z-index:20;
+}
+
+.calendar-glow{
+    position:absolute;
+    inset:-18px;
+    border-radius:28px;
+    background:rgba(255,215,0,.12);
+    filter:blur(35px);
+}
+
+.calendar-bg{
+    position:relative;
+    width:350px;
+    padding:22px;
+    border-radius:24px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45);
+}
+
+.cal-header{
+    text-align:center;
+    color:#ffe082;
+    font-size:1.2rem;
+    margin-bottom:20px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.cal-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+    text-align:center;
+}
+
+.day-name{
+    color:#ffc857;
+    font-weight:600;
+}
+
+.cal-grid span{
+    color:white;
+    padding:8px;
+}
+
+.birthday-date{
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff2d55,#ff6f91);
+    color:white;
+    font-weight:bold;
+    box-shadow:
+    0 0 18px #ff4f84,
+    0 0 40px rgba(255,0,85,.45);
+    animation:birthdayPulse 2s infinite;
+}
+
+@keyframes birthdayPulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.12);
+}
+
+}
+
+/*==================================================
+        CINEMATIC CAKE PAGE — PART 4
+        Cake • Candle • Spotlight
+==================================================*/
+
+/*==========================
+        SPOTLIGHT
+==========================*/
+
+.spotlight-wrap{
+
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:8;
+
+}
+
+.spotlight{
+
+    position:absolute;
+    top:-120px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:420px;
+    height:900px;
+
+    background:linear-gradient(to bottom,
+    rgba(255,255,240,.65),
+    rgba(255,240,180,.08),
+    transparent);
+
+    clip-path:polygon(48% 0%,52% 0%,100% 100%,0% 100%);
+
+    filter:blur(20px);
+
+}
+
+.left-light{
+
+    transform:
+    translateX(-280px)
+    rotate(-10deg);
+
+}
+
+.center-light{
+
+    opacity:.9;
+
+}
+
+.right-light{
+
+    transform:
+    translateX(280px)
+    rotate(10deg);
+
+}
+
+/*==========================
+        CAKE STAGE
+==========================*/
+
+.cake-stage{
+
+    position:relative;
+    margin-top:80px;
+    z-index:30;
+
+}
+
+.cake-shadow{
+
+    width:340px;
+    height:45px;
+
+    background:rgba(0,0,0,.55);
+
+    border-radius:50%;
+
+    filter:blur(22px);
+
+    margin:auto;
+
+}
+
+/*==========================
+        CAKE
+==========================*/
+
+.birthday-cake{
+
+    position:relative;
+
+    width:320px;
+
+    margin:auto;
+
+}
+
+.cake-plate{
+
+    width:340px;
+    height:26px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(#ffffff,#cfcfcf);
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.45);
+
+}
+
+/*==========================
+      CAKE LAYERS
+==========================*/
+
+.cake-layer{
+
+    position:relative;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.layer-1{
+
+    width:260px;
+    height:95px;
+
+    background:
+
+    linear-gradient(#ffb27a,#d67943);
+
+}
+
+.layer-2{
+
+    width:190px;
+    height:82px;
+
+    margin-top:-8px;
+
+    background:
+
+    linear-gradient(#ffd8e8,#ff7ab5);
+
+}
+
+.layer-3{
+
+    width:125px;
+    height:65px;
+
+    margin-top:-8px;
+
+    background:
+
+    linear-gradient(#fff7b0,#ffd44c);
+
+}
+
+/*==========================
+        ICING
+==========================*/
+
+.icing{
+
+    height:22px;
+
+    background:white;
+
+}
+
+.drips{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:18px;
+
+    height:22px;
+
+    background:
+
+    radial-gradient(circle at 12px,
+    white 12px,
+    transparent 13px);
+
+    background-size:36px 22px;
+
+}
+
+/*==========================
+        CANDLE
+==========================*/
+
+.candle{
+
+    position:absolute;
+
+    left:50%;
+    top:-55px;
+
+    transform:translateX(-50%);
+
+}
+
+.wax{
+
+    width:14px;
+    height:58px;
+
+    border-radius:10px;
+
+    background:
+
+    repeating-linear-gradient(
+
+    45deg,
+
+    #ffffff,
+
+    #ffffff 6px,
+
+    #ff8080 6px,
+
+    #ff8080 12px);
+
+}
+
+/*==========================
+        FLAME
+==========================*/
+
+.flame-wrap{
+
+    position:absolute;
+
+    left:50%;
+    top:-26px;
+
+    transform:translateX(-50%);
+
+}
+
+.flame-outer{
+
+    width:22px;
+    height:34px;
+
+    background:
+
+    radial-gradient(circle,
+    #fff6a0,
+    orange 70%,
+    transparent);
+
+    border-radius:50% 50% 50% 50%;
+
+    animation:flameMove 1.4s infinite;
+
+    filter:blur(2px);
+
+}
+
+.flame-inner{
+
+    position:absolute;
+
+    left:50%;
+    top:8px;
+
+    transform:translateX(-50%);
+
+    width:10px;
+    height:18px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+}
+
+@keyframes flameMove{
+
+0%,100%{
+
+transform:
+translateX(0)
+scale(1);
+
+}
+
+25%{
+
+transform:
+translateX(-2px)
+rotate(-4deg);
+
+}
+
+50%{
+
+transform:
+translateX(2px)
+scale(1.08);
+
+}
+
+75%{
+
+transform:
+translateX(-1px)
+rotate(4deg);
+
+}
+
+}
+
+/*==================================================
+        CINEMATIC CAKE PAGE — PART 5 (FINAL)
+        Magic • Confetti • Buttons • Responsive
+==================================================*/
+
+/*==========================
+      MAGIC PARTICLES
+==========================*/
+
+.magic-particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:6;
+}
+
+.magic-particles span{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#fff6b5;
+    box-shadow:
+        0 0 12px #ffe082,
+        0 0 25px gold;
+    animation:magicFloat 8s linear infinite;
+}
+
+.magic-particles span:nth-child(1){left:8%;top:95%;animation-delay:0s;}
+.magic-particles span:nth-child(2){left:18%;top:92%;animation-delay:.8s;}
+.magic-particles span:nth-child(3){left:28%;top:96%;animation-delay:1.6s;}
+.magic-particles span:nth-child(4){left:40%;top:94%;animation-delay:2.4s;}
+.magic-particles span:nth-child(5){left:52%;top:95%;animation-delay:3.2s;}
+.magic-particles span:nth-child(6){left:65%;top:93%;animation-delay:4s;}
+.magic-particles span:nth-child(7){left:76%;top:96%;animation-delay:4.8s;}
+.magic-particles span:nth-child(8){left:86%;top:92%;animation-delay:5.6s;}
+.magic-particles span:nth-child(9){left:93%;top:95%;animation-delay:6.4s;}
+.magic-particles span:nth-child(10){left:48%;top:98%;animation-delay:7.2s;}
+
+@keyframes magicFloat{
+
+0%{
+transform:translateY(0) scale(.2);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
+}
+
+}
+
+/*==========================
+        CONFETTI
+==========================*/
+
+.confetti-container{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:40;
+}
+
+.confetti{
+    position:absolute;
+    top:-20px;
+    width:10px;
+    height:20px;
+    animation:confettiFall 5s linear infinite;
+}
+
+.c1{left:5%;background:#ff4d6d;}
+.c2{left:15%;background:#ffd60a;}
+.c3{left:25%;background:#38bdf8;}
+.c4{left:35%;background:#22c55e;}
+.c5{left:45%;background:#ffffff;}
+.c6{left:55%;background:#ff99c8;}
+.c7{left:65%;background:#ffd166;}
+.c8{left:75%;background:#9b5de5;}
+.c9{left:85%;background:#00f5d4;}
+.c10{left:95%;background:#ff006e;}
+
+.confetti:nth-child(even){
+animation-delay:1s;
+}
+
+@keyframes confettiFall{
+
+0%{
+transform:translateY(-20px) rotate(0deg);
+}
+
+100%{
+transform:translateY(120vh) rotate(720deg);
+}
+
+}
+
+/*==========================
+      FIREWORK CANVAS
+==========================*/
+
+#cakeFireworksCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:45;
+}
+
+/*==========================
+        MESSAGE
+==========================*/
+
+.birthday-message{
+    margin-top:45px;
+    text-align:center;
+    z-index:30;
+}
+
+.birthday-message h2{
+    color:#ffe08c;
+    font-size:2rem;
+    font-family:"Cinzel",serif;
+    text-shadow:0 0 18px gold;
+}
+
+.birthday-message p{
+    margin-top:18px;
+    color:#f2f2f2;
+    line-height:1.9;
+    font-size:1rem;
+}
+
+/*==========================
+        BUTTONS
+==========================*/
+
+.cake-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:50px;
+    z-index:50;
+}
+
+.cake-buttons .hero-btn{
+
+    padding:16px 34px;
+
+    border:none;
+    border-radius:60px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1rem;
+    font-weight:600;
+
+    transition:.35s;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.blow-btn{
+
+background:linear-gradient(135deg,#ff6b6b,#ff1744);
+
+}
+
+.celebrate-btn{
+
+background:linear-gradient(135deg,#ffb300,#ff6f00);
+
+}
+
+.next-btn{
+
+background:linear-gradient(135deg,#7c4dff,#3f51b5);
+
+}
+
+.hero-btn:hover{
+
+transform:translateY(-6px) scale(1.05);
+
+box-shadow:
+0 15px 35px rgba(255,255,255,.18);
+
+}
+
+/*==========================
+        FOOTER
+==========================*/
+
+.cake-footer{
+
+margin:60px 0 40px;
+text-align:center;
+
+}
+
+.cake-footer p{
+
+color:#d9d9d9;
+font-style:italic;
+letter-spacing:1px;
+
+}
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media(max-width:768px){
+
+.cake-title{
+
+font-size:2.2rem;
+
+}
+
+.cake-name{
+
+font-size:1.6rem;
+
+}
+
+.calendar-bg{
+
+width:92%;
+
+}
+
+.birthday-cake{
+
+transform:scale(.82);
+
+}
+
+.balloon-cluster{
+
+display:none;
+
+}
+
+.cake-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-btn{
+
+width:260px;
+
+}
+
+}
