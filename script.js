@@ -364,13 +364,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (celebrateBtn) {
-        celebrateBtn.addEventListener("click", () => {
-            launchConfetti();
-            launchFireworks();
-            if (music) music.play().catch(() => {});
-        });
-    }
+    celebrateBtn.addEventListener("click", () => {
 
+        launchConfetti();
+        launchFireworks();
+
+        // Balloon release
+        document.querySelectorAll(".balloon").forEach((balloon, index) => {
+            setTimeout(() => {
+                balloon.classList.add("balloon-fly");
+            }, index * 300);
+        });
+
+        if (music) music.play().catch(() => {});
+    });
+}
     function launchConfetti() {
         document.querySelectorAll(".confetti").forEach((piece, index) => {
             piece.style.animation = "none";
