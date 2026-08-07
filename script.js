@@ -1003,166 +1003,143 @@ console.log(
 
 /* ===========================
    PAGE 3 : BIRTHDAY LETTER
-=========================== */
-
-const letterPage = document.querySelector(".letter-page");
-const letterCard = document.querySelector(".letter-card");
-const letterParagraphs = document.querySelectorAll(".letter-text p");
-
-/* Scroll Reveal */
-
-const letterObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            letterCard.classList.add("letter-active");
-
-            letterParagraphs.forEach((paragraph, index) => {
-
-                setTimeout(() => {
-
-                    paragraph.style.opacity = "1";
-                    paragraph.style.transform = "translateY(0)";
-
-                }, index * 450);
-
-            });
-
-        }
-
-    });
-
-}, {
-    threshold: 0.35
-});
-
-letterObserver.observe(letterPage);
-
-
-/* Mouse Tilt Effect */
-
-letterCard.addEventListener("mousemove", (e) => {
-
-    const rect = letterCard.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-
-    letterCard.style.transform =
-        `perspective(1200px)
-         rotateX(${rotateX}deg)
-         rotateY(${rotateY}deg)
-         scale(1.01)`;
-
-});
-
-letterCard.addEventListener("mouseleave", () => {
-
-    letterCard.style.transform =
-        "perspective(1200px) rotateX(2deg) rotateY(0deg) scale(1)";
-});
-
-
-/* Floating Paper Effect */
-
-let offset = 0;
-
-function paperFloat() {
-
-    offset += 0.02;
-
-    letterCard.style.marginTop =
-        `${Math.sin(offset) * 5}px`;
-
-    requestAnimationFrame(paperFloat);
-}
-
-paperFloat();  
-
-/* ===========================
-   PAGE 3 : TYPEWRITER EFFECT
+   TYPEWRITER EFFECT
 =========================== */
 
 const letterText = document.getElementById("letterText");
+const letterCard = document.querySelector(".letter-card");
+
 
 if (letterText) {
 
     const paragraphs = [...letterText.querySelectorAll("p")];
+
     const originalTexts = paragraphs.map(p => p.innerHTML);
 
-    paragraphs.forEach(p => p.innerHTML = "");
+
+    paragraphs.forEach(p => {
+
+        p.innerHTML = "";
+
+    });
+
 
     let currentParagraph = 0;
 
+
     function typeParagraph() {
+
 
         if (currentParagraph >= paragraphs.length) return;
 
+
         const target = paragraphs[currentParagraph];
+
         const html = originalTexts[currentParagraph];
+
 
         let index = 0;
 
+
         function type() {
 
-            if (index <= html.length) {
 
-                target.innerHTML = html.substring(0, index);
+            if (index < html.length) {
+
+
+                target.innerHTML += html.charAt(index);
+
 
                 index++;
 
-                setTimeout(type, 22);
 
-            } else {
+                setTimeout(type, 25);
+
+
+            } 
+            else {
+
 
                 currentParagraph++;
 
-                setTimeout(typeParagraph, 400);
+
+                setTimeout(typeParagraph, 2000);
+
 
             }
 
         }
 
+
         type();
+
     }
 
-    /* Start typing after a short delay */
-    setTimeout(typeParagraph, 1000);
+
+
+    // Start typing after 2 seconds
+
+    setTimeout(typeParagraph, 2000);
+
 
 }
+
 
 
 /* ===========================
-   SOFT GLOW EFFECT
+   SOFT GOLDEN GLOW EFFECT
 =========================== */
+
 
 if (letterCard) {
 
+
     setInterval(() => {
 
+
         letterCard.animate(
+
             [
+
                 {
-                    boxShadow: "0 0 25px rgba(255,215,120,.20)"
+
+                    boxShadow:
+                    "0 0 25px rgba(255,215,120,.20)"
+
                 },
+
+
                 {
-                    boxShadow: "0 0 55px rgba(255,215,120,.45)"
+
+                    boxShadow:
+                    "0 0 50px rgba(255,215,120,.35)"
+
                 },
+
+
                 {
-                    boxShadow: "0 0 25px rgba(255,215,120,.20)"
+
+                    boxShadow:
+                    "0 0 25px rgba(255,215,120,.20)"
+
                 }
+
+
             ],
+
             {
-                duration: 3500,
-                iterations: 1
+
+                duration:4000,
+
+                iterations:1
+
             }
+
         );
 
-    }, 3500);
+
+    },5000);
+
 
 }
+            
