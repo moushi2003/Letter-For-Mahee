@@ -1,1 +1,245 @@
+<!-- ================= MARVEL CINEMATIC SPIDER HERO ================= -->
+
+<section class="scene" id="spiderScene">
+
+    <!-- Background Canvas -->
+    <canvas id="webCanvas"></canvas>
+
+    <!-- Cinematic Layers -->
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
+
+    <!-- Fog -->
+    <div class="fog-container">
+        <div class="fog fog1"></div>
+        <div class="fog fog2"></div>
+        <div class="fog fog3"></div>
+    </div>
+
+    <!-- Light Rays -->
+    <div class="light-rays">
+        <span class="ray ray1"></span>
+        <span class="ray ray2"></span>
+        <span class="ray ray3"></span>
+    </div>
+
+    <!-- Floating Dust -->
+    <div class="dust-container">
+        <span class="dust d1"></span>
+        <span class="dust d2"></span>
+        <span class="dust d3"></span>
+        <span class="dust d4"></span>
+        <span class="dust d5"></span>
+        <span class="dust d6"></span>
+        <span class="dust d7"></span>
+        <span class="dust d8"></span>
+        <span class="dust d9"></span>
+        <span class="dust d10"></span>
+    </div>
+
+    <!-- Stars -->
+    <div class="stars-layer">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Lightning -->
+    <div class="lightning-wrapper">
+        <div class="lightning lightning-left"></div>
+        <div class="lightning lightning-right"></div>
+    </div>
+
+    <!-- Spider Glow -->
+    <div class="spider-glow"></div>
+
+    <!-- Camera Wrapper -->
+    <div class="camera-wrapper">
+
+        <!-- Spider Entrance -->
+        <div class="spiderman-entry">
+
+            <div class="main-web-line"></div>
+
+            <div class="web-shadow"></div>
+
+            <div class="spiderman-side-container">
+
+                <div class="spiderman-body">
+
+                    <div class="spider-head">
+
+                        <div class="mask-pattern"></div>
+
+                        <div class="eye-3d left">
+                            <span class="eye-glow"></span>
+                        </div>
+
+                        <div class="eye-3d right">
+                            <span class="eye-glow"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="spider-neck"></div>
+
+                    <div class="spider-torso">
+
+                        <div class="torso-pattern"></div>
+
+                        <div class="spider-logo">
+                            🕷️
+                        </div>
+
+                    </div>
+
+                    <div class="left-arm"></div>
+                    <div class="right-arm"></div>
+
+                    <div class="left-leg"></div>
+                    <div class="right-leg"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+
+            <div class="glass-card">
+
+                <span class="badge">
+                    ✦ SPECIAL DAY ✦
+                </span>
+
+                <div class="title-wrapper">
+
+                    <h1 class="glow-title">
+                        Happiest Birthday
+                    </h1>
+
+                    <div class="title-light"></div>
+
+                </div>
+
+                <h2 class="hero-name">
+                    MY SPIDER MAN
+                </h2>
+
+                <h3 class="person-name">
+                    Mahee ❤️
+                </h3>
+
+                <div class="divider"></div>
+
+                <p id="typing" class="typing-text"></p>
+
+              <!-- Hero Quote -->
+                <div class="hero-quote">
+                    <span class="quote-line"></span>
+                    <p>
+                        "Every hero has a story...
+                        Today is yours."
+                    </p>
+                    <span class="quote-line"></span>
+                </div>
+
+                <!-- Hero Buttons -->
+                <div class="hero-actions">
+
+                    <button id="musicBtn" class="hero-btn primary-btn">
+                        <span class="btn-icon">🎵</span>
+                        <span>Play Music</span>
+                    </button>
+
+                    <button id="enterBtn" class="hero-btn secondary-btn">
+                        <span>Begin Journey</span>
+                        <span class="arrow">➜</span>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+
+            <p>Scroll Down</p>
+
+        </div>
+
+    </div>
+
+    <!-- Floating Webs -->
+    <div class="corner-web top-left"></div>
+    <div class="corner-web top-right"></div>
+    <div class="corner-web bottom-left"></div>
+    <div class="corner-web bottom-right"></div>
+
+    <!-- Spider Particles -->
+    <div class="particle-container">
+
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+        <span class="particle p7"></span>
+        <span class="particle p8"></span>
+        <span class="particle p9"></span>
+        <span class="particle p10"></span>
+        <span class="particle p11"></span>
+        <span class="particle p12"></span>
+
+    </div>
+
+    <!-- Cinematic Flash -->
+    <div class="screen-flash"></div>
+
+    <!-- Transition -->
+    <div class="hero-transition">
+
+        <div class="transition-glow"></div>
+
+        <div class="transition-web"></div>
+
+        <div class="transition-fade"></div>
+
+    </div>
+
+</section>
+
+<!-- Audio -->
+<audio id="music" loop preload="auto">
+    <source src="spiderman.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Optional Sound Effects -->
+<audio id="thunderSound" preload="auto">
+    <source src="thunder.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="webShootSound" preload="auto">
+    <source src="webshoot.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="whooshSound" preload="auto">
+    <source src="whoosh.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sparkleSound" preload="auto">
+    <source src="sparkle.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= END OF SPIDER HERO ================= -->
+
 
