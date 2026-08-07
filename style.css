@@ -3000,8 +3000,8 @@ transform:translateY(0);
 
 }
 
-/* ================= PERSONAL LETTER PAGE ================= */
-.personal-letter-page {
+/* ================= UNSPOKEN TRUTH PAGE ================= */
+.unspoken-truth-page {
     position: relative;
     min-height: 100vh;
     background: #0f0c1b;
@@ -3013,7 +3013,7 @@ transform:translateY(0);
 }
 
 /* Ambient Background Glow */
-.personal-letter-page .bg-glow {
+.unspoken-truth-page .bg-glow {
     position: absolute;
     top: 0;
     left: 0;
