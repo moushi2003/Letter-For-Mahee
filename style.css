@@ -1255,150 +1255,6 @@ body{
 
 }
 
-/* ================= MEMORY GALLERY ================= */
-
-.memory-gallery{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:30px;
-
-    width:100%;
-
-}
-
-
-/* ================= MEMORY CARD ================= */
-
-.memory-card{
-
-    position:relative;
-
-    height:420px;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.18);
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.5),
-    0 0 25px rgba(120,170,255,.15);
-
-    cursor:pointer;
-
-    transition:.6s ease;
-
-}
-
-
-/* Image */
-
-.memory-card img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:1s ease;
-
-}
-
-
-/* Dark layer */
-
-.memory-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-    to top,
-    rgba(0,0,0,.85),
-    transparent 55%
-    );
-
-    z-index:2;
-
-}
-
-
-/* Hover */
-
-.memory-card:hover{
-
-    transform:
-    translateY(-15px)
-    scale(1.03);
-
-    box-shadow:
-    0 30px 70px rgba(0,0,0,.7),
-    0 0 45px rgba(255,255,255,.25);
-
-}
-
-
-.memory-card:hover img{
-
-    transform:scale(1.12);
-
-}
-
-
-/* ================= CAPTION ================= */
-
-
-.memory-caption{
-
-    display:none;
-
-}
-
-
-.memory-card:hover .memory-caption{
-
-    transform:translateY(0);
-
-    opacity:1;
-
-}
-
-
-.memory-caption h3{
-
-    font-family:"Great Vibes",cursive;
-
-    font-size:2rem;
-
-    color:#ffd6e8;
-
-    margin-bottom:8px;
-
-}
-
-
-.memory-caption p{
-
-    color:#ddd;
-
-    font-size:.9rem;
-
-    letter-spacing:1px;
-
-}
 
 /* ================= MEMORY BUTTON ================= */
 
@@ -1557,4 +1413,109 @@ body{
     }
 
 }
+/* ================= MEMORY SLIDESHOW ================= */
 
+.memory-slideshow{
+
+    position:relative;
+
+    width:min(700px,90%);
+
+    height:500px;
+
+    margin:0 auto;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.6),
+    0 0 40px rgba(140,180,255,.25);
+
+}
+
+
+
+/* Images */
+
+.memory-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#000;
+
+    opacity:0;
+
+    transform:scale(1.05);
+
+    transition:
+    opacity 1.5s ease,
+    transform 6s ease;
+
+}
+
+
+
+/* Active Image */
+
+.memory-slide.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+
+/* Soft glow */
+
+.memory-slideshow::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,.35),
+    transparent 40%
+    );
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .memory-slideshow{
+
+        height:420px;
+
+        width:95%;
+
+    }
+
+}
