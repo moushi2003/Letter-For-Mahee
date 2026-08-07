@@ -493,10 +493,16 @@ scene.addEventListener("mousemove", e => {
 
 console.log("🕷 Marvel Spider Hero Loaded Successfully");
 
+   
+
    /*==================================================
       CINEMATIC CAKE PAGE — PART 1
       Curtains • Countdown • Intro
 ==================================================*/
+
+console.log("Cake JS Loaded");
+
+console.log(document.getElementById("cakeMainContent"));   
 
 const cakePage = document.getElementById("cakePage");
 
@@ -670,13 +676,15 @@ window.addEventListener("load",()=>{
 
 const flame = document.getElementById("flame");
 const fireworksCanvas = document.getElementById("cakeFireworksCanvas");
-const ctx = fireworksCanvas.getContext("2d");
+const ctx = fireworksCanvas ? fireworksCanvas.getContext("2d") : null;
 
 /*====================================
         CANVAS RESIZE
 ====================================*/
 
 function resizeFireworks(){
+
+    if(!fireworksCanvas) return;
 
     fireworksCanvas.width = window.innerWidth;
     fireworksCanvas.height = window.innerHeight;
@@ -1006,10 +1014,17 @@ console.log(
 "🎂 Cinematic Cake Page Loaded Successfully."
 );
 
+   
 /* ===========================
    PAGE 3 : BIRTHDAY LETTER
    TYPEWRITER EFFECT
 =========================== */
+
+console.log("Letter JS Loaded");
+
+const letterText = document.getElementById("letterText");
+
+console.log(letterText);   
 
 const letterText = document.getElementById("letterText");
 const letterCard = document.querySelector(".letter-card");
