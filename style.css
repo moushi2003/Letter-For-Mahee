@@ -645,7 +645,7 @@ body{
     padding:70px 20px 120px;
 }
 
-.hidden-content{ opacity:0; visibility:hidden; }
+.hidden-content{ opacity:1; visibility:visible; }
 
 /* Gold Particles */
 .gold-particles{
