@@ -1147,6 +1147,18 @@ body{
 
 .letter-text strong{ font-size:1.6rem; color:#7b1e2b; }
 
+.letter-sign{
+    font-size:1rem;
+    color:#ddd;
+    font-style:italic;
+}
+
+.letter-name{
+    font-size:1.4rem;
+    color:#fff;
+    letter-spacing:2px;
+}
+
 .letter-card::after{
     content:"";
     position:absolute;
