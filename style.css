@@ -1161,3 +1161,416 @@ body{
     .person-name{ font-size:1.8rem; }
     .scroll-indicator{ display:none; }
 }
+
+
+/* =====================================================
+   PAGE 4 : FRIENDSHIP MEMORY CINEMATIC PAGE
+===================================================== */
+
+
+/* ================= MEMORY SECTION ================= */
+
+.friend-memory{
+    position:relative;
+    min-height:100vh;
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px;
+    background:
+    radial-gradient(circle at top,#26345f 0%,#0a0a14 45%,#000 100%);
+}
+
+
+/* Background glow */
+
+.memory-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at center,
+    rgba(255,255,255,.08),
+    transparent 45%),
+    linear-gradient(
+    to bottom,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.85)
+    );
+
+    z-index:1;
+}
+
+
+/* Floating container */
+
+.memory-container{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+
+/* Heading */
+
+.memory-container h1{
+
+    font-family:"Cinzel",serif;
+
+    font-size:3.2rem;
+
+    color:#fff;
+
+    letter-spacing:2px;
+
+    text-shadow:
+    0 0 15px #fff,
+    0 0 35px #8ab4ff;
+
+    margin-bottom:20px;
+
+}
+
+
+/* Subtitle */
+
+.memory-subtitle{
+
+    color:#ddd;
+
+    font-family:"Lora",serif;
+
+    font-size:1.1rem;
+
+    font-style:italic;
+
+    max-width:600px;
+
+    margin:0 auto 60px;
+
+    line-height:1.8;
+
+}
+
+/* ================= MEMORY GALLERY ================= */
+
+.memory-gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    width:100%;
+
+}
+
+
+/* ================= MEMORY CARD ================= */
+
+.memory-card{
+
+    position:relative;
+
+    height:420px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.5),
+    0 0 25px rgba(120,170,255,.15);
+
+    cursor:pointer;
+
+    transition:.6s ease;
+
+}
+
+
+/* Image */
+
+.memory-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:1s ease;
+
+}
+
+
+/* Dark layer */
+
+.memory-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,.85),
+    transparent 55%
+    );
+
+    z-index:2;
+
+}
+
+
+/* Hover */
+
+.memory-card:hover{
+
+    transform:
+    translateY(-15px)
+    scale(1.03);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.7),
+    0 0 45px rgba(255,255,255,.25);
+
+}
+
+
+.memory-card:hover img{
+
+    transform:scale(1.12);
+
+}
+
+
+/* ================= CAPTION ================= */
+
+
+.memory-caption{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:0;
+
+    width:100%;
+
+    z-index:3;
+
+    color:white;
+
+    transform:translateY(20px);
+
+    opacity:.85;
+
+    transition:.5s ease;
+
+}
+
+
+.memory-card:hover .memory-caption{
+
+    transform:translateY(0);
+
+    opacity:1;
+
+}
+
+
+.memory-caption h3{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:2rem;
+
+    color:#ffd6e8;
+
+    margin-bottom:8px;
+
+}
+
+
+.memory-caption p{
+
+    color:#ddd;
+
+    font-size:.9rem;
+
+    letter-spacing:1px;
+
+}
+
+/* ================= MEMORY BUTTON ================= */
+
+.memory-next{
+
+    margin-top:60px;
+
+    padding:16px 38px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    background:
+    linear-gradient(135deg,#ff4d7a,#7c4dff);
+
+    box-shadow:
+    0 10px 35px rgba(255,77,122,.45);
+
+    transition:.5s ease;
+
+}
+
+
+.memory-next:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 45px rgba(255,150,200,.8);
+
+}
+
+
+
+/* ================= MEMORY PARTICLE EFFECT ================= */
+
+
+.friend-memory::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+    radial-gradient(#ffffff 1px,transparent 1px);
+
+    background-size:80px 80px;
+
+    opacity:.12;
+
+    animation:
+    memoryStars 25s linear infinite;
+
+}
+
+
+@keyframes memoryStars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-100px);
+    }
+
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:1000px){
+
+    .memory-gallery{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .memory-card{
+
+        height:380px;
+
+    }
+
+}
+
+
+
+@media(max-width:600px){
+
+    .friend-memory{
+
+        padding:80px 15px;
+
+    }
+
+
+    .memory-container h1{
+
+        font-size:2.1rem;
+
+    }
+
+
+    .memory-subtitle{
+
+        font-size:.95rem;
+
+        margin-bottom:40px;
+
+    }
+
+
+    .memory-gallery{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+
+    .memory-card{
+
+        height:420px;
+
+    }
+
+
+    .memory-next{
+
+        width:90%;
+
+    }
+
+}
+
