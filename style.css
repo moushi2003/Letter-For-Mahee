@@ -3690,3 +3690,214 @@ blockquote{
 }
 
 }
+/* ==========================================================
+   MASTERPIECE FINAL POLISH
+========================================================== */
+
+/* ===========================
+   Floating Dust
+=========================== */
+
+.personal-particles{
+
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;
+
+}
+
+.personal-particles span{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:rgba(255,240,200,.9);
+
+    box-shadow:
+    0 0 12px rgba(255,220,150,.9);
+
+    animation:floatingDust linear infinite;
+
+}
+
+@keyframes floatingDust{
+
+0%{
+
+transform:
+translateY(40px)
+translateX(0)
+scale(.4);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+translateX(50px)
+scale(1);
+
+opacity:0;
+
+}
+
+}
+
+/* ===========================
+   Rose Petals
+=========================== */
+
+.petal-container{
+
+position:absolute;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+.rose-petal{
+
+position:absolute;
+
+width:18px;
+height:24px;
+
+background:linear-gradient(
+135deg,
+#ff5d73,
+#d61a45
+);
+
+border-radius:
+50% 50% 50% 0;
+
+transform:rotate(45deg);
+
+box-shadow:
+
+0 0 8px rgba(255,70,100,.35);
+
+animation:petalFly forwards ease-in-out;
+
+}
+
+.rose-petal::before{
+
+content:"";
+
+position:absolute;
+
+width:18px;
+height:24px;
+
+background:inherit;
+
+border-radius:50% 50% 50% 0;
+
+transform:
+rotate(-90deg);
+
+left:-9px;
+top:8px;
+
+}
+
+/* ===========================
+   Petal Animation
+=========================== */
+
+@keyframes petalFly{
+
+0%{
+
+opacity:0;
+
+transform:
+translate(0,0)
+rotate(0deg)
+scale(.5);
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(
+calc(-350px + 700px * var(--rand,1)),
+-500px)
+rotate(720deg)
+scale(1.15);
+
+}
+
+}
+
+/* ===========================
+   Paper Glow
+=========================== */
+
+.letter-paper{
+
+transition:.5s;
+
+}
+
+.letter-paper:hover{
+
+box-shadow:
+
+0 35px 100px rgba(0,0,0,.32),
+
+0 0 35px rgba(255,220,180,.25);
+
+}
+
+/* ===========================
+   Smooth Scroll
+=========================== */
+
+.letter-body{
+
+scroll-behavior:smooth;
+
+}
+
+/* ===========================
+   Selection
+=========================== */
+
+.letter-body::selection,
+.paragraph::selection{
+
+background:#f4d5b5;
+
+color:#2d2118;
+
+}
