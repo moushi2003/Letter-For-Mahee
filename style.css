@@ -2493,3 +2493,877 @@ body{
     }
 
 }
+/* =====================================================
+   REAL LUXURY BOUQUET - PART 1
+===================================================== */
+
+
+/* Main Bouquet */
+
+.real-bouquet{
+
+    position:relative;
+
+    width:420px;
+
+    height:520px;
+
+    margin:auto;
+
+    transform:translateY(40px);
+
+    animation:
+    realBouquetFloat 4s ease-in-out infinite;
+
+}
+
+
+
+/* Soft Glow Behind Bouquet */
+
+.real-bouquet::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    left:20px;
+
+    top:80px;
+
+    background:
+
+    radial-gradient(
+    circle,
+    rgba(255,70,90,.35),
+    transparent 70%
+    );
+
+    filter:blur(35px);
+
+    z-index:-1;
+
+}
+
+
+
+/* Rose Base */
+
+.rose{
+
+    position:absolute;
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+    circle at 30% 25%,
+    #ff7585,
+    #d4002f 35%,
+    #780018 75%
+    );
+
+
+    box-shadow:
+
+    inset 0 0 20px rgba(0,0,0,.45),
+
+    0 10px 25px rgba(255,0,50,.45);
+
+
+    transform:
+
+    scale(0);
+
+    animation:
+
+    roseBloom 1s ease forwards;
+
+}
+
+
+
+/* Rose Petal Layers */
+
+.rose::before,
+
+.rose::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border-radius:50%;
+
+    border:8px solid rgba(255,120,140,.35);
+
+}
+
+
+.rose::after{
+
+    inset:22px;
+
+    border-color:
+
+    rgba(255,200,200,.25);
+
+}
+
+
+
+/* Bloom Animation */
+
+@keyframes roseBloom{
+
+
+    from{
+
+        transform:scale(0)
+        rotate(-40deg);
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        transform:scale(1)
+        rotate(0);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* Bouquet Floating */
+
+@keyframes realBouquetFloat{
+
+
+    0%,100%{
+
+        transform:translateY(40px);
+
+    }
+
+
+    50%{
+
+        transform:translateY(20px);
+
+    }
+
+}
+
+/* =====================================================
+   REAL LUXURY BOUQUET - PART 2
+   24 ROSE ARRANGEMENT
+===================================================== */
+
+
+/* ================= ROSE POSITIONS ================= */
+
+
+.r1{
+    left:175px;
+    top:30px;
+    animation-delay:.1s;
+}
+
+.r2{
+    left:120px;
+    top:45px;
+    animation-delay:.2s;
+}
+
+.r3{
+    left:230px;
+    top:45px;
+    animation-delay:.3s;
+}
+
+.r4{
+    left:75px;
+    top:85px;
+    animation-delay:.4s;
+}
+
+.r5{
+    left:175px;
+    top:85px;
+    animation-delay:.5s;
+}
+
+.r6{
+    left:275px;
+    top:85px;
+    animation-delay:.6s;
+}
+
+
+.r7{
+    left:45px;
+    top:135px;
+    animation-delay:.7s;
+}
+
+.r8{
+    left:125px;
+    top:135px;
+    animation-delay:.8s;
+}
+
+.r9{
+    left:210px;
+    top:135px;
+    animation-delay:.9s;
+}
+
+.r10{
+    left:295px;
+    top:135px;
+    animation-delay:1s;
+}
+
+
+
+.r11{
+    left:75px;
+    top:190px;
+}
+
+.r12{
+    left:165px;
+    top:190px;
+}
+
+.r13{
+    left:255px;
+    top:190px;
+}
+
+
+.r14{
+    left:115px;
+    top:245px;
+}
+
+.r15{
+    left:205px;
+    top:245px;
+}
+
+
+
+.r16{
+    left:150px;
+    top:300px;
+}
+
+
+.r17{
+    left:90px;
+    top:285px;
+}
+
+.r18{
+    left:230px;
+    top:285px;
+}
+
+
+
+.r19{
+    left:125px;
+    top:350px;
+}
+
+.r20{
+    left:200px;
+    top:350px;
+}
+
+
+.r21{
+    left:155px;
+    top:400px;
+}
+
+
+.r22{
+    left:90px;
+    top:390px;
+}
+
+
+.r23{
+    left:220px;
+    top:390px;
+}
+
+
+.r24{
+    left:155px;
+    top:440px;
+}
+
+
+
+/* Different Rose Sizes */
+
+.r1,.r2,.r3,
+.r5,.r8,.r9{
+
+    width:85px;
+    height:85px;
+
+}
+
+
+.r16,.r19,.r20,.r21,.r22,.r23,.r24{
+
+    width:65px;
+    height:65px;
+
+}
+
+/* =====================================================
+   REAL LUXURY BOUQUET - PART 3
+   LEAVES + WRAP + RIBBON
+===================================================== */
+
+
+/* ================= GREEN LEAVES ================= */
+
+
+.leaf{
+
+    position:absolute;
+
+    width:55px;
+
+    height:25px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #3f8f3f,
+    #0d4d1b
+    );
+
+    border-radius:
+
+    100% 0 100% 0;
+
+
+    box-shadow:
+
+    0 5px 15px rgba(0,0,0,.5);
+
+
+    z-index:-1;
+
+}
+
+
+
+.l1{
+
+    left:55px;
+
+    top:250px;
+
+    transform:
+    rotate(-35deg);
+
+}
+
+
+.l2{
+
+    right:55px;
+
+    top:260px;
+
+    transform:
+    rotate(35deg) scaleX(-1);
+
+}
+
+
+.l3{
+
+    left:170px;
+
+    top:330px;
+
+    transform:
+    rotate(180deg);
+
+}
+
+
+
+/* Extra leaf glow */
+
+.leaf::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:35px;
+
+    height:2px;
+
+    background:rgba(255,255,255,.25);
+
+    top:12px;
+
+    left:8px;
+
+    transform:rotate(-25deg);
+
+}
+
+
+
+/* ================= WHITE BABY FLOWERS ================= */
+
+
+.real-bouquet::after{
+
+    content:
+
+    "✿  ✿  ✿  ✿  ✿";
+
+    position:absolute;
+
+    top:190px;
+
+    left:85px;
+
+
+    color:white;
+
+    font-size:25px;
+
+    letter-spacing:12px;
+
+
+    text-shadow:
+
+    0 0 10px white;
+
+
+    animation:
+
+    babyGlow 3s infinite;
+
+}
+
+
+
+@keyframes babyGlow{
+
+    0%,100%{
+
+        opacity:.7;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* ================= WRAPPING PAPER ================= */
+
+
+.bouquet-wrap{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:70px;
+
+
+    width:280px;
+
+    height:220px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #fff4e6,
+    #d8b48a
+    );
+
+
+    clip-path:
+
+    polygon(
+    20% 0,
+    80% 0,
+    100% 100%,
+    0 100%
+    );
+
+
+    box-shadow:
+
+    0 25px 50px rgba(0,0,0,.6);
+
+
+    z-index:-2;
+
+}
+
+
+
+/* Paper Texture */
+
+.bouquet-wrap::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,.15) 0px,
+    transparent 8px
+    );
+
+}
+
+
+
+
+/* ================= SATIN RIBBON ================= */
+
+
+.bouquet-ribbon{
+
+
+    position:absolute;
+
+
+    bottom:110px;
+
+    left:145px;
+
+
+    width:130px;
+
+    height:45px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #8b0018,
+    #ff5577,
+    #8b0018
+    );
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 0 20px rgba(255,80,120,.8);
+
+
+
+}
+
+
+.bouquet-ribbon::before,
+
+.bouquet-ribbon::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:20px;
+
+
+    width:70px;
+
+    height:45px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ff5577,
+    #8b0018
+    );
+
+
+}
+
+
+
+.bouquet-ribbon::before{
+
+    left:-55px;
+
+    transform:
+    rotate(25deg);
+
+}
+
+
+.bouquet-ribbon::after{
+
+    right:-55px;
+
+    transform:
+    rotate(-25deg);
+
+}
+
+/* =====================================================
+   REAL LUXURY BOUQUET - PART 4
+   FINAL CINEMATIC POLISH
+===================================================== */
+
+
+/* ================= ROSE DETAIL ================= */
+
+
+.rose{
+
+    overflow:hidden;
+
+}
+
+
+.rose span{
+
+    display:block;
+
+}
+
+
+
+/* Petal shine */
+
+.rose::marker{
+
+    display:none;
+
+}
+
+
+.rose:hover{
+
+    filter:
+
+    brightness(1.15)
+
+    drop-shadow(0 0 25px rgba(255,50,80,.8));
+
+}
+
+
+
+/* ================= CINEMATIC REVEAL ================= */
+
+
+.real-bouquet{
+
+    opacity:0;
+
+    animation:
+
+    luxuryReveal 2.5s ease forwards;
+
+}
+
+
+
+@keyframes luxuryReveal{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:
+
+        translateY(180px)
+
+        scale(.75);
+
+        filter:blur(8px);
+
+    }
+
+
+    60%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:
+
+        translateY(40px)
+
+        scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+
+
+/* ================= PETAL FALL ================= */
+
+
+.rose-petals span{
+
+    filter:
+
+    drop-shadow(0 0 12px rgba(255,70,100,.9));
+
+}
+
+
+
+.rose-petals span:nth-child(even){
+
+    animation-duration:10s;
+
+}
+
+
+
+.rose-petals span:nth-child(3){
+
+    font-size:22px;
+
+}
+
+
+
+/* ================= BUTTON FINAL ================= */
+
+
+.bouquet-next{
+
+
+    backdrop-filter:blur(10px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.25);
+
+
+    animation:
+
+    buttonGlow 3s infinite;
+
+}
+
+
+
+@keyframes buttonGlow{
+
+
+    0%,100%{
+
+        box-shadow:
+
+        0 10px 35px rgba(255,70,100,.4);
+
+    }
+
+
+    50%{
+
+        box-shadow:
+
+        0 0 55px rgba(255,150,180,.9);
+
+    }
+
+}
+
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:600px){
+
+
+    .real-bouquet{
+
+        transform:
+
+        scale(.72);
+
+        margin-top:-40px;
+
+    }
+
+
+    .bouquet-container{
+
+        height:480px;
+
+    }
+
+
+}
