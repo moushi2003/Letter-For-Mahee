@@ -580,109 +580,28 @@
     </div>
 
 </section>
-    <!-- ================= PERSONAL LETTER PAGE ================= -->
+    <!-- ================= UNSPOKEN TRUTH PAGE ================= -->
+    <section class="unspoken-truth-page">
+        <div class="bg-glow"></div>
 
-<section class="personal-letter-page" id="personalLetterPage">
-
-    <!-- Background -->
-    <div class="personal-bg"></div>
-    <div class="personal-overlay"></div>
-    <div class="personal-glow"></div>
-
-    <!-- Floating Dust -->
-    <div class="personal-particles">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-    </div>
-
-    <!-- ================= Envelope ================= -->
-
-    <div class="envelope-scene" id="envelopeScene">
-
-        <div class="envelope-title">
-            <p>Some words are too precious...</p>
-            <h2>Open When You're Ready</h2>
+        <!-- Envelope Opening Screen -->
+        <div class="envelope-container" id="envelopeContainer">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap" id="flap"></div>
+                <button class="seal-btn" onclick="openLetter()">Open Letter 💌</button>
+            </div>
+            <p style="color: #f8bbd0; margin-top: 20px; font-style: italic; letter-spacing: 1px;">An unspoken truth awaits...</p>
         </div>
 
-        <div class="cinematic-envelope" id="envelope">
-
-            <!-- Back -->
-            <div class="env-back"></div>
-
-            <!-- Hidden Letter -->
-            <div class="letter-preview">
-                <span>For You 🤍</span>
-            </div>
-
-            <!-- Front -->
-            <div class="env-front">
-
-                <div class="env-left"></div>
-                <div class="env-right"></div>
-                <div class="env-bottom"></div>
-
-            </div>
-
-            <!-- Flap -->
-            <div class="env-flap" id="envFlap"></div>
-
-            <!-- Wax Seal -->
-            <button class="wax-seal"
-                    id="waxSeal"
-                    type="button">
-
-                🤍
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ================= Letter Stage ================= -->
-
-    <div class="letter-stage" id="letterStage">
-
-        <div class="letter-paper">
-
-            <div class="paper-top-design">
-
-                <span></span>
-                <div>🤍</div>
-                <span></span>
-
-            </div>
-
-
-            <div class="letter-header">
-
-                <p class="letter-mini">
-                    A little piece of honesty
-                </p>
-
-                <h1>
-                    If My Heart Could Speak...
-                </h1>
-
-                <div class="divider">
-                    <span></span>
-                    <div>♡</div>
-                    <span></span>
-                </div>
-
-                <p class="letter-subtitle">
-
-                    Written with honesty...
-                    <br>
-                    Read with kindness.
-
-                </p>
-
-            </div>
-
+        <!-- Revealed Personal Letter -->
+        <div class="letter-stage" id="letterStage">
+            <div class="letter-bg-wrap">
+                <div class="letter-overlay"></div>
+                <div class="letter-content">
+                    <div class="letter-header">
+                        <h1>Unspoken Truth</h1>
+                        <p>Straight from the heart</p>
+                    </div>
 
                     <p class="paragraph">First of all… pardon me for falling in love with you.</p>
                     <p class="paragraph">I never planned for my heart to choose you. I don’t even know when it happened. Somewhere between our conversations, your little moments, and the comfort I found in your presence… you became someone who meant more to me than I ever expected.</p>
@@ -713,6 +632,7 @@
             </div>
         </div>
     </section>
+
     <!-- Script File -->
     <script src="script.js"></script>
 
