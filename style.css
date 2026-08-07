@@ -1752,10 +1752,13 @@ body{
 .right-spider{
     position:absolute;
     top:0;
-    right:8%;
+    right:12%;
     left:auto;
-    transform:scaleX(-1);
     z-index:8;
+}
+
+.right-spider .spiderman-body{
+    transform:scaleX(-1);
 }
 
 .right-spider .spiderman-side-container{
