@@ -320,9 +320,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-   /* window.addEventListener("load", () => {
+    window.addEventListener("load", () => {
         setTimeout(startCakeIntro, 1200);
-    });  */
+    });  
 
     /* ===============================
        CANDLE & FIREWORKS
