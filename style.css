@@ -732,10 +732,11 @@ body{
 .curtain{
     position:absolute;
     top:0;
-    width:18%;
+    width:50%;
     height:100%;
     z-index:25;
     overflow:hidden;
+    box-shadow:0 0 50px rgba(0,0,0,.55);
     background:linear-gradient(90deg, #240000 0%, #560000 18%, #890000 35%, #b00000 50%, #890000 65%, #560000 82%, #240000 100%);
 }
 
@@ -744,8 +745,23 @@ body{
 .open-left{ animation:leftCurtain 2.2s ease forwards; }
 .open-right{ animation:rightCurtain 2.2s ease forwards; }
 
-@keyframes leftCurtain{ 0%{transform:translateX(0);} 100%{transform:translateX(-94%);} }
-@keyframes rightCurtain{ 0%{transform:translateX(0);} 100%{transform:translateX(94%);} }
+@keyframes leftCurtain{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes rightCurtain{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(100%);
+    }
+}
 
 .curtain-fold{
     position:absolute;
