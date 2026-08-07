@@ -1165,6 +1165,7 @@ body{
 
 /* =====================================================
    PAGE 4 : FRIENDSHIP MEMORY CINEMATIC SLIDESHOW
+   PART 1
 ===================================================== */
 
 
@@ -1173,11 +1174,15 @@ body{
 .friend-memory{
 
     position:relative;
+
     min-height:100vh;
+
     width:100%;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     overflow:hidden;
@@ -1185,9 +1190,12 @@ body{
     padding:100px 20px;
 
     background:
-    radial-gradient(circle at top,#26345f 0%,#0a0a14 45%,#000 100%);
-}
+    radial-gradient(circle at top,
+    #26345f 0%,
+    #0a0a14 45%,
+    #000 100%);
 
+}
 
 
 /* Background Overlay */
@@ -1195,22 +1203,23 @@ body{
 .memory-overlay{
 
     position:absolute;
+
     inset:0;
 
     background:
     radial-gradient(circle at center,
-    rgba(255,255,255,.08),
+    rgba(255,255,255,.12),
     transparent 45%),
 
     linear-gradient(
     to bottom,
-    rgba(0,0,0,.2),
-    rgba(0,0,0,.85)
+    rgba(0,0,0,.15),
+    rgba(0,0,0,.8)
     );
 
     z-index:1;
-}
 
+}
 
 
 /* Main Container */
@@ -1230,7 +1239,6 @@ body{
 }
 
 
-
 /* Title */
 
 .memory-container h1{
@@ -1239,18 +1247,19 @@ body{
 
     font-size:3.2rem;
 
-    color:white;
+    color:#fff;
 
     letter-spacing:2px;
 
     margin-bottom:20px;
 
     text-shadow:
-    0 0 15px white,
+
+    0 0 15px #fff,
+
     0 0 35px #8ab4ff;
 
 }
-
 
 
 /* Subtitle */
@@ -1274,41 +1283,40 @@ body{
 }
 
 
-
-/* ================= SLIDESHOW ================= */
-
+/* ================= SLIDESHOW FRAME ================= */
 
 .memory-slideshow{
 
     position:relative;
 
-    width:min(500px,90vw);
+    width:min(420px,85vw);
 
-    height:650px;
+    height:600px;
 
     margin:auto;
 
     overflow:hidden;
 
-    border-radius:30px;
-
-    background:#000;
+    border-radius:25px;
 
 
-    border:1px solid rgba(255,255,255,.2);
+    background:#fff;
+
+
+    border:2px solid rgba(255,255,255,.9);
 
 
     box-shadow:
 
-    0 30px 70px rgba(0,0,0,.7),
+    0 25px 60px rgba(0,0,0,.65),
 
-    0 0 40px rgba(140,180,255,.3);
+    0 0 30px rgba(255,255,255,.5),
+
+    0 0 45px rgba(0,170,255,.35);
 
 }
 
-
-
-/* Images */
+/* ================= SLIDESHOW IMAGES ================= */
 
 
 .memory-slide{
@@ -1317,29 +1325,33 @@ body{
 
     inset:0;
 
-
     width:100%;
 
     height:100%;
 
 
-    object-fit:contain;
+    object-fit:cover;
 
 
-    background:#000;
+    object-position:center;
+
+
+    background:#fff;
 
 
     opacity:0;
 
 
-    animation:memoryShow 16s infinite;
+    transform:scale(1.08);
 
+
+    animation:memoryShow 16s infinite;
 
 }
 
 
 
-/* Timing */
+/* Image Timing */
 
 
 .memory-slide:nth-child(1){
@@ -1371,7 +1383,7 @@ body{
 
 
 
-/* Slideshow Animation */
+/* Smooth Cinematic Slide */
 
 
 @keyframes memoryShow{
@@ -1415,16 +1427,44 @@ body{
 
     }
 
+}
+
+
+
+/* ================= IMAGE SOFT GLOW ================= */
+
+
+.memory-slideshow::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+
+    background:
+
+    linear-gradient(
+
+    to top,
+
+    rgba(0,0,0,.25),
+
+    transparent 35%
+
+    );
 
 }
 
 
 
-/* ================= BUTTON ================= */
+/* ================= NEXT BUTTON ================= */
 
 
 .memory-next{
-
 
     margin-top:55px;
 
@@ -1433,6 +1473,7 @@ body{
 
 
     border:none;
+
 
     border-radius:50px;
 
@@ -1454,7 +1495,11 @@ body{
 
     background:
 
-    linear-gradient(135deg,#ff4d7a,#7c4dff);
+    linear-gradient(135deg,
+
+    #ff4d7a,
+
+    #7c4dff);
 
 
     box-shadow:
@@ -1470,7 +1515,6 @@ body{
 
 .memory-next:hover{
 
-
     transform:
 
     translateY(-8px)
@@ -1482,7 +1526,6 @@ body{
 
     0 0 45px rgba(255,150,200,.8);
 
-
 }
 
 
@@ -1491,7 +1534,6 @@ body{
 
 
 .friend-memory::after{
-
 
     content:"";
 
@@ -1518,7 +1560,6 @@ body{
 
     animation:memoryStars 25s linear infinite;
 
-
 }
 
 
@@ -1541,56 +1582,84 @@ body{
 
 }
 
+/* =====================================================
+   PAGE 4 : RESPONSIVE
+===================================================== */
 
+@media (max-width:900px){
 
-/* ================= MOBILE ================= */
+    .memory-container h1{
+        font-size:2.6rem;
+    }
 
+    .memory-slideshow{
+        width:min(380px,88vw);
+        height:540px;
+    }
 
-@media(max-width:600px){
+}
 
+@media (max-width:600px){
 
     .friend-memory{
 
-        padding:80px 15px;
+        padding:70px 15px;
 
     }
-
-
 
     .memory-container h1{
 
-        font-size:2.1rem;
+        font-size:2rem;
 
     }
-
-
 
     .memory-subtitle{
 
         font-size:.95rem;
 
+        margin-bottom:35px;
+
+        line-height:1.7;
+
     }
-
-
 
     .memory-slideshow{
 
+        width:88vw;
+
         height:500px;
 
-        width:95%;
+        border-radius:20px;
 
     }
-
-
 
     .memory-next{
 
         width:90%;
 
+        max-width:320px;
+
+        padding:15px 20px;
+
+        font-size:.95rem;
+
     }
 
-
 }
+
+@media (max-width:420px){
+
+    .memory-slideshow{
+
+        width:90vw;
+
+        height:460px;
+
+    }
+
+    .memory-container h1{
+
+        font-size:1.8rem;
 
     }
 
