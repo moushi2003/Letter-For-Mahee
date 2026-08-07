@@ -925,6 +925,51 @@ body{
     75%{transform:translateX(-1px) rotate(4deg);}
 }
 
+/* ================= CAKE CINEMATIC REVEAL ================= */
+
+.cake-stage{
+    animation:cakeRise 1.8s ease forwards;
+    opacity:0;
+}
+
+@keyframes cakeRise{
+
+    0%{
+        transform:translateY(180px) scale(.8);
+        opacity:0;
+    }
+
+    60%{
+        transform:translateY(-20px) scale(1.03);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+
+/* Cake Glow */
+
+.birthday-cake{
+    filter:drop-shadow(0 0 25px rgba(255,215,120,.45));
+    animation:cakeGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes cakeGlow{
+
+    0%,100%{
+        filter:drop-shadow(0 0 20px rgba(255,215,120,.35));
+    }
+
+    50%{
+        filter:drop-shadow(0 0 45px rgba(255,215,120,.8));
+    }
+}
+
 /* Magic & Confetti */
 .magic-particles{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:6; }
 .magic-particles span{
