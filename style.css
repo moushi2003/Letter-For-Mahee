@@ -1791,3 +1791,705 @@ body{
 
 }
 
+/* =====================================================
+   CINEMATIC FLOWER BOUQUET PAGE
+===================================================== */
+
+
+/* ================= BOUQUET SECTION ================= */
+
+.bouquet-page{
+
+    position:relative;
+
+    min-height:100vh;
+
+    width:100%;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+    radial-gradient(circle at center,
+    #3b1020 0%,
+    #12050c 45%,
+    #000 100%);
+
+}
+
+
+/* ================= BACKGROUND ================= */
+
+
+.bouquet-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,180,120,.18),
+    transparent 40%);
+
+}
+
+
+.bouquet-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    to bottom,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.85)
+    );
+
+}
+
+
+
+/* ================= GOLD PARTICLES ================= */
+
+
+.bouquet-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+}
+
+
+.bouquet-particles span{
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+    background:#ffd98a;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 15px #ffd98a;
+
+    animation:
+    floatGold 8s linear infinite;
+
+}
+
+
+.bouquet-particles span:nth-child(1){
+    left:15%;
+    animation-delay:0s;
+}
+
+.bouquet-particles span:nth-child(2){
+    left:35%;
+    animation-delay:2s;
+}
+
+.bouquet-particles span:nth-child(3){
+    left:55%;
+    animation-delay:4s;
+}
+
+.bouquet-particles span:nth-child(4){
+    left:75%;
+    animation-delay:1s;
+}
+
+.bouquet-particles span:nth-child(5){
+    left:90%;
+    animation-delay:3s;
+}
+
+
+
+@keyframes floatGold{
+
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+
+}
+
+
+/* ================= BOUQUET HOLDER ================= */
+
+
+.bouquet-container{
+
+    position:relative;
+
+    z-index:5;
+
+    margin-top:-30px;
+
+}
+
+
+.bouquet-glow{
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,100,100,.35),
+    transparent 70%);
+
+    filter:blur(20px);
+
+    animation:pulseBouquet 3s infinite;
+
+}
+
+
+
+@keyframes pulseBouquet{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.6;
+    }
+
+    50%{
+        transform:scale(1.15);
+        opacity:1;
+    }
+
+}
+
+/* ================= BOUQUET DESIGN ================= */
+
+
+.bouquet{
+
+    position:relative;
+
+    width:320px;
+
+    height:430px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+}
+
+
+
+/* ================= ROSES ================= */
+
+
+.flower{
+
+    position:absolute;
+
+    font-size:75px;
+
+    filter:
+    drop-shadow(0 0 15px rgba(255,0,50,.7));
+
+    animation:
+    flowerBloom 2s ease forwards;
+
+    transform:scale(0);
+
+}
+
+
+
+.flower1{
+
+    top:40px;
+    left:70px;
+    animation-delay:.2s;
+
+}
+
+
+.flower2{
+
+    top:20px;
+    left:125px;
+    animation-delay:.4s;
+
+}
+
+
+.flower3{
+
+    top:55px;
+    left:180px;
+    animation-delay:.6s;
+
+}
+
+
+.flower4{
+
+    top:95px;
+    left:95px;
+    animation-delay:.8s;
+
+}
+
+
+.flower5{
+
+    top:100px;
+    left:155px;
+    animation-delay:1s;
+
+}
+
+
+
+@keyframes flowerBloom{
+
+    from{
+
+        transform:scale(0) rotate(-30deg);
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        transform:scale(1) rotate(0);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* ================= WHITE FLOWERS ================= */
+
+
+.white-flower{
+
+    position:absolute;
+
+    top:135px;
+
+    left:95px;
+
+    font-size:35px;
+
+    letter-spacing:5px;
+
+    filter:
+    drop-shadow(0 0 10px white);
+
+}
+
+
+
+/* ================= WRAPPING PAPER ================= */
+
+
+.bouquet-paper{
+
+    position:absolute;
+
+    bottom:20px;
+
+    width:250px;
+
+    height:230px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #f8efe6,
+    #c9a98b
+    );
+
+    clip-path:
+
+    polygon(
+    15% 0,
+    85% 0,
+    100% 100%,
+    0 100%
+    );
+
+
+    z-index:-1;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.5);
+
+}
+
+
+
+/* ================= RIBBON ================= */
+
+
+.bouquet-ribbon{
+
+    position:absolute;
+
+    bottom:100px;
+
+    font-size:55px;
+
+    filter:
+    drop-shadow(0 0 12px #ff9bb5);
+
+    animation:
+    ribbonFloat 3s ease-in-out infinite;
+
+}
+
+
+
+@keyframes ribbonFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+
+
+/* ================= BOUQUET FLOAT ================= */
+
+
+.bouquet{
+
+    animation:
+
+    bouquetFloat 4s ease-in-out infinite;
+
+}
+
+
+
+@keyframes bouquetFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+/* =====================================================
+   BOUQUET CINEMATIC EFFECTS - PART 3
+===================================================== */
+
+
+/* ================= ROSE PETALS ================= */
+
+
+.rose-petals{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+
+
+.rose-petals span{
+
+    position:absolute;
+
+    top:-50px;
+
+    font-size:30px;
+
+    animation:
+    petalFall 8s linear infinite;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,80,100,.8));
+
+}
+
+
+
+.rose-petals span:nth-child(1){
+
+    left:10%;
+
+    animation-delay:0s;
+
+}
+
+
+.rose-petals span:nth-child(2){
+
+    left:30%;
+
+    animation-delay:2s;
+
+}
+
+
+.rose-petals span:nth-child(3){
+
+    left:55%;
+
+    animation-delay:4s;
+
+}
+
+
+.rose-petals span:nth-child(4){
+
+    left:75%;
+
+    animation-delay:1s;
+
+}
+
+
+.rose-petals span:nth-child(5){
+
+    left:90%;
+
+    animation-delay:3s;
+
+}
+
+
+
+@keyframes petalFall{
+
+
+    0%{
+
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+
+    20%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:
+
+        translateY(110vh)
+
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+/* ================= BOUQUET ENTRY ================= */
+
+
+.bouquet-container{
+
+    animation:
+
+    bouquetReveal 2s ease forwards;
+
+}
+
+
+
+@keyframes bouquetReveal{
+
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(200px)
+
+        scale(.7);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+    }
+
+}
+
+
+
+
+/* ================= LETTER BUTTON ================= */
+
+
+.bouquet-next{
+
+    position:relative;
+
+    z-index:10;
+
+    margin-top:40px;
+
+
+    padding:16px 45px;
+
+
+    border:none;
+
+    border-radius:50px;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+
+    letter-spacing:1px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ff416c,
+    #ff4b2b
+    );
+
+
+    box-shadow:
+
+    0 10px 35px rgba(255,70,100,.5);
+
+
+    transition:.5s ease;
+
+
+}
+
+
+
+.bouquet-next:hover{
+
+
+    transform:
+
+    translateY(-8px)
+
+    scale(1.05);
+
+
+    box-shadow:
+
+    0 0 45px rgba(255,150,170,.9);
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:600px){
+
+
+    .bouquet{
+
+        transform:scale(.85);
+
+    }
+
+
+    .bouquet-next{
+
+        width:85%;
+
+    }
+
+}
