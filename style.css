@@ -1739,3 +1739,12 @@ body{
         0 0 35px rgba(255,255,255,.35);
 
 }
+
+.right-spider{
+    position:absolute;
+    top:0;
+    right:8%;
+    left:auto;
+    transform:scaleX(-1);
+    z-index:8;
+}
