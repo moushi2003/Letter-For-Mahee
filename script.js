@@ -618,3 +618,71 @@ if(bouquetNext){
 
 }
 
+/* =====================================================
+   REAL BOUQUET PAGE LOGIC
+===================================================== */
+
+
+const bouquetNextBtn = document.querySelector(".bouquet-next");
+
+
+if(bouquetNextBtn){
+
+    bouquetNextBtn.addEventListener("click",()=>{
+
+
+        const bouquetPage =
+        document.querySelector(".bouquet-page");
+
+
+        const letterPage =
+        document.querySelector(".letter-page");
+
+
+        if(bouquetPage){
+
+            bouquetPage.animate([
+
+                {
+                    opacity:1,
+                    transform:"scale(1)"
+                },
+
+                {
+                    opacity:0,
+                    transform:"scale(1.1)"
+                }
+
+            ],{
+
+                duration:1200,
+
+                easing:"ease-in-out",
+
+                fill:"forwards"
+
+            });
+
+        }
+
+
+
+        setTimeout(()=>{
+
+            if(letterPage){
+
+                letterPage.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        },1000);
+
+
+
+    });
+
+}
