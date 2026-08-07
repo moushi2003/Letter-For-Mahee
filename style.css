@@ -2413,3 +2413,589 @@ text-shadow:0 0 25px rgba(255,120,150,.8);
 }
 
 }
+
+/* ===================================================
+            CINEMATIC ROSE SCENE
+               PART 1
+=================================================== */
+
+.rose-scene{
+
+    position:relative;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+    radial-gradient(circle at top,
+    #1b0000 0%,
+    #090909 45%,
+    #000 100%);
+
+}
+
+
+/* ================= BACKGROUND ================= */
+
+.rose-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,60,60,.08),
+    transparent 70%);
+
+    animation:roseBgGlow 8s ease-in-out infinite;
+
+}
+
+.rose-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.65));
+
+}
+
+
+/* ================= SPOTLIGHT ================= */
+
+.rose-light{
+
+    position:absolute;
+
+    top:-280px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:900px;
+
+    height:900px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,235,180,.22),
+    transparent 72%);
+
+    filter:blur(28px);
+
+    animation:spotLight 6s ease-in-out infinite;
+
+}
+
+
+/* ================= STAGE ================= */
+
+.rose-stage{
+
+    position:relative;
+
+    z-index:10;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+
+.stage-shadow{
+
+    position:absolute;
+
+    bottom:-28px;
+
+    width:280px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.55);
+
+    filter:blur(18px);
+
+}
+
+
+/* ================= MARBLE ================= */
+
+.marble-pedestal{
+
+    width:220px;
+
+    height:110px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #f4f4f4,
+    #d5d5d5,
+    #8c8c8c);
+
+    box-shadow:
+
+    inset 0 2px 8px rgba(255,255,255,.45),
+
+    0 18px 45px rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+}
+
+
+/* ================= ROSE ================= */
+
+.hero-rose{
+
+    width:190px;
+
+    margin-bottom:65px;
+
+    filter:
+
+    drop-shadow(0 0 35px rgba(255,0,0,.35));
+
+    animation:
+
+    roseFloat 4s ease-in-out infinite;
+
+}
+
+/* ===================================================
+        CINEMATIC ROSE SCENE
+               PART 2
+=================================================== */
+
+
+/* ================= FOG ================= */
+
+.rose-fog{
+
+    position:absolute;
+
+    bottom:-120px;
+    left:-15%;
+
+    width:130%;
+    height:320px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.12),
+    transparent 70%);
+
+    filter:blur(60px);
+
+    animation:fogMove 12s ease-in-out infinite alternate;
+
+}
+
+
+/* ================= GOLDEN PARTICLES ================= */
+
+.rose-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+
+.rose-particles span{
+
+    position:absolute;
+
+    bottom:-30px;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#ffd86b;
+
+    box-shadow:0 0 12px #ffd86b;
+
+    opacity:0;
+
+    animation:particleRise linear infinite;
+
+}
+
+
+/* Position */
+
+.rose-particles span:nth-child(1){left:6%;animation-duration:7s;}
+.rose-particles span:nth-child(2){left:14%;animation-duration:9s;}
+.rose-particles span:nth-child(3){left:22%;animation-duration:8s;}
+.rose-particles span:nth-child(4){left:34%;animation-duration:10s;}
+.rose-particles span:nth-child(5){left:46%;animation-duration:8.5s;}
+.rose-particles span:nth-child(6){left:58%;animation-duration:11s;}
+.rose-particles span:nth-child(7){left:66%;animation-duration:9s;}
+.rose-particles span:nth-child(8){left:74%;animation-duration:10s;}
+.rose-particles span:nth-child(9){left:82%;animation-duration:8s;}
+.rose-particles span:nth-child(10){left:90%;animation-duration:11s;}
+.rose-particles span:nth-child(11){left:96%;animation-duration:9s;}
+.rose-particles span:nth-child(12){left:52%;animation-duration:7.5s;}
+
+
+/* ================= TEXT ================= */
+
+.rose-text{
+
+    position:relative;
+
+    z-index:20;
+
+    text-align:center;
+
+    margin-top:60px;
+
+    color:white;
+
+}
+
+
+.rose-text h1{
+
+    font-size:55px;
+
+    margin-bottom:18px;
+
+    animation:roseGlow 3s ease-in-out infinite;
+
+}
+
+
+.rose-text p{
+
+    font-size:22px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    letter-spacing:.5px;
+
+    margin:10px 0;
+
+    color:#f7e6c8;
+
+    text-shadow:0 0 12px rgba(255,220,170,.2);
+
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes roseFloat{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        rotate(-2deg);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-12px)
+        rotate(2deg);
+
+    }
+
+}
+
+
+@keyframes roseBgGlow{
+
+    0%,100%{
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        opacity:.95;
+
+    }
+
+}
+
+
+@keyframes spotLight{
+
+    0%,100%{
+
+        transform:
+        translateX(-50%)
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        translateX(-50%)
+        scale(1.08);
+
+    }
+
+}
+
+
+@keyframes fogMove{
+
+    from{
+
+        transform:translateX(-6%);
+
+    }
+
+    to{
+
+        transform:translateX(6%);
+
+    }
+
+}
+
+
+@keyframes particleRise{
+
+    0%{
+
+        transform:translateY(0) scale(.4);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-110vh) scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+
+
+@keyframes roseGlow{
+
+    0%,100%{
+
+        text-shadow:0 0 15px rgba(255,180,60,.25);
+
+    }
+
+    50%{
+
+        text-shadow:0 0 35px rgba(255,180,60,.9);
+
+    }
+
+}
+
+/* ===================================================
+        CINEMATIC ROSE SCENE
+              PART 3
+=================================================== */
+
+
+/* ================= ENTRANCE ================= */
+
+.rose-stage{
+
+    animation:roseEntrance 1.8s ease both;
+
+}
+
+.rose-text{
+
+    opacity:0;
+
+    animation:textReveal 1.5s ease forwards;
+
+    animation-delay:1.2s;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero-rose{
+
+width:145px;
+
+margin-bottom:50px;
+
+}
+
+.marble-pedestal{
+
+width:170px;
+
+height:85px;
+
+}
+
+.stage-shadow{
+
+width:190px;
+
+}
+
+.rose-text h1{
+
+font-size:42px;
+
+}
+
+.rose-text p{
+
+font-size:18px;
+
+padding:0 20px;
+
+line-height:1.7;
+
+}
+
+.rose-light{
+
+width:650px;
+
+height:650px;
+
+}
+
+}
+
+
+/* ================= CINEMATIC FADE ================= */
+
+.rose-scene::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:100%;
+
+height:180px;
+
+background:linear-gradient(
+
+to bottom,
+
+transparent,
+
+rgba(0,0,0,.92)
+
+);
+
+pointer-events:none;
+
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes roseEntrance{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(120px)
+
+scale(.75);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+}
+
+}
+
+@keyframes textReveal{
+
+0%{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
