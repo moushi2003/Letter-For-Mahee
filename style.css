@@ -184,7 +184,21 @@ body{
 .right-spider{
     right:12%;
     left:auto;
+    z-index:30;
+}
+
+.right-spider .spiderman-body{
     transform:scaleX(-1);
+}
+
+.spiderman-side-container{
+    margin-top:-3px;
+    transform-origin:top center;
+    animation:swingHero 3.5s ease-in-out infinite;
+}
+
+.right-spider .spiderman-side-container{
+    animation:swingHero 3.5s ease-in-out infinite reverse;
 }
 
 .main-web-line{
@@ -1749,18 +1763,3 @@ body{
 
 }
 
-.right-spider{
-    position:absolute;
-    top:0;
-    right:12%;
-    left:auto;
-    z-index:8;
-}
-
-.right-spider .spiderman-body{
-    transform:scaleX(-1);
-}
-
-.right-spider .spiderman-side-container{
-    animation:swingHero 3.5s ease-in-out infinite reverse;
-}
