@@ -171,12 +171,20 @@ body{
 .spiderman-entry{
     position:absolute;
     top:0;
-    left:12%;
     display:flex;
     flex-direction:column;
     align-items:center;
     z-index:30;
-    
+}
+
+.spiderman-entry:not(.right-spider){
+    left:12%;
+}
+
+.right-spider{
+    right:12%;
+    left:auto;
+    transform:scaleX(-1);
 }
 
 .main-web-line{
@@ -198,6 +206,7 @@ body{
 .spiderman-side-container{
     margin-top:-3px;
     transform-origin:top center;
+    animation:swingHero 3.5s ease-in-out infinite;
 }
 
 /* ================= BODY ================= */
