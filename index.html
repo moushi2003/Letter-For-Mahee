@@ -1,261 +1,691 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happiest Birthday Mahee ❤️</title>
-    <style>
-        /* Add your CSS styles here or link your stylesheet */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: #0b0f19;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-        }
-    </style>
+
+    <title>For My Mahee ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- ================= MARVEL CINEMATIC SPIDER HERO ================= -->  
-    <section class="scene" id="spiderScene">  
-        <!-- Background Canvas -->  
-        <canvas id="webCanvas"></canvas>  
+    <!-- ================= MARVEL CINEMATIC SPIDER HERO ================= -->
 
-        <!-- Cinematic Layers -->  
-        <div class="hero-bg"></div>  
-        <div class="hero-overlay"></div>  
-        <div class="hero-gradient"></div>  
+    <section class="scene" id="spiderScene">
 
-        <!-- Fog -->  
-        <div class="fog-container">  
-            <div class="fog fog1"></div>  
-            <div class="fog fog2"></div>  
-            <div class="fog fog3"></div>  
-        </div>  
+        <!-- Background Canvas -->
+        <canvas id="webCanvas"></canvas>
 
-        <!-- Light Rays -->  
-        <div class="light-rays">  
-            <span class="ray ray1"></span>  
-            <span class="ray ray2"></span>  
-            <span class="ray ray3"></span>  
-        </div>  
+        <!-- Cinematic Layers -->
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
 
-        <!-- Floating Dust -->  
-        <div class="dust-container">  
-            <span class="dust d1"></span>  
-            <span class="dust d2"></span>  
-            <span class="dust d3"></span>  
-            <span class="dust d4"></span>  
-            <span class="dust d5"></span>  
-            <span class="dust d6"></span>  
-            <span class="dust d7"></span>  
-            <span class="dust d8"></span>  
-            <span class="dust d9"></span>  
-            <span class="dust d10"></span>  
-        </div>  
+        <!-- Fog -->
+        <div class="fog-container">
+            <div class="fog fog1"></div>
+            <div class="fog fog2"></div>
+            <div class="fog fog3"></div>
+        </div>
 
-        <!-- Stars -->  
-        <div class="stars-layer">  
-            <span></span><span></span><span></span><span></span><span></span>  
-            <span></span><span></span><span></span><span></span><span></span>  
-            <span></span><span></span><span></span><span></span><span></span>  
-        </div>  
+        <!-- Light Rays -->
+        <div class="light-rays">
+            <span class="ray ray1"></span>
+            <span class="ray ray2"></span>
+            <span class="ray ray3"></span>
+        </div>
 
-        <!-- Lightning -->  
-        <div class="lightning-wrapper">  
-            <div class="lightning lightning-left"></div>  
-            <div class="lightning lightning-right"></div>  
-        </div>  
+        <!-- Floating Dust -->
+        <div class="dust-container">
+            <span class="dust d1"></span>
+            <span class="dust d2"></span>
+            <span class="dust d3"></span>
+            <span class="dust d4"></span>
+            <span class="dust d5"></span>
+            <span class="dust d6"></span>
+            <span class="dust d7"></span>
+            <span class="dust d8"></span>
+            <span class="dust d9"></span>
+            <span class="dust d10"></span>
+        </div>
 
-        <!-- Spider Glow -->  
-        <div class="spider-glow"></div>  
+        <!-- Stars -->
+        <div class="stars-layer">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
 
-        <!-- Camera Wrapper -->  
-        <div class="camera-wrapper">  
+        <!-- Lightning -->
+        <div class="lightning-wrapper">
+            <div class="lightning lightning-left"></div>
+            <div class="lightning lightning-right"></div>
+        </div>
 
-            <!-- Spider Entrance -->  
-            <div class="spiderman-entry">  
+        <!-- Spider Glow -->
+        <div class="spider-glow"></div>
 
-                <div class="main-web-line"></div>  
+        <!-- Camera Wrapper -->
+        <div class="camera-wrapper">
 
-                <div class="web-shadow"></div>  
+            <!-- Spider Entrance -->
+            <div class="spiderman-entry">
 
-                <div class="spiderman-side-container">  
+                <div class="main-web-line"></div>
 
-                    <div class="spiderman-body">  
+                <div class="web-shadow"></div>
 
-                        <div class="spider-head">  
+                <div class="spiderman-side-container">
 
-                            <div class="mask-pattern"></div>  
+                    <div class="spiderman-body">
 
-                            <div class="eye-3d left">  
-                                <span class="eye-glow"></span>  
-                            </div>  
+                        <div class="spider-head">
 
-                            <div class="eye-3d right">  
-                                <span class="eye-glow"></span>  
-                            </div>  
+                            <div class="mask-pattern"></div>
 
-                        </div>  
+                            <div class="eye-3d left">
+                                <span class="eye-glow"></span>
+                            </div>
 
-                        <div class="spider-neck"></div>  
+                            <div class="eye-3d right">
+                                <span class="eye-glow"></span>
+                            </div>
 
-                        <div class="spider-torso">  
+                        </div>
 
-                            <div class="torso-pattern"></div>  
+                        <div class="spider-neck"></div>
 
-                            <div class="spider-logo">  
-                                🕷️  
-                            </div>  
+                        <div class="spider-torso">
 
-                        </div>  
+                            <div class="torso-pattern"></div>
 
-                        <div class="left-arm"></div>  
-                        <div class="right-arm"></div>  
+                            <div class="spider-logo">🕷️</div>
 
-                        <div class="left-leg"></div>  
-                        <div class="right-leg"></div>  
+                        </div>
 
-                    </div>  
+                        <div class="left-arm"></div>
+                        <div class="right-arm"></div>
 
-                </div>  
+                        <div class="left-leg"></div>
+                        <div class="right-leg"></div>
 
-            </div>  
+                    </div>
 
-            <!-- Hero Content -->  
-            <div class="hero-content">  
+                </div>
 
-                <div class="glass-card">  
+            </div>
 
-                    <span class="badge">  
-                        ✦ SPECIAL DAY ✦  
-                    </span>  
+            <!-- Hero Content -->
+            <div class="hero-content">
 
-                    <div class="title-wrapper">  
+                <div class="glass-card">
 
-                        <h1 class="glow-title">  
-                            Happiest Birthday  
-                        </h1>  
+                    <span class="badge">✦ SPECIAL DAY ✦</span>
 
-                        <div class="title-light"></div>  
+                    <div class="title-wrapper">
 
-                    </div>  
+                        <h1 class="glow-title">
+                            Happiest Birthday
+                        </h1>
 
-                    <h2 class="hero-name">  
-                        MY SPIDER MAN  
-                    </h2>  
+                        <div class="title-light"></div>
 
-                    <h3 class="person-name">  
-                        Mahee ❤️  
-                    </h3>  
+                    </div>
 
-                    <div class="divider"></div>  
+                    <h2 class="hero-name">
+                        MY SPIDER MAN
+                    </h2>
 
-                    <p id="typing" class="typing-text"></p>  
+                    <h3 class="person-name">
+                        Mahee ❤️
+                    </h3>
 
-                    <!-- Hero Quote -->  
-                    <div class="hero-quote">  
-                        <span class="quote-line"></span>  
-                        <p>  
-                            "Every hero has a story...  
-                            Today is yours."  
-                        </p>  
-                        <span class="quote-line"></span>  
-                    </div>  
+                    <div class="divider"></div>
 
-                    <!-- Hero Buttons -->  
-                    <div class="hero-actions">  
+                    <p id="typing" class="typing-text"></p>
 
-                        <button id="musicBtn" class="hero-btn primary-btn">  
-                            <span class="btn-icon">🎵</span>  
-                            <span>Play Music</span>  
-                        </button>  
+                    <div class="hero-quote">
 
-                        <button id="enterBtn" class="hero-btn secondary-btn">  
-                            <span>Begin Journey</span>  
-                            <span class="arrow">➜</span>  
-                        </button>  
+                        <span class="quote-line"></span>
 
-                    </div>  
+                        <p>
+                            "Every hero has a story...
+                            Today is yours."
+                        </p>
 
-                </div>  
-            </div>  
+                        <span class="quote-line"></span>
 
-            <!-- Scroll Indicator -->  
-            <div class="scroll-indicator">  
+                    </div>
 
-                <span class="mouse">  
-                    <span class="wheel"></span>  
-                </span>  
+                    <div class="hero-actions">
 
-                <p>Scroll Down</p>  
+                        <button id="musicBtn" class="hero-btn primary-btn">
+                            <span class="btn-icon">🎵</span>
+                            <span>Play Music</span>
+                        </button>
 
-            </div>  
+                        <button id="enterBtn" class="hero-btn secondary-btn">
+                            <span>Begin Journey</span>
+                            <span class="arrow">➜</span>
+                        </button>
 
-        </div>  
+                    </div>
 
-        <!-- Floating Webs -->  
-        <div class="corner-web top-left"></div>  
-        <div class="corner-web top-right"></div>  
-        <div class="corner-web bottom-left"></div>  
-        <div class="corner-web bottom-right"></div>  
+                </div>
 
-        <!-- Spider Particles -->  
-        <div class="particle-container">  
+            </div>
 
-            <span class="particle p1"></span>  
-            <span class="particle p2"></span>  
-            <span class="particle p3"></span>  
-            <span class="particle p4"></span>  
-            <span class="particle p5"></span>  
-            <span class="particle p6"></span>  
-            <span class="particle p7"></span>  
-            <span class="particle p8"></span>  
-            <span class="particle p9"></span>  
-            <span class="particle p10"></span>  
-            <span class="particle p11"></span>  
-            <span class="particle p12"></span>  
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
 
-        </div>  
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
 
-        <!-- Cinematic Flash -->  
-        <div class="screen-flash"></div>  
+                <p>Scroll Down</p>
 
-        <!-- Transition -->  
-        <div class="hero-transition">  
+            </div>
 
-            <div class="transition-glow"></div>  
+        </div>
 
-            <div class="transition-web"></div>  
+        <!-- Corner Web -->
+        <div class="corner-web top-left"></div>
+        <div class="corner-web top-right"></div>
+        <div class="corner-web bottom-left"></div>
+        <div class="corner-web bottom-right"></div>
 
-            <div class="transition-fade"></div>  
+        <!-- Particles -->
+        <div class="particle-container">
 
-        </div>  
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+            <span class="particle p8"></span>
+            <span class="particle p9"></span>
+            <span class="particle p10"></span>
+            <span class="particle p11"></span>
+            <span class="particle p12"></span>
 
-    </section>  
-    <!-- ================= END OF SPIDER HERO ================= -->  
+        </div>
 
-    <!-- Audio Elements -->  
-    <audio id="music" loop preload="auto">  
-        <source src="spiderman.mp3" type="audio/mpeg">  
-    </audio>  
-    <audio id="thunderSound" preload="auto">  
-        <source src="thunder.mp3" type="audio/mpeg">  
-    </audio>  
-    <audio id="webShootSound" preload="auto">  
-        <source src="webshoot.mp3" type="audio/mpeg">  
-    </audio>  
-    <audio id="whooshSound" preload="auto">  
-        <source src="whoosh.mp3" type="audio/mpeg">  
-    </audio>  
-    <audio id="sparkleSound" preload="auto">  
-        <source src="sparkle.mp3" type="audio/mpeg">  
+        <!-- Flash -->
+        <div class="screen-flash"></div>
+
+        <!-- Transition -->
+        <div class="hero-transition">
+
+            <div class="transition-glow"></div>
+
+            <div class="transition-web"></div>
+
+            <div class="transition-fade"></div>
+
+        </div>
+
+    </section>
+
+    <!-- Audio -->
+    <audio id="music" loop preload="auto">
+        <source src="spiderman.mp3" type="audio/mpeg">
     </audio>
 
+    <audio id="thunderSound" preload="auto">
+        <source src="thunder.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="webShootSound" preload="auto">
+        <source src="webshoot.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="whooshSound" preload="auto">
+        <source src="whoosh.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="sparkleSound" preload="auto">
+        <source src="sparkle.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ================= CINEMATIC CAKE PAGE ================= -->
+
+<section class="cake-page" id="cakePage">
+
+    <!-- Background -->
+
+    <div class="cake-bg"></div>
+
+    <div class="cake-overlay"></div>
+
+    <div class="cake-gradient"></div>
+
+    <!-- Floating Lights -->
+
+    <div class="gold-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <!-- Theatre Curtains -->
+
+    <div class="curtain left-curtain">
+
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+
+    </div>
+
+    <div class="curtain right-curtain">
+
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+
+    </div>
+
+    <!-- Stage Lights -->
+
+    <div class="stage-lights">
+
+        <span class="light l1"></span>
+
+        <span class="light l2"></span>
+
+        <span class="light l3"></span>
+
+        <span class="light l4"></span>
+
+    </div>
+
+    <!-- Countdown -->
+
+    <div id="countdownOverlay" class="countdown-overlay">
+
+        <div class="count-circle">
+
+            <div id="countdownNumber">
+
+                3
+
+            </div>
+
+        </div>
+
+        <h2 class="count-text">
+
+            Get Ready...
+
+        </h2>
+
+    </div>
+
+    <!-- Main Stage -->
+
+    <div id="cakeMainContent" class="cake-main-content hidden-content">
+
+        <!-- ================= STAGE DECORATION ================= -->
+
+        <div class="stage-floor"></div>
+
+        <div class="stage-shadow"></div>
+
+        <!-- Floating Balloons -->
+
+        <div class="balloon-cluster left-cluster">
+
+            <div class="balloon red">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon gold">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon white">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+        </div>
+
+        <div class="balloon-cluster right-cluster">
+
+            <div class="balloon blue">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon pink">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon silver">
+                <div class="balloon-body"></div>
+                <div class="balloon-shine"></div>
+                <div class="string"></div>
+            </div>
+
+        </div>
+
+        <!-- Floating Hearts -->
+
+        <div class="floating-hearts">
+
+            <span>❤</span>
+            <span>🤍</span>
+            <span>✨</span>
+            <span>❤</span>
+            <span>✨</span>
+            <span>🤍</span>
+
+        </div>
+
+        <!-- Birthday Header -->
+
+        <div class="cake-header-wrap">
+
+            <span class="birthday-badge">
+                ✦ 17 AUGUST ✦
+            </span>
+
+            <h1 class="cake-title">
+                Happy 24th Birthday
+            </h1>
+
+            <h2 class="cake-name">
+                Mahee ❤️
+            </h2>
+
+            <p class="cake-subtitle">
+                Today the world became brighter because
+                someone extraordinary was born.
+            </p>
+
+        </div>
+
+        <!-- Elegant Calendar -->
+
+        <div class="calendar-frame">
+
+            <div class="calendar-glow"></div>
+
+            <div class="calendar-bg">
+
+                <div class="cal-header">
+
+                    August • 2026
+
+                </div>
+
+                <div class="cal-grid">
+
+                    <span class="day-name">Su</span>
+                    <span class="day-name">Mo</span>
+                    <span class="day-name">Tu</span>
+                    <span class="day-name">We</span>
+                    <span class="day-name">Th</span>
+                    <span class="day-name">Fr</span>
+                    <span class="day-name">Sa</span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>1</span>
+
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+
+                    <span>16</span>
+
+                    <span class="birthday-date">
+
+                        17 ❤️
+
+                    </span>
+
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                    <span>21</span>
+                    <span>22</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= CINEMATIC SPOTLIGHT ================= -->
+
+        <div class="spotlight-wrap">
+
+            <div class="spotlight left-light"></div>
+            <div class="spotlight center-light"></div>
+            <div class="spotlight right-light"></div>
+
+        </div>
+
+        <!-- ================= MAIN CAKE STAGE ================= -->
+
+        <div class="cake-stage">
+
+            <div class="cake-shadow"></div>
+
+            <div class="birthday-cake">
+
+                <!-- Plate -->
+
+                <div class="cake-plate"></div>
+
+                <!-- Bottom Layer -->
+
+                <div class="cake-layer layer-1">
+
+                    <div class="icing"></div>
+
+                    <div class="drips"></div>
+
+                </div>
+
+                <!-- Middle Layer -->
+
+                <div class="cake-layer layer-2">
+
+                    <div class="icing"></div>
+
+                    <div class="drips"></div>
+
+                </div>
+
+                <!-- Top Layer -->
+
+                <div class="cake-layer layer-3">
+
+                    <div class="icing"></div>
+
+                </div>
+
+                <!-- Candle -->
+
+                <div class="candle">
+
+                    <div class="wax"></div>
+
+                    <div class="flame-wrap">
+
+                        <div class="flame-outer"></div>
+
+                        <div class="flame-inner" id="flame"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- Decorations -->
+
+                <div class="cake-decoration deco1"></div>
+                <div class="cake-decoration deco2"></div>
+                <div class="cake-decoration deco3"></div>
+                <div class="cake-decoration deco4"></div>
+                <div class="cake-decoration deco5"></div>
+                <div class="cake-decoration deco6"></div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= MAGIC PARTICLES ================= -->
+
+        <div class="magic-particles">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <!-- ================= CAKE MESSAGE ================= -->
+
+        <div class="birthday-message">
+
+            <h2>✨ Make A Beautiful Wish ✨</h2>
+
+            <p>
+                Close your eyes...<br>
+                Smile from your heart...<br>
+                And let this candle carry your dream to the stars.
+            </p>
+
+        </div>
+
+        <!-- ================= CONFETTI & FIREWORKS ================= -->
+
+        <div class="confetti-container" id="confettiContainer">
+
+            <span class="confetti c1"></span>
+            <span class="confetti c2"></span>
+            <span class="confetti c3"></span>
+            <span class="confetti c4"></span>
+            <span class="confetti c5"></span>
+            <span class="confetti c6"></span>
+            <span class="confetti c7"></span>
+            <span class="confetti c8"></span>
+            <span class="confetti c9"></span>
+            <span class="confetti c10"></span>
+
+        </div>
+
+        <canvas id="cakeFireworksCanvas"></canvas>
+
+        <!-- Floating Sparkles -->
+
+        <div class="sparkle-field">
+
+            <span class="spark s1"></span>
+            <span class="spark s2"></span>
+            <span class="spark s3"></span>
+            <span class="spark s4"></span>
+            <span class="spark s5"></span>
+            <span class="spark s6"></span>
+            <span class="spark s7"></span>
+            <span class="spark s8"></span>
+
+        </div>
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="cake-buttons">
+
+            <button id="blowBtn" class="hero-btn blow-btn">
+
+                💨 Blow The Candle
+
+            </button>
+
+            <button id="celebrateBtn" class="hero-btn celebrate-btn">
+
+                🎉 Celebrate
+
+            </button>
+
+            <button id="nextBtn" class="hero-btn next-btn">
+
+                Continue Journey 💌
+
+            </button>
+
+        </div>
+
+        <!-- Footer Quote -->
+
+        <div class="cake-footer">
+
+            <p>
+                "Every birthday is the beginning of another
+                beautiful chapter."
+            </p>
+
+        </div>
+
+    </div>
+    <!-- End cakeMainContent -->
+
+</section>
+<!-- ================= END CINEMATIC CAKE PAGE ================= -->
+    
+    <script src="script.js"></script>
+
 </body>
+
 </html>
