@@ -1363,23 +1363,7 @@ body{
 
 .memory-caption{
 
-    position:absolute;
-
-    bottom:25px;
-
-    left:0;
-
-    width:100%;
-
-    z-index:3;
-
-    color:white;
-
-    transform:translateY(20px);
-
-    opacity:.85;
-
-    transition:.5s ease;
+    display:none;
 
 }
 
