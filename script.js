@@ -494,195 +494,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
-    /* ==========================================================
-       PERSONAL LETTER MASTERPIECE
-       PART 1 — ENVELOPE CINEMATIC
-    ========================================================== */
-    const envelopeScene = document.getElementById("envelopeScene");
-    const envelope = document.getElementById("envelope");
-    const waxSeal = document.getElementById("waxSeal");
-    const envFlap = document.getElementById("envFlap");
-    const letterPreview = document.querySelector(".letter-preview");
-    const letterStage = document.getElementById("letterStage");
+   document.addEventListener("DOMContentLoaded", () => {
+    const envelopeWrapper = document.getElementById("envelopeWrapper");
+    const letterCard = document.getElementById("letterCard");
 
-    let opened = false;
+    envelopeWrapper.addEventListener("click", () => {
+        // Step 1: Trigger Envelope Open Animation
+        envelopeWrapper.classList.add("open");
 
-    if (waxSeal) {
-        waxSeal.addEventListener("click", openPersonalLetter);
-    }
-
-    function openPersonalLetter() {
-        if (opened) return;
-        opened = true;
-
-        waxSeal.style.pointerEvents = "none";
-
-        waxSeal.animate([
-            {
-                transform: "translate(-50%,-50%) scale(1)",
-                opacity: 1
-            },
-            {
-                transform: "translate(-50%,-50%) scale(.55) rotate(25deg)",
-                opacity: 0
-            }
-        ], {
-            duration: 700,
-            easing: "ease-out",
-            fill: "forwards"
-        });
-
-        if (envelope) {
-            envelope.animate([
-                { transform: "rotate(0deg)" },
-                { transform: "rotate(-1deg)" },
-                { transform: "rotate(1deg)" },
-                { transform: "rotate(0deg)" }
-            ], {
-                duration: 650
+        // Step 2: Smoothly Reveal the Letter Card
+        setTimeout(() => {
+            letterCard.classList.remove("hidden");
+            
+            // Smooth Scroll to the opened letter
+            letterCard.scrollIntoView({ 
+                behavior: "smooth", 
+                block: "start" 
             });
-        }
-
-        setTimeout(() => {
-            if (envFlap) envFlap.style.transform = "rotateX(180deg)";
-        }, 450);
-
-        setTimeout(() => {
-            if (letterPreview) {
-                letterPreview.animate([
-                    {
-                        transform: "translate(-50%,0)"
-                    },
-                    {
-                        transform: "translate(-50%,-110px)"
-                    }
-                ], {
-                    duration: 1700,
-                    easing: "ease-in-out",
-                    fill: "forwards"
-                });
-            }
-        }, 850);
-
-        /* ==========================================================
-           PERSONAL LETTER MASTERPIECE
-           PART 2 — CINEMATIC TRANSITION (Triggered on Envelope Open)
-        ========================================================== */
-        setTimeout(() => {
-            if (envelopeScene) {
-                envelopeScene.animate([
-                    {
-                        opacity: 1,
-                        transform: "scale(1)"
-                    },
-                    {
-                        opacity: 0,
-                        transform: "scale(.96)"
-                    }
-                ], {
-                    duration: 1200,
-                    easing: "ease",
-                    fill: "forwards"
-                });
-            }
-        }, 1800);
-
-        setTimeout(() => {
-            const personalOverlay = document.querySelector(".personal-overlay");
-            const personalBg = document.querySelector(".personal-bg");
-            if (personalOverlay) personalOverlay.style.backdropFilter = "blur(0px)";
-            if (personalBg) personalBg.style.filter = "blur(0px) brightness(.95)";
-        }, 2500);
-
-        setTimeout(() => {
-            if (envelopeScene) envelopeScene.style.display = "none";
-        }, 3100);
-
-        setTimeout(() => {
-            if (letterStage) {
-                letterStage.style.display = "flex";
-                letterStage.style.opacity = "0";
-            }
-        }, 3250);
-
-        setTimeout(() => {
-            if (letterStage) {
-                letterStage.animate([
-                    {
-                        opacity: 0,
-                        transform: "translateY(120px) scale(.94)"
-                    },
-                    {
-                        opacity: 1,
-                        transform: "translateY(0) scale(1)"
-                    }
-                ], {
-                    duration: 1800,
-                    easing: "cubic-bezier(.22,.61,.36,1)",
-                    fill: "forwards"
-                });
-            }
-        }, 3400);
-
-        setTimeout(() => {
-            const glowElem = document.querySelector(".personal-glow");
-            if (glowElem) {
-                glowElem.animate([
-                    {
-                        opacity: .35,
-                        transform: "translateX(-50%) scale(1)"
-                    },
-                    {
-                        opacity: .75,
-                        transform: "translateX(-50%) scale(1.15)"
-                    }
-                ], {
-                    duration: 2500,
-                    direction: "alternate",
-                    iterations: Infinity
-                });
-            }
-        }, 3700);
-    }
-
-    /* ==========================================================
-       PERSONAL LETTER MASTERPIECE
-       PART 3 — INTERSECTION OBSERVER & INTERACTIONS
-    ========================================================== */
-    const letterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.animate([
-                    {
-                        opacity: 0,
-                        transform: "translateY(45px)"
-                    },
-                    {
-                        opacity: 1,
-                        transform: "translateY(0)"
-                    }
-                ], {
-                    duration: 900,
-                    easing: "ease-out",
-                    fill: "forwards"
-                });
-                letterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: .15 });
-
-    document.querySelectorAll(".paragraph").forEach(p => {
-        p.style.opacity = "0";
-        letterObserver.observe(p);
+        }, 600);
     });
-
-    document.querySelectorAll(".personal-particles span").forEach((dot) => {
-        dot.style.left = Math.random() * 100 + "%";
-        dot.style.top = Math.random() * 100 + "%";
-        dot.style.animationDuration = (8 + Math.random() * 8) + "s";
-        dot.style.animationDelay = (Math.random() * 4) + "s";
-    });
-
+});
     const kissBtn = document.getElementById("kissCorner");
     const petals = document.getElementById("petalContainer");
 
