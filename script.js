@@ -450,9 +450,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* ==========================================================
+    /* ===============================
        PAGE 3 : BIRTHDAY LETTER TYPEWRITER
-    ========================================================== */
+    ================================ */
     const letterTextElem = document.getElementById("letterText");
     const letterCardElem = document.querySelector(".letter-card");
 
@@ -494,26 +494,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
-   document.addEventListener("DOMContentLoaded", () => {
+    /* ===============================
+       ROYAL 3D ENVELOPE & REVEAL LOGIC
+    ================================ */
     const envelopeWrapper = document.getElementById("envelopeWrapper");
-    const letterCard = document.getElementById("letterCard");
+    const letterStage = document.getElementById("letterCard") || document.querySelector(".letter-stage");
 
-    envelopeWrapper.addEventListener("click", () => {
-        // Step 1: Trigger Envelope Open Animation
-        envelopeWrapper.classList.add("open");
+    if (envelopeWrapper && letterStage) {
+        envelopeWrapper.addEventListener("click", () => {
+            envelopeWrapper.classList.add("open");
 
-        // Step 2: Smoothly Reveal the Letter Card
-        setTimeout(() => {
-            letterCard.classList.remove("hidden");
-            
-            // Smooth Scroll to the opened letter
-            letterCard.scrollIntoView({ 
-                behavior: "smooth", 
-                block: "start" 
-            });
-        }, 600);
-    });
-});
+            setTimeout(() => {
+                letterStage.classList.add("active");
+                letterStage.scrollIntoView({ 
+                    behavior: "smooth", 
+                    block: "start" 
+                });
+            }, 600);
+        });
+    }
+
     const kissBtn = document.getElementById("kissCorner");
     const petals = document.getElementById("petalContainer");
 
@@ -539,15 +539,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (paper) {
         paper.animate([
-            {
-                transform: "translateY(0px)"
-            },
-            {
-                transform: "translateY(-5px)"
-            },
-            {
-                transform: "translateY(0px)"
-            }
+            { transform: "translateY(0px)" },
+            { transform: "translateY(-5px)" },
+            { transform: "translateY(0px)" }
         ], {
             duration: 6500,
             iterations: Infinity,
