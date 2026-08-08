@@ -4,521 +4,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>For My Mahee ❤️</title>
 
-    <!-- Google Fonts -->
+    <!-- ================= GOOGLE FONTS ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ================= MAIN CSS ================= -->
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- ================= MARVEL CINEMATIC SPIDER HERO ================= -->
+    <!-- =====================================================
+         1. MARVEL CINEMATIC SPIDER-MAN INTRO
+    ====================================================== -->
+
     <section class="scene" id="spiderScene">
 
-        <!-- Background Canvas -->
+        <!-- ================= BACKGROUND CANVAS ================= -->
         <canvas id="webCanvas"></canvas>
 
-        <!-- Cinematic Layers -->
+
+        <!-- ================= CINEMATIC BACKGROUND ================= -->
+
         <div class="hero-bg"></div>
+
         <div class="hero-overlay"></div>
+
         <div class="hero-gradient"></div>
 
-        <!-- Fog -->
+
+        <!-- ================= FOG ================= -->
+
         <div class="fog-container">
+
             <div class="fog fog1"></div>
             <div class="fog fog2"></div>
             <div class="fog fog3"></div>
+
         </div>
 
-        <!-- Light Rays -->
+
+        <!-- ================= LIGHT RAYS ================= -->
+
         <div class="light-rays">
+
             <span class="ray ray1"></span>
             <span class="ray ray2"></span>
             <span class="ray ray3"></span>
+
         </div>
 
-        <!-- Floating Dust -->
+
+        <!-- ================= FLOATING DUST ================= -->
+
         <div class="dust-container">
-            <span class="dust d1"></span><span class="dust d2"></span><span class="dust d3"></span>
-            <span class="dust d4"></span><span class="dust d5"></span><span class="dust d6"></span>
-            <span class="dust d7"></span><span class="dust d8"></span><span class="dust d9"></span><span class="dust d10"></span>
+
+            <span class="dust d1"></span>
+            <span class="dust d2"></span>
+            <span class="dust d3"></span>
+            <span class="dust d4"></span>
+            <span class="dust d5"></span>
+
+            <span class="dust d6"></span>
+            <span class="dust d7"></span>
+            <span class="dust d8"></span>
+            <span class="dust d9"></span>
+            <span class="dust d10"></span>
+
         </div>
 
-        <!-- Stars -->
+
+        <!-- ================= STARS ================= -->
+
         <div class="stars-layer">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
         </div>
 
-        <!-- Lightning -->
+
+        <!-- ================= LIGHTNING ================= -->
+
         <div class="lightning-wrapper">
+
             <div class="lightning lightning-left"></div>
             <div class="lightning lightning-right"></div>
+
         </div>
 
-        <!-- Spider Glow -->
+
+        <!-- ================= SPIDER GLOW ================= -->
+
         <div class="spider-glow"></div>
 
-        <!-- Camera Wrapper -->
+
+        <!-- =================================================
+             CAMERA WRAPPER
+        ================================================== -->
+
         <div class="camera-wrapper">
 
-            <!-- Right Spider-Man -->
+
+            <!-- =================================================
+                 SPIDER-MAN #1
+                 RIGHT SIDE ENTRANCE
+            ================================================== -->
+
             <div class="spiderman-entry right-spider">
+
                 <div class="main-web-line"></div>
+
                 <div class="web-shadow"></div>
+
+
                 <div class="spiderman-side-container">
+
                     <div class="spiderman-body">
+
+                        <!-- HEAD -->
+
                         <div class="spider-head">
+
                             <div class="mask-pattern"></div>
-                            <div class="eye-3d left"><span class="eye-glow"></span></div>
-                            <div class="eye-3d right"><span class="eye-glow"></span></div>
+
+                            <div class="eye-3d left">
+                                <span class="eye-glow"></span>
+                            </div>
+
+                            <div class="eye-3d right">
+                                <span class="eye-glow"></span>
+                            </div>
+
                         </div>
+
+
+                        <!-- NECK -->
+
                         <div class="spider-neck"></div>
+
+
+                        <!-- TORSO -->
+
                         <div class="spider-torso">
+
                             <div class="torso-pattern"></div>
-                            <div class="spider-logo">🕷️</div>
+
+                            <div class="spider-logo">
+                                🕷️
+                            </div>
+
                         </div>
+
+
+                        <!-- ARMS -->
+
                         <div class="left-arm"></div>
                         <div class="right-arm"></div>
+
+
+                        <!-- LEGS -->
+
                         <div class="left-leg"></div>
                         <div class="right-leg"></div>
+
                     </div>
+
                 </div>
+
             </div>
 
-           <!-- Spider Entrance -->
+
+
+            <!-- =================================================
+                 SPIDER-MAN #2
+                 MAIN SPIDER ENTRANCE
+            ================================================== -->
+
             <div class="spiderman-entry">
+
                 <div class="main-web-line"></div>
+
                 <div class="web-shadow"></div>
+
+
                 <div class="spiderman-side-container">
+
                     <div class="spiderman-body">
+
+                        <!-- HEAD -->
+
                         <div class="spider-head">
+
                             <div class="mask-pattern"></div>
-                            <div class="eye-3d left"><span class="eye-glow"></span></div>
-                            <div class="eye-3d right"><span class="eye-glow"></span></div>
+
+                            <div class="eye-3d left">
+                                <span class="eye-glow"></span>
+                            </div>
+
+                            <div class="eye-3d right">
+                                <span class="eye-glow"></span>
+                            </div>
+
                         </div>
+
+
+                        <!-- NECK -->
+
                         <div class="spider-neck"></div>
+
+
+                        <!-- TORSO -->
+
                         <div class="spider-torso">
+
                             <div class="torso-pattern"></div>
-                            <div class="spider-logo">🕷️</div>
+
+                            <div class="spider-logo">
+                                🕷️
+                            </div>
+
                         </div>
+
+
+                        <!-- ARMS -->
+
                         <div class="left-arm"></div>
                         <div class="right-arm"></div>
+
+
+                        <!-- LEGS -->
+
                         <div class="left-leg"></div>
                         <div class="right-leg"></div>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- Hero Content -->
+
+
+            <!-- =================================================
+                 HERO CONTENT
+            ================================================== -->
+
             <div class="hero-content">
+
                 <div class="glass-card">
-                    <span class="badge">✦ SPECIAL DAY ✦</span>
+
+                    <!-- SPECIAL BADGE -->
+
+                    <span class="badge">
+                        ✦ SPECIAL DAY ✦
+                    </span>
+
+
+                    <!-- MAIN TITLE -->
+
                     <div class="title-wrapper">
-                        <h1 class="glow-title">Happiest Birthday</h1>
+
+                        <h1 class="glow-title">
+                            Happiest Birthday
+                        </h1>
+
                         <div class="title-light"></div>
+
                     </div>
-                    <h2 class="hero-name">MY SPIDER MAN</h2>
-                    <h3 class="person-name">Mahee ❤️</h3>
+
+
+                    <!-- HERO SUBTITLE -->
+
+                    <h2 class="hero-name">
+                        MY SPIDER MAN
+                    </h2>
+
+
+                    <!-- PERSON NAME -->
+
+                    <h3 class="person-name">
+                        Mahee ❤️
+                    </h3>
+
+
+                    <!-- DIVIDER -->
+
                     <div class="divider"></div>
+
+
+                    <!-- TYPEWRITER MESSAGE -->
+
                     <p id="typing" class="typing-text"></p>
+
+
+                    <!-- HERO QUOTE -->
+
                     <div class="hero-quote">
+
                         <span class="quote-line"></span>
-                        <p>"Every hero has a story... Today is yours."</p>
+
+                        <p>
+                            "Every hero has a story... Today is yours."
+                        </p>
+
                         <span class="quote-line"></span>
+
                     </div>
+
+
+                    <!-- HERO BUTTONS -->
+
                     <div class="hero-actions">
-                        <button id="musicBtn" class="hero-btn primary-btn" type="button">
-                            <span class="btn-icon">🎵</span>
-                            <span>Play Music</span>
+
+                        <button
+                            id="musicBtn"
+                            class="hero-btn primary-btn"
+                            type="button">
+
+                            <span class="btn-icon">
+                                🎵
+                            </span>
+
+                            <span>
+                                Play Music
+                            </span>
+
                         </button>
-                        <button id="enterBtn" class="hero-btn secondary-btn" type="button">
-                            <span>Begin Journey</span>
-                            <span class="arrow">➜</span>
+
+
+                        <button
+                            id="enterBtn"
+                            class="hero-btn secondary-btn"
+                            type="button">
+
+                            <span>
+                                Begin Journey
+                            </span>
+
+                            <span class="arrow">
+                                ➜
+                            </span>
+
                         </button>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- Scroll Indicator -->
+
+
+            <!-- =================================================
+                 SCROLL INDICATOR
+            ================================================== -->
+
             <div class="scroll-indicator">
-                <span class="mouse"><span class="wheel"></span></span>
-                <p>Scroll Down</p>
+
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+
+                <p>
+                    Scroll Down
+                </p>
+
             </div>
+
 
         </div>
 
-        <!-- Corner Web -->
+
+
+        <!-- =================================================
+             CORNER WEBS
+        ================================================== -->
+
         <div class="corner-web top-left"></div>
         <div class="corner-web top-right"></div>
+
         <div class="corner-web bottom-left"></div>
         <div class="corner-web bottom-right"></div>
 
-        <!-- Particles -->
+
+
+        <!-- =================================================
+             PARTICLES
+        ================================================== -->
+
         <div class="particle-container">
-            <span class="particle p1"></span><span class="particle p2"></span><span class="particle p3"></span>
-            <span class="particle p4"></span><span class="particle p5"></span><span class="particle p6"></span>
-            <span class="particle p7"></span><span class="particle p8"></span><span class="particle p9"></span>
-            <span class="particle p10"></span><span class="particle p11"></span><span class="particle p12"></span>
+
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+            <span class="particle p8"></span>
+
+            <span class="particle p9"></span>
+            <span class="particle p10"></span>
+            <span class="particle p11"></span>
+            <span class="particle p12"></span>
+
         </div>
 
-        <!-- Flash -->
+
+
+        <!-- =================================================
+             SCREEN FLASH
+        ================================================== -->
+
         <div class="screen-flash"></div>
 
-        <!-- Transition -->
+
+
+        <!-- =================================================
+             HERO TRANSITION
+        ================================================== -->
+
         <div class="hero-transition">
+
             <div class="transition-glow"></div>
+
             <div class="transition-web"></div>
+
             <div class="transition-fade"></div>
+
         </div>
 
     </section>
 
-    <!-- Audio Elements -->
-    <audio id="music" loop preload="auto"><source src="spiderman.mp3" type="audio/mpeg"></audio>
-    <audio id="thunderSound" preload="auto"><source src="thunder.mp3" type="audio/mpeg"></audio>
-    <audio id="webShootSound" preload="auto"><source src="webshoot.mp3" type="audio/mpeg"></audio>
-    <audio id="whooshSound" preload="auto"><source src="whoosh.mp3" type="audio/mpeg"></audio>
-    <audio id="sparkleSound" preload="auto"><source src="sparkle.mp3" type="audio/mpeg"></audio>
 
-    <!-- ================= CINEMATIC CAKE PAGE ================= -->
-    <section class="cake-page" id="cakePage">
-        <div class="cake-bg"></div>
-        <div class="cake-overlay"></div>
-        <div class="cake-gradient"></div>
 
-        <!-- Floating Lights -->
-        <div class="gold-particles">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-        </div>
+    <!-- =====================================================
+         AUDIO
+    ====================================================== -->
 
-        <!-- Theatre Curtains -->
-        <div class="curtain left-curtain">
-            <div class="curtain-fold"></div><div class="curtain-fold"></div><div class="curtain-fold"></div>
-        </div>
-        <div class="curtain right-curtain">
-            <div class="curtain-fold"></div><div class="curtain-fold"></div><div class="curtain-fold"></div>
-        </div>
+    <audio id="music" loop preload="auto">
+        <source src="spiderman.mp3" type="audio/mpeg">
+    </audio>
 
-        <!-- Stage Lights -->
-        <div class="stage-lights">
-            <span class="light l1"></span><span class="light l2"></span>
-            <span class="light l3"></span><span class="light l4"></span>
-        </div>
+    <audio id="thunderSound" preload="auto">
+        <source src="thunder.mp3" type="audio/mpeg">
+    </audio>
 
-        <!-- Countdown -->
-        <div id="countdownOverlay" class="countdown-overlay">
-            <div class="count-circle">
-                <div id="countdownNumber">3</div>
-            </div>
-            <h2 class="count-text">Get Ready...</h2>
-        </div>
+    <audio id="webShootSound" preload="auto">
+        <source src="webshoot.mp3" type="audio/mpeg">
+    </audio>
 
-        <!-- Main Stage -->
-        <div id="cakeMainContent" class="cake-main-content hidden-content">
-            <div class="stage-floor"></div>
-            <div class="stage-shadow"></div>
+    <audio id="whooshSound" preload="auto">
+        <source src="whoosh.mp3" type="audio/mpeg">
+    </audio>
 
-            <!-- Floating Balloons -->
-            <div class="balloon-cluster left-cluster">
-                <div class="balloon red"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-                <div class="balloon gold"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-                <div class="balloon white"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-            </div>
-
-            <div class="balloon-cluster right-cluster">
-                <div class="balloon blue"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-                <div class="balloon pink"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-                <div class="balloon silver"><div class="balloon-body"></div><div class="balloon-shine"></div><div class="string"></div></div>
-            </div>
-
-            <!-- Floating Hearts -->
-            <div class="floating-hearts">
-                <span>❤</span><span>🤍</span><span>✨</span><span>❤</span><span>✨</span><span>🤍</span>
-            </div>
-
-            <!-- Birthday Header -->
-            <div class="cake-header-wrap">
-                <span class="birthday-badge">✦ 17 AUGUST ✦</span>
-                <h1 class="cake-title">Happy 24th Birthday</h1>
-                <h2 class="cake-name">Mahee ❤️</h2>
-                <p class="cake-subtitle">Today the world became brighter because someone extraordinary was born.</p>
-            </div>
-
-            <!-- Elegant Calendar -->
-            <div class="calendar-frame">
-                <div class="calendar-glow"></div>
-                <div class="calendar-bg">
-                    <div class="cal-header">August • 2026</div>
-                    <div class="cal-grid">
-                        <span class="day-name">Su</span><span class="day-name">Mo</span><span class="day-name">Tu</span>
-                        <span class="day-name">We</span><span class="day-name">Th</span><span class="day-name">Fr</span><span class="day-name">Sa</span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
-                        <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-                        <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
-                        <span>16</span>
-                        <span class="birthday-date">17 ❤️</span>
-                        <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cinematic Spotlight -->
-            <div class="spotlight-wrap">
-                <div class="spotlight left-light"></div>
-                <div class="spotlight center-light"></div>
-                <div class="spotlight right-light"></div>
-            </div>
-
-            <!-- Main Cake Stage -->
-            <div class="cake-stage">
-                <div class="cake-shadow"></div>
-                <div class="birthday-cake">
-                    <div class="cake-plate"></div>
-                    <div class="cake-layer layer-3"><div class="icing"></div><div class="drips"></div></div>
-                    <div class="cake-layer layer-2"><div class="icing"></div><div class="drips"></div></div>
-                    <div class="cake-layer layer-1"><div class="icing"></div></div>
-                    <div class="candle">
-                        <div class="wax"></div>
-                        <div class="flame-wrap">
-                            <div class="flame-outer"></div>
-                            <div class="flame-inner" id="flame"></div>
-                        </div>
-                    </div>
-                    <div class="cake-decoration deco1"></div>
-                    <div class="cake-decoration deco2"></div>
-                    <div class="cake-decoration deco3"></div>
-                    <div class="cake-decoration deco4"></div>
-                    <div class="cake-decoration deco5"></div>
-                    <div class="cake-decoration deco6"></div>
-                </div>
-            </div>
-
-            <!-- Magic Particles -->
-            <div class="magic-particles">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
-
-            <!-- Cake Message -->
-            <div class="birthday-message">
-                <h2>✨ Make A Beautiful Wish ✨</h2>
-                <p>Close your eyes...<br>Smile from your heart...<br>And let this candle carry your dream to the stars.</p>
-            </div>
-
-            <!-- Confetti & Fireworks -->
-            <div class="confetti-container" id="confettiContainer">
-                <span class="confetti c1"></span><span class="confetti c2"></span><span class="confetti c3"></span>
-                <span class="confetti c4"></span><span class="confetti c5"></span><span class="confetti c6"></span>
-                <span class="confetti c7"></span><span class="confetti c8"></span><span class="confetti c9"></span><span class="confetti c10"></span>
-            </div>
-            <canvas id="cakeFireworksCanvas"></canvas>
-
-            <!-- Floating Sparkles -->
-            <div class="sparkle-field">
-                <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="spark s4"></span>
-                <span class="spark s5"></span><span class="spark s6"></span><span class="spark s7"></span><span class="spark s8"></span>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="cake-buttons">
-                <button id="blowBtn" class="hero-btn blow-btn" type="button">💨 Blow The Candle</button>
-                <button id="celebrateBtn" class="hero-btn celebrate-btn" type="button">🎉 Celebrate</button>
-                <button id="nextBtn" class="hero-btn next-btn" type="button">Continue Journey 💌</button>
-            </div>
-
-            <!-- Footer Quote -->
-            <div class="cake-footer">
-                <p>"Every birthday is the beginning of another beautiful chapter."</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= 3. BIRTHDAY LETTER PAGE ================= -->
-    <section class="letter-page">
-        <div class="letter-card">
-            <h1>A Birthday Letter For Mahee🤍</h1>
-            <div class="letter-text" id="letterText">
-                <p>Happy 24th Birthday, My Mahee🤍</p>
-                <p>I truly hope this new chapter of your life brings you endless happiness, peace, good health, success, and every beautiful blessing your heart quietly wishes for.</p>
-                <p>We may not have spent 24 years together, and honestly, none of us knows whether life will give us another 24 seconds, 24 minutes, 24 hours, 24 days, 24 months, or maybe even 24*5=120 years by each other's side.</p>
-                <p>But I've realized something beautiful... life isn't measured by how long we stay with someone. It's measured by how deeply those moments touch our hearts.</p>
-                <p>As long as destiny allows our paths to walk together, I simply want every moment to be worth remembering.</p>
-                <p>I want us to laugh without reasons, talk about the smallest things, make unforgettable memories, and collect little moments that one day will become our favorite memories.</p>
-                <p>Because sometimes, a few genuine moments with the right person become far more precious than years spent with anyone else.</p>
-                <p>Thank you for becoming such a beautiful chapter in my journey. Thank you for making ordinary days feel a little brighter just by being yourself.</p>
-                <p>I hope this year takes you closer to every dream you've been quietly holding onto. I hope it gives you strength when life becomes difficult, hope when things seem uncertain, and countless reasons to smile every single day.</p>
-                <p>Never forget how special you are, not because today is your birthday, but because your kindness, your heart, and the person you are make you truly one of a kind.</p>
-                <p>And no matter where life eventually takes us, I hope we'll always look back at these little memories with nothing but gratitude and a smile.</p>
-                <p>Happy 24th Birthday once again, Mahee🤍</p>
-                <p>May your life always be filled with love, peace, beautiful surprises, endless blessings, and a light that never fades. ✨</p>
-                <br>
-                <p>With all my warm wishes,<br>
-                <span class="letter-sign">With love,</span><br>
-                <strong class="letter-name">Mou🤍</strong>
-                </p>
-            </div>
-        </div>
-    </section>
-   
-    <!-- ================= 4. FRIENDSHIP MEMORY PAGE ================= -->
-    <section class="friend-memory">
-        <div class="memory-overlay"></div>
-        <div class="memory-container">
-            <h1>Our Friendship Memories 🤍</h1>
-            <p class="memory-subtitle">Some moments become memories, and some memories become forever...</p>
-            <div class="memory-slideshow">
-                <!-- Photo 1 -->
-                <div class="memory-slide active">
-                    <div class="memory-bg" style="background-image:url('Mahi.jpeg');"></div>
-                    <img src="Mahi.jpeg" class="memory-photo" alt="Memory 1">
-                </div>
-                <!-- Photo 2 -->
-                <div class="memory-slide">
-                    <div class="memory-bg" style="background-image:url('Tani.jpeg');"></div>
-                    <img src="Tani.jpeg" class="memory-photo" alt="Memory 2">
-                </div>
-                <!-- Photo 3 -->
-                <div class="memory-slide">
-                    <div class="memory-bg" style="background-image:url('t.jpeg');"></div>
-                    <img src="t.jpeg" class="memory-photo" alt="Memory 3">
-                </div>
-                <!-- Photo 4 -->
-                <div class="memory-slide">
-                    <div class="memory-bg" style="background-image:url('Mou.jpeg');"></div>
-                    <img src="Mou.jpeg" class="memory-photo" alt="Memory 4">
-                </div>
-            </div>
-            <button class="memory-next" type="button">Continue Our Story →</button>
-        </div>
-    </section>
-
-    <!-- ================= 5. CINEMATIC FRIENDSHIP LETTER ================= -->
-    <section class="friend-letter-page">
-        <div class="friend-bg"></div>
-        <div class="friend-overlay"></div>
-        <div class="friend-particles">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span>
-        </div>
-        <div class="friend-spotlight"></div>
-        <div class="friend-letter-wrapper">
-            <div class="wax-seal">🤍</div>
-            <div class="friend-letter-paper">
-                <div class="gold-line"></div>
-                <h1>A Letter For My Friend</h1>
-                <div class="friend-letter-text">
-                    <p>In this huge universe full of endless stories, I'm grateful that our paths crossed. Some people quietly enter our lives, yet somehow become one of the brightest chapters in them. You are one of those rare people.</p>
-                    <p>Thank you for every conversation, every laugh, every memory, and every moment that made ordinary days feel extraordinary. Those moments may seem small, but they mean more than words can explain.</p>
-                    <p>Life will keep changing, people will grow, and roads may become different, but I sincerely hope you always remember that somewhere in this world, there is a friend who genuinely wishes nothing but happiness, peace, and success for you.</p>
-                    <p>I never wanted to impress you. I only wanted you to know how valuable you are. You deserve kindness, respect, genuine care, and every beautiful thing life has to offer.</p>
-                    <p>If one day life becomes difficult, don't carry everything alone. I may not have every solution, but I can always sit beside you until the storm becomes lighter.</p>
-                    <p>You are never a burden. Never.</p>
-                    <p>No matter what version of yourself you become, I will always pray that you keep believing in yourself, because you are far stronger than you think.</p>
-                    <p>Thank you for being part of my story.</p>
-                    <p class="letter-ending">Forever grateful for this friendship. 🤍</p>
-                </div>
-            </div>
-            <div class="feather">🪶</div>
-        </div>
-    </section>
-
-    <!-- ================= CINEMATIC ROSE SCENE ================= -->
-    <section class="rose-scene">
-        <div class="rose-bg"></div>
-        <div class="rose-overlay"></div>
-        <div class="rose-particles">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="rose-light"></div>
-        <div class="rose-fog"></div>
-        <div class="rose-stage">
-            <div class="stage-shadow"></div>
-            <div class="marble-pedestal">
-                <!-- Ensure correct relative path to rose.png -->
-                <img src="rose.png" class="hero-rose" alt="Red Rose" onerror="this.style.display='none'; console.error('Rose image failed to load');">
-            </div>
-        </div>
-        <div class="rose-text">
-            <h1>🌹</h1>
-            <p class="line1">Not every flower is given to everyone...</p>
-            <p class="line2">This one is for someone truly special.</p>
-        </div>
-    </section>
-
-    <!-- Ambient Glowing Background Element -->
-    <div class="ambient-glow"></div>
-
-    <div class="container">
-        <!-- Interactive Envelope Wrapper -->
-        <div class="envelope-wrapper" id="envelopeWrapper">
-            
-            <div class="envelope" id="envelope">
-                <!-- Gold Lace Corner Accents -->
-                <div class="gold-corner top-left"></div>
-                <div class="gold-corner top-right"></div>
-                <div class="gold-corner bottom-left"></div>
-                <div class="gold-corner bottom-right"></div>
-
-                <!-- Envelope Flaps -->
-                <div class="flap top-flap"></div>
-                <div class="pocket"></div>
-
-                <!-- Monogram Royal Wax Seal -->
-                <div class="wax-seal" id="waxSeal">
-                    <span class="seal-monogram">M</span>
-                </div>
-            </div>
-
-            <div class="instruction-text" id="instructionText">
-                ✨ Tap the Royal Wax Seal to open the letter ✨
-            </div>
-        </div>
-
-        <!-- Revealed Letter Card (Initial Hidden) -->
-        <div class="letter-card hidden" id="letterCard">
-            <div class="letter-overlay"></div>
-            
-            <div class="letter-content">
-                <p>First of all… pardon me for falling in love with you.</p>
-                <p>I never planned for my heart to choose you. I don’t even know when it happened. Somewhere between our conversations, your little moments, and the comfort I found in your presence… you became someone who meant more to me than I ever expected.</p>
-                <p>I tried so hard to move on, to convince myself to let go. But every time I tried to walk away, I only realized how deeply I cared about you.</p>
-                <p>I know you may never be mine, and I have accepted that reality. So from now on, I will love you in the only way I know how — <span class="highlight">silently, respectfully, and from a distance.</span></p>
-                <p>Thank you for coming into my life. Thank you for giving my heart a feeling I never thought I would experience again.</p>
-                <p>You probably never realized it, but you saved me in ways you may never understand. You thought we were just talking, but for me, those conversations became moments I looked forward to. Your messages felt ordinary to you, but they became little reasons for me to smile, to hope, and to believe that beautiful people still exist.</p>
-                <p>You became a safe place without even trying. Your presence brought comfort, your voice brought peace, and your kindness reminded me that life could still hold something beautiful.</p>
-                <p>I don’t love you because you are perfect. I love the little things about you — the way you talk, the way you laugh, the way you make ordinary moments feel special just by being there.</p>
-                <p>I wanted to choose you, to be patient, to grow together, and to build something real. I gave you the most honest version of my heart, hoping you would understand how genuine my feelings were.</p>
-                <p>Maybe you will never know how much you were loved. Maybe this letter will remain hidden forever. But one thing will always be true — my feelings were never a show. Everything came straight from my heart. ❤️</p>
-                <p>I know my efforts may never be enough, and I may not always know how to express how much I care. But I will always wish the best for you and do whatever I can within my limits.</p>
-                <p>Yes, I like you. I care about you deeply. But I also respect you, your choices, and your boundaries.</p>
-                <p>So I will stay quiet and admire you from a distance. Maybe one day I will find the courage to say everything… or maybe I will learn to let you go.</p>
-                <p>No matter what happens, I hope you always stay happy. I hope life gives you every success, every peace, and every beautiful thing you deserve.</p>
-                <p>If you ever feel like no one is proud of you, remember that somewhere, someone is always praying for your happiness — even if you never know who it is.</p>
-                <p>I wish I could give you one thing: the ability to see yourself through my eyes. Because only then would you understand how special you truly are.</p>
-                <p>No matter where life takes us, I hope we always remember the little moments that made this journey meaningful.</p>
-
-                <div class="signature-block">
-                    <div class="signature-val">With all my heart,</div>
-                    <div class="signature-name">Mou 🤍</div>
-                </div>
-
-                <div class="kiss-mark">💋</div>
-            </div>
-        </div>
-    </div>
-    <!-- Script File -->
-    <script src="script.js"></script>
-
-</body>
-</html>
+    <audio id="sparkleSound" preload="auto">
+        <source src="sparkle.mp3" type="audio/mpeg">
+    </audio>
