@@ -2865,3 +2865,94 @@ a {
     }
 
 }
+
+/* =========================================================
+   FINAL WEB DETAILS
+   Natural web + corner webs
+========================================================= */
+
+/* Make the main web softer and less geometric */
+
+.top-spider-web {
+    opacity: 0.48;
+    transform: rotate(-2deg) scale(0.96);
+}
+
+.web-ray {
+    opacity: 0.75;
+}
+
+.web-ring {
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   CORNER SPIDER WEBS
+========================================================= */
+
+.spiderman-intro::before,
+.spiderman-intro::after {
+    content: "🕸️";
+
+    position: absolute;
+
+    z-index: 4;
+
+    font-size: 70px;
+
+    opacity: 0.32;
+
+    filter:
+        grayscale(1)
+        brightness(1.5);
+
+    pointer-events: none;
+}
+
+
+/* LEFT TOP CORNER */
+
+.spiderman-intro::before {
+    top: -18px;
+    left: -15px;
+
+    transform:
+        rotate(-18deg)
+        scale(1.05);
+}
+
+
+/* RIGHT BOTTOM CORNER */
+
+.spiderman-intro::after {
+    right: -18px;
+    bottom: -12px;
+
+    transform:
+        rotate(18deg)
+        scale(0.9);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .spiderman-intro::before {
+        font-size: 48px;
+
+        top: -10px;
+        left: -12px;
+    }
+
+    .spiderman-intro::after {
+        font-size: 48px;
+
+        right: -12px;
+        bottom: -8px;
+    }
+
+}
