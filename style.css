@@ -2958,7 +2958,7 @@ a {
 
 
 /* =========================================================
-   CORNER SPIDER WEBS
+   CINEMATIC CORNER SPIDER WEBS
 ========================================================= */
 
 .spiderman-intro::before,
@@ -2967,41 +2967,52 @@ a {
 
     position: absolute;
 
-    z-index: 4;
+    z-index: 8;
 
-    font-size: 70px;
+    font-size: 92px;
 
-    opacity: 0.32;
+    line-height: 1;
+
+    opacity: 0.48;
 
     filter:
         grayscale(1)
-        brightness(1.5);
+        brightness(1.8)
+        drop-shadow(0 0 7px rgba(255,255,255,0.20));
 
     pointer-events: none;
+
+    user-select: none;
+
+    transform-origin: center;
 }
 
 
-/* LEFT TOP CORNER */
+/* =========================================================
+   LEFT TOP CORNER
+========================================================= */
 
 .spiderman-intro::before {
     top: -18px;
-    left: -15px;
+    left: -18px;
 
     transform:
-        rotate(-18deg)
+        rotate(-12deg)
         scale(1.05);
 }
 
 
-/* RIGHT BOTTOM CORNER */
+/* =========================================================
+   RIGHT BOTTOM CORNER
+========================================================= */
 
 .spiderman-intro::after {
     right: -18px;
-    bottom: -12px;
+    bottom: -15px;
 
     transform:
-        rotate(18deg)
-        scale(0.9);
+        rotate(12deg)
+        scale(1);
 }
 
 
@@ -3011,18 +3022,31 @@ a {
 
 @media (max-width: 600px) {
 
-    .spiderman-intro::before {
-        font-size: 48px;
+    .spiderman-intro::before,
+    .spiderman-intro::after {
+        font-size: 68px;
 
-        top: -10px;
-        left: -12px;
+        opacity: 0.44;
     }
 
-    .spiderman-intro::after {
-        font-size: 48px;
 
+    .spiderman-intro::before {
+        top: -10px;
+        left: -12px;
+
+        transform:
+            rotate(-12deg)
+            scale(1.02);
+    }
+
+
+    .spiderman-intro::after {
         right: -12px;
-        bottom: -8px;
+        bottom: -9px;
+
+        transform:
+            rotate(12deg)
+            scale(0.98);
     }
 
 }
