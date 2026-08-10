@@ -932,37 +932,37 @@ a {
     left: 50%;
     top: 22%;
 
-    width: 112px;
-    height: 185px;
+    width: 94px;
+    height: 155px;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
     border-radius:
-        42% 42%
-        28% 28%;
+        46% 46%
+        32% 32%;
 
     background:
         linear-gradient(
-            110deg,
-            #071632 0%,
-            #0d3474 28%,
-            #174f9e 47%,
-            #102e68 67%,
-            #08152f 100%
+            105deg,
+            #061329 0%,
+            #0b2858 22%,
+            #174b8d 45%,
+            #123867 62%,
+            #07162f 82%,
+            #040b1b 100%
         );
 
     box-shadow:
-        inset -18px -8px 25px rgba(0,0,0,0.42),
-        inset 8px 0 18px rgba(50,110,210,0.16),
-        0 15px 25px rgba(0,0,0,0.4);
+        inset 10px 0 20px rgba(70,120,190,0.10),
+        inset -16px -15px 25px rgba(0,0,0,0.48),
+        0 12px 25px rgba(0,0,0,0.45);
 
     z-index: 4;
 
     overflow: hidden;
 }
-
 
 /* =========================================================
    RED CHEST PANEL
