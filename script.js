@@ -590,3 +590,5 @@ if (backgroundMusic) {
     );
 
 }
+
+});   
