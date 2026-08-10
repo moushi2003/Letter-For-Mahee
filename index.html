@@ -30,6 +30,67 @@
 <body>
 
     <!-- =====================================================
+     CINEMATIC MUSIC PLAYER
+====================================================== -->
+
+<div class="music-player" id="musicPlayer">
+
+    <button
+        id="musicButton"
+        class="music-button"
+        type="button"
+        aria-label="Play background music"
+        aria-pressed="false">
+
+        <span class="music-icon" id="musicIcon">♪</span>
+
+        <span class="music-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+    </button>
+
+
+    <!-- MUSIC MESSAGE -->
+
+    <div
+        class="music-message"
+        id="musicMessage"
+        aria-live="polite">
+
+        <span id="musicMessageText">
+            A little music for this moment...
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+     
+     Put your own audio file in the same folder:
+     brand-new.mp3
+====================================================== -->
+
+<audio
+    id="backgroundMusic"
+    preload="metadata"
+    loop>
+
+    <source
+        src="brand-new.mp3"
+        type="audio/mpeg">
+
+    Your browser does not support the audio element.
+
+</audio>
+
+    <!-- =====================================================
          PAGE 1
          CINEMATIC SPIDER-MAN INTRO
     ====================================================== -->
@@ -217,7 +278,7 @@
                         <span class="finger finger-3"></span>
 
                     </div>
-
+                </div>
 
                  RIGHT SIDE HANGING SPIDER
             ================================================== -->
