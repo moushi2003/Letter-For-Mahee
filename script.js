@@ -405,4 +405,166 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-  
+  /* =========================================================
+   CINEMATIC MUSIC PLAYER
+========================================================= */
+
+const musicButton = document.getElementById("musicButton");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicPlayer = document.getElementById("musicPlayer");
+const musicMessage = document.getElementById("musicMessage");
+const musicMessageText = document.getElementById("musicMessageText");
+
+let musicMessageTimer;
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+if (musicButton && backgroundMusic) {
+
+    musicButton.addEventListener("click", async () => {
+
+        try {
+
+            if (backgroundMusic.paused) {
+
+                await backgroundMusic.play();
+
+                musicPlayer.classList.add("playing");
+
+                musicButton.setAttribute(
+                    "aria-pressed",
+                    "true"
+                );
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pause background music"
+                );
+
+
+                /* SHOW MESSAGE */
+
+                if (musicMessage) {
+
+                    musicMessageText.textContent =
+                        "A little music for this moment...";
+
+                    musicMessage.classList.add("show");
+
+
+                    clearTimeout(musicMessageTimer);
+
+                    musicMessageTimer = setTimeout(() => {
+
+                        musicMessage.classList.remove("show");
+
+                    }, 4000);
+
+                }
+
+            } else {
+
+                backgroundMusic.pause();
+
+                musicPlayer.classList.remove("playing");
+
+                musicButton.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play background music"
+                );
+
+
+                /* SHOW PAUSE MESSAGE */
+
+                if (musicMessage) {
+
+                    musicMessageText.textContent =
+                        "Music paused...";
+
+                    musicMessage.classList.add("show");
+
+
+                    clearTimeout(musicMessageTimer);
+
+                    musicMessageTimer = setTimeout(() => {
+
+                        musicMessage.classList.remove("show");
+
+                    }, 2500);
+
+                }
+
+            }
+
+        } catch (error) {
+
+            console.log(
+                "Music could not be played:",
+                error
+            );
+
+            if (musicMessage) {
+
+                musicMessageText.textContent =
+                    "Add the music file to the music folder.";
+
+                musicMessage.classList.add("show");
+
+
+                clearTimeout(musicMessageTimer);
+
+                musicMessageTimer = setTimeout(() => {
+
+                    musicMessage.classList.remove("show");
+
+                }, 3500);
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   MUSIC ENDED
+========================================================= */
+
+if (backgroundMusic) {
+
+    backgroundMusic.addEventListener(
+        "ended",
+        () => {
+
+            if (musicPlayer) {
+                musicPlayer.classList.remove("playing");
+            }
+
+            if (musicButton) {
+
+                musicButton.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play background music"
+                );
+
+            }
+
+        }
+    );
+
+}
