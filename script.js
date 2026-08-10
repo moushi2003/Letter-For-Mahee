@@ -87,17 +87,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       START TYPING AFTER INTRO APPEARS
-    ===================================================== */
+   /* =====================================================
+   START CINEMATIC TYPING
+===================================================== */
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        typeIntroText(introText, 55);
+    if (!introTyping) return;
 
-    }, 1800);
+    const text =
+        "A little surprise for someone who makes life brighter.";
 
+    let index = 0;
 
+    introTyping.textContent = "";
+
+    function typeCharacter() {
+
+        if (index < text.length) {
+
+            introTyping.textContent += text[index];
+
+            index++;
+
+            setTimeout(typeCharacter, 55);
+
+        }
+
+    }
+
+    typeCharacter();
+
+}, 1800);
+   
     /* =====================================================
        LITTLE SPIDER MOVEMENT
     ===================================================== */
