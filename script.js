@@ -1,565 +1,889 @@
-/* ==========================================================
-   MARVEL CINEMATIC SPIDER HERO & CAKE PAGE — COMBINED SCRIPT
-========================================================== */
+/* =========================================================
+   FOR MY MAHEE
+   CINEMATIC SPIDER-MAN INTRO
+   JAVASCRIPT PART 1
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===============================
-       GLOBAL SELECTORS & VARIABLES
-    ================================ */
-    const scene = document.getElementById("spiderScene");
-    const musicBtn = document.getElementById("musicBtn");
-    const enterBtn = document.getElementById("enterBtn");
-    const music = document.getElementById("music");
-    const typing = document.getElementById("typing");
-    const flash = document.querySelector(".screen-flash");
-    const thunder = document.getElementById("thunderSound");
-    const whoosh = document.getElementById("whooshSound");
-    const webShoot = document.getElementById("webShootSound");
-    const particles = document.querySelector(".particle-container");
-    const glow = document.querySelector(".spider-glow");
-    const heroCard = document.querySelector(".glass-card");
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-    /* ===============================
-       TYPE WRITER (HERO)
-    ================================ */
-    const message = "Today isn't just another birthday. It's the celebration of a truly wonderful soul. Welcome to your own little Marvel adventure... ❤️";
-    let index = 0;
+    const intro = document.getElementById("spidermanIntro");
 
-    function typeWriter() {
-        if (typing && index < message.length) {
-            typing.innerHTML += message.charAt(index);
-            index++;
-            setTimeout(typeWriter, 35);
+    const introTyping = document.getElementById("introTyping");
+
+    const littleSpider = document.querySelector(".little-spider");
+
+    const spiderThread = document.querySelector(".little-spider-thread");
+
+    const spiderman = document.querySelector(".spiderman");
+
+    const bouquet = document.querySelector(".hero-bouquet");
+
+    const introContent = document.querySelector(".intro-content");
+
+
+    /* =====================================================
+       INTRO TEXT
+    ===================================================== */
+
+    const introText =
+        "A little surprise for someone who makes life brighter.";
+
+
+    /* =====================================================
+       INITIAL STATE
+    ===================================================== */
+
+    if (introTyping) {
+        introTyping.textContent = "";
+    }
+
+
+    /* =====================================================
+       CINEMATIC INTRO DELAY
+    ===================================================== */
+
+    setTimeout(() => {
+
+        if (introContent) {
+            introContent.classList.add("intro-visible");
         }
-    }
 
-    /* ===============================
-       FLASH EFFECT
-    ================================ */
-    function screenFlash() {
-        if (!flash) return;
-        flash.style.transition = "none";
-        flash.style.opacity = "1";
-        setTimeout(() => {
-            flash.style.transition = ".8s";
-            flash.style.opacity = "0";
-        }, 80);
-    }
+    }, 500);
 
-    /* ===============================
-       MUSIC & INTRO TRIGGER
-    ================================ */
-    if (musicBtn) {
-        musicBtn.addEventListener("click", () => {
-            if (music) {
-                music.play().catch(() => {});
-                music.volume = .55;
-            }
-            musicBtn.innerHTML = "🎵 Music Playing";
-            musicBtn.disabled = true;
-            screenFlash();
 
-            if (thunder) {
-                thunder.volume = .45;
-                thunder.play().catch(() => {});
-            }
-            typeWriter();
-        });
-    }
+    /* =====================================================
+       TYPING EFFECT
+    ===================================================== */
 
-    /* ===============================
-       ENTER BUTTON
-    ================================ */
-    if (enterBtn) {
-        enterBtn.addEventListener("click", () => {
-            if (whoosh) whoosh.play().catch(() => {});
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth"
-            });
-        });
-    }
+    function typeIntroText(text, speed = 55) {
 
-    /* ===============================
-       GLOW & CARD FOLLOW
-    ================================ */
-    if (scene && glow && heroCard) {
-        scene.addEventListener("mousemove", (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            glow.style.transform = `translate(${x * 40 - 20}px,${y * 30 - 15}px)`;
-            heroCard.style.setProperty("--rx", `${(0.5 - y) * 6}deg`);
-            heroCard.style.setProperty("--ry", `${(x - .5) * 6}deg`);
-        });
-    }
-
-    /* ===============================
-       RANDOM LIGHTNING
-    ================================ */
-    function lightningStrike() {
-        screenFlash();
-        if (thunder) {
-            thunder.currentTime = 0;
-            thunder.volume = 0.45;
-            thunder.play().catch(() => {});
+        if (!introTyping) {
+            return;
         }
-    }
 
-    setInterval(() => {
-        if (Math.random() > 0.78) {
-            lightningStrike();
-        }
-    }, 4500);
+        let index = 0;
 
-    /* ===============================
-       FLOATING PARTICLES
-    ================================ */
-    function createParticle() {
-        if (!particles) return;
-        const p = document.createElement("span");
-        p.className = "particle";
-        p.style.left = Math.random() * 100 + "%";
-        p.style.bottom = "-10px";
-        p.style.animationDuration = (6 + Math.random() * 5) + "s";
-        p.style.opacity = 0.2 + Math.random() * 0.8;
-        p.style.transform = `scale(${0.4 + Math.random()})`;
-        particles.appendChild(p);
-        setTimeout(() => p.remove(), 11000);
-    }
-    setInterval(createParticle, 350);
+        introTyping.textContent = "";
 
-    /* ===============================
-       SPIDER SWING
-    ================================ */
-    const spider = document.querySelector(".spiderman-entry");
-    let swing = 0;
-    let direction = 1;
+        function typeCharacter() {
 
-    setInterval(() => {
-        if (!spider) return;
-        swing += direction * 0.5;
-        if (swing >= 7) direction = -1;
-        if (swing <= -7) direction = 1;
-        spider.style.transform = `rotate(${swing}deg)`;
-    }, 40);
+            if (index < text.length) {
 
-    /* ===============================
-       WEB SHOOT EFFECT
-    ================================ */
-    document.addEventListener("click", (e) => {
-        if (webShoot) {
-            webShoot.currentTime = 0;
-            webShoot.volume = 0.45;
-            webShoot.play().catch(() => {});
-        }
-        const web = document.createElement("div");
-        web.className = "click-web";
-        web.style.left = e.clientX + "px";
-        web.style.top = e.clientY + "px";
-        document.body.appendChild(web);
-        setTimeout(() => web.remove(), 700);
-    });
+                introTyping.textContent += text.charAt(index);
 
-    /* ===============================
-       HERO CARD FLOAT
-    ================================ */
-    let floatValue = 0;
-    setInterval(() => {
-        floatValue += 0.04;
-        if (heroCard) {
-            heroCard.style.marginTop = Math.sin(floatValue) * 8 + "px";
-        }
-    }, 30);
+                index++;
 
-    /* ===============================
-       BUTTON GLOW
-    ================================ */
-    document.querySelectorAll(".hero-btn").forEach(btn => {
-        btn.addEventListener("mouseenter", () => {
-            btn.style.boxShadow = "0 0 35px rgba(0,180,255,.8)";
-        });
-        btn.addEventListener("mouseleave", () => {
-            btn.style.boxShadow = "";
-        });
-    });
+                setTimeout(typeCharacter, speed);
 
-    /* ===============================
-       CANVAS SPIDER WEB
-    ================================ */
-    const canvas = document.getElementById("webCanvas");
-    if (canvas) {
-        const ctx = canvas.getContext("2d");
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
-
-        function drawSpiderWeb() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const cx = canvas.width / 2;
-            const cy = canvas.height / 2;
-            const rings = 9;
-            const spokes = 16;
-            const maxRadius = Math.max(canvas.width, canvas.height) * 0.55;
-
-            ctx.strokeStyle = "rgba(255,255,255,.10)";
-            ctx.lineWidth = 1;
-
-            for (let r = 1; r <= rings; r++) {
-                const radius = (maxRadius / rings) * r;
-                ctx.beginPath();
-                for (let i = 0; i <= spokes; i++) {
-                    const angle = (Math.PI * 2 / spokes) * i;
-                    const x = cx + Math.cos(angle) * radius;
-                    const y = cy + Math.sin(angle) * radius;
-                    if (i === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-                ctx.stroke();
             }
 
-            for (let i = 0; i < spokes; i++) {
-                const angle = (Math.PI * 2 / spokes) * i;
-                ctx.beginPath();
-                ctx.moveTo(cx, cy);
-                ctx.lineTo(cx + Math.cos(angle) * maxRadius, cy + Math.sin(angle) * maxRadius);
-                ctx.stroke();
-            }
         }
-        drawSpiderWeb();
+
+        typeCharacter();
     }
 
-    /* ===============================
-       MOUSE TRAIL
-    ================================ */
-    document.addEventListener("mousemove", e => {
-        const dot = document.createElement("div");
-        dot.className = "trail-dot";
-        dot.style.left = e.clientX + "px";
-        dot.style.top = e.clientY + "px";
-        document.body.appendChild(dot);
-        setTimeout(() => dot.remove(), 700);
-    });
 
-    /* ===============================
-       INTRO CINEMATIC
-    ================================ */
-    window.addEventListener("load", () => {
-        if (heroCard) {
-            heroCard.style.opacity = "0";
-            heroCard.style.transform = "translateY(80px) scale(.9)";
-            setTimeout(() => {
-                heroCard.style.transition = "all 1.6s ease";
-                heroCard.style.opacity = "1";
-                heroCard.style.transform = "translateY(0) scale(1)";
-            }, 800);
+    /* =====================================================
+       START TYPING AFTER INTRO APPEARS
+    ===================================================== */
+
+    setTimeout(() => {
+
+        typeIntroText(introText, 55);
+
+    }, 1800);
+
+
+    /* =====================================================
+       LITTLE SPIDER MOVEMENT
+    ===================================================== */
+
+    let spiderPosition = 0;
+
+    let spiderDirection = 1;
+
+    let spiderSpeed = 0.45;
+
+
+    function animateSpider() {
+
+        if (!littleSpider) {
+            return;
         }
-    });
 
-    /* ==========================================================
-       CINEMATIC CAKE PAGE LOGIC
-    ========================================================== */
-    const countdownOverlay = document.getElementById("countdownOverlay");
-    const countdownNumber = document.getElementById("countdownNumber");
-    const cakeMainContent = document.getElementById("cakeMainContent");
-    const leftCurtain = document.querySelector(".left-curtain");
-    const rightCurtain = document.querySelector(".right-curtain");
-    const celebrateBtn = document.getElementById("celebrateBtn");
-    const blowBtn = document.getElementById("blowBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    let cakeStarted = false;
+        spiderPosition +=
+            spiderSpeed * spiderDirection;
 
-    function startCakeIntro() {
-        if (cakeStarted || !countdownOverlay) return;
-        cakeStarted = true;
-        countdownOverlay.style.display = "flex";
-        let count = 3;
-        if (countdownNumber) countdownNumber.textContent = count;
 
-        const timer = setInterval(() => {
-            count--;
-            if (count > 0) {
-                if (countdownNumber) {
-                    countdownNumber.textContent = count;
-                    countdownNumber.animate([
-                        { transform: "scale(.4)", opacity: 0 },
-                        { transform: "scale(1)", opacity: 1 }
-                    ], { duration: 500 });
-                }
+        if (spiderPosition >= 1) {
+
+            spiderDirection = -1;
+
+        }
+
+
+        if (spiderPosition <= 0) {
+
+            spiderDirection = 1;
+
+        }
+
+
+        const movement =
+            Math.sin(spiderPosition * Math.PI);
+
+
+        const horizontalMovement =
+            Math.sin(spiderPosition * Math.PI * 4)
+            * 18;
+
+
+        littleSpider.style.transform =
+            `translateX(calc(-50% + ${horizontalMovement}px))
+             rotate(${movement * 5 - 2.5}deg)`;
+
+
+        requestAnimationFrame(animateSpider);
+    }
+
+
+    animateSpider();
+
+
+    /* =====================================================
+       SPIDER THREAD MOVEMENT
+    ===================================================== */
+
+    let threadAngle = 0;
+
+    let threadDirection = 1;
+
+
+    function animateThread() {
+
+        if (!spiderThread) {
+            return;
+        }
+
+        threadAngle +=
+            0.015 * threadDirection;
+
+
+        if (threadAngle > 3) {
+
+            threadDirection = -1;
+
+        }
+
+
+        if (threadAngle < -3) {
+
+            threadDirection = 1;
+
+        }
+
+
+        spiderThread.style.transform =
+            `translateX(-50%) rotate(${threadAngle}deg)`;
+
+
+        requestAnimationFrame(animateThread);
+    }
+
+
+    animateThread();
+
+
+    /* =====================================================
+       HERO FLOATING MOVEMENT
+    ===================================================== */
+
+    let heroTime = 0;
+
+
+    function animateHero() {
+
+        if (!spiderman) {
+            return;
+        }
+
+        heroTime += 0.015;
+
+
+        const vertical =
+            Math.sin(heroTime) * 5;
+
+
+        const rotation =
+            Math.sin(heroTime * 0.8) * 1.2;
+
+
+        spiderman.style.transform =
+            `translateY(${vertical}px)
+             rotate(${rotation}deg)`;
+
+
+        requestAnimationFrame(animateHero);
+    }
+
+
+    animateHero();
+
+
+    /* =====================================================
+       BOUQUET FLOAT
+    ===================================================== */
+
+    let bouquetTime = 0;
+
+
+    function animateBouquet() {
+
+        if (!bouquet) {
+            return;
+        }
+
+        bouquetTime += 0.025;
+
+
+        const y =
+            Math.sin(bouquetTime) * 3;
+
+
+        const rotation =
+            Math.sin(bouquetTime * 0.7) * 2;
+
+
+        bouquet.style.transform =
+            `rotate(${-8 + rotation}deg)
+             translateY(${y}px)`;
+
+
+        requestAnimationFrame(animateBouquet);
+    }
+
+
+    animateBouquet();
+
+
+    /* =====================================================
+       MOUSE PARALLAX
+    ===================================================== */
+
+    if (intro) {
+
+        intro.addEventListener("mousemove", (event) => {
+
+            const x =
+                (event.clientX / window.innerWidth - 0.5);
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5);
+
+
+            if (spiderman) {
+
+                spiderman.style.marginLeft =
+                    `${x * 12}px`;
+
+                spiderman.style.marginTop =
+                    `${y * 8}px`;
+            }
+
+
+            if (littleSpider) {
+
+                littleSpider.style.marginLeft =
+                    `${x * 8}px`;
+            }
+
+        });
+
+
+        intro.addEventListener("mouseleave", () => {
+
+            if (spiderman) {
+
+                spiderman.style.marginLeft = "0px";
+
+                spiderman.style.marginTop = "0px";
+
+            }
+
+
+            if (littleSpider) {
+
+                littleSpider.style.marginLeft = "0px";
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       TOUCH PARALLAX
+    ===================================================== */
+
+    if (intro) {
+
+        intro.addEventListener("touchmove", (event) => {
+
+            if (!event.touches.length) {
+                return;
+            }
+
+
+            const touch =
+                event.touches[0];
+
+
+            const x =
+                touch.clientX / window.innerWidth - 0.5;
+
+            const y =
+                touch.clientY / window.innerHeight - 0.5;
+
+
+            if (spiderman) {
+
+                spiderman.style.marginLeft =
+                    `${x * 8}px`;
+
+                spiderman.style.marginTop =
+                    `${y * 6}px`;
+
+            }
+
+        }, {
+            passive: true
+        });
+
+    }
+
+
+    /* =====================================================
+       INTRO LOADED CLASS
+    ===================================================== */
+
+    setTimeout(() => {
+
+        if (intro) {
+            intro.classList.add("intro-loaded");
+        }
+
+    }, 100);
+
+
+    /* =====================================================
+       PAGE VISIBILITY
+    ===================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            if (document.hidden) {
+
+                document.body.classList.add(
+                    "page-paused"
+                );
+
             } else {
-                clearInterval(timer);
-                if (countdownNumber) countdownNumber.innerHTML = "🎉";
-                setTimeout(openCurtains, 900);
+
+                document.body.classList.remove(
+                    "page-paused"
+                );
+
             }
-        }, 1000);
-    }
 
-    function openCurtains() {
-        if (leftCurtain) leftCurtain.classList.add("open-left");
-        if (rightCurtain) rightCurtain.classList.add("open-right");
-
-        setTimeout(() => {
-            if (countdownOverlay) countdownOverlay.style.display = "none";
-            if (cakeMainContent) {
-                cakeMainContent.classList.remove("hidden-content");
-                cakeMainContent.style.opacity = "1";
-                cakeMainContent.style.visibility = "visible";
-                cinematicEntrance();
-            }
-        }, 1800);
-    }
-
-    function cinematicEntrance() {
-        if (cakeMainContent) {
-            cakeMainContent.animate([
-                { opacity: 0, transform: "translateY(80px) scale(.92)" },
-                { opacity: 1, transform: "translateY(0) scale(1)" }
-            ], { duration: 1600, easing: "ease" });
         }
+    );
+
+   /* =========================================================
+   JAVASCRIPT PART 2
+   INTRO INTERACTION + PAGE TRANSITION
+========================================================= */
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const introSection =
+    document.getElementById("spidermanIntro");
+
+const birthdayPage =
+    document.getElementById("birthdayPage");
+
+const scrollIndicator =
+    document.querySelector(".intro-scroll");
+
+const lightSweep =
+    document.querySelector(".light-sweep");
+
+
+/* =========================================================
+   INTRO SCROLL EFFECT
+========================================================= */
+
+let introLeaving = false;
+
+
+function leaveIntro() {
+
+    if (introLeaving) {
+        return;
     }
 
-    setTimeout(startCakeIntro, 1200);
+    introLeaving = true;
 
-    /* ===============================
-       CANDLE & FIREWORKS
-    ================================ */
-    const flame = document.getElementById("flame");
-    const fireworksCanvas = document.getElementById("cakeFireworksCanvas");
-    const ctxFw = fireworksCanvas ? fireworksCanvas.getContext("2d") : null;
 
-    function resizeFireworks() {
-        if (!fireworksCanvas) return;
-        fireworksCanvas.width = window.innerWidth;
-        fireworksCanvas.height = window.innerHeight;
-    }
-    resizeFireworks();
-    window.addEventListener("resize", resizeFireworks);
+    if (introSection) {
 
-    setInterval(() => {
-        if (!flame) return;
-        const scale = 0.9 + Math.random() * 0.25;
-        const rotate = -5 + Math.random() * 10;
-        flame.style.transform = `translateX(-50%) scale(${scale}) rotate(${rotate}deg)`;
-    }, 120);
+        introSection.classList.add(
+            "intro-leaving"
+        );
 
-    if (blowBtn) {
-        blowBtn.addEventListener("click", () => {
-            if (flame) {
-                flame.animate([
-                    { opacity: 1, transform: "translateX(-50%) scale(1)" },
-                    { opacity: 0, transform: "translateX(-50%) scale(0)" }
-                ], { duration: 700, fill: "forwards" });
-
-                setTimeout(() => {
-                    flame.style.display = "none";
-                    launchConfetti();
-                    launchFireworks();
-                }, 650);
-            }
-        });
     }
 
-    if (celebrateBtn) {
-        celebrateBtn.addEventListener("click", () => {
-            launchConfetti();
-            launchFireworks();
 
-            document.querySelectorAll(".balloon").forEach((balloon, index) => {
-                setTimeout(() => {
-                    balloon.classList.add("balloon-fly");
-                }, index * 300);
+    setTimeout(() => {
+
+        if (birthdayPage) {
+
+            birthdayPage.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
 
-            if (music) music.play().catch(() => {});
-        });
-    }
-
-    function launchConfetti() {
-        document.querySelectorAll(".confetti").forEach((piece, index) => {
-            piece.style.animation = "none";
-            piece.offsetHeight;
-            piece.style.animation = `confettiFall ${3 + Math.random() * 2}s linear`;
-            piece.style.animationDelay = `${index * 0.05}s`;
-        });
-    }
-
-    let fireworks = [];
-
-    function launchFireworks() {
-        if (!fireworksCanvas) return;
-        for (let i = 0; i < 6; i++) {
-            fireworks.push({
-                x: Math.random() * fireworksCanvas.width,
-                y: 120 + Math.random() * 220,
-                r: 0,
-                max: 50 + Math.random() * 40
-            });
         }
-    }
 
-    function animateFireworks() {
-        if (!ctxFw || !fireworksCanvas) return;
-        ctxFw.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+    }, 700);
 
-        fireworks.forEach((f, index) => {
-            ctxFw.beginPath();
-            ctxFw.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-            ctxFw.strokeStyle = `hsla(${Math.random() * 360}, 100%, 70%, 1)`;
-            ctxFw.lineWidth = 2;
-            ctxFw.stroke();
-            f.r += 2;
-            if (f.r > f.max) {
-                fireworks.splice(index, 1);
-            }
-        });
-        requestAnimationFrame(animateFireworks);
-    }
-    animateFireworks();
+}
 
-    /* ===============================
-       MAGIC PARTICLES & NEXT BTN
-    ================================ */
-    setInterval(() => {
-        const sparkle = document.createElement("span");
-        sparkle.className = "magic-particle";
-        sparkle.style.left = Math.random() * window.innerWidth + "px";
-        sparkle.style.top = window.innerHeight + "px";
-        sparkle.style.animationDuration = (4 + Math.random() * 4) + "s";
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 8000);
-    }, 350);
 
-    const letterPageTarget = document.querySelector(".personal-letter-section") || document.querySelector(".letter-page");
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            if (cakeMainContent) {
-                cakeMainContent.animate([
-                    { opacity: 1, transform: "scale(1)" },
-                    { opacity: 0, transform: "scale(1.12)" }
-                ], { duration: 1200, easing: "ease-in-out", fill: "forwards" });
-            }
-            setTimeout(() => {
-                if (letterPageTarget) {
-                    letterPageTarget.scrollIntoView({ behavior: "smooth" });
-                }
-            }, 1000);
-        });
-    }
+/* =========================================================
+   SCROLL DETECTION
+========================================================= */
 
-    /* ===============================
-       PAGE 3 : BIRTHDAY LETTER TYPEWRITER
-    ================================ */
-    const letterTextElem = document.getElementById("letterText");
-    const letterCardElem = document.querySelector(".letter-card");
+window.addEventListener(
+    "wheel",
+    (event) => {
 
-    if (letterTextElem) {
-        const paragraphs = [...letterTextElem.querySelectorAll("p")];
-        const originalTexts = paragraphs.map(p => p.innerHTML);
+        if (window.scrollY > 80) {
 
-        paragraphs.forEach(p => { p.innerHTML = ""; });
-        let currentParagraph = 0;
+            leaveIntro();
 
-        function typeParagraph() {
-            if (currentParagraph >= paragraphs.length) return;
-            const target = paragraphs[currentParagraph];
-            const html = originalTexts[currentParagraph];
-            let charIndex = 0;
-
-            function type() {
-                if (charIndex < html.length) {
-                    target.innerHTML += html.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(type, 25);
-                } else {
-                    currentParagraph++;
-                    setTimeout(typeParagraph, 2000);
-                }
-            }
-            type();
         }
-        setTimeout(typeParagraph, 2000);
+
+    },
+    {
+        passive: true
     }
+);
 
-    if (letterCardElem) {
-        setInterval(() => {
-            letterCardElem.animate([
-                { boxShadow: "0 0 25px rgba(255,215,120,.20)" },
-                { boxShadow: "0 0 50px rgba(255,215,120,.35)" },
-                { boxShadow: "0 0 25px rgba(255,215,120,.20)" }
-            ], { duration: 4000, iterations: 1 });
-        }, 5000);
+
+/* =========================================================
+   TOUCH SWIPE DETECTION
+========================================================= */
+
+let touchStartY = 0;
+
+let touchEndY = 0;
+
+
+window.addEventListener(
+    "touchstart",
+    (event) => {
+
+        if (!event.touches.length) {
+            return;
+        }
+
+        touchStartY =
+            event.touches[0].clientY;
+
+    },
+    {
+        passive: true
     }
+);
 
-    /* ===============================
-       ROYAL 3D ENVELOPE & REVEAL LOGIC
-    ================================ */
-    const envelopeWrapper = document.getElementById("envelopeWrapper");
-    const letterStage = document.getElementById("letterCard") || document.querySelector(".letter-stage");
 
-    if (envelopeWrapper && letterStage) {
-        envelopeWrapper.addEventListener("click", () => {
-            envelopeWrapper.classList.add("open");
+window.addEventListener(
+    "touchend",
+    (event) => {
+
+        if (!event.changedTouches.length) {
+            return;
+        }
+
+        touchEndY =
+            event.changedTouches[0].clientY;
+
+
+        const swipeDistance =
+            touchStartY - touchEndY;
+
+
+        if (swipeDistance > 60) {
+
+            leaveIntro();
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================================
+   SCROLL INDICATOR CLICK
+========================================================= */
+
+if (scrollIndicator) {
+
+    scrollIndicator.style.cursor =
+        "pointer";
+
+
+    scrollIndicator.addEventListener(
+        "click",
+        () => {
+
+            leaveIntro();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SPIDER CLICK / TAP EFFECT
+========================================================= */
+
+const smallSpider =
+    document.querySelector(".little-spider");
+
+
+if (smallSpider) {
+
+    smallSpider.style.pointerEvents =
+        "auto";
+
+    smallSpider.style.cursor =
+        "pointer";
+
+
+    smallSpider.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+
+            smallSpider.classList.add(
+                "spider-startled"
+            );
+
 
             setTimeout(() => {
-                letterStage.classList.add("active");
-                letterStage.scrollIntoView({ 
-                    behavior: "smooth", 
-                    block: "start" 
-                });
-            }, 600);
-        });
-    }
 
-    const kissBtn = document.getElementById("kissCorner");
-    const petals = document.getElementById("petalContainer");
+                smallSpider.classList.remove(
+                    "spider-startled"
+                );
 
-    if (kissBtn && petals) {
-        kissBtn.addEventListener("click", () => {
-            for (let i = 0; i < 30; i++) {
-                const p = document.createElement("div");
-                p.className = "rose-petal";
-                p.style.left = (85 + Math.random() * 6) + "%";
-                p.style.top = (88 + Math.random() * 3) + "%";
-                p.style.animationDelay = (Math.random() * 0.8) + "s";
-                p.style.animationDuration = (4 + Math.random() * 2) + "s";
-                petals.appendChild(p);
+            }, 800);
 
-                setTimeout(() => {
-                    p.remove();
-                }, 6500);
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INTRO CLICK EFFECT
+========================================================= */
+
+if (introSection) {
+
+    introSection.addEventListener(
+        "click",
+        (event) => {
+
+            const ripple =
+                document.createElement("span");
+
+
+            ripple.className =
+                "cinematic-ripple";
+
+
+            ripple.style.left =
+                `${event.clientX}px`;
+
+
+            ripple.style.top =
+                `${event.clientY}px`;
+
+
+            introSection.appendChild(
+                ripple
+            );
+
+
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 900);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "ArrowDown" ||
+            event.key === "PageDown" ||
+            event.key === " "
+        ) {
+
+            if (
+                document.activeElement.tagName !==
+                "INPUT"
+            ) {
+
+                leaveIntro();
+
             }
-        });
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INTRO EXIT ANIMATION
+========================================================= */
+
+const introExitStyle =
+    document.createElement("style");
+
+
+introExitStyle.textContent = `
+
+    .intro-leaving {
+        animation:
+            introExitAnimation
+            1.2s
+            cubic-bezier(0.77, 0, 0.175, 1)
+            forwards;
     }
 
-    const paper = document.querySelector(".letter-paper");
 
-    if (paper) {
-        paper.animate([
-            { transform: "translateY(0px)" },
-            { transform: "translateY(-5px)" },
-            { transform: "translateY(0px)" }
-        ], {
-            duration: 6500,
-            iterations: Infinity,
-            easing: "ease-in-out"
-        });
+    @keyframes introExitAnimation {
+
+        0% {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0);
+        }
+
+        45% {
+            opacity: 1;
+            transform: scale(1.025);
+            filter: blur(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(1.08);
+            filter: blur(10px);
+        }
+
     }
 
-    document.querySelectorAll("blockquote").forEach(q => {
-        q.addEventListener("mouseenter", () => {
-            q.style.transition = ".5s";
-            q.style.color = "#b77b44";
-            q.style.textShadow = "0 0 18px rgba(255,210,150,.45)";
-        });
-        q.addEventListener("mouseleave", () => {
-            q.style.color = "";
-            q.style.textShadow = "";
-        });
-    });
 
-    console.log("🕷 All Cinematic Scripts Loaded Successfully.");
+    .spider-startled {
+
+        animation:
+            spiderStartled
+            0.8s
+            ease-in-out
+            forwards !important;
+
+    }
+
+
+    @keyframes spiderStartled {
+
+        0% {
+            transform:
+                translateX(-50%)
+                scale(1);
+        }
+
+        25% {
+            transform:
+                translateX(-50%)
+                scale(1.25)
+                rotate(-15deg);
+        }
+
+        50% {
+            transform:
+                translateX(-50%)
+                scale(0.85)
+                rotate(15deg);
+        }
+
+        75% {
+            transform:
+                translateX(-50%)
+                scale(1.15)
+                rotate(-8deg);
+        }
+
+        100% {
+            transform:
+                translateX(-50%)
+                scale(1)
+                rotate(0);
+        }
+
+    }
+
+
+    .cinematic-ripple {
+
+        position: fixed;
+
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+
+        pointer-events: none;
+
+        z-index: 9999;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        border:
+            1px solid
+            rgba(255,255,255,0.6);
+
+        box-shadow:
+            0 0 20px
+            rgba(120,160,255,0.3);
+
+        animation:
+            rippleAnimation
+            0.9s
+            ease-out
+            forwards;
+
+    }
+
+
+    @keyframes rippleAnimation {
+
+        0% {
+            transform:
+                translate(-50%, -50%)
+                scale(0);
+
+            opacity: 0.8;
+        }
+
+        100% {
+            transform:
+                translate(-50%, -50%)
+                scale(12);
+
+            opacity: 0;
+        }
+
+    }
+
+
+    .page-paused * {
+        animation-play-state: paused !important;
+    }
+
+`;
+
+
+document.head.appendChild(
+    introExitStyle
+);
+
+
+/* =========================================================
+   INITIAL SCROLL POSITION
+========================================================= */
+
+if ("scrollRestoration" in history) {
+
+    history.scrollRestoration =
+        "manual";
+
+}
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+    }
+);
+
+
+/* =========================================================
+   FINAL INTRO INITIALIZATION
+========================================================= */
+
+setTimeout(() => {
+
+    if (introSection) {
+
+        introSection.classList.add(
+            "ready"
+        );
+
+    }
+
+}, 1200);
+
+   
+
+
 });
