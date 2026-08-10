@@ -2724,3 +2724,144 @@ a {
 
 }
 
+/* =========================================================
+   FINAL BG LIGHTEN — CINEMATIC BLUE NIGHT
+========================================================= */
+
+.spiderman-intro {
+    background:
+        radial-gradient(
+            circle at 32% 45%,
+            rgba(45, 100, 190, 0.38),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 75% 55%,
+            rgba(105, 55, 175, 0.30),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #050a18 0%,
+            #0a1630 40%,
+            #101332 72%,
+            #060916 100%
+        );
+}
+
+.intro-background {
+    opacity: 1;
+}
+
+.stars-layer {
+    opacity: 0.85;
+}
+
+.blue-light-one {
+    opacity: 0.48;
+}
+
+.blue-light-two {
+    opacity: 0.32;
+}
+
+.purple-light {
+    opacity: 0.34;
+}
+
+.moon-glow {
+    opacity: 1;
+}
+
+/* =========================================================
+   FINAL SPIDER-MAN — SMALL + CUTE CINEMATIC
+========================================================= */
+
+.spiderman {
+    width: 270px;
+    height: 450px;
+
+    left: 20%;
+    top: 14%;
+
+    transform-origin: 50% 8%;
+
+    filter:
+        drop-shadow(0 12px 20px rgba(0,0,0,0.45))
+        drop-shadow(0 0 15px rgba(55,110,210,0.18));
+}
+
+
+/* Cute compact head */
+
+.spiderman-head {
+    width: 82px;
+    height: 98px;
+
+    top: 5%;
+}
+
+
+/* Softer blue/red body */
+
+.spiderman-torso {
+    width: 100px;
+    height: 165px;
+
+    top: 22%;
+
+    background:
+        linear-gradient(
+            115deg,
+            #081a3b 0%,
+            #164f98 42%,
+            #245fa8 55%,
+            #102d64 75%,
+            #07152f 100%
+        );
+
+    border-radius:
+        45% 45%
+        30% 30%;
+}
+
+
+/* Smaller arms */
+
+.spiderman-arm {
+    width: 46px;
+    height: 150px;
+}
+
+
+/* Smaller legs */
+
+.spiderman-leg {
+    width: 52px;
+    height: 165px;
+}
+
+
+/* Keep him clearly visible */
+
+.spiderman-head,
+.spiderman-torso,
+.spiderman-arm,
+.spiderman-leg {
+    filter: none;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .spiderman {
+        left: 19%;
+        top: 13%;
+
+        transform: scale(0.57);
+        transform-origin: center top;
+    }
+
+}
