@@ -2594,3 +2594,132 @@ a {
         scroll-behavior: auto !important;
     }
 }
+
+/* =========================================================
+   FINAL SPIDER-MAN INTRO FIX
+========================================================= */
+
+.spiderman {
+    animation: heroSwing 6s ease-in-out infinite;
+    transform-origin: 50% 8%;
+}
+
+@keyframes heroSwing {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(18px)
+            rotate(2deg);
+    }
+}
+
+
+/* Keep Spider-Man on LEFT */
+
+.spiderman-scene {
+    left: -2%;
+    bottom: 2%;
+    width: 48%;
+    height: 86%;
+    z-index: 6;
+}
+
+
+/* Keep little spider on RIGHT */
+
+.little-spider-area {
+    top: 5%;
+    right: 6%;
+    z-index: 25;
+}
+
+
+/* Make the little spider actually move around */
+
+.little-spider {
+    animation:
+        spiderCrawl 9s ease-in-out infinite,
+        spiderWiggle 0.45s ease-in-out infinite alternate;
+}
+
+
+/* Keep intro text above everything */
+
+.intro-content {
+    position: relative;
+    z-index: 40;
+}
+
+
+/* Keep top web visible */
+
+.top-spider-web {
+    z-index: 10;
+}
+
+
+/* Keep cinematic fade behind content */
+
+.intro-fade {
+    z-index: 45;
+}
+
+
+/* =========================================================
+   DESKTOP SPIDER-MAN SIZE
+========================================================= */
+
+@media (min-width: 901px) {
+
+    .spiderman {
+        left: 17%;
+        top: 16%;
+
+        width: 300px;
+        height: 500px;
+
+        transform-origin: 50% 8%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .spiderman-scene {
+        left: -135px;
+        bottom: 3%;
+
+        width: 370px;
+        height: 560px;
+    }
+
+    .spiderman {
+        left: 17%;
+        top: 12%;
+
+        width: 300px;
+        height: 500px;
+
+        transform-origin: 50% 8%;
+    }
+
+    .little-spider-area {
+        top: 5%;
+        right: -8px;
+
+        z-index: 25;
+    }
+
+}
