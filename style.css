@@ -931,7 +931,8 @@ a {
 }
 
 /* =========================================================
-   SPIDER-MAN TORSO — CLASSIC RED + BLUE SUIT
+   CLASSIC SPIDER-MAN TORSO
+   CLEAN RED + BLUE SUIT DESIGN
 ========================================================= */
 
 .spiderman-torso {
@@ -945,67 +946,69 @@ a {
 
     transform: translateX(-50%) rotate(-1deg);
 
-    border-radius: 42% 42% 25% 25%;
+    border-radius:
+        45% 45% 30% 30%;
 
-    /* BLUE LOWER SUIT */
+    overflow: hidden;
+
+    /* BLUE MAIN SUIT */
     background:
         linear-gradient(
             90deg,
-            #071a38 0%,
-            #123e78 24%,
-            #1b579d 50%,
-            #123e78 76%,
-            #071a38 100%
+            #071b3d 0%,
+            #0b2f63 18%,
+            #124b91 48%,
+            #0d3d7c 72%,
+            #071b3d 100%
         );
 
     box-shadow:
-        inset -14px -8px 22px rgba(0,0,0,0.38),
-        inset 10px 0 18px rgba(90,150,230,0.12),
-        0 12px 22px rgba(0,0,0,0.35);
-
-    overflow: hidden;
+        inset 12px 0 18px rgba(70,130,220,0.12),
+        inset -14px 0 22px rgba(0,0,0,0.35),
+        0 12px 24px rgba(0,0,0,0.35);
 
     z-index: 4;
 }
 
 
 /* =========================================================
-   CLASSIC RED SHOULDERS + UPPER CHEST
+   RED CHEST + SHOULDERS
+   NATURAL SPIDER-MAN SHAPE
 ========================================================= */
 
-.spiderman-torso::after {
-    content: "";
-
+.spiderman-torso .red-panel {
     position: absolute;
 
-    left: -5%;
-    top: -2px;
+    left: -2%;
+    top: -2%;
 
-    width: 110%;
+    width: 104%;
     height: 76px;
 
     background:
         linear-gradient(
             to bottom,
-            #d51d38 0%,
-            #c31935 55%,
-            #a91430 100%
+            #d52a3f 0%,
+            #c51f37 55%,
+            #a81730 100%
         );
 
     /*
-       RED SHOULDERS,
-       BLUE CENTER CHEST
+       Smooth chest shape.
+       No diagonal stripe.
     */
 
     clip-path: polygon(
         0 0,
         100% 0,
         100% 48%,
-        78% 42%,
-        63% 48%,
-        50% 72%,
-        37% 48%,
-        22% 42%,
+        86% 54%,
+        76% 62%,
+        62% 70%,
+        50% 66%,
+        38% 70%,
+        24% 62%,
+        14% 54%,
         0 48%
     );
 
@@ -1015,9 +1018,10 @@ a {
 
 /* =========================================================
    BLUE CENTER CHEST
+   KEEPS THE RED FROM LOOKING LIKE A BLOBBY TOP
 ========================================================= */
 
-.spiderman-torso::before {
+.spiderman-torso .red-panel::after {
     content: "";
 
     position: absolute;
@@ -1025,24 +1029,23 @@ a {
     left: 50%;
     top: 0;
 
-    width: 42px;
-    height: 82px;
+    width: 38px;
+    height: 72px;
 
     transform: translateX(-50%);
 
     background:
         linear-gradient(
             to bottom,
-            #164886,
-            #19549a 70%,
-            #174b8c
+            #123b78 0%,
+            #10427f 65%,
+            #0d3970 100%
         );
 
     clip-path: polygon(
-        12% 0,
-        88% 0,
+        18% 0,
+        82% 0,
         100% 100%,
-        50% 78%,
         0 100%
     );
 
@@ -1051,43 +1054,60 @@ a {
 
 
 /* =========================================================
-   SUBTLE SPIDER-MAN WEB PATTERN
+   SUBTLE SPIDER-MAN WEB GRID
 ========================================================= */
 
-.spiderman-torso {
-    background-image:
+.spiderman-torso::before {
+    content: "";
 
-        /* vertical center web */
-        linear-gradient(
-            90deg,
-            transparent 49%,
-            rgba(5,10,20,0.55) 50%,
-            transparent 51%
-        ),
+    position: absolute;
 
-        /* horizontal web curves */
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 23px,
-            rgba(5,10,20,0.30) 24px,
-            transparent 25px
-        ),
+    left: 50%;
+    top: -8px;
 
-        /* blue suit */
-        linear-gradient(
-            90deg,
-            #071a38 0%,
-            #123e78 24%,
-            #1b579d 50%,
-            #123e78 76%,
-            #071a38 100%
-        );
+    width: 1px;
+    height: 190px;
 
-    background-size:
-        100% 100%,
-        100% 100%,
-        100% 100%;
+    transform: translateX(-50%);
+
+    background: rgba(5, 10, 20, 0.55);
+
+    box-shadow:
+        -18px 22px 0 rgba(5,10,20,0.12),
+         18px 22px 0 rgba(5,10,20,0.12);
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HORIZONTAL WEB DETAIL
+========================================================= */
+
+.spiderman-torso::after {
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+    top: 45px;
+
+    width: calc(100% - 14px);
+    height: 1px;
+
+    background: rgba(8, 13, 25, 0.42);
+
+    box-shadow:
+        0 17px 0 rgba(8,13,25,0.34),
+        0 34px 0 rgba(8,13,25,0.28),
+        0 51px 0 rgba(8,13,25,0.22),
+        0 68px 0 rgba(8,13,25,0.18);
+
+    z-index: 5;
+
+    pointer-events: none;
 }
 
 
@@ -1099,10 +1119,10 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 29%;
+    top: 25%;
 
-    width: 34px;
-    height: 58px;
+    width: 32px;
+    height: 56px;
 
     transform:
         translateX(-50%)
@@ -1118,21 +1138,26 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 7px;
+    top: 5px;
 
-    width: 14px;
-    height: 34px;
+    width: 13px;
+    height: 32px;
 
     transform:
         translateX(-50%)
-        rotate(7deg);
+        rotate(5deg);
 
-    border-radius: 50%;
+    border-radius: 48% 48% 42% 42%;
 
-    background: #05070c;
+    background:
+        linear-gradient(
+            to bottom,
+            #050609,
+            #11141a
+        );
 
     box-shadow:
-        0 0 3px rgba(255,255,255,0.08);
+        0 0 5px rgba(0,0,0,0.35);
 }
 /* =========================================================
    ARMS
