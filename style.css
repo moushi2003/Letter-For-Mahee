@@ -721,42 +721,29 @@ a {
    CSS PART 2
 ========================================================= */
 
-
 /* =========================================================
-   MAIN SPIDER-MAN
+   UPDATED SPIDER-MAN
+   SMALLER + BLUE/RED + CINEMATIC
 ========================================================= */
 
 .spiderman {
     position: absolute;
 
-    left: 12%;
-    top: 12%;
+    left: 17%;
+    top: 16%;
 
-    width: 390px;
-    height: 620px;
+    width: 300px;
+    height: 500px;
 
-    transform-origin: 50% 10%;
+    transform-origin: 50% 8%;
 
     animation: heroSwing 6s ease-in-out infinite;
 
     filter:
-        drop-shadow(0 25px 35px rgba(0, 0, 0, 0.55))
-        drop-shadow(0 0 18px rgba(25, 75, 180, 0.18));
+        drop-shadow(0 20px 28px rgba(0,0,0,0.65))
+        drop-shadow(0 0 18px rgba(30,80,180,0.2));
 
     z-index: 7;
-}
-
-
-@keyframes heroSwing {
-
-    0%,
-    100% {
-        transform: rotate(-2deg) translateY(0);
-    }
-
-    50% {
-        transform: rotate(2deg) translateY(-10px);
-    }
 }
 
 
@@ -768,30 +755,28 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 7%;
+    top: 5%;
 
-    width: 118px;
-    height: 145px;
+    width: 92px;
+    height: 112px;
 
     transform:
         translateX(-50%)
         rotate(-4deg);
 
-    border-radius: 48% 48% 45% 45%;
+    border-radius: 48% 48% 46% 46%;
 
     background:
-        radial-gradient(
-            circle at 38% 28%,
-            #ef334f 0%,
-            #c71935 30%,
-            #8b0e25 72%,
-            #430812 100%
+        linear-gradient(
+            145deg,
+            #e52a3f 0%,
+            #c91531 48%,
+            #8b1027 100%
         );
 
     box-shadow:
-        inset -16px -12px 25px rgba(0,0,0,0.35),
-        inset 10px 8px 18px rgba(255,70,80,0.18),
-        0 12px 25px rgba(0,0,0,0.45);
+        inset -12px -10px 20px rgba(0,0,0,0.38),
+        0 10px 22px rgba(0,0,0,0.5);
 
     overflow: hidden;
 
@@ -800,13 +785,13 @@ a {
 
 
 /* =========================================================
-   MASK WEB
+   HEAD WEB
 ========================================================= */
 
 .mask-web {
     position: absolute;
 
-    background: rgba(15, 15, 22, 0.72);
+    background: rgba(12,14,22,0.72);
 
     transform-origin: center;
 }
@@ -814,9 +799,9 @@ a {
 
 .mask-v {
     width: 1px;
-    height: 150px;
+    height: 120px;
 
-    top: -3px;
+    top: -4px;
     left: 50%;
 }
 
@@ -836,24 +821,24 @@ a {
 
 .mask-h {
     height: 1px;
-    width: 130px;
+    width: 105px;
 
     left: -6px;
 }
 
 
 .mask-h-1 {
-    top: 35px;
+    top: 30px;
     transform: rotate(7deg);
 }
 
 .mask-h-2 {
-    top: 70px;
+    top: 56px;
     transform: rotate(2deg);
 }
 
 .mask-h-3 {
-    top: 105px;
+    top: 83px;
     transform: rotate(-5deg);
 }
 
@@ -865,46 +850,45 @@ a {
 .spiderman-eye {
     position: absolute;
 
-    width: 38px;
-    height: 58px;
+    width: 29px;
+    height: 44px;
 
-    top: 42px;
+    top: 33px;
 
     background:
         linear-gradient(
             135deg,
-            #ffffff 0%,
-            #dcecff 45%,
-            #9cb9d8 100%
+            #ffffff,
+            #d9e8f5 55%,
+            #a5bdd2
         );
 
-    border: 3px solid #11131b;
+    border: 2.5px solid #11131a;
 
     box-shadow:
-        inset 0 0 10px rgba(70,110,160,0.3),
-        0 0 5px rgba(255,255,255,0.2);
+        inset 0 0 8px rgba(80,110,150,0.35);
 
     z-index: 5;
 }
 
 
 .eye-left {
-    left: 12px;
+    left: 10px;
 
     transform:
-        rotate(28deg)
-        skewY(-8deg);
+        rotate(27deg)
+        skewY(-7deg);
 
     border-radius: 75% 25% 65% 35%;
 }
 
 
 .eye-right {
-    right: 12px;
+    right: 10px;
 
     transform:
-        rotate(-28deg)
-        skewY(8deg);
+        rotate(-27deg)
+        skewY(7deg);
 
     border-radius: 25% 75% 35% 65%;
 }
@@ -917,20 +901,21 @@ a {
 .spiderman-neck {
     position: absolute;
 
-    top: 28%;
+    top: 23%;
+
     left: 50%;
 
-    width: 62px;
-    height: 55px;
+    width: 48px;
+    height: 45px;
 
     transform: translateX(-50%);
 
     background:
         linear-gradient(
             90deg,
-            #681020,
-            #b51c34,
-            #681020
+            #071a3b,
+            #174d9c,
+            #071a3b
         );
 
     z-index: 3;
@@ -945,33 +930,33 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 27%;
+    top: 22%;
 
-    width: 145px;
-    height: 225px;
+    width: 112px;
+    height: 185px;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
     border-radius:
-        45% 45%
-        30% 30%;
+        42% 42%
+        28% 28%;
 
     background:
         linear-gradient(
-            105deg,
-            #4d0a18 0%,
-            #b61732 28%,
-            #d5203d 48%,
-            #8d1027 75%,
-            #430711 100%
+            110deg,
+            #071632 0%,
+            #0d3474 28%,
+            #174f9e 47%,
+            #102e68 67%,
+            #08152f 100%
         );
 
     box-shadow:
-        inset -22px -10px 30px rgba(0,0,0,0.35),
-        inset 10px 0 20px rgba(255,80,90,0.12),
-        0 18px 28px rgba(0,0,0,0.35);
+        inset -18px -8px 25px rgba(0,0,0,0.42),
+        inset 8px 0 18px rgba(50,110,210,0.16),
+        0 15px 25px rgba(0,0,0,0.4);
 
     z-index: 4;
 
@@ -980,7 +965,31 @@ a {
 
 
 /* =========================================================
-   TORSO WEB LINES
+   RED CHEST PANEL
+========================================================= */
+
+.spiderman-torso .red-panel {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 32%,
+            rgba(185,20,48,0.9) 33%,
+            rgba(215,30,55,0.9) 48%,
+            rgba(135,12,35,0.85) 64%,
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TORSO WEB
 ========================================================= */
 
 .spiderman-torso::before {
@@ -989,14 +998,14 @@ a {
     position: absolute;
 
     left: 50%;
-    top: -10px;
+    top: -5px;
 
     width: 1px;
-    height: 245px;
+    height: 200px;
 
     transform: translateX(-50%);
 
-    background: rgba(20,20,25,0.7);
+    background: rgba(10,15,25,0.65);
 }
 
 
@@ -1005,39 +1014,39 @@ a {
 
     position: absolute;
 
-    left: -15px;
-    top: 65px;
+    left: -10px;
+    top: 48px;
 
-    width: 175px;
+    width: 135px;
     height: 1px;
 
-    background: rgba(20,20,25,0.7);
+    background: rgba(10,15,25,0.6);
 
     box-shadow:
-        0 35px 0 rgba(20,20,25,0.65),
-        0 70px 0 rgba(20,20,25,0.6),
-        0 105px 0 rgba(20,20,25,0.55);
+        0 30px 0 rgba(10,15,25,0.55),
+        0 60px 0 rgba(10,15,25,0.5),
+        0 90px 0 rgba(10,15,25,0.45);
 }
 
 
 /* =========================================================
-   CHEST SPIDER SYMBOL
+   CHEST SPIDER
 ========================================================= */
 
 .chest-symbol {
     position: absolute;
 
     left: 50%;
-    top: 32%;
+    top: 28%;
 
-    width: 45px;
-    height: 75px;
+    width: 34px;
+    height: 58px;
 
     transform:
         translateX(-50%)
-        scale(0.9);
+        scale(0.78);
 
-    z-index: 5;
+    z-index: 6;
 }
 
 
@@ -1047,10 +1056,10 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 12px;
+    top: 8px;
 
-    width: 20px;
-    height: 43px;
+    width: 15px;
+    height: 34px;
 
     transform:
         translateX(-50%)
@@ -1058,78 +1067,7 @@ a {
 
     border-radius: 50%;
 
-    background: #08090e;
-
-    box-shadow:
-        0 0 6px rgba(0,0,0,0.7);
-}
-
-
-/* =========================================================
-   CHEST SPIDER LEGS
-========================================================= */
-
-.symbol-leg {
-    position: absolute;
-
-    width: 27px;
-    height: 5px;
-
-    background: #08090e;
-
-    border-radius: 5px;
-
-    transform-origin: left center;
-}
-
-
-.symbol-leg-1 {
-    left: 5px;
-    top: 18px;
-    transform: rotate(145deg);
-}
-
-.symbol-leg-2 {
-    left: 5px;
-    top: 27px;
-    transform: rotate(165deg);
-}
-
-.symbol-leg-3 {
-    left: 5px;
-    top: 37px;
-    transform: rotate(185deg);
-}
-
-.symbol-leg-4 {
-    left: 5px;
-    top: 47px;
-    transform: rotate(205deg);
-}
-
-
-.symbol-leg-5 {
-    right: 5px;
-    top: 18px;
-    transform: rotate(35deg);
-}
-
-.symbol-leg-6 {
-    right: 5px;
-    top: 27px;
-    transform: rotate(15deg);
-}
-
-.symbol-leg-7 {
-    right: 5px;
-    top: 37px;
-    transform: rotate(-5deg);
-}
-
-.symbol-leg-8 {
-    right: 5px;
-    top: 47px;
-    transform: rotate(-25deg);
+    background: #05070c;
 }
 
 
@@ -1140,75 +1078,41 @@ a {
 .spiderman-arm {
     position: absolute;
 
-    width: 70px;
-    height: 215px;
+    width: 53px;
+    height: 170px;
 
-    border-radius: 50px;
+    border-radius: 45px;
 
     background:
         linear-gradient(
             90deg,
-            #450713,
-            #a5142d,
-            #c91b38,
-            #650a1b
+            #07152f 0%,
+            #174c98 40%,
+            #b71937 72%,
+            #07152f 100%
         );
 
     box-shadow:
-        inset -12px 0 20px rgba(0,0,0,0.3),
-        0 12px 20px rgba(0,0,0,0.3);
+        inset -10px 0 18px rgba(0,0,0,0.35),
+        0 10px 18px rgba(0,0,0,0.35);
 
     z-index: 2;
 }
 
 
 .arm-left {
-    left: 9%;
-    top: 30%;
+    left: 8%;
+    top: 26%;
 
-    transform:
-        rotate(25deg);
+    transform: rotate(25deg);
 }
 
 
 .arm-right {
     right: 8%;
-    top: 30%;
+    top: 26%;
 
-    transform:
-        rotate(-30deg);
-}
-
-
-/* =========================================================
-   ARM WEB
-========================================================= */
-
-.arm-web-line {
-    position: absolute;
-
-    width: 65px;
-    height: 1px;
-
-    left: 2px;
-
-    background: rgba(15,15,20,0.65);
-}
-
-
-.arm-line-1 {
-    top: 55px;
-    transform: rotate(10deg);
-}
-
-.arm-line-2 {
-    top: 95px;
-    transform: rotate(4deg);
-}
-
-.arm-line-3 {
-    top: 135px;
-    transform: rotate(-5deg);
+    transform: rotate(-30deg);
 }
 
 
@@ -1219,347 +1123,78 @@ a {
 .spiderman-leg {
     position: absolute;
 
-    width: 78px;
-    height: 230px;
+    width: 60px;
+    height: 185px;
 
-    border-radius: 55px;
+    border-radius: 48px;
 
     background:
         linear-gradient(
             90deg,
-            #3d0711,
-            #8e1026,
-            #bd1834,
-            #520817
+            #07142e 0%,
+            #17458a 48%,
+            #b81736 72%,
+            #07142e 100%
         );
 
     box-shadow:
-        inset -14px 0 22px rgba(0,0,0,0.35),
-        0 15px 25px rgba(0,0,0,0.35);
+        inset -12px 0 20px rgba(0,0,0,0.4),
+        0 12px 22px rgba(0,0,0,0.4);
 
     z-index: 1;
 }
 
 
 .leg-left {
-    left: 22%;
-    top: 56%;
+    left: 23%;
+    top: 51%;
 
-    transform:
-        rotate(26deg);
+    transform: rotate(25deg);
 }
 
 
 .leg-right {
     right: 21%;
-    top: 56%;
+    top: 51%;
 
-    transform:
-        rotate(-22deg);
+    transform: rotate(-22deg);
 }
 
 
 /* =========================================================
-   LEG WEB
-========================================================= */
-
-.leg-web-line {
-    position: absolute;
-
-    width: 70px;
-    height: 1px;
-
-    left: 4px;
-
-    background: rgba(15,15,20,0.6);
-}
-
-
-.leg-line-1 {
-    top: 60px;
-}
-
-.leg-line-2 {
-    top: 105px;
-}
-
-.leg-line-3 {
-    top: 150px;
-}
-
-
-/* =========================================================
-   HERO HAND
-========================================================= */
-
-.hero-hand {
-    position: absolute;
-
-    right: 1%;
-    top: 47%;
-
-    width: 70px;
-    height: 65px;
-
-    z-index: 9;
-}
-
-
-.finger {
-    position: absolute;
-
-    width: 20px;
-    height: 45px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #570817,
-            #b51732,
-            #6c0b1d
-        );
-}
-
-
-.finger-1 {
-    left: 4px;
-    top: 10px;
-
-    transform: rotate(48deg);
-}
-
-.finger-2 {
-    left: 25px;
-    top: 2px;
-
-    transform: rotate(15deg);
-}
-
-.finger-3 {
-    left: 45px;
-    top: 8px;
-
-    transform: rotate(-15deg);
-}
-
-
-/* =========================================================
-   BOUQUET
+   REMOVE BOUQUET
 ========================================================= */
 
 .hero-bouquet {
-    position: absolute;
-
-    right: -4%;
-    top: 43%;
-
-    width: 145px;
-    height: 170px;
-
-    z-index: 12;
-
-    transform: rotate(-8deg);
-
-    animation: bouquetFloat 4s ease-in-out infinite;
+    display: none !important;
 }
 
 
-@keyframes bouquetFloat {
+/* =========================================================
+   SMALLER SPIDER-MAN ON MOBILE
+========================================================= */
 
-    0%,
-    100% {
-        transform:
-            rotate(-8deg)
-            translateY(0);
+@media (max-width: 600px) {
+
+    .spiderman-scene {
+        left: -80px;
+        bottom: 5%;
+
+        width: 330px;
+        height: 500px;
     }
 
-    50% {
-        transform:
-            rotate(-5deg)
-            translateY(-5px);
+    .spiderman {
+        left: 18%;
+        top: 12%;
+
+        transform: scale(0.68);
+        transform-origin: center top;
     }
+
 }
 
 
-/* =========================================================
-   FLOWERS
-========================================================= */
-
-.flower {
-    position: absolute;
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 35px;
-
-    color: #fff;
-
-    text-shadow:
-        0 0 8px rgba(255,255,255,0.7);
-
-    z-index: 5;
-}
-
-
-.flower::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 8px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #ffd85a 0%,
-            #ffae30 35%,
-            transparent 38%
-        );
-
-    z-index: -1;
-}
-
-
-.flower-1 {
-    left: 20px;
-    top: 5px;
-
-    transform: rotate(-12deg);
-}
-
-.flower-2 {
-    left: 52px;
-    top: 0;
-
-    transform: rotate(8deg);
-}
-
-.flower-3 {
-    left: 82px;
-    top: 15px;
-
-    transform: rotate(-5deg);
-}
-
-.flower-4 {
-    left: 38px;
-    top: 35px;
-
-    transform: rotate(14deg);
-}
-
-.flower-5 {
-    left: 70px;
-    top: 48px;
-
-    transform: rotate(-10deg);
-}
-
-.flower-6 {
-    left: 12px;
-    top: 40px;
-
-    transform: rotate(5deg);
-}
-
-
-/* =========================================================
-   FLOWER LEAVES
-========================================================= */
-
-.flower-leaf {
-    position: absolute;
-
-    width: 45px;
-    height: 20px;
-
-    border-radius: 100% 0 100% 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #2e8b57,
-            #0d4228
-        );
-
-    z-index: 3;
-}
-
-
-.leaf-1 {
-    left: 15px;
-    top: 80px;
-
-    transform: rotate(25deg);
-}
-
-.leaf-2 {
-    left: 65px;
-    top: 78px;
-
-    transform: rotate(-35deg);
-}
-
-.leaf-3 {
-    left: 30px;
-    top: 100px;
-
-    transform: rotate(5deg);
-}
-
-.leaf-4 {
-    left: 78px;
-    top: 105px;
-
-    transform: rotate(-10deg);
-}
-
-
-/* =========================================================
-   BOUQUET PAPER
-========================================================= */
-
-.bouquet-paper {
-    position: absolute;
-
-    left: 40px;
-    top: 75px;
-
-    width: 75px;
-    height: 80px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.9),
-            rgba(215,225,245,0.65)
-        );
-
-    clip-path:
-        polygon(
-            15% 0,
-            85% 0,
-            100% 100%,
-            50% 75%,
-            0 100%
-        );
-
-    opacity: 0.85;
-
-    z-index: 2;
-}
 /* =========================================================
    CSS PART 3
    LITTLE SPIDER + INTRO TEXT + EFFECTS + RESPONSIVE
