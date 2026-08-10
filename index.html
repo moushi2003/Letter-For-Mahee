@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -12,6 +11,8 @@
           content="#03050f">
 
     <title>For My Mahee ❤️</title>
+
+    <!-- ================= GOOGLE FONTS ================= -->
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -23,6 +24,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap"
           rel="stylesheet">
 
+
+    <!-- ================= MAIN CSS ================= -->
+
     <link rel="stylesheet"
           href="style.css">
 
@@ -32,42 +36,329 @@
 <body>
 
 
-    <!-- =====================================================
-         CINEMATIC MUSIC PLAYER
-    ====================================================== -->
+<!-- =====================================================
+     CINEMATIC MUSIC PLAYER
+====================================================== -->
 
-    <div class="music-player"
-         id="musicPlayer">
+<div class="music-player"
+     id="musicPlayer">
 
-        <button
-            id="musicButton"
-            class="music-button"
-            type="button"
-            aria-label="Play background music"
-            aria-pressed="false">
+    <button
+        id="musicButton"
+        class="music-button"
+        type="button"
+        aria-label="Play background music"
+        aria-pressed="false">
 
-            <span class="music-icon"
-                  id="musicIcon">♪</span>
+        <span
+            class="music-icon"
+            id="musicIcon">
+            ♪
+        </span>
 
-            <span class="music-bars"
-                  aria-hidden="true">
+        <span
+            class="music-bars"
+            aria-hidden="true">
 
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
 
+        </span>
+
+    </button>
+
+
+    <div
+        class="music-message"
+        id="musicMessage">
+
+        <span id="musicMessageText">
+            A little music for this moment...
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+     
+     File location:
+     music/brand-new.mp3
+====================================================== -->
+
+<audio
+    id="backgroundMusic"
+    preload="metadata"
+    loop>
+
+    <source
+        src="music/brand-new.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+====================================================== -->
+
+<main id="website">
+
+
+<!-- =====================================================
+     PAGE 1
+     CINEMATIC SPIDER-MAN INTRO
+====================================================== -->
+
+<section
+    id="spidermanIntro"
+    class="spiderman-intro">
+
+
+    <!-- =================================================
+         CINEMATIC BACKGROUND
+    ================================================== -->
+
+    <div class="intro-background">
+
+        <div class="stars-layer"></div>
+
+        <div class="blue-light blue-light-one"></div>
+
+        <div class="blue-light blue-light-two"></div>
+
+        <div class="purple-light"></div>
+
+        <div class="moon-glow"></div>
+
+
+        <div class="floating-particles">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         TOP RIGHT SPIDER WEB
+    ================================================== -->
+
+    <div class="top-spider-web">
+
+        <div class="web-center"></div>
+
+        <span class="web-ray ray-1"></span>
+        <span class="web-ray ray-2"></span>
+        <span class="web-ray ray-3"></span>
+        <span class="web-ray ray-4"></span>
+        <span class="web-ray ray-5"></span>
+        <span class="web-ray ray-6"></span>
+        <span class="web-ray ray-7"></span>
+        <span class="web-ray ray-8"></span>
+        <span class="web-ray ray-9"></span>
+        <span class="web-ray ray-10"></span>
+
+        <span class="web-ring ring-1"></span>
+        <span class="web-ring ring-2"></span>
+        <span class="web-ring ring-3"></span>
+        <span class="web-ring ring-4"></span>
+        <span class="web-ring ring-5"></span>
+        <span class="web-ring ring-6"></span>
+
+    </div>
+
+
+
+    <!-- =================================================
+         LEFT SIDE SPIDER-MAN
+    ================================================== -->
+
+    <div class="spiderman-scene">
+
+        <div class="hero-web-line"></div>
+
+
+        <div class="spiderman">
+
+
+            <!-- ================= HEAD ================= -->
+
+            <div class="spiderman-head">
+
+                <div class="mask-web mask-v mask-v-1"></div>
+                <div class="mask-web mask-v mask-v-2"></div>
+                <div class="mask-web mask-v mask-v-3"></div>
+
+                <div class="mask-web mask-h mask-h-1"></div>
+                <div class="mask-web mask-h mask-h-2"></div>
+                <div class="mask-web mask-h mask-h-3"></div>
+
+                <div class="spiderman-eye eye-left"></div>
+                <div class="spiderman-eye eye-right"></div>
+
+            </div>
+
+
+            <!-- ================= NECK ================= -->
+
+            <div class="spiderman-neck"></div>
+
+
+            <!-- ================= BODY ================= -->
+
+            <div class="spiderman-torso">
+
+                <div class="red-panel"></div>
+
+                <div class="chest-symbol">
+
+                    <span class="symbol-leg symbol-leg-1"></span>
+                    <span class="symbol-leg symbol-leg-2"></span>
+                    <span class="symbol-leg symbol-leg-3"></span>
+                    <span class="symbol-leg symbol-leg-4"></span>
+                    <span class="symbol-leg symbol-leg-5"></span>
+                    <span class="symbol-leg symbol-leg-6"></span>
+                    <span class="symbol-leg symbol-leg-7"></span>
+                    <span class="symbol-leg symbol-leg-8"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LEFT ARM ================= -->
+
+            <div class="spiderman-arm arm-left">
+
+                <span class="arm-web-line arm-line-1"></span>
+                <span class="arm-web-line arm-line-2"></span>
+                <span class="arm-web-line arm-line-3"></span>
+
+            </div>
+
+
+            <!-- ================= RIGHT ARM ================= -->
+
+            <div class="spiderman-arm arm-right">
+
+                <span class="arm-web-line arm-line-1"></span>
+                <span class="arm-web-line arm-line-2"></span>
+                <span class="arm-web-line arm-line-3"></span>
+
+            </div>
+
+
+            <!-- ================= LEFT LEG ================= -->
+
+            <div class="spiderman-leg leg-left">
+
+                <span class="leg-web-line leg-line-1"></span>
+                <span class="leg-web-line leg-line-2"></span>
+                <span class="leg-web-line leg-line-3"></span>
+
+            </div>
+
+
+            <!-- ================= RIGHT LEG ================= -->
+
+            <div class="spiderman-leg leg-right">
+
+                <span class="leg-web-line leg-line-1"></span>
+                <span class="leg-web-line leg-line-2"></span>
+                <span class="leg-web-line leg-line-3"></span>
+
+            </div>
+
+
+            <!-- ================= HAND ================= -->
+
+            <div class="hero-hand">
+
+                <span class="finger finger-1"></span>
+                <span class="finger finger-2"></span>
+                <span class="finger finger-3"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         CENTER INTRO CONTENT
+         
+         This stays independent from Spider-Man.
+    ================================================== -->
+
+    <div class="intro-content">
+
+
+        <div class="intro-label">
+            SPECIAL DAY
+        </div>
+
+
+        <h1 class="intro-title">
+
+            <span class="title-main">
+                Happiest
             </span>
 
-        </button>
+            <span class="title-script">
+                Birthday
+            </span>
+
+        </h1>
 
 
-        <div class="music-message"
-             id="musicMessage"
-             aria-live="polite">
+        <div class="intro-subtitle">
+            MY SPIDER MAN
+        </div>
 
-            <span id="musicMessageText">
-                A little music for this moment...
+
+        <div class="intro-name">
+
+            Mahee
+
+            <span class="heart">
+                ❤️
+            </span>
+
+        </div>
+
+
+        <div class="intro-message">
+
+            <span id="introTyping"></span>
+
+            <span class="typing-cursor">
+                |
             </span>
 
         </div>
@@ -76,491 +367,209 @@
 
 
 
-    <!-- =====================================================
-         BACKGROUND MUSIC
+    <!-- =================================================
+         RIGHT SIDE LITTLE SPIDER
          
-         File location:
-         music/brand-new.mp3
-    ====================================================== -->
+         Completely independent from Spider-Man.
+    ================================================== -->
 
-    <audio
-        id="backgroundMusic"
-        preload="metadata"
-        loop>
+    <div class="little-spider-area">
 
-        <source
-            src="music/brand-new.mp3"
-            type="audio/mpeg">
-
-        Your browser does not support the audio element.
-
-    </audio>
+        <div class="little-spider-thread"></div>
 
 
+        <div class="little-spider">
 
-    <!-- =====================================================
-         MAIN WEBSITE
-    ====================================================== -->
+            <div class="small-spider-body"></div>
 
-    <main id="website">
-
+            <div class="small-spider-head"></div>
 
 
-        <!-- =================================================
-             PAGE 1
-             CINEMATIC SPIDER-MAN INTRO
-        ================================================== -->
+            <div
+                class="small-spider-eye small-eye-left">
+            </div>
 
-        <section id="spidermanIntro"
-                 class="spiderman-intro">
-
-
-
-            <!-- =================================================
-                 BACKGROUND
-            ================================================== -->
-
-            <div class="intro-background">
-
-                <div class="stars-layer"></div>
-
-                <div class="blue-light blue-light-one"></div>
-
-                <div class="blue-light blue-light-two"></div>
-
-                <div class="purple-light"></div>
-
-                <div class="moon-glow"></div>
-
-
-                <div class="floating-particles">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </div>
-
+            <div
+                class="small-spider-eye small-eye-right">
             </div>
 
 
+            <!-- LEFT LEGS -->
 
-            <!-- =================================================
-                 TOP RIGHT SPIDER WEB
-            ================================================== -->
+            <span
+                class="spider-leg spider-left-leg leg-one">
+            </span>
 
-            <div class="top-spider-web">
+            <span
+                class="spider-leg spider-left-leg leg-two">
+            </span>
 
-                <div class="web-center"></div>
+            <span
+                class="spider-leg spider-left-leg leg-three">
+            </span>
 
-                <span class="web-ray ray-1"></span>
-                <span class="web-ray ray-2"></span>
-                <span class="web-ray ray-3"></span>
-                <span class="web-ray ray-4"></span>
-                <span class="web-ray ray-5"></span>
-                <span class="web-ray ray-6"></span>
-                <span class="web-ray ray-7"></span>
-                <span class="web-ray ray-8"></span>
-                <span class="web-ray ray-9"></span>
-                <span class="web-ray ray-10"></span>
+            <span
+                class="spider-leg spider-left-leg leg-four">
+            </span>
 
-                <span class="web-ring ring-1"></span>
-                <span class="web-ring ring-2"></span>
-                <span class="web-ring ring-3"></span>
-                <span class="web-ring ring-4"></span>
-                <span class="web-ring ring-5"></span>
-                <span class="web-ring ring-6"></span>
 
-            </div>
+            <!-- RIGHT LEGS -->
 
+            <span
+                class="spider-leg spider-right-leg leg-one">
+            </span>
 
+            <span
+                class="spider-leg spider-right-leg leg-two">
+            </span>
 
-            <!-- =================================================
-                 LEFT SIDE SPIDER-MAN SCENE
-            ================================================== -->
+            <span
+                class="spider-leg spider-right-leg leg-three">
+            </span>
 
-            <div class="spiderman-scene">
+            <span
+                class="spider-leg spider-right-leg leg-four">
+            </span>
 
+        </div>
 
-                <!-- SPIDER-MAN WEB LINE -->
+    </div>
 
-                <div class="hero-web-line"></div>
 
 
+    <!-- =================================================
+         CINEMATIC LIGHT SWEEP
+    ================================================== -->
 
-                <!-- =================================================
-                     SPIDER-MAN CHARACTER
-                ================================================== -->
+    <div class="light-sweep"></div>
 
-                <div class="spiderman">
 
 
-                    <!-- HEAD -->
+    <!-- =================================================
+         BOTTOM SCROLL INDICATOR
+    ================================================== -->
 
-                    <div class="spiderman-head">
+    <div class="intro-scroll">
 
-                        <div class="mask-web mask-v mask-v-1"></div>
-                        <div class="mask-web mask-v mask-v-2"></div>
-                        <div class="mask-web mask-v mask-v-3"></div>
+        <span class="scroll-text">
+            SCROLL TO BEGIN
+        </span>
 
-                        <div class="mask-web mask-h mask-h-1"></div>
-                        <div class="mask-web mask-h mask-h-2"></div>
-                        <div class="mask-web mask-h mask-h-3"></div>
+        <div class="scroll-line">
+            <span></span>
+        </div>
 
-                        <div class="spiderman-eye eye-left"></div>
+    </div>
 
-                        <div class="spiderman-eye eye-right"></div>
 
-                    </div>
 
+    <!-- =================================================
+         CINEMATIC EDGE FADE
+    ================================================== -->
 
+    <div class="intro-fade"></div>
 
-                    <!-- NECK -->
 
-                    <div class="spiderman-neck"></div>
+</section>
 
 
 
-                    <!-- BODY -->
+<!-- =====================================================
+     PAGE 2
+====================================================== -->
 
-                    <div class="spiderman-torso">
+<section
+    id="birthdayPage"
+    class="birthday-page">
+</section>
 
-                        <div class="chest-symbol">
 
-                            <span class="symbol-leg symbol-leg-1"></span>
-                            <span class="symbol-leg symbol-leg-2"></span>
-                            <span class="symbol-leg symbol-leg-3"></span>
-                            <span class="symbol-leg symbol-leg-4"></span>
-                            <span class="symbol-leg symbol-leg-5"></span>
-                            <span class="symbol-leg symbol-leg-6"></span>
-                            <span class="symbol-leg symbol-leg-7"></span>
-                            <span class="symbol-leg symbol-leg-8"></span>
 
-                        </div>
+<!-- =====================================================
+     PAGE 3
+====================================================== -->
 
-                    </div>
+<section
+    id="letterPage"
+    class="letter-page">
+</section>
 
 
 
-                    <!-- LEFT ARM -->
+<!-- =====================================================
+     PAGE 4
+====================================================== -->
 
-                    <div class="spiderman-arm arm-left">
+<section
+    id="memoriesPage"
+    class="memories-page">
+</section>
 
-                        <span class="arm-web-line arm-line-1"></span>
-                        <span class="arm-web-line arm-line-2"></span>
-                        <span class="arm-web-line arm-line-3"></span>
 
-                    </div>
 
+<!-- =====================================================
+     PAGE 5
+====================================================== -->
 
+<section
+    id="friendshipLetterPage"
+    class="friendship-letter-page">
+</section>
 
-                    <!-- RIGHT ARM -->
 
-                    <div class="spiderman-arm arm-right">
 
-                        <span class="arm-web-line arm-line-1"></span>
-                        <span class="arm-web-line arm-line-2"></span>
-                        <span class="arm-web-line arm-line-3"></span>
+<!-- =====================================================
+     PAGE 6
+====================================================== -->
 
-                    </div>
+<section
+    id="roseGardenPage"
+    class="rose-garden-page">
+</section>
 
 
 
-                    <!-- LEFT LEG -->
+<!-- =====================================================
+     PAGE 7
+====================================================== -->
 
-                    <div class="spiderman-leg leg-left">
+<section
+    id="personalLetterPage"
+    class="personal-letter-page">
+</section>
 
-                        <span class="leg-web-line leg-line-1"></span>
-                        <span class="leg-web-line leg-line-2"></span>
-                        <span class="leg-web-line leg-line-3"></span>
 
-                    </div>
 
+<!-- =====================================================
+     PAGE 8
+====================================================== -->
 
+<section
+    id="finalPage"
+    class="final-page">
+</section>
 
-                    <!-- RIGHT LEG -->
 
-                    <div class="spiderman-leg leg-right">
 
-                        <span class="leg-web-line leg-line-1"></span>
-                        <span class="leg-web-line leg-line-2"></span>
-                        <span class="leg-web-line leg-line-3"></span>
+<!-- =====================================================
+     PAGE 9
+====================================================== -->
 
-                    </div>
+<section
+    id="fireworksPage"
+    class="fireworks-page">
+</section>
 
 
+</main>
 
-                    <!-- HAND -->
 
-                    <div class="hero-hand">
 
-                        <span class="finger finger-1"></span>
-                        <span class="finger finger-2"></span>
-                        <span class="finger finger-3"></span>
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
 
-                    </div>
-
-
-                </div>
-                <!-- END SPIDER-MAN -->
-
-
-            </div>
-            <!-- END SPIDER-MAN SCENE -->
-
-
-
-            <!-- =================================================
-                 RIGHT SIDE HANGING LITTLE SPIDER
-            ================================================== -->
-
-            <div class="little-spider-area">
-
-                <div class="little-spider-thread"></div>
-
-
-                <div class="little-spider">
-
-                    <div class="small-spider-body"></div>
-
-                    <div class="small-spider-head"></div>
-
-                    <div class="small-spider-eye small-eye-left"></div>
-
-                    <div class="small-spider-eye small-eye-right"></div>
-
-
-                    <!-- LEFT LEGS -->
-
-                    <span class="spider-leg spider-left-leg leg-one"></span>
-
-                    <span class="spider-leg spider-left-leg leg-two"></span>
-
-                    <span class="spider-leg spider-left-leg leg-three"></span>
-
-                    <span class="spider-leg spider-left-leg leg-four"></span>
-
-
-                    <!-- RIGHT LEGS -->
-
-                    <span class="spider-leg spider-right-leg leg-one"></span>
-
-                    <span class="spider-leg spider-right-leg leg-two"></span>
-
-                    <span class="spider-leg spider-right-leg leg-three"></span>
-
-                    <span class="spider-leg spider-right-leg leg-four"></span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 INTRO CONTENT
-            ================================================== -->
-
-            <div class="intro-content">
-
-
-                <div class="intro-label">
-                    SPECIAL DAY
-                </div>
-
-
-                <h1 class="intro-title">
-
-                    <span class="title-main">
-                        Happiest
-                    </span>
-
-                    <span class="title-script">
-                        Birthday
-                    </span>
-
-                </h1>
-
-
-                <div class="intro-subtitle">
-                    MY SPIDER MAN
-                </div>
-
-
-                <div class="intro-name">
-
-                    Mahee
-
-                    <span class="heart">
-                        ❤️
-                    </span>
-
-                </div>
-
-
-                <div class="intro-message">
-
-                    <span id="introTyping"></span>
-
-                    <span class="typing-cursor">
-                        |
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 CINEMATIC LIGHT SWEEP
-            ================================================== -->
-
-            <div class="light-sweep"></div>
-
-
-
-            <!-- =================================================
-                 BOTTOM SCROLL INDICATOR
-            ================================================== -->
-
-            <div class="intro-scroll">
-
-                <span class="scroll-text">
-                    SCROLL TO BEGIN
-                </span>
-
-                <div class="scroll-line">
-
-                    <span></span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PAGE TRANSITION
-            ================================================== -->
-
-            <div class="intro-fade"></div>
-
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 2
-        ====================================================== -->
-
-        <section id="birthdayPage"
-                 class="birthday-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 3
-        ====================================================== -->
-
-        <section id="letterPage"
-                 class="letter-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 4
-        ====================================================== -->
-
-        <section id="memoriesPage"
-                 class="memories-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 5
-        ====================================================== -->
-
-        <section id="friendshipLetterPage"
-                 class="friendship-letter-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 6
-        ====================================================== -->
-
-        <section id="roseGardenPage"
-                 class="rose-garden-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 7
-        ====================================================== -->
-
-        <section id="personalLetterPage"
-                 class="personal-letter-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 8
-        ====================================================== -->
-
-        <section id="finalPage"
-                 class="final-page">
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PAGE 9
-        ====================================================== -->
-
-        <section id="fireworksPage"
-                 class="fireworks-page">
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
-
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 
 </body>
 
