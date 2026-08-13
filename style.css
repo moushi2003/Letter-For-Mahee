@@ -3997,7 +3997,7 @@ FULL PHOTO BACKGROUND — MOHIN.JPEG
 
     z-index: 0;
 
-    overflow: hidden;
+overflow: hidden;
 
     background: #080810;
 }
@@ -4005,7 +4005,7 @@ FULL PHOTO BACKGROUND — MOHIN.JPEG
 
 .letter-photo-background img {
 
-    position: absolute;
+    position: absolute;    
 
     top: 0;
     left: 0;
