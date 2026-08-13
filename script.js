@@ -596,50 +596,47 @@ if (backgroundMusic) {
 
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
-   ENVELOPE → OPEN → 8 IMAGE LETTER PAGES
+   ENVELOPE → OPEN → 8 PHOTO LETTER PAGES
 ========================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     /* ======================================================
        ELEMENTS
     ====================================================== */
 
     const envelope = document.getElementById("cinematicEnvelope");
-    const seal = document.querySelector(".m-seal");
+    const seal = document.querySelector("#cinematicEnvelope .m-seal");
 
     const letterContent =
-        document.getElementById("personalLetterContent");
+        document.getElementById("personalLetterPages");
 
     const closeButton =
         document.getElementById("closePersonalLetter");
 
-    const letterPages =
-        document.getElementById("personalLetterPages");
-
 
     /* ======================================================
-       CHECK PAGE 7
+       SAFETY CHECK
     ====================================================== */
 
     if (!envelope) {
-        console.log("❌ Personal letter envelope not found.");
+        console.error("❌ cinematicEnvelope not found");
         return;
     }
 
     if (!letterContent) {
-        console.log("❌ Personal letter content not found.");
+        console.error("❌ personalLetterPages not found");
         return;
     }
 
-    console.log("✅ Personal Letter Page loaded.");
+    console.log("✅ Page 7 Personal Letter system loaded");
 
 
     let opened = false;
 
 
     /* ======================================================
-       OPEN PERSONAL LETTER
+       OPEN LETTER
     ====================================================== */
 
     function openPersonalLetter(event) {
@@ -657,39 +654,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* -----------------------------------------------
-           STEP 1
-           ENVELOPE OPENING ANIMATION
+           OPEN ENVELOPE
         ------------------------------------------------ */
 
         envelope.classList.add("opening");
 
 
         /* -----------------------------------------------
-           STEP 2
            SHOW LETTER
         ------------------------------------------------ */
 
-        setTimeout(function () {
+        setTimeout(() => {
 
             letterContent.classList.add("show-letter");
 
-            document.body.classList.add("personal-letter-open");
+            document.body.classList.add(
+                "personal-letter-open"
+            );
 
-            console.log("❤️ 8-page letter revealed.");
+
+            /* Start from first photo page */
+
+            letterContent.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
 
 
-            /* -------------------------------------------
-               START FROM PAGE 1
-            -------------------------------------------- */
-
-            if (letterPages) {
-
-                letterPages.scrollTo({
-                    top: 0,
-                    behavior: "instant"
-                });
-
-            }
+            console.log("❤️ Letter opened");
 
         }, 850);
 
@@ -700,55 +692,52 @@ document.addEventListener("DOMContentLoaded", function () {
        CLICK ENVELOPE
     ====================================================== */
 
-    envelope.addEventListener(
-        "click",
-        openPersonalLetter
-    );
+    envelope.addEventListener("click", openPersonalLetter);
 
 
     /* ======================================================
        CLICK M SEAL
+       IMPORTANT
     ====================================================== */
 
     if (seal) {
 
-        seal.addEventListener(
-            "click",
-            function (event) {
+        seal.addEventListener("click", (event) => {
 
-                event.preventDefault();
-                event.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
 
-                openPersonalLetter(event);
+            openPersonalLetter(event);
 
-            }
-        );
+        });
+
+        console.log("✅ M seal click connected");
+
+    } else {
+
+        console.error("❌ M seal not found");
 
     }
 
 
     /* ======================================================
-       KEYBOARD
-       ENTER / SPACE
+       KEYBOARD SUPPORT
     ====================================================== */
 
-    envelope.addEventListener(
-        "keydown",
-        function (event) {
+    envelope.addEventListener("keydown", (event) => {
 
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                openPersonalLetter(event);
-
-            }
+            openPersonalLetter(event);
 
         }
-    );
+
+    });
 
 
     /* ======================================================
@@ -759,12 +748,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!opened) return;
 
-        console.log("↩️ Closing personal letter...");
+        console.log("↩️ Closing letter...");
 
-
-        /* -----------------------------------------------
-           HIDE LETTER FIRST
-        ------------------------------------------------ */
 
         letterContent.classList.remove(
             "show-letter"
@@ -775,11 +760,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /* -----------------------------------------------
-           RETURN TO ENVELOPE
-        ------------------------------------------------ */
-
-        setTimeout(function () {
+        setTimeout(() => {
 
             envelope.classList.remove(
                 "opening"
@@ -787,9 +768,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             opened = false;
 
-            console.log(
-                "💌 Returned to envelope."
-            );
+            letterContent.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
+
+            console.log("💌 Returned to envelope");
 
         }, 700);
 
@@ -804,7 +788,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         closeButton.addEventListener(
             "click",
-            function (event) {
+            (event) => {
 
                 event.preventDefault();
                 event.stopPropagation();
@@ -818,60 +802,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================================
-       ESC KEY
+       ESCAPE
     ====================================================== */
 
-    document.addEventListener(
-        "keydown",
-        function (event) {
+    document.addEventListener("keydown", (event) => {
 
-            if (
-                event.key === "Escape" &&
-                opened
-            ) {
+        if (
+            event.key === "Escape" &&
+            opened
+        ) {
 
-                closePersonalLetter();
-
-            }
+            closePersonalLetter();
 
         }
-    );
+
+    });
 
 
     /* ======================================================
-       PREVENT PAGE 7 FROM SCROLLING BEHIND LETTER
-    ====================================================== */
-
-    if (letterContent) {
-
-        letterContent.addEventListener(
-            "wheel",
-            function (event) {
-
-                if (
-                    letterContent.classList.contains(
-                        "show-letter"
-                    )
-                ) {
-
-                    event.stopPropagation();
-
-                }
-
-            },
-            { passive: true }
-        );
-
-    }
-
-
-    /* ======================================================
-       TOUCH / MOBILE SUPPORT
+       MOBILE TOUCH
     ====================================================== */
 
     envelope.addEventListener(
         "touchend",
-        function (event) {
+        (event) => {
 
             if (!opened) {
 
@@ -890,23 +844,15 @@ document.addEventListener("DOMContentLoaded", function () {
        INITIAL STATE
     ====================================================== */
 
-    letterContent.classList.remove(
-        "show-letter"
-    );
+    envelope.classList.remove("opening");
 
-    envelope.classList.remove(
-        "opening"
-    );
+    letterContent.classList.remove("show-letter");
 
     document.body.classList.remove(
         "personal-letter-open"
     );
 
 
-    console.log(
-        "💌 Personal Letter system ready."
-    );
+    console.log("💌 Personal Letter ready!");
 
 });
-
-.
