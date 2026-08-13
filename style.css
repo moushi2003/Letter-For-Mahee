@@ -3934,14 +3934,13 @@ LETTER EXPERIENCE
 
 .personal-letter-content {
 
-position: absolute;
+position: fixed;
 
-inset: 0;
+top: 0;
+left: 0;   
 
-width: 100%;
-height: 100%;
-
-min-height: 100vh;
+width: 100vw;
+height: 100vh;
 
 overflow-y: auto;
 
@@ -5044,6 +5043,14 @@ VERY SMALL PHONES
 
 }
 
+   @media (max-width: 700px) {
+
+    .letter-photo-background img {
+        object-position: center center;
+        transform: scale(1.01);
+    }
+
+}
 
 .love-letter-paper {
 
