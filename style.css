@@ -3228,99 +3228,852 @@ a {
 
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
-   8 CINEMATIC IMAGE + LETTER PAGES
-   NO ENVELOPE
-   NO PAPER CARD
+   ENVELOPE → 8 FULL-SCREEN PHOTO LETTER PAGES
+========================================================== */
+
+
+/* ==========================================================
+   PAGE 7 ROOT
 ========================================================== */
 
 .personal-letter-page {
-    position: relative;
-    width: 100%;
-    background: #03050f;
-    color: #fff;
-    font-family: "Cormorant Garamond", serif;
-}
 
-
-/* ==========================================================
-   LETTER PAGES WRAPPER
-========================================================== */
-
-.personal-letter-pages {
-    width: 100%;
-    position: relative;
-}
-
-
-/* ==========================================================
-   EACH LETTER PAGE
-========================================================== */
-
-.letter-image-page {
     position: relative;
 
     width: 100%;
     min-height: 100vh;
-    min-height: 100svh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(68, 40, 104, 0.28),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #02040d 0%,
+            #070b1d 48%,
+            #100719 100%
+        );
+
+    color: #f7f1f5;
+
+    font-family: "Cormorant Garamond", serif;
+
+}
+
+
+/* ==========================================================
+   ENVELOPE INTRO
+========================================================== */
+
+.personal-letter-intro {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
 
     isolation: isolate;
+
 }
 
 
 /* ==========================================================
-   FULL-SCREEN IMAGE
+   INTRO BACKGROUND
+========================================================== */
+
+.letter-intro-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -5;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(42, 58, 130, 0.30),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 75% 65%,
+            rgba(116, 34, 91, 0.23),
+            transparent 40%
+        ),
+        #03050f;
+
+}
+
+
+/* ==========================================================
+   RED / PURPLE GLOW
+========================================================== */
+
+.letter-intro-glow {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.42;
+
+    pointer-events: none;
+
+}
+
+.glow-red {
+
+    background: rgba(172, 25, 67, 0.30);
+
+    right: -120px;
+    bottom: -100px;
+
+}
+
+.glow-purple {
+
+    background: rgba(94, 47, 157, 0.34);
+
+    left: -120px;
+    top: -100px;
+
+}
+
+
+/* ==========================================================
+   STARS
+========================================================== */
+
+.letter-intro-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.38;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.75) 1px,
+            transparent 1.5px
+        );
+
+    background-size: 95px 95px;
+
+    animation:
+        letterStarsMove 20s linear infinite;
+
+}
+
+@keyframes letterStarsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-95px);
+    }
+
+}
+
+
+/* ==========================================================
+   INTRO CONTENT
+========================================================== */
+
+.letter-intro-content {
+
+    position: relative;
+
+    width: min(900px, 94%);
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+
+}
+
+
+/* ==========================================================
+   KICKER
+========================================================== */
+
+.letter-kicker {
+
+    margin: 0 0 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    color: rgba(226, 215, 235, 0.70);
+
+    text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+   INTRO TITLE
+========================================================== */
+
+.letter-intro-title {
+
+    margin: 0;
+
+    max-width: 700px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(36px, 6vw, 70px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    color: #f7edf6;
+
+    letter-spacing: -1px;
+
+}
+
+.letter-intro-title span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 0.78em;
+
+    color: #d7a6c8;
+
+    text-shadow:
+        0 0 20px rgba(213, 95, 151, 0.35);
+
+}
+
+
+/* ==========================================================
+   INTRO SUBTITLE
+========================================================== */
+
+.letter-intro-subtitle {
+
+    margin: 22px 0 42px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    letter-spacing: 3px;
+
+    color: rgba(232, 224, 239, 0.62);
+
+}
+
+
+/* ==========================================================
+   CINEMATIC ENVELOPE
+========================================================== */
+
+.cinematic-envelope {
+
+    position: relative;
+
+    width: min(430px, 82vw);
+
+    aspect-ratio: 1.58 / 1;
+
+    cursor: pointer;
+
+    perspective: 1200px;
+
+    filter:
+        drop-shadow(
+            0 30px 45px rgba(0, 0, 0, 0.65)
+        );
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+
+    z-index: 10;
+
+}
+
+.cinematic-envelope:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    filter:
+        drop-shadow(
+            0 40px 55px rgba(0, 0, 0, 0.75)
+        )
+        drop-shadow(
+            0 0 28px rgba(153, 67, 135, 0.20)
+        );
+
+}
+
+
+/* ==========================================================
+   ENVELOPE GLOW
+========================================================== */
+
+.envelope-glow {
+
+    position: absolute;
+
+    inset: -25px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(145, 59, 122, 0.22),
+            transparent 65%
+        );
+
+    filter: blur(18px);
+
+    z-index: -2;
+
+}
+
+
+/* ==========================================================
+   ENVELOPE BACK
+========================================================== */
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #17234a,
+            #0b1230 55%,
+            #090d20
+        );
+
+    border: 1px solid rgba(139, 116, 188, 0.42);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -10px 30px rgba(0,0,0,0.25);
+
+}
+
+
+/* ==========================================================
+   LETTER INSIDE ENVELOPE
+========================================================== */
+
+.envelope-inner-letter {
+
+    position: absolute;
+
+    left: 9%;
+    right: 9%;
+
+    bottom: 8%;
+
+    height: 76%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding-top: 18px;
+
+    border-radius: 5px 5px 2px 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f0df,
+            #e7dcc6
+        );
+
+    color: #40384a;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.28);
+
+    z-index: 2;
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1),
+        opacity 0.4s ease;
+
+}
+
+.envelope-inner-letter span {
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 18px;
+
+    color: #554252;
+
+}
+
+
+/* ==========================================================
+   ENVELOPE FLAP
+========================================================== */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 64%;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 78%,
+            100% 0
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            #1c2b58,
+            #111b40 55%,
+            #0a102b
+        );
+
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+
+    transform-origin: top center;
+
+    backface-visibility: hidden;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 2px 2px rgba(0,0,0,0.3)
+        );
+
+    transition:
+        transform 1s cubic-bezier(.22,.8,.2,1),
+        z-index 0.1s linear 0.45s;
+
+}
+
+
+/* ==========================================================
+   ENVELOPE FRONT
+========================================================== */
+
+.envelope-front {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 6;
+
+    pointer-events: none;
+
+    border-radius: 13px;
+
+    overflow: hidden;
+
+}
+
+
+/* ==========================================================
+   ENVELOPE FOLDS
+========================================================== */
+
+.envelope-fold {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 72%;
+
+    height: 100%;
+
+    opacity: 0.55;
+
+}
+
+.envelope-fold-left {
+
+    left: -22%;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b2b59,
+            #0b1431
+        );
+
+}
+
+.envelope-fold-right {
+
+    right: -22%;
+
+    clip-path:
+        polygon(
+            100% 0,
+            0 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            215deg,
+            #1b2b59,
+            #0b1431
+        );
+
+}
+
+
+/* ==========================================================
+   M SEAL
+========================================================== */
+
+.m-seal {
+
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    width: 78px;
+    height: 78px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #b83d60,
+            #721f3d 58%,
+            #431326 100%
+        );
+
+    border: 2px solid rgba(235, 182, 153, 0.55);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.45),
+        0 0 25px rgba(154, 43, 82, 0.30);
+
+    z-index: 20;
+
+}
+
+.seal-ring {
+
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(248, 206, 182, 0.48);
+
+}
+
+.calligraphy-m {
+
+    position: relative;
+
+    top: -2px;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 50px;
+
+    line-height: 1;
+
+    color: #f3d4b7;
+
+    text-shadow:
+        1px 1px 0 rgba(88, 22, 40, 0.8),
+        0 0 8px rgba(255, 221, 190, 0.15);
+
+}
+
+
+/* ==========================================================
+   ENVELOPE HINT
+========================================================== */
+
+.envelope-hint {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 34px;
+
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.envelope-hint span {
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    color: rgba(239, 225, 237, 0.72);
+
+}
+
+.envelope-hint small {
+
+    font-size: 10px;
+
+    font-weight: 300;
+
+    letter-spacing: 1px;
+
+    color: rgba(211, 196, 217, 0.45);
+
+}
+
+
+/* ==========================================================
+   ENVELOPE OPENING
+========================================================== */
+
+.cinematic-envelope.opening {
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+}
+
+.cinematic-envelope.opening .envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+    z-index: 1;
+
+}
+
+.cinematic-envelope.opening .envelope-inner-letter {
+
+    transform:
+        translateY(-35%);
+
+}
+
+
+/* ==========================================================
+   8 PAGE LETTER CONTAINER
+========================================================== */
+
+.personal-letter-pages {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #080810;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    scroll-behavior: smooth;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+/* ==========================================================
+   SHOW LETTER
+========================================================== */
+
+.personal-letter-pages.show-letter {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* ==========================================================
+   EACH FULL-SCREEN LETTER PAGE
+========================================================== */
+
+.letter-image-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 70px 25px 90px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+/* ==========================================================
+   PAGE IMAGE
 ========================================================== */
 
 .letter-page-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -3;
+
+    overflow: hidden;
+
+    background: #080810;
+
+}
+
+
+.letter-page-image img {
+
     position: absolute;
 
     inset: 0;
 
     width: 100%;
-    height: 100%;
 
-    z-index: -3;
-
-    overflow: hidden;
-}
-
-
-.letter-page-image img {
-    width: 100%;
     height: 100%;
 
     display: block;
 
     object-fit: cover;
+
     object-position: center center;
 
-    transform: scale(1.01);
+    transform: scale(1.02);
 
     filter:
-        brightness(0.90)
-        contrast(1.03)
-        saturate(1.05);
+        brightness(0.96)
+        saturate(1.05)
+        contrast(1.02);
 
-    transition:
-        transform 1.8s ease,
-        filter 1.2s ease;
 }
 
 
 /* ==========================================================
-   SUBTLE CINEMATIC PHOTO OVERLAY
-
-   IMPORTANT:
-   IMAGE STAYS CLEAR
+   IMAGE OVERLAY
+   LIGHT ONLY
+   PHOTO MUST REMAIN CLEAR
 ========================================================== */
 
 .letter-page-overlay {
+
     position: absolute;
 
     inset: 0;
@@ -3331,78 +4084,177 @@ a {
 
     background:
         linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.18),
-            rgba(0, 0, 0, 0.05) 50%,
-            rgba(0, 0, 0, 0.18)
+            180deg,
+            rgba(0,0,0,0.18) 0%,
+            rgba(0,0,0,0.08) 35%,
+            rgba(0,0,0,0.14) 100%
         );
+
 }
 
 
 /* ==========================================================
-   TEXT READABILITY LAYER
-
-   NOT A PAPER.
-   NOT AN ENVELOPE.
-   JUST SOFT TRANSPARENT GLASS.
+   TRANSPARENT WHITE READING PANEL
 ========================================================== */
 
 .letter-page-content {
+
     position: relative;
 
     z-index: 5;
 
-    width: min(850px, 88%);
+    width: min(780px, 90%);
 
-    max-height: 84vh;
-    max-height: 84svh;
+    max-height: calc(100vh - 120px);
 
     overflow-y: auto;
 
-    margin: 40px auto;
-
-    padding:
-        clamp(28px, 5vw, 55px)
-        clamp(22px, 5vw, 55px);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(5, 7, 16, 0.62),
-            rgba(9, 11, 23, 0.40)
-        );
-
-    border:
-        1px solid rgba(255, 255, 255, 0.13);
+    padding: 48px 50px 55px;
 
     border-radius: 18px;
 
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    background:
+        rgba(255, 249, 244, 0.74);
+
+    border:
+        1px solid rgba(255,255,255,0.72);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.40),
-        inset 0 0 35px rgba(255, 255, 255, 0.025);
+        0 25px 70px rgba(0,0,0,0.35),
+        0 8px 30px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.70);
 
-    scrollbar-width: thin;
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    color: #30242b;
+
+    text-shadow: none;
+
 }
 
 
 /* ==========================================================
-   TEXT PANEL SCROLLBAR
+   PANEL SCROLLBAR
 ========================================================== */
 
 .letter-page-content::-webkit-scrollbar {
-    width: 4px;
+
+    width: 5px;
+
 }
 
 .letter-page-content::-webkit-scrollbar-track {
-    background: transparent;
+
+    background:
+        rgba(90,60,70,0.06);
+
+    border-radius: 10px;
+
 }
 
 .letter-page-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.28);
-    border-radius: 20px;
+
+    background:
+        rgba(105,65,80,0.35);
+
+    border-radius: 10px;
+
+}
+
+
+/* ==========================================================
+   PAGE KICKER
+========================================================== */
+
+.letter-page-kicker {
+
+    margin: 0 0 14px;
+
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    line-height: 1.7;
+
+    color: #735a66;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+   PAGE TITLE
+========================================================== */
+
+.letter-page-content > h2 {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: clamp(42px, 6vw, 64px);
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    color: #492c3b;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.letter-page-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 18px 0 30px;
+
+    font-size: 22px;
+
+    color: #9a4b64;
+
+}
+
+.letter-page-divider::before,
+.letter-page-divider::after {
+
+    content: "";
+
+    width: 85px;
+
+    height: 1px;
+
+    margin: 0 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(122,72,91,0.45),
+            transparent
+        );
+
 }
 
 
@@ -3411,30 +4263,397 @@ a {
 ========================================================== */
 
 .letter-page-content p {
+
     margin: 0 0 22px;
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(17px, 2vw, 21px);
+    font-size: 18px;
 
-    line-height: 1.78;
+    font-weight: 500;
 
-    font-weight: 400;
+    line-height: 1.72;
 
-    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.05px;
 
-    text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.72);
+    color: #30252c;
+
+}
+
+.letter-page-content strong {
+
+    font-weight: 700;
+
+    color: #592c40;
+
 }
 
 
-.letter-page-content strong {
+/* ==========================================================
+   OPENING
+========================================================== */
+
+.letter-page-content .letter-opening {
+
+    margin:
+        5px 0 30px;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 31px;
+
+    line-height: 1.45;
+
+    text-align: center;
+
+    color: #6c3049;
+
+}
+
+
+/* ==========================================================
+   HIGHLIGHT BLOCK
+========================================================== */
+
+.letter-page-highlight {
+
+    margin: 30px 0;
+
+    padding: 25px 27px;
+
+    background:
+        rgba(255,255,255,0.38);
+
+    border-left:
+        3px solid rgba(133,62,86,0.75);
+
+    border-top:
+        1px solid rgba(105,67,82,0.12);
+
+    border-bottom:
+        1px solid rgba(105,67,82,0.12);
+
+    border-radius:
+        0 10px 10px 0;
+
+}
+
+.letter-page-highlight h3 {
+
+    margin: 0 0 14px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
     font-weight: 600;
 
-    color: #ffffff;
+    line-height: 1.25;
 
-    text-shadow:
-        0 2px 12px rgba(0, 0, 0, 0.85);
+    color: #542b3d;
+
+}
+
+.letter-page-highlight p {
+
+    margin-bottom: 14px;
+
+}
+
+.letter-page-highlight p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* ==========================================================
+   EMOTIONAL LINE
+========================================================== */
+
+.letter-page-content .emotional-line {
+
+    padding:
+        12px 0 12px 22px;
+
+    border-left:
+        2px solid rgba(143,64,87,0.55);
+
+    font-style: italic;
+
+}
+
+
+/* ==========================================================
+   QUOTE
+========================================================== */
+
+.letter-page-quote {
+
+    margin: 32px 0;
+
+    padding:
+        23px 15px;
+
+    text-align: center;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 30px;
+
+    line-height: 1.4;
+
+    color: #69334b;
+
+    border-top:
+        1px solid rgba(110,66,81,0.20);
+
+    border-bottom:
+        1px solid rgba(110,66,81,0.20);
+
+}
+
+
+/* ==========================================================
+   BIG CONFESSION
+========================================================== */
+
+.letter-page-content .big-confession {
+
+    margin:
+        35px 0 3px;
+
+    text-align: center;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 52px;
+
+    line-height: 1.2;
+
+    color: #7b304e;
+
+}
+
+.letter-page-content .big-confession-small {
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-style: italic;
+
+    color: #745d68;
+
+}
+
+
+/* ==========================================================
+   THREE LINES
+========================================================== */
+
+.letter-page-content .three-lines {
+
+    margin:
+        35px 0;
+
+    text-align: center;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 31px;
+
+    line-height: 1.55;
+
+    color: #69334b;
+
+}
+
+
+/* ==========================================================
+   WISH
+========================================================== */
+
+.letter-page-wish {
+
+    margin:
+        30px 0;
+
+    padding:
+        27px 25px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.36);
+
+    border:
+        1px solid rgba(112,72,88,0.15);
+
+    border-radius: 12px;
+
+}
+
+.letter-page-wish p {
+
+    margin-bottom: 17px;
+
+}
+
+.letter-page-wish p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* ==========================================================
+   FINAL CONFESSION
+========================================================== */
+
+.letter-page-content .final-confession {
+
+    margin:
+        38px 0 42px;
+
+    text-align: center;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 42px;
+
+    line-height: 1.35;
+
+    color: #71314c;
+
+}
+
+
+/* ==========================================================
+   ENDING
+========================================================== */
+
+.letter-page-ending {
+
+    margin:
+        40px 0;
+
+    padding:
+        30px 22px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(105,63,78,0.20);
+
+    border-bottom:
+        1px solid rgba(105,63,78,0.20);
+
+}
+
+.letter-page-ending p {
+
+    margin-bottom: 15px;
+
+}
+
+.letter-page-ending h3 {
+
+    margin:
+        24px 0 10px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+    color: #54273d;
+
+}
+
+
+/* ==========================================================
+   LAST WISH
+========================================================== */
+
+.letter-page-last-wish {
+
+    margin-top: 40px;
+
+    text-align: center;
+
+}
+
+.letter-page-last-wish p {
+
+    margin-bottom: 22px;
+
+}
+
+.letter-page-last-wish .final-line {
+
+    margin:
+        40px 0 18px;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 40px;
+
+    color: #673047;
+
+}
+
+.letter-page-last-wish .mine {
+
+    margin-top: 35px;
+
+    font-style: italic;
+
+}
+
+.letter-page-last-wish .mine span {
+
+    display: block;
+
+    margin-top: 13px;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 48px;
+
+    font-style: normal;
+
+    color: #7c304d;
+
+}
+
+
+/* ==========================================================
+   PAGE FOOTER
+========================================================== */
+
+.letter-page-footer {
+
+    margin-top: 45px;
+
+    padding-top: 22px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(94,62,73,0.18);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #806a74;
+
 }
 
 
@@ -3443,23 +4662,114 @@ a {
 ========================================================== */
 
 .letter-page-number {
+
     position: absolute;
 
     right: 28px;
-    bottom: 22px;
+    bottom: 25px;
 
-    z-index: 10;
+    z-index: 20;
 
-    font-family: "Montserrat", sans-serif;
+    padding:
+        8px 13px;
 
-    font-size: 9px;
+    border-radius: 20px;
 
-    letter-spacing: 0.25em;
+    background:
+        rgba(10,8,15,0.45);
 
-    color: rgba(255, 255, 255, 0.65);
+    border:
+        1px solid rgba(255,255,255,0.25);
 
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.9);
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    color:
+        rgba(255,255,255,0.85);
+
+    font-family:
+        "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ==========================================================
+   CLOSE LETTER
+========================================================== */
+
+.close-letter {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+    border-radius: 30px;
+
+    background:
+        rgba(4,7,18,0.65);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(255,255,255,0.88);
+
+    font-family:
+        "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+.close-letter span {
+
+    font-size: 16px;
+
+}
+
+.close-letter:hover {
+
+    background:
+        rgba(78,39,76,0.78);
+
+    border-color:
+        rgba(221,148,182,0.45);
+
+    transform:
+        translateY(-3px);
+
 }
 
 
@@ -3469,49 +4779,278 @@ a {
 
 @media (max-width: 700px) {
 
+    .letter-intro-content {
+
+        padding:
+            35px 15px;
+
+    }
+
+
+    .letter-kicker {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .letter-intro-title {
+
+        font-size:
+            clamp(34px, 11vw, 52px);
+
+    }
+
+
+    .letter-intro-subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .cinematic-envelope {
+
+        width:
+            min(350px, 88vw);
+
+    }
+
+
+    .m-seal {
+
+        width: 65px;
+        height: 65px;
+
+    }
+
+
+    .calligraphy-m {
+
+        font-size: 42px;
+
+    }
+
+
+    .envelope-inner-letter span {
+
+        font-size: 14px;
+
+    }
+
+
+    .envelope-hint span {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    /* ==============================
+       LETTER PAGE
+    ============================== */
+
     .letter-image-page {
-        min-height: 100svh;
+
+        min-height: 100vh;
+
+        padding:
+            55px 14px 75px;
+
+        align-items: center;
+
     }
 
 
     .letter-page-image img {
+
         object-position: center center;
 
-        transform: scale(1.01);
+        transform:
+            scale(1.03);
+
+    }
+
+
+    .letter-page-overlay {
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,0.20),
+                rgba(0,0,0,0.08),
+                rgba(0,0,0,0.18)
+            );
+
     }
 
 
     .letter-page-content {
-        width: 91%;
 
-        max-height: 82svh;
+        width: 94%;
 
-        margin: 28px auto;
+        max-height:
+            calc(100vh - 100px);
 
         padding:
-            25px 20px;
+            35px 23px 40px;
 
-        border-radius: 14px;
+        border-radius: 15px;
 
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
+        background:
+            rgba(255,249,244,0.78);
+
+        backdrop-filter:
+            blur(6px);
+
+        -webkit-backdrop-filter:
+            blur(6px);
+
     }
 
 
     .letter-page-content p {
-        font-size: 17px;
+
+        font-size: 16px;
 
         line-height: 1.72;
 
-        margin-bottom: 18px;
+        margin-bottom: 20px;
+
+    }
+
+
+    .letter-page-content > h2 {
+
+        font-size: 43px;
+
+    }
+
+
+    .letter-page-kicker {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .letter-page-divider {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .letter-page-divider::before,
+    .letter-page-divider::after {
+
+        width: 45px;
+
+    }
+
+
+    .letter-page-content .letter-opening {
+
+        font-size: 27px;
+
+    }
+
+
+    .letter-page-highlight {
+
+        padding:
+            21px 18px;
+
+        margin:
+            27px 0;
+
+    }
+
+
+    .letter-page-highlight h3 {
+
+        font-size: 23px;
+
+    }
+
+
+    .letter-page-quote {
+
+        font-size: 26px;
+
+    }
+
+
+    .letter-page-content .big-confession {
+
+        font-size: 43px;
+
+    }
+
+
+    .letter-page-content .three-lines {
+
+        font-size: 27px;
+
+    }
+
+
+    .letter-page-content .final-confession {
+
+        font-size: 35px;
+
+    }
+
+
+    .letter-page-last-wish .final-line {
+
+        font-size: 33px;
+
+    }
+
+
+    .letter-page-last-wish .mine span {
+
+        font-size: 41px;
+
     }
 
 
     .letter-page-number {
-        right: 15px;
-        bottom: 12px;
 
-        font-size: 8px;
+        right: 14px;
+
+        bottom: 15px;
+
+        font-size: 7px;
+
+        padding:
+            7px 10px;
+
+    }
+
+
+    .close-letter {
+
+        right: 13px;
+
+        bottom: 13px;
+
+        padding:
+            9px 13px;
+
+        font-size: 7px;
+
     }
 
 }
@@ -3523,18 +5062,57 @@ a {
 
 @media (max-width: 400px) {
 
+    .cinematic-envelope {
+
+        width: 90vw;
+
+    }
+
+
     .letter-page-content {
-        width: 93%;
+
+        width: 95%;
 
         padding:
-            22px 17px;
+            30px 18px 35px;
+
     }
 
 
     .letter-page-content p {
-        font-size: 16px;
 
-        line-height: 1.7;
+        font-size: 15px;
+
+        line-height: 1.68;
+
+    }
+
+
+    .letter-page-content > h2 {
+
+        font-size: 39px;
+
+    }
+
+
+    .letter-page-content .letter-opening {
+
+        font-size: 25px;
+
+    }
+
+
+    .letter-page-content .big-confession {
+
+        font-size: 38px;
+
+    }
+
+
+    .letter-page-content .final-confession {
+
+        font-size: 31px;
+
     }
 
 }
@@ -3546,10 +5124,20 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
 
-    .letter-page-image img {
+    .letter-intro-stars {
+
+        animation: none;
+
+    }
+
+    .cinematic-envelope,
+    .envelope-flap,
+    .envelope-inner-letter,
+    .personal-letter-pages {
+
         transition: none;
+
     }
 
 }
-
 
