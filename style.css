@@ -3727,11 +3727,11 @@ a {
 
     z-index: 6;
 
-    pointer-events: auto;
+    pointer-events: none;
 
     border-radius: 13px;
 
-    overflow: hidden;
+    overflow: visible;
 
 }
 
