@@ -592,3 +592,223 @@ if (backgroundMusic) {
 }
 
 });   
+
+/* ==========================================================
+   PAGE 7 — PERSONAL LETTER
+   ENVELOPE OPENING + LETTER REVEAL
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ======================================================
+       PAGE 7 SELECTORS
+    ====================================================== */
+
+    const envelope = document.querySelector(".cinematic-envelope");
+    const personalLetter = document.querySelector(".personal-letter-content");
+    const closeLetter = document.querySelector(".close-letter");
+
+    if (!envelope || !personalLetter) {
+        return;
+    }
+
+
+    /* ======================================================
+       OPEN LETTER
+    ====================================================== */
+
+    let letterOpened = false;
+
+    envelope.addEventListener("click", () => {
+
+        if (letterOpened) return;
+
+        letterOpened = true;
+
+        /* Step 1 — Envelope opens */
+        envelope.classList.add("opening");
+
+
+        /* Step 2 — Wait for envelope animation */
+        setTimeout(() => {
+
+            personalLetter.classList.add("show-letter");
+
+            /* Prevent background page scrolling */
+            document.body.style.overflow = "hidden";
+
+        }, 900);
+
+    });
+
+
+    /* ======================================================
+       CLOSE LETTER
+    ====================================================== */
+
+    if (closeLetter) {
+
+        closeLetter.addEventListener("click", () => {
+
+            personalLetter.classList.remove("show-letter");
+
+            document.body.style.overflow = "";
+
+            setTimeout(() => {
+
+                envelope.classList.remove("opening");
+
+                letterOpened = false;
+
+            }, 500);
+
+        });
+
+    }
+
+
+    /* ======================================================
+       ESC KEY — CLOSE LETTER
+    ====================================================== */
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape" && letterOpened) {
+
+            personalLetter.classList.remove("show-letter");
+
+            document.body.style.overflow = "";
+
+            setTimeout(() => {
+
+                envelope.classList.remove("opening");
+
+                letterOpened = false;
+
+            }, 500);
+
+        }
+
+    });
+
+
+    /* ======================================================
+       CLICK OUTSIDE PAPER
+       OPTIONAL — DOES NOT CLOSE AUTOMATICALLY
+    ====================================================== */
+
+    personalLetter.addEventListener("click", (event) => {
+
+        if (
+            event.target === personalLetter &&
+            window.innerWidth > 700
+        ) {
+
+            // Intentionally left empty.
+            // Letter stays open while reading.
+
+        }
+
+    });
+
+
+    /* ======================================================
+       LETTER SCROLL — SUBTLE REVEAL
+    ====================================================== */
+
+    const letterParagraphs =
+        personalLetter.querySelectorAll(
+            ".love-letter-text p, .letter-highlight, .letter-quote, .diary-quote"
+        );
+
+
+    if (letterParagraphs.length) {
+
+        letterParagraphs.forEach((element) => {
+
+            element.style.opacity = "0";
+
+            element.style.transform =
+                "translateY(18px)";
+
+            element.style.transition =
+                "opacity 0.8s ease, transform 0.8s ease";
+
+        });
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    root: personalLetter,
+                    threshold: 0.08
+                }
+            );
+
+
+        letterParagraphs.forEach((element) => {
+
+            revealObserver.observe(element);
+
+        });
+
+    }
+
+
+    /* ======================================================
+       RESET LETTER ANIMATIONS WHEN CLOSED
+    ====================================================== */
+
+    function resetLetterAnimations() {
+
+        letterParagraphs.forEach((element) => {
+
+            element.style.opacity = "0";
+
+            element.style.transform =
+                "translateY(18px)";
+
+        });
+
+    }
+
+
+    /* ======================================================
+       UPDATE RESET WHEN CLOSE BUTTON IS CLICKED
+    ====================================================== */
+
+    if (closeLetter) {
+
+        closeLetter.addEventListener("click", () => {
+
+            setTimeout(() => {
+
+                resetLetterAnimations();
+
+            }, 550);
+
+        });
+
+    }
+
+});
