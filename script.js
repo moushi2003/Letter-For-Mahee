@@ -595,49 +595,103 @@ if (backgroundMusic) {
 
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
-   ENVELOPE OPENING + LETTER REVEAL
+   ENVELOPE → OPEN → LETTER
 ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
+
+    const envelope = document.getElementById("cinematicEnvelope");
+    const seal = document.querySelector(".m-seal");
+    const letter = document.getElementById("personalLetterContent");
+    const closeButton = document.getElementById("closePersonalLetter");
+
+    if (!envelope || !letter) {
+        console.log("❌ Page 7 elements not found.");
+        return;
+    }
+
+    console.log("✅ Page 7 loaded successfully.");
+
+    let opened = false;
+
 
     /* ======================================================
-       PAGE 7 SELECTORS
+       OPEN — CLICK ENVELOPE
     ====================================================== */
 
-    const envelope = document.querySelector(".cinematic-envelope");
-    const personalLetter = document.querySelector(".personal-letter-content");
-    const closeLetter = document.querySelector(".close-letter");
+    function openPersonalLetter(event) {
 
-    if (!envelope || !personalLetter) {
-        return;
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        if (opened) return;
+
+        opened = true;
+
+        console.log("💌 Opening personal letter...");
+
+        /* Envelope opening animation */
+        envelope.classList.add("opening");
+
+        /* Reveal letter after envelope opens */
+        setTimeout(function () {
+
+            letter.classList.add("show-letter");
+
+            console.log("❤️ Letter revealed.");
+
+        }, 850);
     }
 
 
     /* ======================================================
-       OPEN LETTER
+       CLICK M SEAL
     ====================================================== */
 
-    let letterOpened = false;
+    if (seal) {
 
-    envelope.addEventListener("click", () => {
+        seal.addEventListener("click", function (event) {
 
-        if (letterOpened) return;
+            event.preventDefault();
+            event.stopPropagation();
 
-        letterOpened = true;
+            openPersonalLetter(event);
 
-        /* Step 1 — Envelope opens */
-        envelope.classList.add("opening");
+        });
+
+    }
 
 
-        /* Step 2 — Wait for envelope animation */
-        setTimeout(() => {
+    /* ======================================================
+       CLICK ANYWHERE ON ENVELOPE
+    ====================================================== */
 
-            personalLetter.classList.add("show-letter");
+    envelope.addEventListener("click", function (event) {
 
-            /* Prevent background page scrolling */
-            document.body.style.overflow = "hidden";
+        openPersonalLetter(event);
 
-        }, 900);
+    });
+
+
+    /* ======================================================
+       KEYBOARD ACCESS
+       ENTER / SPACE
+    ====================================================== */
+
+    envelope.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            openPersonalLetter(event);
+
+        }
 
     });
 
@@ -646,21 +700,23 @@ document.addEventListener("DOMContentLoaded", () => {
        CLOSE LETTER
     ====================================================== */
 
-    if (closeLetter) {
+    if (closeButton) {
 
-        closeLetter.addEventListener("click", () => {
+        closeButton.addEventListener("click", function (event) {
 
-            personalLetter.classList.remove("show-letter");
+            event.preventDefault();
 
-            document.body.style.overflow = "";
+            letter.classList.remove("show-letter");
 
-            setTimeout(() => {
+            setTimeout(function () {
 
                 envelope.classList.remove("opening");
 
-                letterOpened = false;
+                opened = false;
 
-            }, 500);
+                console.log("↩️ Letter closed.");
+
+            }, 600);
 
         });
 
@@ -668,162 +724,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ======================================================
-       ESC KEY — CLOSE LETTER
+       ESCAPE KEY
     ====================================================== */
 
-    document.addEventListener("keydown", (event) => {
-
-        if (event.key === "Escape" && letterOpened) {
-
-            personalLetter.classList.remove("show-letter");
-
-            document.body.style.overflow = "";
-
-            setTimeout(() => {
-
-                envelope.classList.remove("opening");
-
-                letterOpened = false;
-
-            }, 500);
-
-        }
-
-    });
-
-
-    /* ======================================================
-       CLICK OUTSIDE PAPER
-       OPTIONAL — DOES NOT CLOSE AUTOMATICALLY
-    ====================================================== */
-
-    personalLetter.addEventListener("click", (event) => {
+    document.addEventListener("keydown", function (event) {
 
         if (
-            event.target === personalLetter &&
-            window.innerWidth > 700
+            event.key === "Escape" &&
+            opened
         ) {
 
-            // Intentionally left empty.
-            // Letter stays open while reading.
+            letter.classList.remove("show-letter");
+
+            setTimeout(function () {
+
+                envelope.classList.remove("opening");
+
+                opened = false;
+
+            }, 600);
 
         }
 
     });
-
-
-    /* ======================================================
-       LETTER SCROLL — SUBTLE REVEAL
-    ====================================================== */
-
-    const letterParagraphs =
-        personalLetter.querySelectorAll(
-            ".love-letter-text p, .letter-highlight, .letter-quote, .diary-quote"
-        );
-
-
-    if (letterParagraphs.length) {
-
-        letterParagraphs.forEach((element) => {
-
-            element.style.opacity = "0";
-
-            element.style.transform =
-                "translateY(18px)";
-
-            element.style.transition =
-                "opacity 0.8s ease, transform 0.8s ease";
-
-        });
-
-
-        const revealObserver =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach((entry) => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.style.opacity = "1";
-
-                            entry.target.style.transform =
-                                "translateY(0)";
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    root: personalLetter,
-                    threshold: 0.08
-                }
-            );
-
-
-        letterParagraphs.forEach((element) => {
-
-            revealObserver.observe(element);
-
-        });
-
-    }
-
-
-    /* ======================================================
-       RESET LETTER ANIMATIONS WHEN CLOSED
-    ====================================================== */
-
-    function resetLetterAnimations() {
-
-        letterParagraphs.forEach((element) => {
-
-            element.style.opacity = "0";
-
-            element.style.transform =
-                "translateY(18px)";
-
-        });
-
-    }
-
-
-    /* ======================================================
-       UPDATE RESET WHEN CLOSE BUTTON IS CLICKED
-    ====================================================== */
-
-    if (closeLetter) {
-
-        closeLetter.addEventListener("click", () => {
-
-            setTimeout(() => {
-
-                resetLetterAnimations();
-
-            }, 550);
-
-        });
-
-    }
-
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const envelope = document.querySelector(".cinematic-envelope");
-
-    console.log("Envelope found:", envelope);
-
-    if (envelope) {
-        envelope.addEventListener("click", () => {
-            console.log("ENVELOPE CLICKED!");
-            envelope.classList.add("opening");
-        });
-    }
 
 });
