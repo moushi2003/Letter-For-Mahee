@@ -593,30 +593,53 @@ if (backgroundMusic) {
 
 });   
 
+
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
-   ENVELOPE → OPEN → LETTER
+   ENVELOPE → OPEN → 8 IMAGE LETTER PAGES
 ========================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* ======================================================
+       ELEMENTS
+    ====================================================== */
+
     const envelope = document.getElementById("cinematicEnvelope");
     const seal = document.querySelector(".m-seal");
-    const letter = document.getElementById("personalLetterContent");
-    const closeButton = document.getElementById("closePersonalLetter");
 
-    if (!envelope || !letter) {
-        console.log("❌ Page 7 elements not found.");
+    const letterContent =
+        document.getElementById("personalLetterContent");
+
+    const closeButton =
+        document.getElementById("closePersonalLetter");
+
+    const letterPages =
+        document.getElementById("personalLetterPages");
+
+
+    /* ======================================================
+       CHECK PAGE 7
+    ====================================================== */
+
+    if (!envelope) {
+        console.log("❌ Personal letter envelope not found.");
         return;
     }
 
-    console.log("✅ Page 7 loaded successfully.");
+    if (!letterContent) {
+        console.log("❌ Personal letter content not found.");
+        return;
+    }
+
+    console.log("✅ Personal Letter Page loaded.");
+
 
     let opened = false;
 
 
     /* ======================================================
-       OPEN — CLICK ENVELOPE
+       OPEN PERSONAL LETTER
     ====================================================== */
 
     function openPersonalLetter(event) {
@@ -632,18 +655,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("💌 Opening personal letter...");
 
-        /* Envelope opening animation */
+
+        /* -----------------------------------------------
+           STEP 1
+           ENVELOPE OPENING ANIMATION
+        ------------------------------------------------ */
+
         envelope.classList.add("opening");
 
-        /* Reveal letter after envelope opens */
+
+        /* -----------------------------------------------
+           STEP 2
+           SHOW LETTER
+        ------------------------------------------------ */
+
         setTimeout(function () {
 
-            letter.classList.add("show-letter");
+            letterContent.classList.add("show-letter");
 
-            console.log("❤️ Letter revealed.");
+            document.body.classList.add("personal-letter-open");
+
+            console.log("❤️ 8-page letter revealed.");
+
+
+            /* -------------------------------------------
+               START FROM PAGE 1
+            -------------------------------------------- */
+
+            if (letterPages) {
+
+                letterPages.scrollTo({
+                    top: 0,
+                    behavior: "instant"
+                });
+
+            }
 
         }, 850);
+
     }
+
+
+    /* ======================================================
+       CLICK ENVELOPE
+    ====================================================== */
+
+    envelope.addEventListener(
+        "click",
+        openPersonalLetter
+    );
 
 
     /* ======================================================
@@ -652,100 +712,201 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (seal) {
 
-        seal.addEventListener("click", function (event) {
+        seal.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
-            event.stopPropagation();
+                event.preventDefault();
+                event.stopPropagation();
 
-            openPersonalLetter(event);
+                openPersonalLetter(event);
 
-        });
+            }
+        );
 
     }
 
 
     /* ======================================================
-       CLICK ANYWHERE ON ENVELOPE
-    ====================================================== */
-
-    envelope.addEventListener("click", function (event) {
-
-        openPersonalLetter(event);
-
-    });
-
-
-    /* ======================================================
-       KEYBOARD ACCESS
+       KEYBOARD
        ENTER / SPACE
     ====================================================== */
 
-    envelope.addEventListener("keydown", function (event) {
+    envelope.addEventListener(
+        "keydown",
+        function (event) {
 
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            openPersonalLetter(event);
+                openPersonalLetter(event);
+
+            }
 
         }
-
-    });
+    );
 
 
     /* ======================================================
        CLOSE LETTER
     ====================================================== */
 
-    if (closeButton) {
+    function closePersonalLetter() {
 
-        closeButton.addEventListener("click", function (event) {
+        if (!opened) return;
 
-            event.preventDefault();
+        console.log("↩️ Closing personal letter...");
 
-            letter.classList.remove("show-letter");
 
-            setTimeout(function () {
+        /* -----------------------------------------------
+           HIDE LETTER FIRST
+        ------------------------------------------------ */
 
-                envelope.classList.remove("opening");
+        letterContent.classList.remove(
+            "show-letter"
+        );
 
-                opened = false;
+        document.body.classList.remove(
+            "personal-letter-open"
+        );
 
-                console.log("↩️ Letter closed.");
 
-            }, 600);
+        /* -----------------------------------------------
+           RETURN TO ENVELOPE
+        ------------------------------------------------ */
 
-        });
+        setTimeout(function () {
+
+            envelope.classList.remove(
+                "opening"
+            );
+
+            opened = false;
+
+            console.log(
+                "💌 Returned to envelope."
+            );
+
+        }, 700);
 
     }
 
 
     /* ======================================================
-       ESCAPE KEY
+       CLOSE BUTTON
     ====================================================== */
 
-    document.addEventListener("keydown", function (event) {
+    if (closeButton) {
 
-        if (
-            event.key === "Escape" &&
-            opened
-        ) {
+        closeButton.addEventListener(
+            "click",
+            function (event) {
 
-            letter.classList.remove("show-letter");
+                event.preventDefault();
+                event.stopPropagation();
 
-            setTimeout(function () {
+                closePersonalLetter();
 
-                envelope.classList.remove("opening");
+            }
+        );
 
-                opened = false;
+    }
 
-            }, 600);
+
+    /* ======================================================
+       ESC KEY
+    ====================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                opened
+            ) {
+
+                closePersonalLetter();
+
+            }
 
         }
+    );
 
-    });
+
+    /* ======================================================
+       PREVENT PAGE 7 FROM SCROLLING BEHIND LETTER
+    ====================================================== */
+
+    if (letterContent) {
+
+        letterContent.addEventListener(
+            "wheel",
+            function (event) {
+
+                if (
+                    letterContent.classList.contains(
+                        "show-letter"
+                    )
+                ) {
+
+                    event.stopPropagation();
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* ======================================================
+       TOUCH / MOBILE SUPPORT
+    ====================================================== */
+
+    envelope.addEventListener(
+        "touchend",
+        function (event) {
+
+            if (!opened) {
+
+                event.preventDefault();
+
+                openPersonalLetter(event);
+
+            }
+
+        },
+        { passive: false }
+    );
+
+
+    /* ======================================================
+       INITIAL STATE
+    ====================================================== */
+
+    letterContent.classList.remove(
+        "show-letter"
+    );
+
+    envelope.classList.remove(
+        "opening"
+    );
+
+    document.body.classList.remove(
+        "personal-letter-open"
+    );
+
+
+    console.log(
+        "💌 Personal Letter system ready."
+    );
 
 });
+
+.
