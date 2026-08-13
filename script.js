@@ -593,26 +593,37 @@ if (backgroundMusic) {
 
 });   
 
-
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
-   ENVELOPE → OPEN → 8 PHOTO LETTER PAGES
+   ENVELOPE → DIRECT PHOTO LETTER
+
+   MATCHES CURRENT HTML EXACTLY
 ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
 
     /* ======================================================
        ELEMENTS
     ====================================================== */
 
-    const envelope = document.getElementById("cinematicEnvelope");
-    const seal = document.querySelector("#cinematicEnvelope .m-seal");
+    const envelope =
+        document.getElementById("cinematicEnvelope");
+
+    const seal =
+        document.querySelector(
+            "#cinematicEnvelope .m-seal"
+        );
 
     const letterContent =
-        document.getElementById("personalLetterPages");
+        document.getElementById(
+            "personalLetterContent"
+        );
 
     const closeButton =
-        document.getElementById("closePersonalLetter");
+        document.getElementById(
+            "closePersonalLetter"
+        );
 
 
     /* ======================================================
@@ -620,68 +631,105 @@ document.addEventListener("DOMContentLoaded", () => {
     ====================================================== */
 
     if (!envelope) {
-        console.error("❌ cinematicEnvelope not found");
+
+        console.error(
+            "❌ cinematicEnvelope not found"
+        );
+
         return;
+
     }
+
 
     if (!letterContent) {
-        console.error("❌ personalLetterPages not found");
+
+        console.error(
+            "❌ personalLetterContent not found"
+        );
+
         return;
+
     }
 
-    console.log("✅ Page 7 Personal Letter system loaded");
+
+    console.log(
+        "✅ Page 7 Personal Letter system loaded"
+    );
 
 
     let opened = false;
 
+    let openingTimer = null;
+
 
     /* ======================================================
-       OPEN LETTER
+       OPEN PERSONAL LETTER
     ====================================================== */
 
     function openPersonalLetter(event) {
 
+
         if (event) {
+
             event.preventDefault();
+
             event.stopPropagation();
+
         }
 
-        if (opened) return;
+
+        if (opened) {
+
+            return;
+
+        }
+
 
         opened = true;
 
-        console.log("💌 Opening personal letter...");
+
+        console.log(
+            "💌 Opening personal letter..."
+        );
 
 
-        /* -----------------------------------------------
-           OPEN ENVELOPE
-        ------------------------------------------------ */
+        /* ==================================================
+           ENVELOPE ANIMATION
+        ================================================== */
 
-        envelope.classList.add("opening");
+        envelope.classList.add(
+            "opening"
+        );
 
 
-        /* -----------------------------------------------
-           SHOW LETTER
-        ------------------------------------------------ */
+        /* ==================================================
+           SHOW DIRECT PHOTO LETTER
+        ================================================== */
 
-        setTimeout(() => {
+        openingTimer = setTimeout(() => {
 
-            letterContent.classList.add("show-letter");
+
+            letterContent.classList.add(
+                "show-letter"
+            );
+
 
             document.body.classList.add(
                 "personal-letter-open"
             );
 
 
-            /* Start from first photo page */
+            /* ----------------------------------------------
+               ALWAYS START FROM TOP
+            ---------------------------------------------- */
 
-            letterContent.scrollTo({
-                top: 0,
-                behavior: "auto"
-            });
+            letterContent.scrollTop = 0;
 
 
-            console.log("❤️ Letter opened");
+            console.log(
+                "❤️ Personal letter opened"
+            );
+
 
         }, 850);
 
@@ -689,33 +737,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ======================================================
-       CLICK ENVELOPE
+       ENVELOPE CLICK
     ====================================================== */
 
-    envelope.addEventListener("click", openPersonalLetter);
+    envelope.addEventListener(
+        "click",
+        openPersonalLetter
+    );
 
 
     /* ======================================================
-       CLICK M SEAL
-       IMPORTANT
+       M SEAL CLICK
     ====================================================== */
 
     if (seal) {
 
-        seal.addEventListener("click", (event) => {
 
-            event.preventDefault();
-            event.stopPropagation();
+        seal.addEventListener(
+            "click",
+            (event) => {
 
-            openPersonalLetter(event);
+                event.preventDefault();
 
-        });
+                event.stopPropagation();
 
-        console.log("✅ M seal click connected");
+                openPersonalLetter(event);
 
-    } else {
+            }
+        );
 
-        console.error("❌ M seal not found");
+
+        console.log(
+            "✅ M seal click connected"
+        );
 
     }
 
@@ -724,56 +778,81 @@ document.addEventListener("DOMContentLoaded", () => {
        KEYBOARD SUPPORT
     ====================================================== */
 
-    envelope.addEventListener("keydown", (event) => {
+    envelope.addEventListener(
+        "keydown",
+        (event) => {
 
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
 
-            event.preventDefault();
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
 
-            openPersonalLetter(event);
+                event.preventDefault();
+
+                openPersonalLetter(event);
+
+            }
 
         }
-
-    });
+    );
 
 
     /* ======================================================
-       CLOSE LETTER
+       CLOSE PERSONAL LETTER
     ====================================================== */
 
     function closePersonalLetter() {
 
-        if (!opened) return;
 
-        console.log("↩️ Closing letter...");
+        if (!opened) {
 
+            return;
+
+        }
+
+
+        console.log(
+            "↩️ Closing personal letter..."
+        );
+
+
+        /* ==================================================
+           HIDE LETTER
+        ================================================== */
 
         letterContent.classList.remove(
             "show-letter"
         );
+
 
         document.body.classList.remove(
             "personal-letter-open"
         );
 
 
+        /* ==================================================
+           WAIT FOR FADE
+        ================================================== */
+
         setTimeout(() => {
+
 
             envelope.classList.remove(
                 "opening"
             );
 
+
             opened = false;
 
-            letterContent.scrollTo({
-                top: 0,
-                behavior: "auto"
-            });
 
-            console.log("💌 Returned to envelope");
+            letterContent.scrollTop = 0;
+
+
+            console.log(
+                "💌 Returned to envelope"
+            );
+
 
         }, 700);
 
@@ -786,11 +865,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (closeButton) {
 
+
         closeButton.addEventListener(
             "click",
             (event) => {
 
                 event.preventDefault();
+
                 event.stopPropagation();
 
                 closePersonalLetter();
@@ -802,57 +883,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ======================================================
-       ESCAPE
+       ESCAPE KEY
     ====================================================== */
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-        if (
-            event.key === "Escape" &&
-            opened
-        ) {
 
-            closePersonalLetter();
+            if (
+                event.key === "Escape" &&
+                opened
+            ) {
+
+                closePersonalLetter();
+
+            }
 
         }
-
-    });
+    );
 
 
     /* ======================================================
        MOBILE TOUCH
+       
+       NOTE:
+       No separate touchend listener needed.
+       click already works on mobile.
     ====================================================== */
-
-    envelope.addEventListener(
-        "touchend",
-        (event) => {
-
-            if (!opened) {
-
-                event.preventDefault();
-
-                openPersonalLetter(event);
-
-            }
-
-        },
-        { passive: false }
-    );
 
 
     /* ======================================================
        INITIAL STATE
     ====================================================== */
 
-    envelope.classList.remove("opening");
+    envelope.classList.remove(
+        "opening"
+    );
 
-    letterContent.classList.remove("show-letter");
+
+    letterContent.classList.remove(
+        "show-letter"
+    );
+
 
     document.body.classList.remove(
         "personal-letter-open"
     );
 
 
-    console.log("💌 Personal Letter ready!");
+    console.log(
+        "💌 Personal Letter ready!"
+    );
 
 });
+.
