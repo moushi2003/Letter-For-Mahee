@@ -3727,7 +3727,7 @@ a {
 
     z-index: 6;
 
-    pointer-events: none;
+    pointer-events: auto;
 
     border-radius: 13px;
 
@@ -3794,9 +3794,9 @@ a {
 
 }
 
-
 /* ==========================================================
    M SEAL
+   CLICKABLE ENVELOPE SEAL
 ========================================================== */
 
 .m-seal {
@@ -3833,9 +3833,59 @@ a {
         0 10px 25px rgba(0,0,0,0.45),
         0 0 25px rgba(154, 43, 82, 0.30);
 
-    z-index: 20;
+    /*
+       IMPORTANT:
+       M seal must receive the click.
+    */
+    pointer-events: auto;
+
+    cursor: pointer;
+
+    /*
+       Keep seal above envelope layers.
+    */
+    z-index: 50;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
 }
+
+
+/* ==========================================================
+   M SEAL HOVER
+========================================================== */
+
+.m-seal:hover {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.06);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.50),
+        0 0 32px rgba(190, 65, 105, 0.42);
+
+}
+
+
+/* ==========================================================
+   M SEAL ACTIVE / CLICK
+========================================================== */
+
+.m-seal:active {
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.96);
+
+}
+
+
+/* ==========================================================
+   SEAL RING
+========================================================== */
 
 .seal-ring {
 
@@ -3845,9 +3895,17 @@ a {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(248, 206, 182, 0.48);
+    border:
+        1px solid rgba(248, 206, 182, 0.48);
+
+    pointer-events: none;
 
 }
+
+
+/* ==========================================================
+   CALLIGRAPHY M
+========================================================== */
 
 .calligraphy-m {
 
@@ -3855,7 +3913,9 @@ a {
 
     top: -2px;
 
-    font-family: "Parisienne", cursive;
+    font-family:
+        "Parisienne",
+        cursive;
 
     font-size: 50px;
 
@@ -3867,8 +3927,9 @@ a {
         1px 1px 0 rgba(88, 22, 40, 0.8),
         0 0 8px rgba(255, 221, 190, 0.15);
 
-}
+    pointer-events: none;
 
+}
 
 /* ==========================================================
    ENVELOPE HINT
