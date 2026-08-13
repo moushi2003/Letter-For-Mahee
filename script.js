@@ -812,3 +812,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const envelope = document.querySelector(".cinematic-envelope");
+
+    console.log("Envelope found:", envelope);
+
+    if (envelope) {
+        envelope.addEventListener("click", () => {
+            console.log("ENVELOPE CLICKED!");
+            envelope.classList.add("opening");
+        });
+    }
+
+});
