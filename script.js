@@ -593,6 +593,516 @@ if (backgroundMusic) {
 
 });   
 
+/* =========================================================
+   PAGE 2
+   CINEMATIC BIRTHDAY — JAVASCRIPT PART 1
+   CELEBRATE BUTTON + BALLOON ANIMATION
+========================================================= */
+
+
+/* =========================================================
+   PAGE 2 ELEMENTS
+========================================================= */
+
+const birthdayPage =
+    document.getElementById("birthdayPage");
+
+const birthdayCake =
+    document.getElementById("birthdayCake");
+
+const celebrateButton =
+    document.querySelector(".celebrate-button");
+
+
+/* =========================================================
+   CREATE BALLOON CONTAINER
+========================================================= */
+
+let balloonContainer =
+    document.querySelector(".balloon-container");
+
+
+if (!balloonContainer && birthdayPage) {
+
+    balloonContainer =
+        document.createElement("div");
+
+    balloonContainer.className =
+        "balloon-container";
+
+    birthdayPage.appendChild(
+        balloonContainer
+    );
+
+}
+
+
+/* =========================================================
+   BALLOON LAUNCH
+========================================================= */
+
+function launchBalloons() {
+
+    if (!balloonContainer) {
+        return;
+    }
+
+
+    /* Clear old balloons */
+
+    balloonContainer.innerHTML = "";
+
+
+    /* Number of balloons */
+
+    const balloonCount = 22;
+
+
+    for (
+        let i = 0;
+        i < balloonCount;
+        i++
+    ) {
+
+        const balloon =
+            document.createElement("div");
+
+
+        balloon.className =
+            "birthday-balloon";
+
+
+        /* Random horizontal position */
+
+        const leftPosition =
+            Math.random() * 100;
+
+
+        /* Random size */
+
+        const size =
+            28 + Math.random() * 20;
+
+
+        /* Random animation duration */
+
+        const duration =
+            5 + Math.random() * 4;
+
+
+        /* Random delay */
+
+        const delay =
+            Math.random() * 1.5;
+
+
+        /* Slight random movement */
+
+        const drift =
+            -80 + Math.random() * 160;
+
+
+        balloon.style.left =
+            `${leftPosition}%`;
+
+
+        balloon.style.width =
+            `${size}px`;
+
+
+        balloon.style.height =
+            `${size * 1.22}px`;
+
+
+        balloon.style.setProperty(
+            "--balloon-drift",
+            `${drift}px`
+        );
+
+
+        balloon.style.animationDuration =
+            `${duration}s`;
+
+
+        balloon.style.animationDelay =
+            `${delay}s`;
+
+
+        /* Random elegant balloon colors */
+
+        const balloonColors = [
+            "#d94b62",
+            "#e98b9a",
+            "#f1c6a8",
+            "#b85b72",
+            "#d9a6a6",
+            "#f0d5bd"
+        ];
+
+
+        const randomColor =
+            balloonColors[
+                Math.floor(
+                    Math.random() *
+                    balloonColors.length
+                )
+            ];
+
+
+        balloon.style.setProperty(
+            "--balloon-color",
+            randomColor
+        );
+
+
+        balloonContainer.appendChild(
+            balloon
+        );
+
+    }
+
+
+    /* =================================================
+       LITTLE CELEBRATION SPARKLES
+    ================================================= */
+
+    createBirthdaySparkles();
+
+}
+
+
+/* =========================================================
+   CELEBRATION SPARKLES
+========================================================= */
+
+function createBirthdaySparkles() {
+
+    if (!birthdayPage) {
+        return;
+    }
+
+
+    for (
+        let i = 0;
+        i < 28;
+        i++
+    ) {
+
+        const sparkle =
+            document.createElement("span");
+
+
+        sparkle.className =
+            "birthday-sparkle";
+
+
+        sparkle.style.left =
+            `${20 + Math.random() * 60}%`;
+
+
+        sparkle.style.top =
+            `${30 + Math.random() * 40}%`;
+
+
+        sparkle.style.animationDelay =
+            `${Math.random() * 1.2}s`;
+
+
+        birthdayPage.appendChild(
+            sparkle
+        );
+
+
+        setTimeout(() => {
+
+            sparkle.remove();
+
+        }, 3000);
+
+    }
+
+}
+
+
+/* =========================================================
+   CELEBRATE BUTTON CLICK
+========================================================= */
+
+if (celebrateButton) {
+
+    celebrateButton.addEventListener(
+        "click",
+        () => {
+
+            /* Button state */
+
+            celebrateButton.classList.add(
+                "celebrated"
+            );
+
+
+            celebrateButton.textContent =
+                "CELEBRATION ✨";
+
+
+            /* Launch balloons */
+
+            launchBalloons();
+
+
+            /* Cake little reaction */
+
+            if (birthdayCake) {
+
+                birthdayCake.classList.add(
+                    "cake-celebrating"
+                );
+
+
+                setTimeout(() => {
+
+                    birthdayCake.classList.remove(
+                        "cake-celebrating"
+                    );
+
+                }, 1200);
+
+            }
+
+
+            /* Prevent repeated button spam */
+
+            celebrateButton.disabled =
+                true;
+
+
+            setTimeout(() => {
+
+                celebrateButton.disabled =
+                    false;
+
+            }, 3000);
+
+        }
+    );
+
+}
+
+/* =========================================================
+   PAGE 2
+   JAVASCRIPT PART 2
+   BALLOON VISUAL MOVEMENT + CLEANUP
+========================================================= */
+
+
+/* =========================================================
+   BALLOON CONTAINER STYLE HOOK
+========================================================= */
+
+function prepareBalloon(balloon) {
+
+    if (!balloon) {
+        return;
+    }
+
+
+    /* Random rotation */
+
+    const rotation =
+        -8 + Math.random() * 16;
+
+
+    /* Random horizontal sway */
+
+    const sway =
+        -25 + Math.random() * 50;
+
+
+    balloon.style.setProperty(
+        "--balloon-rotation",
+        `${rotation}deg`
+    );
+
+
+    balloon.style.setProperty(
+        "--balloon-sway",
+        `${sway}px`
+    );
+
+
+    /* Random animation speed */
+
+    const floatTime =
+        5 + Math.random() * 4;
+
+
+    balloon.style.animationDuration =
+        `${floatTime}s`;
+
+}
+
+
+/* =========================================================
+   OBSERVE NEW BALLOONS
+========================================================= */
+
+if (balloonContainer) {
+
+    const balloonObserver =
+        new MutationObserver(
+            (mutations) => {
+
+                mutations.forEach(
+                    (mutation) => {
+
+                        mutation.addedNodes.forEach(
+                            (node) => {
+
+                                if (
+                                    node.classList &&
+                                    node.classList.contains(
+                                        "birthday-balloon"
+                                    )
+                                ) {
+
+                                    prepareBalloon(
+                                        node
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    balloonObserver.observe(
+        balloonContainer,
+        {
+            childList: true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REMOVE OLD SPARKLES
+========================================================= */
+
+function clearBirthdayEffects() {
+
+    if (!birthdayPage) {
+        return;
+    }
+
+
+    const oldSparkles =
+        birthdayPage.querySelectorAll(
+            ".birthday-sparkle"
+        );
+
+
+    oldSparkles.forEach(
+        (sparkle) => {
+
+            sparkle.remove();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   AUTOMATIC CLEANUP
+========================================================= */
+
+function cleanupBalloons() {
+
+    if (!balloonContainer) {
+        return;
+    }
+
+
+    setTimeout(() => {
+
+        balloonContainer.innerHTML =
+            "";
+
+    }, 10000);
+
+}
+
+
+/* =========================================================
+   UPDATE LAUNCH FUNCTION
+========================================================= */
+
+const originalLaunchBalloons =
+    launchBalloons;
+
+
+launchBalloons = function () {
+
+    clearBirthdayEffects();
+
+
+    originalLaunchBalloons();
+
+
+    cleanupBalloons();
+
+};
+
+
+/* =========================================================
+   CAKE CELEBRATION EFFECT
+========================================================= */
+
+function cakeCelebrationEffect() {
+
+    if (!birthdayCake) {
+        return;
+    }
+
+
+    birthdayCake.classList.add(
+        "cake-celebrating"
+    );
+
+
+    setTimeout(() => {
+
+        birthdayCake.classList.remove(
+            "cake-celebrating"
+        );
+
+    }, 1400);
+
+}
+
+
+/* =========================================================
+   CONNECT CAKE EFFECT
+========================================================= */
+
+if (celebrateButton) {
+
+    celebrateButton.addEventListener(
+        "click",
+        cakeCelebrationEffect
+    );
+
+}
+
+
+
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
    ENVELOPE → DIRECT PHOTO LETTER
