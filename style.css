@@ -717,275 +717,298 @@ a {
 }
 
 /* =========================================================
-   SPIDER-MAN CHARACTER
-   CSS PART 2
+   SPIDER-MAN — COMPLETE CHARACTER REDESIGN
+   CINEMATIC / NATURAL PROPORTIONS
 ========================================================= */
 
-/* =========================================================
-   UPDATED SPIDER-MAN
-   SMALLER + BLUE/RED + CINEMATIC
-========================================================= */
+/* ---------------------------------------------------------
+   MAIN CHARACTER
+--------------------------------------------------------- */
 
 .spiderman {
-    position: absolute;
+    width: 210px !important;
+    height: 390px !important;
 
-    left: 17%;
-    top: 16%;
-
-    width: 300px;
-    height: 500px;
-
-    transform-origin: 50% 8%;
-
-    animation: heroSwing 6s ease-in-out infinite;
+    transform-origin: center center;
 
     filter:
-        drop-shadow(0 20px 28px rgba(0,0,0,0.65))
-        drop-shadow(0 0 18px rgba(30,80,180,0.2));
-
-    z-index: 7;
-}
-
-
-/* =========================================================
-   HEAD
-========================================================= */
-
-.spiderman-head {
-    position: absolute;
-
-    left: 50%;
-    top: 5%;
-
-    width: 92px;
-    height: 112px;
-
-    transform:
-        translateX(-50%)
-        rotate(-4deg);
-
-    border-radius: 48% 48% 46% 46%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #e52a3f 0%,
-            #c91531 48%,
-            #8b1027 100%
-        );
-
-    box-shadow:
-        inset -12px -10px 20px rgba(0,0,0,0.38),
-        0 10px 22px rgba(0,0,0,0.5);
-
-    overflow: hidden;
+        drop-shadow(0 18px 22px rgba(0,0,0,0.45));
 
     z-index: 10;
 }
 
 
-/* =========================================================
-   HEAD WEB
-========================================================= */
+/* ---------------------------------------------------------
+   HEAD
+   Smaller + more natural superhero proportion
+--------------------------------------------------------- */
 
-.mask-web {
+.spiderman-head {
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 0 !important;
+
+    width: 82px !important;
+    height: 92px !important;
+
+    transform:
+        translateX(-50%) !important;
+
+    border-radius:
+        47% 47%
+        45% 45% 48% 48% !important;
+
+    background:
+        radial-gradient(
+            circle at 38% 28%,
+            #f14a4d 0%,
+            #d82d3d 38%,
+            #a9182d 78%,
+            #70101e 100%
+        ) !important;
+
+    box-shadow:
+        inset 8px 5px 12px rgba(255,80,80,0.18),
+        inset -9px -8px 18px rgba(0,0,0,0.38),
+        0 8px 18px rgba(0,0,0,0.32);
+
+    z-index: 20;
+}
+
+
+/* ---------------------------------------------------------
+   HEAD WEB — SUBTLE
+--------------------------------------------------------- */
+
+.spiderman-head::before {
+
+    content: "";
+
     position: absolute;
 
-    background: rgba(12,14,22,0.72);
+    inset: 0;
 
-    transform-origin: center;
+    border-radius: inherit;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 48%,
+            rgba(12,12,18,0.58) 49.3%,
+            rgba(12,12,18,0.58) 50.7%,
+            transparent 52%
+        ),
+
+        repeating-radial-gradient(
+            ellipse at 50% 100%,
+            transparent 0 15px,
+            rgba(10,10,15,0.42) 16px,
+            transparent 17px
+        );
+
+    opacity: 0.7;
+
+    pointer-events: none;
 }
 
 
-.mask-v {
-    width: 1px;
-    height: 120px;
-
-    top: -4px;
-    left: 50%;
-}
-
-
-.mask-v-1 {
-    transform: translateX(-50%) rotate(-42deg);
-}
-
-.mask-v-2 {
-    transform: translateX(-50%) rotate(0deg);
-}
-
-.mask-v-3 {
-    transform: translateX(-50%) rotate(42deg);
-}
-
-
-.mask-h {
-    height: 1px;
-    width: 105px;
-
-    left: -6px;
-}
-
-
-.mask-h-1 {
-    top: 30px;
-    transform: rotate(7deg);
-}
-
-.mask-h-2 {
-    top: 56px;
-    transform: rotate(2deg);
-}
-
-.mask-h-3 {
-    top: 83px;
-    transform: rotate(-5deg);
-}
-
-
-/* =========================================================
-   CLASSIC SPIDER-MAN MASK EYES
-========================================================= */
+/* ---------------------------------------------------------
+   EYES
+   Proper Spider-Man eye shape
+--------------------------------------------------------- */
 
 .spiderman-eye {
-    position: absolute;
 
-    top: 34px;
+    position: absolute !important;
 
-    width: 34px;
-    height: 47px;
+    top: 31px !important;
+
+    width: 27px !important;
+    height: 38px !important;
 
     background:
         linear-gradient(
             145deg,
             #ffffff 0%,
-            #f3f7fa 55%,
-            #cbd8e2 100%
-        );
+            #eef5ff 65%,
+            #b9d7ee 100%
+        ) !important;
 
-    border: 3px solid #0b0d12;
+    border:
+        3px solid #080a0f !important;
+
+    border-radius:
+        58% 42%
+        52% 48% !important;
 
     box-shadow:
-        inset 0 0 8px rgba(80, 100, 120, 0.25),
-        0 2px 4px rgba(0,0,0,0.35);
+        0 0 5px rgba(255,255,255,0.32),
+        inset 2px 0 4px rgba(255,255,255,0.65);
 
-    z-index: 6;
-
-    /* Classic Spider-Man lens silhouette */
-    clip-path: polygon(
-        18% 5%,
-        88% 18%,
-        100% 42%,
-        82% 88%,
-        48% 100%,
-        14% 82%,
-        0% 48%
-    );
+    z-index: 25;
 }
 
 
-/* LEFT LENS */
+/* LEFT EYE */
 
 .eye-left {
-    left: 7px;
+
+    left: 10px !important;
 
     transform:
-        rotate(-7deg);
+        rotate(8deg)
+        skewY(-4deg) !important;
 }
 
 
-/* RIGHT LENS */
+/* RIGHT EYE */
 
 .eye-right {
-    right: 7px;
+
+    right: 10px !important;
 
     transform:
-        rotate(7deg);
+        rotate(-8deg)
+        skewY(4deg) !important;
 }
 
-/* =========================================================
+
+/* ---------------------------------------------------------
+   MASK WEB LINES
+--------------------------------------------------------- */
+
+.mask-web {
+
+    opacity: 0.55 !important;
+
+    background:
+        rgba(10,10,16,0.62) !important;
+
+    z-index: 23 !important;
+}
+
+
+/* ---------------------------------------------------------
    NECK
-========================================================= */
+--------------------------------------------------------- */
 
 .spiderman-neck {
-    position: absolute;
 
-    top: 23%;
+    position: absolute !important;
 
-    left: 50%;
+    left: 50% !important;
+    top: 82px !important;
 
-    width: 48px;
-    height: 45px;
+    width: 34px !important;
+    height: 30px !important;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%) !important;
 
     background:
         linear-gradient(
             90deg,
-            #071a3b,
-            #174d9c,
-            #071a3b
-        );
+            #8e1527,
+            #d82c3d 45%,
+            #941326
+        ) !important;
 
-    z-index: 3;
+    z-index: 8;
 }
 
 
-/* =========================================================
-   CLASSIC SPIDER-MAN TORSO
-   NATURAL RED + BLUE SUIT
-   CLEAN / CUTE / CINEMATIC
-========================================================= */
+/* ---------------------------------------------------------
+   TORSO
+--------------------------------------------------------- */
 
 .spiderman-torso {
-    position: absolute;
 
-    left: 50%;
-    top: 22%;
+    position: absolute !important;
 
-    width: 108px;
-    height: 178px;
+    left: 50% !important;
+    top: 91px !important;
+
+    width: 108px !important;
+    height: 145px !important;
 
     transform:
-        translateX(-50%)
-        rotate(-1deg);
+        translateX(-50%) !important;
 
     border-radius:
-        43% 43%
-        28% 28%;
+        38% 38%
+        18% 18% 28% 28% !important;
 
     overflow: hidden;
 
-    /*
-       LOWER SUIT = BLUE
-       UPPER SUIT = RED
-       Soft transition instead of diagonal blocks
-    */
+    background:
+
+        linear-gradient(
+            to bottom,
+            #d92b3d 0%,
+            #c91f35 35%,
+            #b71b30 44%,
+            #15519a 48%,
+            #0f4383 68%,
+            #092d61 100%
+        ) !important;
+
+    box-shadow:
+        inset 9px 0 18px rgba(70,130,220,0.15),
+        inset -12px 0 20px rgba(0,0,0,0.34),
+        0 14px 24px rgba(0,0,0,0.34);
+
+    z-index: 9;
+}
+
+
+/* ---------------------------------------------------------
+   RED CHEST SHAPE
+--------------------------------------------------------- */
+
+.spiderman-torso .red-panel {
+
+    display: block !important;
+
+    position: absolute;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 78px !important;
 
     background:
         linear-gradient(
             to bottom,
-            #d52b3f 0%,
-            #c92339 34%,
-            #b91d34 43%,
-            #154b91 55%,
-            #103f7d 72%,
-            #092b5c 100%
-        );
+            #e33746,
+            #d2283b 58%,
+            #b91c31
+        ) !important;
 
-    box-shadow:
-        inset 10px 0 18px rgba(80,140,230,0.12),
-        inset -13px 0 22px rgba(0,0,0,0.30),
-        0 12px 24px rgba(0,0,0,0.34);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 47%,
+        88% 52%,
+        76% 62%,
+        63% 70%,
+        50% 67%,
+        37% 70%,
+        24% 62%,
+        12% 52%,
+        0 47%
+    ) !important;
 
-    z-index: 4;
+    z-index: 2;
 }
 
 
-/* =========================================================
-   BLUE SIDE PANELS
-   Gives the chest a more natural Spider-Man silhouette
-========================================================= */
+/* ---------------------------------------------------------
+   WEB DETAIL ON CHEST
+--------------------------------------------------------- */
 
 .spiderman-torso::before {
 
@@ -993,167 +1016,53 @@ a {
 
     position: absolute;
 
-    left: 0;
+    left: 50%;
     top: 0;
 
-    width: 100%;
+    width: 1px;
     height: 82px;
 
-    /*
-       Red chest stays in the middle,
-       blue comes naturally around the sides.
-    */
+    transform:
+        translateX(-50%);
 
     background:
-        linear-gradient(
-            90deg,
-            #0b356f 0%,
-            #10488c 13%,
-            transparent 27%,
-            transparent 73%,
-            #10488c 87%,
-            #0b356f 100%
-        );
+        rgba(12,10,16,0.48);
 
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 100%,
-        84% 90%,
-        72% 78%,
-        50% 72%,
-        28% 78%,
-        16% 90%,
-        0 100%
-    );
+    box-shadow:
+        -18px 9px 0 rgba(12,10,16,0.20),
+         18px 9px 0 rgba(12,10,16,0.20),
+        -27px 22px 0 rgba(12,10,16,0.17),
+         27px 22px 0 rgba(12,10,16,0.17),
+        -34px 38px 0 rgba(12,10,16,0.14),
+         34px 38px 0 rgba(12,10,16,0.14);
 
-    z-index: 2;
-
-    pointer-events: none;
+    z-index: 6;
 }
 
 
-/* =========================================================
-   RED CHEST OVERLAY
-   Natural rounded Spider-Man chest
-========================================================= */
-
-.spiderman-torso::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 14%;
-    top: 0;
-
-    width: 72%;
-    height: 86px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #e23848 0%,
-            #d52a3e 42%,
-            #c52037 72%,
-            #ad1931 100%
-        );
-
-    clip-path: polygon(
-        12% 0,
-        88% 0,
-        100% 48%,
-        90% 64%,
-        76% 72%,
-        62% 80%,
-        50% 75%,
-        38% 80%,
-        24% 72%,
-        10% 64%,
-        0 48%
-    );
-
-    z-index: 3;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   SUBTLE SUIT WEB DETAIL
-   Very soft — NOT cartoonish
-========================================================= */
-
-.spiderman-torso {
-
-    background-image:
-
-        /* vertical web lines */
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            transparent 49.4%,
-            rgba(15,12,18,0.34) 49.8%,
-            rgba(15,12,18,0.34) 50.2%,
-            transparent 50.6%,
-            transparent 100%
-        ),
-
-        /* horizontal web lines */
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0px,
-            transparent 17px,
-            rgba(10,12,20,0.20) 18px,
-            transparent 19px
-        ),
-
-        /* actual suit colours */
-        linear-gradient(
-            to bottom,
-            #d52b3f 0%,
-            #c92339 34%,
-            #b91d34 43%,
-            #154b91 55%,
-            #103f7d 72%,
-            #092b5c 100%
-        );
-
-    background-blend-mode:
-        normal,
-        normal,
-        normal;
-}
-
-
-/* =========================================================
-   CHEST SPIDER EMBLEM
-   SMALL + CLEAN
-========================================================= */
+/* ---------------------------------------------------------
+   REALISTIC SMALL CHEST SPIDER
+--------------------------------------------------------- */
 
 .chest-symbol {
 
-    position: absolute;
+    position: absolute !important;
 
-    left: 50%;
-    top: 25%;
+    left: 50% !important;
+    top: 30px !important;
 
-    width: 34px;
-    height: 58px;
+    width: 34px !important;
+    height: 46px !important;
 
     transform:
         translateX(-50%)
-        scale(0.72);
+        scale(0.82) !important;
 
-    z-index: 8;
-
-    pointer-events: none;
+    z-index: 10;
 }
 
 
-/* =========================================================
-   SPIDER BODY
-========================================================= */
+/* BODY */
 
 .chest-symbol::before {
 
@@ -1162,34 +1071,27 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 5px;
+    top: 7px;
 
-    width: 11px;
-    height: 28px;
+    width: 9px;
+    height: 25px;
 
     transform:
         translateX(-50%);
 
     border-radius:
-        48% 48%
+        50% 50%
         45% 45%;
 
     background:
-        linear-gradient(
-            to right,
-            #050608,
-            #171a20 45%,
-            #030407 100%
-        );
+        #050608;
 
     box-shadow:
-        0 1px 4px rgba(0,0,0,0.45);
+        0 0 2px rgba(0,0,0,0.8);
 }
 
 
-/* =========================================================
-   SPIDER HEAD
-========================================================= */
+/* HEAD */
 
 .chest-symbol::after {
 
@@ -1198,7 +1100,7 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 0;
+    top: 1px;
 
     width: 9px;
     height: 9px;
@@ -1209,212 +1111,276 @@ a {
     border-radius: 50%;
 
     background: #050608;
-
-    z-index: 2;
 }
 
 
-/* =========================================================
-   EXISTING SPIDER LEGS
-   Make them thinner + more natural
-========================================================= */
+/* LEGS */
 
 .chest-symbol .symbol-leg {
 
-    position: absolute;
+    position: absolute !important;
 
-    width: 17px;
-    height: 2px;
+    width: 17px !important;
+    height: 2px !important;
 
     border-radius: 50%;
 
-    background:
-        linear-gradient(
-            90deg,
-            #050608,
-            #15181e
-        );
+    background: #050608 !important;
 
     transform-origin: left center;
 
-    z-index: 3;
+    z-index: 12;
 }
 
 
-/* LEFT SIDE */
-
-.chest-symbol .symbol-leg-1 {
-    left: 11px;
-    top: 12px;
-    transform: rotate(155deg);
+.symbol-leg-1 {
+    left: 12px !important;
+    top: 12px !important;
+    transform: rotate(150deg) !important;
 }
 
-.chest-symbol .symbol-leg-2 {
-    left: 10px;
-    top: 19px;
-    transform: rotate(170deg);
+.symbol-leg-2 {
+    left: 12px !important;
+    top: 18px !important;
+    transform: rotate(168deg) !important;
 }
 
-.chest-symbol .symbol-leg-3 {
-    left: 10px;
-    top: 26px;
-    transform: rotate(188deg);
+.symbol-leg-3 {
+    left: 12px !important;
+    top: 24px !important;
+    transform: rotate(190deg) !important;
 }
 
-.chest-symbol .symbol-leg-4 {
-    left: 11px;
-    top: 33px;
-    transform: rotate(205deg);
+.symbol-leg-4 {
+    left: 12px !important;
+    top: 30px !important;
+    transform: rotate(208deg) !important;
 }
 
-
-/* RIGHT SIDE */
-
-.chest-symbol .symbol-leg-5 {
-    left: 23px;
-    top: 12px;
-    transform: rotate(25deg);
+.symbol-leg-5 {
+    left: 22px !important;
+    top: 12px !important;
+    transform: rotate(30deg) !important;
 }
 
-.chest-symbol .symbol-leg-6 {
-    left: 24px;
-    top: 19px;
-    transform: rotate(10deg);
+.symbol-leg-6 {
+    left: 22px !important;
+    top: 18px !important;
+    transform: rotate(12deg) !important;
 }
 
-.chest-symbol .symbol-leg-7 {
-    left: 24px;
-    top: 26px;
-    transform: rotate(-8deg);
+.symbol-leg-7 {
+    left: 22px !important;
+    top: 24px !important;
+    transform: rotate(-10deg) !important;
 }
 
-.chest-symbol .symbol-leg-8 {
-    left: 23px;
-    top: 33px;
-    transform: rotate(-25deg);
+.symbol-leg-8 {
+    left: 22px !important;
+    top: 30px !important;
+    transform: rotate(-28deg) !important;
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
+   ARMS
+   Broader shoulders + tapered superhero arms
+--------------------------------------------------------- */
+
+.spiderman-arm {
+
+    position: absolute !important;
+
+    width: 27px !important;
+    height: 105px !important;
+
+    border-radius:
+        48% 48%
+        40% 40% !important;
+
+    z-index: 7;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0b3978 0%,
+            #175ba5 35%,
+            #d22a3e 74%,
+            #a9182d 100%
+        ) !important;
+
+    box-shadow:
+        inset 5px 0 7px rgba(70,140,230,0.18),
+        inset -5px 0 8px rgba(0,0,0,0.28),
+        0 8px 14px rgba(0,0,0,0.30);
+}
+
+
+/* LEFT ARM */
+
+.arm-left {
+
+    left: 25px !important;
+    top: 103px !important;
+
+    transform:
+        rotate(24deg) !important;
+}
+
+
+/* RIGHT ARM */
+
+.arm-right {
+
+    right: 25px !important;
+    top: 103px !important;
+
+    transform:
+        rotate(-24deg) !important;
+}
+
+
+/* ARM WEB */
+
+.arm-web-line {
+
+    opacity: 0.45 !important;
+
+    background:
+        rgba(10,10,16,0.55) !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEGS
+   Stronger + less tube-like
+--------------------------------------------------------- */
+
+.spiderman-leg {
+
+    position: absolute !important;
+
+    width: 31px !important;
+    height: 116px !important;
+
+    border-radius:
+        40% 40%
+        45% 45% !important;
+
+    z-index: 6;
+
+    background:
+        linear-gradient(
+            90deg,
+            #082b5d,
+            #14549b 45%,
+            #0b376f 75%,
+            #061d42
+        ) !important;
+
+    box-shadow:
+        inset 6px 0 10px rgba(70,140,230,0.12),
+        inset -7px 0 12px rgba(0,0,0,0.32),
+        0 9px 15px rgba(0,0,0,0.28);
+}
+
+
+/* LEFT LEG */
+
+.leg-left {
+
+    left: 59px !important;
+    top: 220px !important;
+
+    transform:
+        rotate(10deg) !important;
+}
+
+
+/* RIGHT LEG */
+
+.leg-right {
+
+    right: 59px !important;
+    top: 220px !important;
+
+    transform:
+        rotate(-10deg) !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEG WEB DETAIL
+--------------------------------------------------------- */
+
+.leg-web-line {
+
+    opacity: 0.42 !important;
+
+    background:
+        rgba(8,10,16,0.55) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HERO HAND
+--------------------------------------------------------- */
+
+.hero-hand {
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 171px !important;
+
+    z-index: 15;
+}
+
+
+/* ---------------------------------------------------------
    MOBILE
-========================================================= */
+--------------------------------------------------------- */
 
 @media (max-width: 600px) {
 
-    .spiderman-torso {
+    .spiderman {
 
-        width: 92px;
-        height: 152px;
-    }
-
-    .chest-symbol {
+        width: 175px !important;
+        height: 330px !important;
 
         transform:
-            translateX(-50%)
-            scale(0.62);
+            scale(0.90) !important;
+
+        transform-origin:
+            center center;
+    }
+
+    .spiderman-head {
+
+        width: 70px !important;
+        height: 79px !important;
+    }
+
+    .spiderman-torso {
+
+        width: 92px !important;
+        height: 125px !important;
+    }
+
+    .spiderman-arm {
+
+        width: 23px !important;
+        height: 88px !important;
+    }
+
+    .spiderman-leg {
+
+        width: 27px !important;
+        height: 98px !important;
     }
 }
-
-
-/* =========================================================
-   ARMS
-========================================================= */
-
-.spiderman-arm {
-    position: absolute;
-
-    width: 53px;
-    height: 170px;
-
-    border-radius: 45px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #07152f 0%,
-            #174c98 40%,
-            #b71937 72%,
-            #07152f 100%
-        );
-
-    box-shadow:
-        inset -10px 0 18px rgba(0,0,0,0.35),
-        0 10px 18px rgba(0,0,0,0.35);
-
-    z-index: 2;
-}
-
-
-.arm-left {
-    left: 8%;
-    top: 26%;
-
-    transform: rotate(25deg);
-}
-
-
-.arm-right {
-    right: 8%;
-    top: 26%;
-
-    transform: rotate(-30deg);
-}
-
-
-/* =========================================================
-   LEGS
-========================================================= */
-
-.spiderman-leg {
-    position: absolute;
-
-    width: 60px;
-    height: 185px;
-
-    border-radius: 48px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #07142e 0%,
-            #17458a 48%,
-            #b81736 72%,
-            #07142e 100%
-        );
-
-    box-shadow:
-        inset -12px 0 20px rgba(0,0,0,0.4),
-        0 12px 22px rgba(0,0,0,0.4);
-
-    z-index: 1;
-}
-
-
-.leg-left {
-    left: 23%;
-    top: 51%;
-
-    transform: rotate(25deg);
-}
-
-
-.leg-right {
-    right: 21%;
-    top: 51%;
-
-    transform: rotate(-22deg);
-}
-
-
-/* =========================================================
-   REMOVE BOUQUET
-========================================================= */
-
-.hero-bouquet {
-    display: none !important;
-}
-
-
 /* =========================================================
    SMALLER SPIDER-MAN ON MOBILE
 ========================================================= */
