@@ -5378,7 +5378,500 @@ a {
 
 }
 
+/* =========================================================
+   PAGE 2 — BIRTH MONTH MESSAGE + CALENDAR
+========================================================= */
 
+
+/* =========================================================
+   BIRTH MONTH SECTION
+========================================================= */
+
+.birthday-calendar-section {
+    position: relative;
+
+    width: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 12;
+}
+
+
+/* =========================================================
+   BIRTH MONTH MESSAGE
+========================================================= */
+
+.birth-month-message {
+    width: 100%;
+
+    margin-bottom: 14px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    opacity: 0;
+
+    animation:
+        birthMonthReveal
+        1.2s
+        ease
+        1.4s
+        forwards;
+}
+
+
+.birth-month-message span {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,235,220,0.68);
+}
+
+
+.birth-month-message strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color:
+        rgba(255,245,238,0.96);
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,0.4);
+}
+
+
+/* =========================================================
+   CALENDAR CARD
+========================================================= */
+
+.birthday-calendar {
+    position: relative;
+
+    width: 100%;
+
+    padding: 20px 18px 16px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,220,190,0.20);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.095),
+            rgba(255,255,255,0.035)
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,0.28),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.10);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SOFT CALENDAR GLOW
+========================================================= */
+
+.birthday-calendar::before {
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    left: 50%;
+
+    width: 170px;
+    height: 120px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,190,155,0.16),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CALENDAR HEADER
+========================================================= */
+
+.calendar-top {
+    position: relative;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+
+.calendar-small {
+    display: block;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,225,205,0.58);
+}
+
+
+.calendar-top h3 {
+    margin: 5px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color:
+        rgba(255,247,240,0.96);
+}
+
+
+.calendar-top h3 span {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-left: 4px;
+
+    color:
+        rgba(255,220,195,0.60);
+}
+
+
+/* =========================================================
+   WEEK DAYS
+========================================================= */
+
+.calendar-weekdays {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 4px;
+
+    margin-bottom: 7px;
+}
+
+
+.calendar-weekdays span {
+    text-align: center;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 6px;
+
+    letter-spacing: 0.8px;
+
+    color:
+        rgba(255,225,210,0.42);
+}
+
+
+/* =========================================================
+   CALENDAR DAYS
+========================================================= */
+
+.calendar-days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 4px;
+}
+
+
+.calendar-days > span {
+    position: relative;
+
+    min-height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    color:
+        rgba(255,245,238,0.76);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.calendar-days > span:hover {
+    background:
+        rgba(255,255,255,0.06);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT MONTH
+========================================================= */
+
+.calendar-days .calendar-muted {
+    color:
+        rgba(255,255,255,0.16);
+}
+
+
+/* =========================================================
+   SPECIAL BIRTHDAY — 17 AUGUST
+========================================================= */
+
+.calendar-days .birthday-date {
+    position: relative;
+
+    min-height: 25px;
+
+    background:
+        rgba(210,75,95,0.18);
+
+    border:
+        1px solid
+        rgba(255,175,175,0.38);
+
+    box-shadow:
+        0 0 15px
+        rgba(220,80,100,0.12);
+}
+
+
+.calendar-days .birthday-date i {
+    position: relative;
+
+    z-index: 2;
+
+    font-style: normal;
+
+    color:
+        #fff4ef;
+
+    font-weight: 600;
+}
+
+
+.calendar-days .birthday-date b {
+    position: absolute;
+
+    right: 3px;
+    top: 2px;
+
+    font-size: 6px;
+
+    font-weight: 400;
+
+    color:
+        rgba(255,180,180,0.85);
+}
+
+
+/* =========================================================
+   CALENDAR CAPTION
+========================================================= */
+
+.calendar-caption {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 13px;
+
+    padding-top: 11px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    color:
+        rgba(255,225,210,0.60);
+
+    text-align: center;
+}
+
+
+.calendar-heart {
+    font-family:
+        sans-serif;
+
+    font-size: 9px;
+
+    color:
+        rgba(235,110,125,0.85);
+}
+
+
+/* =========================================================
+   BIRTH MONTH ENTRANCE
+========================================================= */
+
+@keyframes birthMonthReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE CALENDAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .birthday-calendar-section {
+        width: 245px;
+    }
+
+
+    .birth-month-message {
+        margin-bottom: 9px;
+    }
+
+
+    .birth-month-message span {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .birth-month-message strong {
+        font-size: 18px;
+    }
+
+
+    .birthday-calendar {
+        padding:
+            15px
+            13px
+            12px;
+    }
+
+
+    .calendar-top h3 {
+        font-size: 25px;
+    }
+
+
+    .calendar-days > span {
+        min-height: 21px;
+
+        font-size: 8px;
+    }
+
+
+    .calendar-weekdays span {
+        font-size: 5px;
+    }
+
+
+    .calendar-caption {
+        font-size: 10px;
+    }
+
+}
 /* ==========================================================
    PAGE 7 — PERSONAL LETTER
    ENVELOPE → DIRECT LETTER OVER MOHIN IMAGE
