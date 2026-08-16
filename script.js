@@ -594,198 +594,846 @@ if (backgroundMusic) {
 });   
 
 /* =========================================================
-   PAGE 2
-   CINEMATIC BIRTHDAY — JAVASCRIPT PART 1
-   CELEBRATE BUTTON + BALLOON ANIMATION
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 1
+   CORE SETUP + CINEMATIC CURTAIN
 ========================================================= */
 
 
 /* =========================================================
-   PAGE 2 ELEMENTS
+   1. DOM READY
 ========================================================= */
 
-const birthdayPage =
-    document.getElementById("birthdayPage");
+document.addEventListener("DOMContentLoaded", () => {
 
-const birthdayCake =
-    document.getElementById("birthdayCake");
-
-const celebrateButton =
-    document.querySelector(".celebrate-button");
+    console.log("🎬 Cinematic Birthday — JS Loaded");
 
 
-/* =========================================================
-   CREATE BALLOON CONTAINER
-========================================================= */
+    /* =====================================================
+       2. ELEMENT REFERENCES
+    ===================================================== */
 
-let balloonContainer =
-    document.querySelector(".balloon-container");
+    const curtain = document.querySelector(".birthday-curtain");
 
+    const leftCurtain =
+        document.querySelector(".curtain-left");
 
-if (!balloonContainer && birthdayPage) {
+    const rightCurtain =
+        document.querySelector(".curtain-right");
 
-    balloonContainer =
-        document.createElement("div");
-
-    balloonContainer.className =
-        "balloon-container";
-
-    birthdayPage.appendChild(
-        balloonContainer
-    );
-
-}
+    const celebrateBtn =
+        document.getElementById("celebrateBtn");
 
 
-/* =========================================================
-   BALLOON LAUNCH
-========================================================= */
+    /* =====================================================
+       3. BASIC STATE
+    ===================================================== */
 
-function launchBalloons() {
+    let curtainOpened = false;
+    let celebrationStarted = false;
 
-    if (!balloonContainer) {
-        return;
+
+    /* =====================================================
+       4. CINEMATIC CURTAIN OPEN
+    ===================================================== */
+
+    function openBirthdayCurtain() {
+
+        // Prevent duplicate execution
+        if (curtainOpened) return;
+
+        curtainOpened = true;
+
+        console.log("🎭 Opening birthday curtain...");
+
+
+        /*
+         * Small cinematic pause before opening.
+         * This gives the page a dramatic entrance.
+         */
+
+        setTimeout(() => {
+
+            if (curtain) {
+                curtain.classList.add("curtain-open");
+            }
+
+            if (leftCurtain) {
+                leftCurtain.classList.add("curtain-left-open");
+            }
+
+            if (rightCurtain) {
+                rightCurtain.classList.add("curtain-right-open");
+            }
+
+        }, 900);
+
+
+        /*
+         * Completely disable curtain after animation.
+         * This prevents it from blocking buttons/content.
+         */
+
+        setTimeout(() => {
+
+            if (curtain) {
+                curtain.classList.add("curtain-finished");
+            }
+
+        }, 3500);
     }
 
 
-    /* Clear old balloons */
+    /* =====================================================
+       5. START CURTAIN
+    ===================================================== */
 
-    balloonContainer.innerHTML = "";
+    /*
+     * Start after the page has visually settled.
+     */
+
+    setTimeout(() => {
+        openBirthdayCurtain();
+    }, 500);
 
 
-    /* Number of balloons */
+    /* =====================================================
+       6. CELEBRATE BUTTON — INITIAL SETUP
+    ===================================================== */
 
-    const balloonCount = 22;
+    if (celebrateBtn) {
+
+        celebrateBtn.addEventListener("click", () => {
+
+            if (celebrationStarted) return;
+
+            celebrationStarted = true;
+
+            console.log("🎉 Celebration button clicked!");
+
+            /*
+             * The actual balloons, sparkles and cake
+             * celebration will be connected in later parts.
+             */
+
+            celebrateBtn.classList.add("celebrated");
+
+        });
+
+    }
+
+
+    /* =====================================================
+       7. SAFE RESIZE HANDLER
+    ===================================================== */
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            /*
+             * Future responsive animation logic
+             * will be connected here.
+             */
+
+            console.log("📱 Screen resized");
+
+        }, 150);
+
+    });
+
+
+    /* =====================================================
+       8. PAGE INITIALIZATION COMPLETE
+    ===================================================== */
+
+    console.log("✅ Birthday Page initialized successfully.");
+
+});
+
+/* =========================================================
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 2
+   FLOATING SPARKLE / JHIKIMIKI SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   1. SPARKLE SYSTEM
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("✨ Sparkle system initializing...");
+
+
+    /* =====================================================
+       2. FIND SPARKLE CONTAINER
+    ===================================================== */
+
+    let sparkleContainer =
+        document.querySelector(".birthday-sparkles");
+
+
+    /* =====================================================
+       3. CREATE CONTAINER IF NOT FOUND
+    ===================================================== */
+
+    if (!sparkleContainer) {
+
+        sparkleContainer =
+            document.createElement("div");
+
+        sparkleContainer.className =
+            "birthday-sparkles";
+
+        document.body.appendChild(sparkleContainer);
+    }
+
+
+    /* =====================================================
+       4. SPARKLE CREATOR
+    ===================================================== */
+
+    function createFloatingSparkle() {
+
+        const sparkle =
+            document.createElement("span");
+
+
+        /* ---------------------------------------------
+           Sparkle class
+        --------------------------------------------- */
+
+        sparkle.className =
+            "floating-sparkle";
+
+
+        /* ---------------------------------------------
+           Random position
+        --------------------------------------------- */
+
+        const randomX =
+            Math.random() * 100;
+
+        const randomY =
+            Math.random() * 100;
+
+
+        sparkle.style.left =
+            randomX + "%";
+
+        sparkle.style.top =
+            randomY + "%";
+
+
+        /* ---------------------------------------------
+           Random size
+        --------------------------------------------- */
+
+        const size =
+            Math.random() * 5 + 3;
+
+        sparkle.style.width =
+            size + "px";
+
+        sparkle.style.height =
+            size + "px";
+
+
+        /* ---------------------------------------------
+           Random animation duration
+        --------------------------------------------- */
+
+        const duration =
+            Math.random() * 4 + 3;
+
+        sparkle.style.animationDuration =
+            duration + "s";
+
+
+        /* ---------------------------------------------
+           Random animation delay
+        --------------------------------------------- */
+
+        const delay =
+            Math.random() * 3;
+
+        sparkle.style.animationDelay =
+            delay + "s";
+
+
+        /* ---------------------------------------------
+           Add sparkle
+        --------------------------------------------- */
+
+        sparkleContainer.appendChild(sparkle);
+
+
+        /* ---------------------------------------------
+           Automatic cleanup
+        --------------------------------------------- */
+
+        setTimeout(() => {
+
+            sparkle.remove();
+
+        }, (duration + delay) * 1000 + 1000);
+    }
+
+
+    /* =====================================================
+       5. INITIAL SPARKLES
+    ===================================================== */
+
+    const initialSparkles =
+        window.innerWidth <= 600 ? 18 : 30;
 
 
     for (
         let i = 0;
-        i < balloonCount;
+        i < initialSparkles;
         i++
     ) {
 
-        const balloon =
+        createFloatingSparkle();
+    }
+
+
+    /* =====================================================
+       6. CONTINUOUS SPARKLES
+    ===================================================== */
+
+    const sparkleInterval =
+        window.innerWidth <= 600
+            ? 700
+            : 500;
+
+
+    setInterval(() => {
+
+        createFloatingSparkle();
+
+    }, sparkleInterval);
+
+
+    /* =====================================================
+       7. RESIZE OPTIMIZATION
+    ===================================================== */
+
+    let sparkleResizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(sparkleResizeTimer);
+
+        sparkleResizeTimer =
+            setTimeout(() => {
+
+                console.log(
+                    "✨ Sparkle system adjusted for screen size."
+                );
+
+            }, 250);
+    });
+
+
+    /* =====================================================
+       8. COMPLETE
+    ===================================================== */
+
+    console.log("✨ Floating sparkle system ready.");
+
+});
+
+/* =========================================================
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 3
+   CELEBRATE BUTTON + CELEBRATED STATE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("🎉 Celebrate Button system initializing...");
+
+
+    /* =====================================================
+       1. GET BUTTON
+    ===================================================== */
+
+    const celebrateBtn =
+        document.getElementById("celebrateBtn");
+
+
+    /* =====================================================
+       2. SAFETY CHECK
+    ===================================================== */
+
+    if (!celebrateBtn) {
+
+        console.warn(
+            "⚠️ Celebrate button not found."
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       3. PREVENT DUPLICATE LISTENER
+    ===================================================== */
+
+    if (
+        celebrateBtn.dataset.celebrateInitialized === "true"
+    ) {
+
+        console.log(
+            "ℹ️ Celebrate button already initialized."
+        );
+
+        return;
+    }
+
+
+    celebrateBtn.dataset.celebrateInitialized =
+        "true";
+
+
+    /* =====================================================
+       4. BUTTON STATE
+    ===================================================== */
+
+    let isCelebrated = false;
+
+
+    /* =====================================================
+       5. CLICK HANDLER
+    ===================================================== */
+
+    celebrateBtn.addEventListener("click", () => {
+
+
+        /* ---------------------------------------------
+           Prevent repeated celebration
+        --------------------------------------------- */
+
+        if (isCelebrated) {
+
+            console.log(
+                "🎉 Celebration already started."
+            );
+
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           Update state
+        --------------------------------------------- */
+
+        isCelebrated = true;
+
+
+        /* ---------------------------------------------
+           Add celebrated class
+        --------------------------------------------- */
+
+        celebrateBtn.classList.add(
+            "celebrated"
+        );
+
+
+        /* ---------------------------------------------
+           Accessibility state
+        --------------------------------------------- */
+
+        celebrateBtn.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+
+        /* ---------------------------------------------
+           Visual text change
+        --------------------------------------------- */
+
+        const originalText =
+            celebrateBtn.dataset.originalText ||
+            celebrateBtn.textContent.trim();
+
+        celebrateBtn.dataset.originalText =
+            originalText;
+
+
+        /*
+         * Don't permanently destroy the original
+         * text if later JS needs it.
+         */
+
+        if (!celebrateBtn.dataset.celebrationTextChanged) {
+
+            celebrateBtn.textContent =
+                "Celebration Started ✨";
+
+            celebrateBtn.dataset.celebrationTextChanged =
+                "true";
+        }
+
+
+        /* ---------------------------------------------
+           Cinematic button effect
+        --------------------------------------------- */
+
+        celebrateBtn.classList.add(
+            "celebrate-pulse"
+        );
+
+
+        /* ---------------------------------------------
+           Remove temporary pulse
+        --------------------------------------------- */
+
+        setTimeout(() => {
+
+            celebrateBtn.classList.remove(
+                "celebrate-pulse"
+            );
+
+        }, 1000);
+
+
+        /* ---------------------------------------------
+           Dispatch custom event
+           
+           Part 4/5/6 will listen to this event.
+           This keeps every animation modular.
+        --------------------------------------------- */
+
+        document.dispatchEvent(
+            new CustomEvent("birthdayCelebrationStart", {
+                detail: {
+                    button: celebrateBtn
+                }
+            })
+        );
+
+
+        console.log(
+            "🎉 Birthday celebration event dispatched!"
+        );
+
+    });
+
+
+    /* =====================================================
+       6. INITIAL ACCESSIBILITY STATE
+    ===================================================== */
+
+    if (
+        !celebrateBtn.hasAttribute("aria-pressed")
+    ) {
+
+        celebrateBtn.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+    }
+
+
+    /* =====================================================
+       7. READY
+    ===================================================== */
+
+    console.log(
+        "✅ Celebrate Button system ready."
+    );
+
+});
+
+/* =========================================================
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 4
+   BALLOON FLIGHT SYSTEM 🎈
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("🎈 Balloon system initializing...");
+
+
+    /* =====================================================
+       1. BALLOON CONTAINER
+    ===================================================== */
+
+    let balloonContainer =
+        document.querySelector(".birthday-balloons");
+
+
+    /*
+     * If HTML container doesn't exist,
+     * create it automatically.
+     */
+
+    if (!balloonContainer) {
+
+        balloonContainer =
             document.createElement("div");
 
+        balloonContainer.className =
+            "birthday-balloons";
+
+        document.body.appendChild(balloonContainer);
+    }
+
+
+    /* =====================================================
+       2. BALLOON SYMBOLS
+    ===================================================== */
+
+    const balloonSymbols = [
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈"
+    ];
+
+
+    /* =====================================================
+       3. BALLOON CREATOR
+    ===================================================== */
+
+    function createBalloon(index) {
+
+        const balloon =
+            document.createElement("span");
+
+
+        /* ---------------------------------------------
+           Basic class
+        --------------------------------------------- */
 
         balloon.className =
-            "birthday-balloon";
+            "cinematic-balloon";
 
 
-        /* Random horizontal position */
+        /* ---------------------------------------------
+           Balloon character
+        --------------------------------------------- */
 
-        const leftPosition =
-            Math.random() * 100;
-
-
-        /* Random size */
-
-        const size =
-            28 + Math.random() * 20;
+        balloon.textContent =
+            balloonSymbols[
+                index % balloonSymbols.length
+            ];
 
 
-        /* Random animation duration */
+        /* ---------------------------------------------
+           Random horizontal position
+        --------------------------------------------- */
 
-        const duration =
-            5 + Math.random() * 4;
-
-
-        /* Random delay */
-
-        const delay =
-            Math.random() * 1.5;
-
-
-        /* Slight random movement */
-
-        const drift =
-            -80 + Math.random() * 160;
+        const randomX =
+            Math.random() * 90 + 5;
 
 
         balloon.style.left =
-            `${leftPosition}%`;
+            randomX + "vw";
 
 
-        balloon.style.width =
-            `${size}px`;
+        /* ---------------------------------------------
+           Random size
+        --------------------------------------------- */
+
+        const randomSize =
+            Math.random() * 0.7 + 0.8;
 
 
-        balloon.style.height =
-            `${size * 1.22}px`;
+        balloon.style.setProperty(
+            "--balloon-scale",
+            randomSize
+        );
+
+
+        /* ---------------------------------------------
+           Random horizontal movement
+        --------------------------------------------- */
+
+        const drift =
+            (Math.random() * 160) - 80;
 
 
         balloon.style.setProperty(
             "--balloon-drift",
-            `${drift}px`
+            drift + "px"
         );
+
+
+        /* ---------------------------------------------
+           Random animation duration
+        --------------------------------------------- */
+
+        const duration =
+            Math.random() * 3 + 5;
 
 
         balloon.style.animationDuration =
-            `${duration}s`;
+            duration + "s";
+
+
+        /* ---------------------------------------------
+           Staggered launch delay
+        --------------------------------------------- */
+
+        const delay =
+            Math.random() * 0.9;
 
 
         balloon.style.animationDelay =
-            `${delay}s`;
+            delay + "s";
 
 
-        /* Random elegant balloon colors */
-
-        const balloonColors = [
-            "#d94b62",
-            "#e98b9a",
-            "#f1c6a8",
-            "#b85b72",
-            "#d9a6a6",
-            "#f0d5bd"
-        ];
-
-
-        const randomColor =
-            balloonColors[
-                Math.floor(
-                    Math.random() *
-                    balloonColors.length
-                )
-            ];
-
-
-        balloon.style.setProperty(
-            "--balloon-color",
-            randomColor
-        );
-
+        /* ---------------------------------------------
+           Add to page
+        --------------------------------------------- */
 
         balloonContainer.appendChild(
             balloon
         );
 
+
+        /* ---------------------------------------------
+           Cleanup
+        --------------------------------------------- */
+
+        setTimeout(() => {
+
+            balloon.remove();
+
+        }, (duration + delay) * 1000 + 1000);
     }
 
 
-    /* =================================================
-       LITTLE CELEBRATION SPARKLES
-    ================================================= */
+    /* =====================================================
+       4. LAUNCH BALLOONS
+    ===================================================== */
 
-    createBirthdaySparkles();
+    function launchBalloons() {
 
-}
+        console.log("🎈 Launching balloons!");
 
+
+        /*
+         * Fewer balloons on mobile
+         * for smoother performance.
+         */
+
+        const isMobile =
+            window.innerWidth <= 600;
+
+
+        const balloonCount =
+            isMobile ? 12 : 20;
+
+
+        for (
+            let i = 0;
+            i < balloonCount;
+            i++
+        ) {
+
+            setTimeout(() => {
+
+                createBalloon(i);
+
+            }, i * 120);
+        }
+    }
+
+
+    /* =====================================================
+       5. LISTEN FOR CELEBRATION EVENT
+    ===================================================== */
+
+    document.addEventListener(
+        "birthdayCelebrationStart",
+        () => {
+
+            launchBalloons();
+
+        }
+    );
+
+
+    /* =====================================================
+       6. READY
+    ===================================================== */
+
+    console.log(
+        "✅ Balloon Flight System ready."
+    );
+
+});
 
 /* =========================================================
-   CELEBRATION SPARKLES
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 5
+   CELEBRATION SPARKLE BURST ✨
 ========================================================= */
 
-function createBirthdaySparkles() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (!birthdayPage) {
-        return;
+    console.log("✨ Celebration burst system initializing...");
+
+
+    /* =====================================================
+       1. BURST CONTAINER
+    ===================================================== */
+
+    let burstContainer =
+        document.querySelector(".celebration-burst-container");
+
+
+    if (!burstContainer) {
+
+        burstContainer =
+            document.createElement("div");
+
+        burstContainer.className =
+            "celebration-burst-container";
+
+        document.body.appendChild(
+            burstContainer
+        );
     }
 
 
-    for (
-        let i = 0;
-        i < 28;
-        i++
+    /* =====================================================
+       2. SPARKLE CHARACTERS
+    ===================================================== */
+
+    const sparkleSymbols = [
+        "✦",
+        "✧",
+        "✨",
+        "⋆",
+        "✦",
+        "✧"
+    ];
+
+
+    /* =====================================================
+       3. CREATE SINGLE BURST SPARKLE
+    ===================================================== */
+
+    function createBurstSparkle(
+        centerX,
+        centerY,
+        index,
+        total
     ) {
 
         const sparkle =
@@ -793,394 +1441,1112 @@ function createBirthdaySparkles() {
 
 
         sparkle.className =
-            "birthday-sparkle";
+            "celebration-sparkle";
 
+
+        /* ---------------------------------------------
+           Symbol
+        --------------------------------------------- */
+
+        sparkle.textContent =
+            sparkleSymbols[
+                index % sparkleSymbols.length
+            ];
+
+
+        /* ---------------------------------------------
+           Starting position
+        --------------------------------------------- */
 
         sparkle.style.left =
-            `${20 + Math.random() * 60}%`;
-
+            centerX + "px";
 
         sparkle.style.top =
-            `${30 + Math.random() * 40}%`;
+            centerY + "px";
 
+
+        /* ---------------------------------------------
+           Radial direction
+        --------------------------------------------- */
+
+        const angle =
+            (Math.PI * 2 / total) * index;
+
+
+        /*
+         * Random distance gives the burst
+         * a natural cinematic feel.
+         */
+
+        const distance =
+            Math.random() * 130 + 70;
+
+
+        const moveX =
+            Math.cos(angle) * distance;
+
+
+        const moveY =
+            Math.sin(angle) * distance;
+
+
+        sparkle.style.setProperty(
+            "--burst-x",
+            moveX + "px"
+        );
+
+
+        sparkle.style.setProperty(
+            "--burst-y",
+            moveY + "px"
+        );
+
+
+        /* ---------------------------------------------
+           Random size
+        --------------------------------------------- */
+
+        const size =
+            Math.random() * 12 + 8;
+
+
+        sparkle.style.fontSize =
+            size + "px";
+
+
+        /* ---------------------------------------------
+           Random delay
+        --------------------------------------------- */
 
         sparkle.style.animationDelay =
-            `${Math.random() * 1.2}s`;
+            (Math.random() * 0.15) + "s";
 
 
-        birthdayPage.appendChild(
+        /* ---------------------------------------------
+           Add sparkle
+        --------------------------------------------- */
+
+        burstContainer.appendChild(
             sparkle
         );
 
+
+        /* ---------------------------------------------
+           Cleanup
+        --------------------------------------------- */
 
         setTimeout(() => {
 
             sparkle.remove();
 
-        }, 3000);
-
+        }, 1500);
     }
 
-}
+
+    /* =====================================================
+       4. CREATE FULL BURST
+    ===================================================== */
+
+    function createCelebrationBurst() {
+
+        console.log(
+            "✨ Celebration sparkle burst!"
+        );
 
 
-/* =========================================================
-   CELEBRATE BUTTON CLICK
-========================================================= */
+        /*
+         * Burst starts around the center of
+         * the visible screen.
+         */
 
-if (celebrateButton) {
+        const centerX =
+            window.innerWidth / 2;
 
-    celebrateButton.addEventListener(
-        "click",
+
+        const centerY =
+            window.innerHeight * 0.48;
+
+
+        /*
+         * Mobile gets fewer particles.
+         */
+
+        const isMobile =
+            window.innerWidth <= 600;
+
+
+        const particleCount =
+            isMobile ? 26 : 42;
+
+
+        for (
+            let i = 0;
+            i < particleCount;
+            i++
+        ) {
+
+            createBurstSparkle(
+                centerX,
+                centerY,
+                i,
+                particleCount
+            );
+        }
+    }
+
+
+    /* =====================================================
+       5. SECONDARY MINI BURST
+    ===================================================== */
+
+    function createMiniBurst() {
+
+        const centerX =
+            window.innerWidth / 2;
+
+        const centerY =
+            window.innerHeight * 0.48;
+
+
+        const particleCount =
+            window.innerWidth <= 600
+                ? 12
+                : 18;
+
+
+        for (
+            let i = 0;
+            i < particleCount;
+            i++
+        ) {
+
+            createBurstSparkle(
+                centerX,
+                centerY,
+                i,
+                particleCount
+            );
+        }
+    }
+
+
+    /* =====================================================
+       6. LISTEN FOR CELEBRATION
+    ===================================================== */
+
+    document.addEventListener(
+        "birthdayCelebrationStart",
         () => {
 
-            /* Button state */
+            /*
+             * Main burst
+             */
 
-            celebrateButton.classList.add(
-                "celebrated"
-            );
-
-
-            celebrateButton.textContent =
-                "CELEBRATION ✨";
+            createCelebrationBurst();
 
 
-            /* Launch balloons */
-
-            launchBalloons();
-
-
-            /* Cake little reaction */
-
-            if (birthdayCake) {
-
-                birthdayCake.classList.add(
-                    "cake-celebrating"
-                );
-
-
-                setTimeout(() => {
-
-                    birthdayCake.classList.remove(
-                        "cake-celebrating"
-                    );
-
-                }, 1200);
-
-            }
-
-
-            /* Prevent repeated button spam */
-
-            celebrateButton.disabled =
-                true;
-
+            /*
+             * Small delayed burst
+             * for cinematic layering.
+             */
 
             setTimeout(() => {
 
-                celebrateButton.disabled =
-                    false;
+                createMiniBurst();
 
-            }, 3000);
+            }, 420);
 
         }
     );
 
-}
+
+    /* =====================================================
+       7. READY
+    ===================================================== */
+
+    console.log(
+        "✅ Celebration Sparkle Burst ready."
+    );
+
+});
 
 /* =========================================================
-   PAGE 2
-   JAVASCRIPT PART 2
-   BALLOON VISUAL MOVEMENT + CLEANUP
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 6
+   CAKE CELEBRATION ANIMATION 🎂
 ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================================================
-   BALLOON CONTAINER STYLE HOOK
-========================================================= */
+    console.log("🎂 Cake celebration system initializing...");
 
-function prepareBalloon(balloon) {
 
-    if (!balloon) {
-        return;
+    /* =====================================================
+       1. FIND CAKE ELEMENT
+    ===================================================== */
+
+    /*
+     * Multiple possible selectors are checked so this
+     * can work with the existing Page 2 structure.
+     */
+
+    const cake =
+        document.querySelector(".cake") ||
+        document.querySelector(".birthday-cake") ||
+        document.querySelector(".cake-container");
+
+
+    /* =====================================================
+       2. FIND CAKE SECTION
+    ===================================================== */
+
+    const cakeSection =
+        document.querySelector(".cake-page") ||
+        document.querySelector(".birthday-page") ||
+        document.querySelector(".cake-section");
+
+
+    /* =====================================================
+       3. FIND CANDLES
+    ===================================================== */
+
+    const candles =
+        document.querySelectorAll(
+            ".candle, .cake-candle, .birthday-candle"
+        );
+
+
+    /* =====================================================
+       4. FIND CAKE GLOW
+    ===================================================== */
+
+    let cakeGlow =
+        document.querySelector(".cake-celebration-glow");
+
+
+    /*
+     * Create glow automatically if cake exists.
+     */
+
+    if (!cakeGlow && cake) {
+
+        cakeGlow =
+            document.createElement("div");
+
+        cakeGlow.className =
+            "cake-celebration-glow";
+
+        cake.appendChild(cakeGlow);
     }
 
 
-    /* Random rotation */
+    /* =====================================================
+       5. CAKE CELEBRATION STATE
+    ===================================================== */
 
-    const rotation =
-        -8 + Math.random() * 16;
-
-
-    /* Random horizontal sway */
-
-    const sway =
-        -25 + Math.random() * 50;
+    let cakeCelebrated = false;
 
 
-    balloon.style.setProperty(
-        "--balloon-rotation",
-        `${rotation}deg`
+    /* =====================================================
+       6. START CAKE CELEBRATION
+    ===================================================== */
+
+    function celebrateCake() {
+
+        if (cakeCelebrated) return;
+
+        cakeCelebrated = true;
+
+
+        console.log(
+            "🎂 Cake celebration started!"
+        );
+
+
+        /* ---------------------------------------------
+           Cake main animation
+        --------------------------------------------- */
+
+        if (cake) {
+
+            cake.classList.add(
+                "cake-celebration"
+            );
+        }
+
+
+        /* ---------------------------------------------
+           Cake section animation
+        --------------------------------------------- */
+
+        if (cakeSection) {
+
+            cakeSection.classList.add(
+                "cake-celebration-active"
+            );
+        }
+
+
+        /* ---------------------------------------------
+           Glow effect
+        --------------------------------------------- */
+
+        if (cakeGlow) {
+
+            cakeGlow.classList.add(
+                "cake-glow-active"
+            );
+        }
+
+
+        /* ---------------------------------------------
+           Candle celebration
+        --------------------------------------------- */
+
+        if (candles.length) {
+
+            candles.forEach((candle, index) => {
+
+                setTimeout(() => {
+
+                    candle.classList.add(
+                        "candle-celebration"
+                    );
+
+                }, index * 90);
+
+            });
+        }
+
+
+        /* ---------------------------------------------
+           Cinematic cake pulse
+        --------------------------------------------- */
+
+        setTimeout(() => {
+
+            if (cake) {
+
+                cake.classList.add(
+                    "cake-final-pulse"
+                );
+            }
+
+        }, 650);
+
+
+        /* ---------------------------------------------
+           Remove temporary pulse
+           Keep celebration state active.
+        --------------------------------------------- */
+
+        setTimeout(() => {
+
+            if (cake) {
+
+                cake.classList.remove(
+                    "cake-final-pulse"
+                );
+            }
+
+        }, 1600);
+    }
+
+
+    /* =====================================================
+       7. LISTEN FOR CELEBRATE EVENT
+    ===================================================== */
+
+    document.addEventListener(
+        "birthdayCelebrationStart",
+        () => {
+
+            /*
+             * Small delay makes the sequence feel
+             * cinematic after the button is pressed.
+             */
+
+            setTimeout(() => {
+
+                celebrateCake();
+
+            }, 180);
+
+        }
     );
 
 
-    balloon.style.setProperty(
-        "--balloon-sway",
-        `${sway}px`
+    /* =====================================================
+       8. SAFE RESIZE
+    ===================================================== */
+
+    let cakeResizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(cakeResizeTimer);
+
+        cakeResizeTimer =
+            setTimeout(() => {
+
+                /*
+                 * Cake animation itself doesn't need
+                 * recalculation. This simply keeps the
+                 * module ready for responsive additions.
+                 */
+
+                console.log(
+                    "🎂 Cake system adjusted."
+                );
+
+            }, 200);
+    });
+
+
+    /* =====================================================
+       9. READY
+    ===================================================== */
+
+    console.log(
+        "✅ Cake Celebration System ready."
     );
 
-
-    /* Random animation speed */
-
-    const floatTime =
-        5 + Math.random() * 4;
-
-
-    balloon.style.animationDuration =
-        `${floatTime}s`;
-
-}
-
+});
 
 /* =========================================================
-   OBSERVE NEW BALLOONS
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 7
+   MUSIC + SOUND INTEGRATION 🎵
 ========================================================= */
 
-if (balloonContainer) {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const balloonObserver =
-        new MutationObserver(
-            (mutations) => {
+    console.log("🎵 Audio integration initializing...");
 
-                mutations.forEach(
-                    (mutation) => {
 
-                        mutation.addedNodes.forEach(
-                            (node) => {
+    /* =====================================================
+       1. FIND EXISTING AUDIO ELEMENTS
+    ===================================================== */
 
-                                if (
-                                    node.classList &&
-                                    node.classList.contains(
-                                        "birthday-balloon"
-                                    )
-                                ) {
+    const music =
+        document.getElementById("music");
 
-                                    prepareBalloon(
-                                        node
-                                    );
+    const thunderSound =
+        document.getElementById("thunderSound");
 
-                                }
+    const webShootSound =
+        document.getElementById("webShootSound");
 
-                            }
-                        );
+    const whooshSound =
+        document.getElementById("whooshSound");
 
-                    }
+    const sparkleSound =
+        document.getElementById("sparkleSound");
+
+
+    /* =====================================================
+       2. SAFE AUDIO PLAY FUNCTION
+    ===================================================== */
+
+    function playSound(audio, volume = 1) {
+
+        /*
+         * If the audio element doesn't exist,
+         * simply skip it.
+         */
+
+        if (!audio) return;
+
+
+        try {
+
+            audio.volume = volume;
+
+            /*
+             * Restart short effects from beginning.
+             */
+
+            audio.currentTime = 0;
+
+            const playPromise =
+                audio.play();
+
+
+            /*
+             * Prevent autoplay/promise errors
+             * from breaking the rest of the page.
+             */
+
+            if (
+                playPromise &&
+                typeof playPromise.catch === "function"
+            ) {
+
+                playPromise.catch(() => {
+
+                    console.log(
+                        "🔇 Audio playback waiting for user interaction."
+                    );
+
+                });
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "⚠️ Audio could not be played:",
+                error
+            );
+        }
+    }
+
+
+    /* =====================================================
+       3. SAFE MUSIC FUNCTION
+    ===================================================== */
+
+    function startBackgroundMusic() {
+
+        if (!music) return;
+
+
+        try {
+
+            music.volume = 0.45;
+
+            /*
+             * Don't restart music if it is already playing.
+             */
+
+            if (!music.paused) return;
+
+
+            const playPromise =
+                music.play();
+
+
+            if (
+                playPromise &&
+                typeof playPromise.catch === "function"
+            ) {
+
+                playPromise.catch(() => {
+
+                    console.log(
+                        "🎵 Music requires user interaction."
+                    );
+
+                });
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "⚠️ Background music unavailable."
+            );
+        }
+    }
+
+
+    /* =====================================================
+       4. CELEBRATE EVENT
+    ===================================================== */
+
+    document.addEventListener(
+        "birthdayCelebrationStart",
+        () => {
+
+            console.log(
+                "🎉 Audio celebration sequence started."
+            );
+
+
+            /* ---------------------------------------------
+               Start music after user click
+               This avoids browser autoplay problems.
+            --------------------------------------------- */
+
+            startBackgroundMusic();
+
+
+            /* ---------------------------------------------
+               Whoosh
+            --------------------------------------------- */
+
+            setTimeout(() => {
+
+                playSound(
+                    whooshSound,
+                    0.55
                 );
+
+            }, 80);
+
+
+            /* ---------------------------------------------
+               Sparkle sound
+            --------------------------------------------- */
+
+            setTimeout(() => {
+
+                playSound(
+                    sparkleSound,
+                    0.65
+                );
+
+            }, 350);
+
+
+            /* ---------------------------------------------
+               Optional cinematic thunder
+               Only plays if that audio exists.
+            --------------------------------------------- */
+
+            setTimeout(() => {
+
+                playSound(
+                    thunderSound,
+                    0.20
+                );
+
+            }, 700);
+
+        }
+    );
+
+
+    /* =====================================================
+       5. SPIDER-MAN / WEB SOUND SUPPORT
+    ===================================================== */
+
+    /*
+     * This function is intentionally exposed globally
+     * so your existing Spider-Man intro JS can call:
+     *
+     * playWebShootSound();
+     */
+
+    window.playWebShootSound =
+        function () {
+
+            playSound(
+                webShootSound,
+                0.55
+            );
+        };
+
+
+    /* =====================================================
+       6. MUSIC BUTTON SUPPORT
+    ===================================================== */
+
+    const musicButton =
+        document.getElementById("musicBtn");
+
+
+    if (musicButton && music) {
+
+        musicButton.addEventListener(
+            "click",
+            () => {
+
+                if (music.paused) {
+
+                    startBackgroundMusic();
+
+                    musicButton.classList.add(
+                        "music-playing"
+                    );
+
+                } else {
+
+                    music.pause();
+
+                    musicButton.classList.remove(
+                        "music-playing"
+                    );
+                }
 
             }
         );
 
+    }
 
-    balloonObserver.observe(
-        balloonContainer,
-        {
-            childList: true
-        }
+
+    /* =====================================================
+       7. READY
+    ===================================================== */
+
+    console.log(
+        "✅ Music + Sound Integration ready."
     );
 
-}
-
+});
 
 /* =========================================================
-   REMOVE OLD SPARKLES
+   PAGE 2 — CINEMATIC BIRTHDAY
+   JAVASCRIPT PART 8
+   FINAL POLISH + MOBILE / PC OPTIMIZATION
 ========================================================= */
 
-function clearBirthdayEffects() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (!birthdayPage) {
-        return;
-    }
+    console.log("🎬 Final cinematic polish initializing...");
 
 
-    const oldSparkles =
-        birthdayPage.querySelectorAll(
-            ".birthday-sparkle"
-        );
+    /* =====================================================
+       1. PAGE READY STATE
+    ===================================================== */
 
-
-    oldSparkles.forEach(
-        (sparkle) => {
-
-            sparkle.remove();
-
-        }
+    document.documentElement.classList.add(
+        "birthday-js-ready"
     );
 
-}
-
-
-/* =========================================================
-   AUTOMATIC CLEANUP
-========================================================= */
-
-function cleanupBalloons() {
-
-    if (!balloonContainer) {
-        return;
-    }
-
-
-    setTimeout(() => {
-
-        balloonContainer.innerHTML =
-            "";
-
-    }, 10000);
-
-}
-
-
-/* =========================================================
-   CAKE CELEBRATION EFFECT
-========================================================= */
-
-function cakeCelebrationEffect() {
-
-    if (!birthdayCake) {
-        return;
-    }
-
-
-    birthdayCake.classList.add(
-        "cake-celebrating"
+    document.body.classList.add(
+        "birthday-page-ready"
     );
 
 
-    setTimeout(() => {
+    /* =====================================================
+       2. DEVICE DETECTION
+    ===================================================== */
 
-        birthdayCake.classList.remove(
-            "cake-celebrating"
+    const isMobile =
+        window.matchMedia("(max-width: 600px)").matches;
+
+    const isTablet =
+        window.matchMedia(
+            "(min-width: 601px) and (max-width: 1024px)"
+        ).matches;
+
+
+    if (isMobile) {
+
+        document.body.classList.add(
+            "birthday-mobile"
         );
 
-    }, 1400);
+    } else if (isTablet) {
 
-}
-
-/* =========================================================
-   PAGE 2
-   JAVASCRIPT PART 3
-   FINAL CELEBRATION CONTROL
-========================================================= */
-
-
-/* =========================================================
-   CELEBRATION STATE
-========================================================= */
-
-let birthdayCelebrated = false;
-
-
-/* =========================================================
-   FINAL CELEBRATE ACTION
-========================================================= */
-
-function startBirthdayCelebration() {
-
-    if (!birthdayPage) {
-        return;
-    }
-
-
-    /* ---------------------------------------------
-       Prevent accidental double trigger
-    --------------------------------------------- */
-
-    if (birthdayCelebrated) {
-        return;
-    }
-
-    birthdayCelebrated = true;
-
-
-    /* ---------------------------------------------
-       Button state
-    --------------------------------------------- */
-
-    if (celebrateButton) {
-
-        celebrateButton.classList.add(
-            "celebrated"
+        document.body.classList.add(
+            "birthday-tablet"
         );
 
-        celebrateButton.textContent =
-            "CELEBRATION ✨";
+    } else {
 
+        document.body.classList.add(
+            "birthday-desktop"
+        );
     }
 
 
-    /* ---------------------------------------------
-       Launch balloons
-    --------------------------------------------- */
+    /* =====================================================
+       3. REDUCE EFFECTS WHEN USER PREFERS IT
+    ===================================================== */
 
-    launchBalloons();
-
-
-    /* ---------------------------------------------
-       Cake animation
-    --------------------------------------------- */
-
-    cakeCelebrationEffect();
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
 
 
-    /* ---------------------------------------------
-       Reset after celebration
-    --------------------------------------------- */
+    function updateMotionPreference() {
 
-    setTimeout(() => {
+        if (reducedMotion.matches) {
 
-        birthdayCelebrated = false;
-
-        if (celebrateButton) {
-
-            celebrateButton.classList.remove(
-                "celebrated"
+            document.body.classList.add(
+                "reduced-motion"
             );
 
-            celebrateButton.textContent =
-                "CELEBRATE ✨";
+        } else {
+
+            document.body.classList.remove(
+                "reduced-motion"
+            );
+        }
+    }
+
+
+    updateMotionPreference();
+
+
+    /* =====================================================
+       4. LISTEN FOR MOTION PREFERENCE CHANGES
+    ===================================================== */
+
+    if (
+        typeof reducedMotion.addEventListener ===
+        "function"
+    ) {
+
+        reducedMotion.addEventListener(
+            "change",
+            updateMotionPreference
+        );
+    }
+
+
+    /* =====================================================
+       5. PREVENT ACCIDENTAL DOUBLE TAP
+    ===================================================== */
+
+    let lastTouchTime = 0;
+
+
+    document.addEventListener(
+        "touchend",
+        (event) => {
+
+            const now =
+                Date.now();
+
+
+            if (
+                now - lastTouchTime < 350
+            ) {
+
+                /*
+                 * Don't block normal scrolling.
+                 * Only protect extremely rapid repeated
+                 * interactions around celebration elements.
+                 */
+
+                const target =
+                    event.target.closest(
+                        "#celebrateBtn"
+                    );
+
+
+                if (target) {
+
+                    event.preventDefault();
+                }
+            }
+
+
+            lastTouchTime = now;
+
+        },
+        {
+            passive: false
+        }
+    );
+
+
+    /* =====================================================
+       6. VISIBILITY OPTIMIZATION
+    ===================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            /*
+             * When the tab becomes hidden, pause heavy
+             * visual effects where possible.
+             */
+
+            if (document.hidden) {
+
+                document.body.classList.add(
+                    "birthday-page-hidden"
+                );
+
+            } else {
+
+                document.body.classList.remove(
+                    "birthday-page-hidden"
+                );
+            }
 
         }
-
-    }, 10000);
-
-}
-
-
-/* =========================================================
-   BUTTON CONNECTION
-========================================================= */
-
-if (celebrateButton) {
-
-    /* Remove previous click listeners safely
-       by replacing the button with a clone */
-
-    const cleanButton =
-        celebrateButton.cloneNode(true);
-
-    celebrateButton.parentNode.replaceChild(
-        cleanButton,
-        celebrateButton
     );
 
 
-    cleanButton.addEventListener(
-        "click",
-        startBirthdayCelebration
+    /* =====================================================
+       7. SAFE WINDOW RESIZE
+    ===================================================== */
+
+    let resizeTimer;
+
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            clearTimeout(resizeTimer);
+
+
+            resizeTimer =
+                setTimeout(() => {
+
+                    const currentWidth =
+                        window.innerWidth;
+
+
+                    /*
+                     * Update responsive body classes.
+                     */
+
+                    document.body.classList.remove(
+                        "birthday-mobile",
+                        "birthday-tablet",
+                        "birthday-desktop"
+                    );
+
+
+                    if (currentWidth <= 600) {
+
+                        document.body.classList.add(
+                            "birthday-mobile"
+                        );
+
+                    } else if (
+                        currentWidth <= 1024
+                    ) {
+
+                        document.body.classList.add(
+                            "birthday-tablet"
+                        );
+
+                    } else {
+
+                        document.body.classList.add(
+                            "birthday-desktop"
+                        );
+                    }
+
+
+                    console.log(
+                        "📱 Responsive layout updated."
+                    );
+
+                }, 250);
+
+        }
     );
 
-}
 
+    /* =====================================================
+       8. CLEANUP OLD TEMPORARY EFFECTS
+    ===================================================== */
+
+    function cleanupTemporaryEffects() {
+
+        const temporaryElements =
+            document.querySelectorAll(
+                ".cinematic-balloon, " +
+                ".celebration-sparkle"
+            );
+
+
+        /*
+         * Keep DOM lightweight.
+         */
+
+        if (temporaryElements.length > 120) {
+
+            temporaryElements.forEach(
+                (element, index) => {
+
+                    if (index < 40) {
+
+                        element.remove();
+                    }
+
+                }
+            );
+        }
+    }
+
+
+    setInterval(
+        cleanupTemporaryEffects,
+        5000
+    );
+
+
+    /* =====================================================
+       9. GLOBAL CINEMATIC ERROR PROTECTION
+    ===================================================== */
+
+    window.addEventListener(
+        "error",
+        (event) => {
+
+            /*
+             * Don't allow a visual/audio module error
+             * to break the entire birthday page.
+             */
+
+            console.warn(
+                "⚠️ Birthday animation error:",
+                event.message
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       10. FINAL INITIALIZATION
+    ===================================================== */
+
+    setTimeout(() => {
+
+        document.body.classList.add(
+            "birthday-cinematic-ready"
+        );
+
+
+        console.log(
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        );
+
+        console.log(
+            "🎂 CINEMATIC BIRTHDAY READY"
+        );
+
+        console.log(
+            "🎬 Curtain System       ✓"
+        );
+
+        console.log(
+            "✨ Floating Sparkles    ✓"
+        );
+
+        console.log(
+            "🎉 Celebrate Button     ✓"
+        );
+
+        console.log(
+            "🎈 Balloon System       ✓"
+        );
+
+        console.log(
+            "✨ Celebration Burst     ✓"
+        );
+
+        console.log(
+            "🎂 Cake Animation       ✓"
+        );
+
+        console.log(
+            "🎵 Audio Integration    ✓"
+        );
+
+        console.log(
+            "📱 Mobile / PC Support  ✓"
+        );
+
+        console.log(
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        );
+
+    }, 100);
+
+
+});
 
 
 /* ==========================================================
