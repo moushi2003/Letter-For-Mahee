@@ -1041,27 +1041,6 @@ function cleanupBalloons() {
 
 
 /* =========================================================
-   UPDATE LAUNCH FUNCTION
-========================================================= */
-
-const originalLaunchBalloons =
-    launchBalloons;
-
-
-launchBalloons = function () {
-
-    clearBirthdayEffects();
-
-
-    originalLaunchBalloons();
-
-
-    cleanupBalloons();
-
-};
-
-
-/* =========================================================
    CAKE CELEBRATION EFFECT
 ========================================================= */
 
@@ -1087,16 +1066,117 @@ function cakeCelebrationEffect() {
 
 }
 
+/* =========================================================
+   PAGE 2
+   JAVASCRIPT PART 3
+   FINAL CELEBRATION CONTROL
+========================================================= */
+
 
 /* =========================================================
-   CONNECT CAKE EFFECT
+   CELEBRATION STATE
+========================================================= */
+
+let birthdayCelebrated = false;
+
+
+/* =========================================================
+   FINAL CELEBRATE ACTION
+========================================================= */
+
+function startBirthdayCelebration() {
+
+    if (!birthdayPage) {
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       Prevent accidental double trigger
+    --------------------------------------------- */
+
+    if (birthdayCelebrated) {
+        return;
+    }
+
+    birthdayCelebrated = true;
+
+
+    /* ---------------------------------------------
+       Button state
+    --------------------------------------------- */
+
+    if (celebrateButton) {
+
+        celebrateButton.classList.add(
+            "celebrated"
+        );
+
+        celebrateButton.textContent =
+            "CELEBRATION ✨";
+
+    }
+
+
+    /* ---------------------------------------------
+       Launch balloons
+    --------------------------------------------- */
+
+    launchBalloons();
+
+
+    /* ---------------------------------------------
+       Cake animation
+    --------------------------------------------- */
+
+    cakeCelebrationEffect();
+
+
+    /* ---------------------------------------------
+       Reset after celebration
+    --------------------------------------------- */
+
+    setTimeout(() => {
+
+        birthdayCelebrated = false;
+
+        if (celebrateButton) {
+
+            celebrateButton.classList.remove(
+                "celebrated"
+            );
+
+            celebrateButton.textContent =
+                "CELEBRATE ✨";
+
+        }
+
+    }, 10000);
+
+}
+
+
+/* =========================================================
+   BUTTON CONNECTION
 ========================================================= */
 
 if (celebrateButton) {
 
-    celebrateButton.addEventListener(
+    /* Remove previous click listeners safely
+       by replacing the button with a clone */
+
+    const cleanButton =
+        celebrateButton.cloneNode(true);
+
+    celebrateButton.parentNode.replaceChild(
+        cleanButton,
+        celebrateButton
+    );
+
+
+    cleanButton.addEventListener(
         "click",
-        cakeCelebrationEffect
+        startBirthdayCelebration
     );
 
 }
