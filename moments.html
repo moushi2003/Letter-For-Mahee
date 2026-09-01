@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Moments 🤍</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="moments-page">
+
+
+    <h1>Our Little Moments 🤍</h1>
+
+    <p>
+        কিছু মুহূর্ত ছোট হয়,
+        কিন্তু তাদের অনুভূতি অনেক বড় হয় ✨
+    </p>
+
+
+    <div class="photo-frame">
+
+        <img id="memoryImage" src="Mahi.jpeg">
+
+
+    </div>
+
+
+    <div class="dots">
+
+        ● ○ ○ ○ ○ ○ ○
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+const photos = [
+
+"Mahi.jpeg",
+"Mou.jpeg",
+"Tani.jpeg",
+"t.jpeg",
+"Birthday.jpeg",
+"Spider.jpeg",
+"Mohin.jpeg"
+
+];
+
+
+let index = 0;
+
+
+const image =
+document.getElementById("memoryImage");
+
+
+
+setInterval(()=>{
+
+
+index++;
+
+
+if(index >= photos.length){
+
+index = 0;
+
+}
+
+
+image.style.opacity = 0;
+
+
+setTimeout(()=>{
+
+
+image.src = photos[index];
+
+image.style.opacity = 1;
+
+
+},700);
+
+
+
+},3500);
+
+
+
+</script>
+
+
+</body>
+
+</html>
