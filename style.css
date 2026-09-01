@@ -160,3 +160,169 @@ body {
     }
 
 }
+
+/* =========================
+   LETTER PAGE DESIGN
+========================= */
+
+.letter-page {
+    min-height: 100vh;
+    background: #f6eee2;
+    padding: 25px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.letter-box {
+
+    width: 92%;
+    max-width: 700px;
+
+    background: #fffaf2;
+
+    padding: 35px 25px;
+
+    border: 1px solid #ead8c0;
+
+    box-shadow:
+    0 0 20px rgba(120,80,40,0.15);
+
+    border-radius: 8px;
+
+    color: #5a4030;
+
+    line-height: 2;
+
+    position: relative;
+
+}
+
+
+/* Thin glitter style border */
+
+.letter-box::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:1px dashed #d9b98c;
+
+    pointer-events:none;
+
+}
+
+
+/* Spider section */
+
+.letter-box h2 {
+
+    color:#7b1e2b;
+
+    text-align:center;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 8px rgba(120,0,0,.2);
+
+}
+
+
+
+.letter-box h1 {
+
+    text-align:center;
+
+    font-size:26px;
+
+    margin:35px 0 20px;
+
+    color:#6b4733;
+
+}
+
+
+
+.letter-box p {
+
+    font-size:18px;
+
+    white-space:pre-line;
+
+}
+
+
+
+/* Signature */
+
+.letter-box h3 {
+
+    margin-top:35px;
+
+    text-align:right;
+
+    font-family:cursive;
+
+    font-size:28px;
+
+    color:#8b4a3a;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .letter-page{
+        padding:15px 8px;
+    }
+
+
+    .letter-box{
+
+        width:96%;
+
+        padding:25px 18px;
+
+    }
+
+
+    .letter-box h2{
+
+        font-size:22px;
+
+    }
+
+
+    .letter-box h1{
+
+        font-size:22px;
+
+    }
+
+
+    .letter-box p{
+
+        font-size:15px;
+
+        line-height:1.9;
+
+    }
+
+
+    .letter-box h3{
+
+        font-size:24px;
+
+    }
+
+}
