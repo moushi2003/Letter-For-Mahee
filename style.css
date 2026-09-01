@@ -529,4 +529,312 @@ body {
 
 }
 
+/* =========================
+   CINEMATIC LETTER DAY PAGE
+========================= */
+
+
+.letter-intro-page {
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(20,15,15,0.55),
+        rgba(20,15,15,0.75)
+    ),
+    url("https://images.unsplash.com/photo-1517841905240-472988babdf9")
+    center/cover;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+
+
+.intro-content {
+
+    position:relative;
+
+    z-index:2;
+
+    padding:25px;
+
+}
+
+
+
+.intro-content h1 {
+
+    font-size:40px;
+
+    font-family:cursive;
+
+    letter-spacing:2px;
+
+    color:#f8e4c8;
+
+    text-shadow:
+    0 0 15px rgba(255,220,180,.7);
+
+}
+
+
+
+.line {
+
+    margin:15px;
+
+    color:#e8c48a;
+
+    font-size:25px;
+
+}
+
+
+
+.intro-content p {
+
+    font-size:17px;
+
+    line-height:2;
+
+    color:#f8eee2;
+
+}
+
+
+
+
+
+/* Envelope */
+
+
+.envelope-container {
+
+    margin:35px auto 20px;
+
+    width:300px;
+
+    cursor:pointer;
+
+    transition:.6s;
+
+}
+
+
+
+.envelope-container:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.envelope {
+
+    height:190px;
+
+    background:#ead8bb;
+
+    position:relative;
+
+    border-radius:8px;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.4);
+
+    overflow:hidden;
+
+}
+
+
+
+/* flap */
+
+.top-flap {
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:150px solid transparent;
+
+    border-right:150px solid transparent;
+
+    border-top:100px solid #d6b98f;
+
+}
+
+
+
+/* inside paper */
+
+.letter-paper {
+
+    position:absolute;
+
+    width:240px;
+
+    height:135px;
+
+    background:#fffaf0;
+
+    left:30px;
+
+    top:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#76523b;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+
+
+.letter-paper h2 {
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* Wax seal */
+
+
+.wax-seal {
+
+    position:absolute;
+
+    left:50%;
+
+    top:55%;
+
+    transform:translate(-50%,-50%);
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#8e2525;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,.5);
+
+}
+
+
+
+.click-text {
+
+    margin-top:20px;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+
+
+@keyframes pulse {
+
+    50%{
+
+        opacity:.5;
+
+    }
+
+}
+
+
+
+.dots {
+
+    margin-top:30px;
+
+    color:#e7c894;
+
+}
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .intro-content h1{
+
+        font-size:30px;
+
+    }
+
+
+    .envelope-container{
+
+        width:85vw;
+
+    }
+
+
+    .envelope{
+
+        height:55vw;
+
+        max-height:190px;
+
+    }
+
+
+    .top-flap{
+
+        border-left-width:42.5vw;
+
+        border-right-width:42.5vw;
+
+    }
+
+
+}
+
 
