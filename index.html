@@ -1,54 +1,126 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter For Mahee 🤍</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Letter Day 🤍</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <div class="page">
 
-        <div class="date">
-            <h1>চিঠি দিবস 🤍</h1>
-            <p>১ সেপ্টেম্বর ২০২৬</p>
-            <p>September 1, 2026</p>
-        </div>
+<div class="letter-intro-page">
 
 
-        <div class="intro">
-            <p>
-                এই বিশেষ দিনটাকে স্মরণীয় করে রাখতে,<br>
-                তোর জন্য একটা ছোট্ট চিঠি...
-            </p>
-        </div>
+    <div class="overlay"></div>
 
 
-        <div class="envelope" onclick="openLetter()">
-
-            <div class="flap"></div>
-
-            <div class="paper">
-                <h2>মাহির জন্য 🤍</h2>
-            </div>
-
-            <div class="seal">
-                ❤️
-            </div>
-
-        </div>
+    <div class="intro-content">
 
 
-        <p class="click">
-            ✨ Click the envelope ✨
+        <h1>
+            Happy Letter Day ♡
+        </h1>
+
+
+        <div class="line">♡</div>
+
+
+        <p>
+            এই বিশেষ দিনটাকে স্মরণীয় করে রাখতে,<br>
+            তোর জন্য একটা ছোট্ট চিঠি রেখে গেলাম... ♡
         </p>
+
+
+
+        <div class="envelope-container" onclick="openLetter()">
+
+
+
+            <div class="envelope">
+
+
+                <div class="top-flap"></div>
+
+
+                <div class="letter-paper">
+
+                    <h2>
+                        মাহির জন্য ♡
+                    </h2>
+
+                </div>
+
+
+
+                <div class="wax-seal">
+
+                    ♡
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <p class="click-text">
+
+            চিঠিটা পড়তে এখানে ক্লিক কর ♡
+
+        </p>
+
+
+
+        <div class="dots">
+
+            ● ○
+
+        </div>
+
+
 
     </div>
 
 
-<script src="script.js"></script>
+</div>
+
+
+
+<script>
+
+function openLetter(){
+
+    document.querySelector(".envelope-container")
+    .style.transform="scale(1.1)";
+
+
+    setTimeout(()=>{
+
+        window.location.href="letter.html";
+
+    },700);
+
+
+}
+
+
+</script>
+
+
 
 </body>
+
 </html>
