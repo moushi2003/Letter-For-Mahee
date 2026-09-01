@@ -1,12 +1,18 @@
-function openLetter() {
+function openLetter(){
 
-    const envelope = document.querySelector(".envelope");
+    const env = document.querySelector(".envelope");
 
-    envelope.style.transform = "scale(1.1)";
-    envelope.style.opacity = "0";
+    const seal = document.querySelector(".wax-seal");
 
-    setTimeout(() => {
-        window.location.href = "letter.html";
-    }, 800);
+    env.classList.add("open");
+
+    seal.style.transform =
+    "translate(-50%,-50%) scale(1.3)";
+
+    setTimeout(()=>{
+
+        window.location.href="letter.html";
+
+    },1200);
 
 }
