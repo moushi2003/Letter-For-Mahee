@@ -837,4 +837,33 @@ body {
 
 }
 
+.envelope.open .top-flap{
 
+    transform:rotateX(180deg);
+
+}
+
+
+.top-flap{
+
+    transform-origin:top;
+
+    transition:1s;
+
+}
+
+
+
+.envelope.open{
+
+    transform:translateY(-15px) scale(1.05);
+
+}
+
+
+
+.wax-seal{
+
+    transition:.5s;
+
+}
