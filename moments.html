@@ -27,15 +27,16 @@
     </p>
 
 
-  <div class="photo-frame">
+    <div class="photo-frame">
 
-    <img src="./Mahi.jpeg" alt="Mahi">
+        <img id="memoryImage" src="./Mahi.jpeg" alt="Mahi">
 
-</div>
+    </div>
+
 
     <div class="dots">
 
-        ● ○ ○ ○ ○ ○ ○
+        ● ○ ○ ○ ○ ○
 
     </div>
 
@@ -46,16 +47,14 @@
 
 <script>
 
-
 const photos = [
 
-"Mahi.jpeg",
-"Mou.jpeg",
-"Tani.jpeg",
-"t.jpeg",
-"Birthday.jpeg",
-"Spider.jpeg",
-"Mohin.jpeg"
+"./Mahi.jpeg",
+"./Mou.jpeg",
+"./Tani.jpeg",
+"./Birthday.jpeg",
+"./Spider.jpeg",
+"./Mohin.jpeg"
 
 ];
 
@@ -63,41 +62,38 @@ const photos = [
 let index = 0;
 
 
-const image =
-document.getElementById("memoryImage");
-
+const image = document.getElementById("memoryImage");
 
 
 setInterval(()=>{
 
 
-index++;
+    index++;
 
 
-if(index >= photos.length){
+    if(index >= photos.length){
 
-index = 0;
+        index = 0;
 
-}
-
-
-image.style.opacity = 0;
+    }
 
 
-setTimeout(()=>{
+    image.style.opacity = 0;
 
 
-image.src = photos[index];
-
-image.style.opacity = 1;
+    setTimeout(()=>{
 
 
-},700);
+        image.src = photos[index];
+
+        image.style.opacity = 1;
+
+
+    },700);
 
 
 
 },3500);
-
 
 
 </script>
